@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SeleccionEscena.unity
     guid: ceb57865be7c9cb46ae69f8ba10d06fd
+  - enabled: 1
+    path: Assets/Scenes/SeleccionPersonaje.unity
+    guid: 9d258866bb57121418dd673ea08f53f5
+  - enabled: 1
+    path: Assets/Scenes/SeleccionSprite.unity
+    guid: 0a20381140dd97c48b1f23dc7056a032
   m_configObjects: {}
