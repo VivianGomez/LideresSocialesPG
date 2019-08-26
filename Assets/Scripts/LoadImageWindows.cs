@@ -8,10 +8,6 @@ using Ookii.Dialogs;
 
 namespace SFB
 {
-    // For fullscreen support
-    // - WindowWrapper class and GetActiveWindow() are required for modal file dialog.
-    // - "PlayerSettings/Visible In Background" should be enabled, otherwise when file dialog opened app window minimizes automatically.
-
     public class WindowWrapper : IWin32Window
     {
         private IntPtr _hwnd;

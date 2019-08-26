@@ -31,28 +31,13 @@ namespace SFB
 #endif
         }
 
-        /// <summary>
-        /// Native open file dialog
-        /// </summary>
-        /// <param name="title">Dialog title</param>
-        /// <param name="directory">Root directory</param>
-        /// <param name="extension">Allowed extension</param>
-        /// <param name="multiselect">Allow multiple file selection</param>
-        /// <returns>Returns array of chosen paths. Zero length array when cancelled</returns>
+
         public static string[] OpenFilePanel(string title, string directory, string extension, bool multiselect)
         {
             var extensions = string.IsNullOrEmpty(extension) ? null : new[] { new ExtensionFilter("", extension) };
             return OpenFilePanel(title, directory, extensions, multiselect);
         }
 
-        /// <summary>
-        /// Native open file dialog
-        /// </summary>
-        /// <param name="title">Dialog title</param>
-        /// <param name="directory">Root directory</param>
-        /// <param name="extensions">List of extension filters. Filter Example: new ExtensionFilter("Image Files", "jpg", "png")</param>
-        /// <param name="multiselect">Allow multiple file selection</param>
-        /// <returns>Returns array of chosen paths. Zero length array when cancelled</returns>
         public static string[] OpenFilePanel(string title, string directory, ExtensionFilter[] extensions, bool multiselect)
         {
             return _platformWrapper.OpenFilePanel(title, directory, extensions, multiselect);
