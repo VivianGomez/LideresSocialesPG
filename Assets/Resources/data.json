@@ -1,7 +1,8 @@
 {
 
- "nombre":"nombreJuego",
+  "nombre":"nombreJuego",
   "personaje":{
+  "nombrePersonaje":"alguien",
   "imagenPersonaje":"ejemplo1",
   "sprites":
     [
@@ -19,6 +20,9 @@
       [
        {
         "nombreInteraccion":"saltarEscena",
+        "objetoActivador":"nombreGOConColliderTrigger",
+        "escenaACambiar":"ExteriorCasa",
+        "sonido":"",
         "sprites":
         [
           {
@@ -35,7 +39,10 @@
       "interacciones":
       [
        {
-        "nombreInteraccion":"saltarEscena",
+        "nombreInteraccion":"dormir",
+        "objetoActivador":"nombreGOConColliderTrigger",
+        "escenaACambiar":"",
+        "sonido":"",
         "sprites":
         [
           {

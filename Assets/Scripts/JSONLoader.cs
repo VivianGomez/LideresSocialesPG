@@ -12,8 +12,6 @@ public class JSONLoader : MonoBehaviour
     public SpriteRenderer jugadorSprite;
     public SpriteRenderer backgroundSprite;
  
-
-
     void Start()
     {
         string path=Application.dataPath + "/Resources/data.json";
