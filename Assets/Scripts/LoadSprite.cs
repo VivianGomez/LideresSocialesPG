@@ -33,8 +33,10 @@ public class LoadSprite : MonoBehaviour, IPointerDownHandler
         if (paths.Length > 0)
         {
             StartCoroutine(OutputRoutine(new System.Uri(paths[0]).AbsoluteUri));
+            
             file = Path.GetFileNameWithoutExtension(new System.Uri(paths[0]).AbsoluteUri);
-            createSaveAnim(file);
+                       
+            
         }
     }
 
@@ -91,11 +93,12 @@ public class LoadSprite : MonoBehaviour, IPointerDownHandler
         FileUtil.CopyFileOrDirectory(path, "assets/Resources/" + file + ".png");
         AssetDatabase.Refresh();
 
-        ProcessTexture("assets/Resources/" + file + ".png");
+        StartCoroutine(ProcesarTextura("assets/Resources/" + file + ".png"));
+        createSaveAnim(file);
 
     }    
     
-    static void ProcessTexture(string path)
+    IEnumerator ProcesarTextura(string path)
     {
         print("archivo -- "+Path.GetFileNameWithoutExtension(path));
         print("ruta -- " + path);
@@ -103,8 +106,8 @@ public class LoadSprite : MonoBehaviour, IPointerDownHandler
         var importer = AssetImporter.GetAtPath(path) as TextureImporter;
         
         importer.spriteImportMode = SpriteImportMode.Multiple;
-        importer.mipmapEnabled = false;
-        importer.filterMode = FilterMode.Bilinear;
+        importer.mipmapEnabled = true;
+        importer.filterMode = FilterMode.Point;
         importer.spritePivot = Vector2.zero;
         importer.textureCompression = TextureImporterCompression.Uncompressed;
 
@@ -116,17 +119,18 @@ public class LoadSprite : MonoBehaviour, IPointerDownHandler
 
         importer.SetTextureSettings(textureSettings);
 
-        int minimumSpriteSize = 0;
+        int minimumSpriteSize = 16;
         int extrudeSize = 0;
 
         Rect[] rects = InternalSpriteUtility.GenerateAutomaticSpriteRectangles(texture, minimumSpriteSize, extrudeSize);
         var rectsList = new List<Rect>(rects);
-        rectsList = SortRects(rectsList, texture.width, texture.height);
+        rectsList = OrganizarRects(rectsList, texture.width, texture.height);
 
         string filenameNoExtension = Path.GetFileNameWithoutExtension(path);
         var metas = new List<SpriteMetaData>();
         int rectNum = 0;
 
+        
         foreach (Rect rect in rectsList)
         {
             var meta = new SpriteMetaData();
@@ -135,25 +139,28 @@ public class LoadSprite : MonoBehaviour, IPointerDownHandler
             meta.rect = rect;
             meta.name = filenameNoExtension + "_" + rectNum++;
             metas.Add(meta);
-
-            Sprite sprite = Sprite.Create(texture, rect, meta.pivot);
+            
         }
 
+        
+        
         importer.spritesheet = metas.ToArray();
-
+                        
         AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceUpdate);
-        AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
+
+        yield return metas.ToArray();
+
     }
 
-    static List<Rect> SortRects(List<Rect> rects, float textureWidth, float textureHeight)
+    static List<Rect> OrganizarRects(List<Rect> rects, float textureWidth, float textureHeight)
     {
         List<Rect> list = new List<Rect>();
         while (rects.Count > 0)
         {
             Rect rect = rects[rects.Count - 1];
             Rect sweepRect = new Rect(0f, rect.yMin, textureWidth, textureHeight);
-            List<Rect> list2 = RectSweep(rects, sweepRect);
+            List<Rect> list2 = RecorrerRects(rects, sweepRect);
             if (list2.Count <= 0)
             {
                 list.AddRange(rects);
@@ -164,7 +171,7 @@ public class LoadSprite : MonoBehaviour, IPointerDownHandler
         return list;
     }
 
-    static List<Rect> RectSweep(List<Rect> rects, Rect sweepRect)
+    static List<Rect> RecorrerRects(List<Rect> rects, Rect rect2)
     {
         List<Rect> result;
         if (rects == null || rects.Count == 0)
@@ -176,7 +183,7 @@ public class LoadSprite : MonoBehaviour, IPointerDownHandler
             List<Rect> list = new List<Rect>();
             foreach (Rect current in rects)
             {
-                if (current.Overlaps(sweepRect))
+                if (current.Overlaps(rect2))
                 {
                     list.Add(current);
                 }
@@ -190,4 +197,8 @@ public class LoadSprite : MonoBehaviour, IPointerDownHandler
         }
         return result;
     }
+
+    
+
+
 }
