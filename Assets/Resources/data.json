@@ -1,0 +1,50 @@
+{
+
+ "nombre":"nombreJuego",
+  "personaje":{
+  "imagenPersonaje":"ejemplo1",
+  "sprites":
+    [
+      {
+        "nombreImagen":"",
+        "tamaniooRecorte":0
+      }
+    ]
+  },
+  "escenas":[
+    {
+      "nombreEscena": "InteriorCasa",
+      "imagenFondo":"interior1",
+      "interacciones":
+      [
+       {
+        "nombreInteraccion":"saltarEscena",
+        "sprites":
+        [
+          {
+            "nombreImagen":"",
+            "tamaniooRecorte":0
+          }
+        ]
+       }
+      ]
+    },
+    {
+      "nombreEscena": "ExteriorCasa",
+      "imagenFondo":"exterior1",
+      "interacciones":
+      [
+       {
+        "nombreInteraccion":"saltarEscena",
+        "sprites":
+        [
+          {
+            "nombreImagen":"",
+            "tamaniooRecorte":0
+          }
+        ]
+       }
+      ]
+    }
+  ]
+}
