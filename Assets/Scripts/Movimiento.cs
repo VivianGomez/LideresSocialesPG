@@ -37,4 +37,9 @@ public class Movimiento : MonoBehaviour
             }
             transform.localScale = escala;
     }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        Debug.Log("Colisión con " + col.name);
+    }
 }

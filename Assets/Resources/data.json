@@ -1,7 +1,8 @@
 {
 
- "nombre":"nombreJuego",
+  "nombre":"nombreJuego",
   "personaje":{
+  "nombrePersonaje":"alguien",
   "imagenPersonaje":"ejemplo1",
   "sprites":
     [
@@ -19,6 +20,28 @@
       [
        {
         "nombreInteraccion":"saltarEscena",
+        "colliderActivador":"puerta",
+        "coordenadasCollider":["5,5","-3,5","0"],
+        "offsetCollider":["0","1"],
+        "tamCollider":["1","3"],
+        "escenaACambiar":"ExteriorCasa",
+        "sonido":"",
+        "sprites":
+        [
+          {
+            "nombreImagen":"",
+            "tamaniooRecorte":0
+          }
+        ]
+       },
+       {
+        "nombreInteraccion":"sentarse",
+        "colliderActivador":"sofa",
+        "coordenadasCollider":["-1,68","-1,88","0"],
+        "offsetCollider":["0","0"],
+        "tamCollider":["3,5","1"],
+        "escenaACambiar":"ExteriorCasa",
+        "sonido":"",
         "sprites":
         [
           {
@@ -35,7 +58,13 @@
       "interacciones":
       [
        {
-        "nombreInteraccion":"saltarEscena",
+        "nombreInteraccion":"dormir",
+        "colliderActivador":"nombreGOConColliderTrigger",
+        "coordenadasCollider":["0","0","0"],
+        "offsetCollider":["0","1"],
+        "tamCollider":["1","3"],
+        "escenaACambiar":"",
+        "sonido":"",
         "sprites":
         [
           {
