@@ -46,7 +46,6 @@ public class JSONLoader : MonoBehaviour
             for (int i = 0; i < escenas.Count; i++)
             {
                actual = escenas[i];
-               //Debug.Log(SceneManager.GetActiveScene().name);
                if((""+actual["nombreEscena"]).Equals(""+SceneManager.GetActiveScene().name))
                {
                     string pathBG = ""+actual["imagenFondo"];
