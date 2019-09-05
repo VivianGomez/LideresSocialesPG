@@ -11,17 +11,34 @@ public class JSONLoader : MonoBehaviour
 
     public GameObject jugador;
     public SpriteRenderer backgroundSprite;
- 
+
+    //public const string url ="https://firebasestorage.googleapis.com/v0/b/lideresocialespg.appspot.com/o/juego0.json?alt=media&token=3d8deac2-9fd0-4a22-98a3-3bc7629f809b";
+    public const string url ="https://lideresocialespg.firebaseio.com/juegos.json";
     void Start()
     {
-        string path=Application.dataPath + "/Resources/data.json";
-        if (File.Exists(path))
-        {
-           jsonString = File.ReadAllText(path);
-           jData = JsonMapper.ToObject(jsonString);
+        Request();
+    }
 
-           LoadSprite(""+jData["personaje"]["imagenPersonaje"]);
-           LoadScene(jData["escenas"]);
+    public void Request()
+    {
+        WWW request = new WWW(url);
+        StartCoroutine(OnResponse(request));
+    }
+
+    private IEnumerator OnResponse(WWW req)
+    {
+        yield return req;
+        //string path=Application.dataPath + "/Resources/data.json";
+        if (req.error == null)
+        {
+           //jsonString = File.ReadAllText(path);
+           print(req.text);
+           jData = JsonMapper.ToObject(req.text);
+
+           WWW reqSprite = new WWW(""+jData[0]["personaje"]["imagenPersonaje"]);
+           StartCoroutine(LoadSprite(reqSprite));
+
+           LoadScene(jData[0]["escenas"]);
            
         }
         else
@@ -30,13 +47,22 @@ public class JSONLoader : MonoBehaviour
         }
     }
 
-        private void LoadSprite (string path)
+        private IEnumerator  LoadSprite (WWW spriteWWW)
         {
-            jugador.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(path);
+            yield return spriteWWW;
+            if (spriteWWW.error == null)
+            {
+                jugador.GetComponent<SpriteRenderer>().sprite = Sprite.Create(spriteWWW.texture, new Rect(0, 0, spriteWWW.texture.width, spriteWWW.texture.height), new Vector2(0.5f, 0.5f));
 
-            Vector2 S = jugador.GetComponent<SpriteRenderer>().sprite.bounds.size;
-            jugador.GetComponent<BoxCollider2D>().size = S;
-            //jugador.GetComponent<BoxCollider2D>().offset = new Vector2 ((S.x / 2), 0);
+                Vector2 S = jugador.GetComponent<SpriteRenderer>().sprite.bounds.size;
+                jugador.GetComponent<BoxCollider2D>().size = S;
+                //jugador.GetComponent<BoxCollider2D>().offset = new Vector2 ((S.x / 2), 0);
+            }
+            else
+            {
+                Debug.LogError("Cannot load game data!");
+            }
+
         }
 
         private void LoadScene(JsonData escenas)
@@ -48,15 +74,28 @@ public class JSONLoader : MonoBehaviour
                actual = escenas[i];
                if((""+actual["nombreEscena"]).Equals(""+SceneManager.GetActiveScene().name))
                {
-                    string pathBG = ""+actual["imagenFondo"];
-                    backgroundSprite.sprite = Resources.Load<Sprite>(pathBG);
+                    WWW reqBackground = new WWW(""+actual["imagenFondo"]);
+                    StartCoroutine(LoadBackGround(reqBackground));
 
                     for (int j = 0; j < actual["interacciones"].Count; j++)
                     {
                         interaccionActual = actual["interacciones"][j];
                         createCollidersInteractions(""+interaccionActual["colliderActivador"], interaccionActual["coordenadasCollider"], interaccionActual["offsetCollider"], interaccionActual["tamCollider"]);
                     }
+                    
                }             
+            }
+        }
+
+        private IEnumerator LoadBackGround(WWW wwwBG){
+            yield return wwwBG;
+            if (wwwBG.error == null)
+            {
+                backgroundSprite.sprite = Sprite.Create(wwwBG.texture, new Rect(0, 0, wwwBG.texture.width, wwwBG.texture.height), new Vector2(0.5f, 0.5f));
+            }
+            else
+            {
+                Debug.LogError("Cannot load game data!");
             }
         }
 
