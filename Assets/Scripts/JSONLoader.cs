@@ -112,7 +112,6 @@ public class JSONLoader : MonoBehaviour
             if (wwwBG.error == null)
             {
                 backgroundSprite.sprite = Sprite.Create(wwwBG.texture, new Rect(0, 0, wwwBG.texture.width, wwwBG.texture.height), new Vector2(0.5f, 0.5f));
-                loadingSpriteStart.SetActive(false);
             }
             else
             {
@@ -147,6 +146,7 @@ public class JSONLoader : MonoBehaviour
 
     public IEnumerator createSaveAnim(string nombre)
     {
+
         Sprite[] sprites = Resources.LoadAll<Sprite>(nombre);// load all sprites in "assets/Resources/nombre" folder
         print(sprites.Length);
         print(nombre);
@@ -199,8 +199,11 @@ public class JSONLoader : MonoBehaviour
 
             StartCoroutine(ProcesarTextura("assets/Resources/" + file + ".png", width, height));
             StartCoroutine(createSaveAnim(file));
+            
+
         }
-        
+        loadingSpriteStart.SetActive(false);
+
         yield return true;
 
     }
