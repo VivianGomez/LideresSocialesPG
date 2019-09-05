@@ -33,9 +33,7 @@ public class LoadSprite : MonoBehaviour, IPointerDownHandler
         if (paths.Length > 0)
         {
             StartCoroutine(OutputRoutine(new System.Uri(paths[0]).AbsoluteUri));
-            
-            file = Path.GetFileNameWithoutExtension(new System.Uri(paths[0]).AbsoluteUri);
-                       
+                              
             
         }
     }
@@ -66,7 +64,7 @@ public class LoadSprite : MonoBehaviour, IPointerDownHandler
 
         AnimationUtility.SetObjectReferenceCurve(animClip, spriteBinding, spriteKeyFrames);
 
-        AssetDatabase.CreateAsset(animClip, "assets/" + nombre + ".anim");
+        AssetDatabase.CreateAsset(animClip, "assets/Resources/" + nombre + ".anim");
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
     }
@@ -93,12 +91,12 @@ public class LoadSprite : MonoBehaviour, IPointerDownHandler
         FileUtil.CopyFileOrDirectory(path, "assets/Resources/" + file + ".png");
         AssetDatabase.Refresh();
 
-        StartCoroutine(ProcesarTextura("assets/Resources/" + file + ".png"));
+        StartCoroutine(ProcesarTextura("assets/Resources/" + file + ".png", 380, 750));
         createSaveAnim(file);
 
     }    
     
-    IEnumerator ProcesarTextura(string path)
+    IEnumerator ProcesarTextura(string path, int SliceWidth, int SliceHeight)
     {
         print("archivo -- "+Path.GetFileNameWithoutExtension(path));
         print("ruta -- " + path);
@@ -119,86 +117,34 @@ public class LoadSprite : MonoBehaviour, IPointerDownHandler
 
         importer.SetTextureSettings(textureSettings);
 
-        int minimumSpriteSize = 16;
-        int extrudeSize = 0;
-
-        Rect[] rects = InternalSpriteUtility.GenerateAutomaticSpriteRectangles(texture, minimumSpriteSize, extrudeSize);
-        var rectsList = new List<Rect>(rects);
-        rectsList = OrganizarRects(rectsList, texture.width, texture.height);
-
-        string filenameNoExtension = Path.GetFileNameWithoutExtension(path);
-        var metas = new List<SpriteMetaData>();
-        int rectNum = 0;
+        List<SpriteMetaData> newData = new List<SpriteMetaData>();
 
         
-        foreach (Rect rect in rectsList)
+        for (int i = 0; i < texture.width; i += SliceWidth)
         {
-            var meta = new SpriteMetaData();
-            meta.pivot = Vector2.zero;
-            meta.alignment = (int)SpriteAlignment.Center;
-            meta.rect = rect;
-            meta.name = filenameNoExtension + "_" + rectNum++;
-            metas.Add(meta);
-            
+            for (int j = 0; j < texture.height; j += SliceHeight)
+            {
+                SpriteMetaData smd = new SpriteMetaData();
+                smd.pivot = Vector2.zero;
+                smd.alignment = (int)SpriteAlignment.Center;
+                smd.name = (j) / SliceHeight + ", " + i / SliceWidth;
+                smd.rect = new Rect(i, j, SliceWidth, SliceHeight);
+
+                newData.Add(smd);
+            }
         }
 
-        
-        
-        importer.spritesheet = metas.ToArray();
-                        
+
+
+        importer.spritesheet = newData.ToArray();
+
+
         AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceUpdate);
         AssetDatabase.Refresh();
 
-        yield return metas.ToArray();
+        yield return newData.ToArray();
 
-    }
-
-    static List<Rect> OrganizarRects(List<Rect> rects, float textureWidth, float textureHeight)
-    {
-        List<Rect> list = new List<Rect>();
-        while (rects.Count > 0)
-        {
-            Rect rect = rects[rects.Count - 1];
-            Rect sweepRect = new Rect(0f, rect.yMin, textureWidth, textureHeight);
-            List<Rect> list2 = RecorrerRects(rects, sweepRect);
-            if (list2.Count <= 0)
-            {
-                list.AddRange(rects);
-                break;
-            }
-            list.AddRange(list2);
-        }
-        return list;
-    }
-
-    static List<Rect> RecorrerRects(List<Rect> rects, Rect rect2)
-    {
-        List<Rect> result;
-        if (rects == null || rects.Count == 0)
-        {
-            result = new List<Rect>();
-        }
-        else
-        {
-            List<Rect> list = new List<Rect>();
-            foreach (Rect current in rects)
-            {
-                if (current.Overlaps(rect2))
-                {
-                    list.Add(current);
-                }
-            }
-            foreach (Rect current2 in list)
-            {
-                rects.Remove(current2);
-            }
-            list.Sort((a, b) => a.x.CompareTo(b.x));
-            result = list;
-        }
-        return result;
-    }
-
-    
+    }   
 
 
 }

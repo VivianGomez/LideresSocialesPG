@@ -8,6 +8,9 @@ public class Movimiento : MonoBehaviour
     float escalaX;
     float escalaY;
     bool permiteMoverse = true;
+    public GameObject animacion;
+    AnimationLoadManager animationLoadManager;
+
 
     void Start()
     {
@@ -20,26 +23,83 @@ public class Movimiento : MonoBehaviour
     {
         GameObject player = GameObject.Find("Personaje");
 
-            transform.Translate(Input.GetAxis("Horizontal") * 5f * Time.deltaTime, 0f, 0f);
-            transform.Translate(0f, Input.GetAxis("Vertical") * 5f * Time.deltaTime, 0f);
+        transform.Translate(Input.GetAxis("Horizontal") * 5f * Time.deltaTime, 0f, 0f);
+        transform.Translate(0f, Input.GetAxis("Vertical") * 5f * Time.deltaTime, 0f);
 
-            if (Input.GetAxis("Horizontal") < 0)
-            {
-                escala.x = -escalaX;
-            }
-            if (Input.GetAxis("Horizontal") > 0)
-            {
-                escala.x = escalaX;
-            }
-            if (Input.GetAxis("Vertical") > 0)
-            {
-                escala.y = escalaY;
-            }
-            transform.localScale = escala;
+        if (Input.GetAxis("Horizontal") < 0)
+        {
+            escala.x = -escalaX;
+        }
+        if (Input.GetAxis("Horizontal") > 0)
+        {
+            escala.x = escalaX;
+        }
+        if (Input.GetAxis("Vertical") > 0)
+        {
+            escala.y = escalaY;
+        }
+        transform.localScale = escala;
     }
+
+    void loadAnimation()
+    {
+        GameObject tempObj = new GameObject();
+        tempObj = Resources.Load("an", typeof(GameObject)) as GameObject;
+        if (tempObj == null)
+        {
+            Debug.LogError("No esta encontrando el clip de la animacion ");
+        }
+        else
+        {
+            Animation anim = animacion.GetComponent<Animation>();
+
+            Animation animation = new Animation();
+            animation = tempObj.GetComponent<Animation>();
+            AnimationClip animationClip = new AnimationClip();
+            animationClip = animation.clip;
+
+
+            if (anim != null)
+            {
+                if (animationClip != null)
+                {
+                    anim.AddClip(animationClip, "animation");
+                    anim.Play("animation");
+                }
+                else
+                {
+                    print("objeto animacion esta bien y clip es nulo");
+                }
+            }
+            else
+            {
+                if (animationClip != null)
+                {
+                    print("Objeto animacion es nulo pero clip encontrado");
+                }
+                else
+                {
+                    print("todo es nulo");
+                }
+
+            }
+        }
+    }
+
 
     void OnTriggerEnter2D(Collider2D col)
     {
         Debug.Log("Colisión con " + col.name);
+        //loadAnimation();   
+        //animationLoadManager = animacion.GetComponent<AnimationLoadManager>();
+        
+        //Invoke("LoadAnimataionClip", 3);
+
     }
+
+    void LoadAnimataionClip()
+    {
+        animationLoadManager.LoadAnimation("an", null);
+    }
+
 }
