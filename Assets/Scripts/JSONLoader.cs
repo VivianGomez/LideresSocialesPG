@@ -11,17 +11,21 @@ public class JSONLoader : MonoBehaviour
 
     public GameObject jugador;
     public SpriteRenderer backgroundSprite;
+    public GameObject loadingSpriteStart;
+
 
     //public const string url ="https://firebasestorage.googleapis.com/v0/b/lideresocialespg.appspot.com/o/juego0.json?alt=media&token=3d8deac2-9fd0-4a22-98a3-3bc7629f809b";
     public const string url ="https://lideresocialespg.firebaseio.com/juegos.json";
     void Start()
     {
+        loadingSpriteStart.SetActive(false);
         Request();
     }
 
     public void Request()
     {
         WWW request = new WWW(url);
+        loadingSpriteStart.SetActive(true);
         StartCoroutine(OnResponse(request));
     }
 
@@ -32,7 +36,7 @@ public class JSONLoader : MonoBehaviour
         if (req.error == null)
         {
            //jsonString = File.ReadAllText(path);
-           print(req.text);
+           //print(req.text);
            jData = JsonMapper.ToObject(req.text);
 
            WWW reqSprite = new WWW(""+jData[0]["personaje"]["imagenPersonaje"]);
@@ -43,7 +47,7 @@ public class JSONLoader : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Cannot load game data!");
+            Debug.LogError("No se puedieron cargar los datos del juego");
         }
     }
 
@@ -60,7 +64,7 @@ public class JSONLoader : MonoBehaviour
             }
             else
             {
-                Debug.LogError("Cannot load game data!");
+                Debug.LogError("No se puede cargar la imágen del personaje");
             }
 
         }
@@ -75,7 +79,7 @@ public class JSONLoader : MonoBehaviour
                if((""+actual["nombreEscena"]).Equals(""+SceneManager.GetActiveScene().name))
                {
                     WWW reqBackground = new WWW(""+actual["imagenFondo"]);
-                    StartCoroutine(LoadBackGround(reqBackground));
+                    StartCoroutine(LoadBackGround(reqBackground, ""+actual["nombreEscena"]));
 
                     for (int j = 0; j < actual["interacciones"].Count; j++)
                     {
@@ -87,15 +91,16 @@ public class JSONLoader : MonoBehaviour
             }
         }
 
-        private IEnumerator LoadBackGround(WWW wwwBG){
+        private IEnumerator LoadBackGround(WWW wwwBG, string nombre){
             yield return wwwBG;
             if (wwwBG.error == null)
             {
                 backgroundSprite.sprite = Sprite.Create(wwwBG.texture, new Rect(0, 0, wwwBG.texture.width, wwwBG.texture.height), new Vector2(0.5f, 0.5f));
+                loadingSpriteStart.SetActive(false);
             }
             else
             {
-                Debug.LogError("Cannot load game data!");
+                Debug.LogError("No se puede cargar el fondo de la escena "+nombre);
             }
         }
 
