@@ -18,6 +18,8 @@ public class JSONLoader : MonoBehaviour
     public SpriteRenderer backgroundSprite;
     public GameObject loadingSpriteStart;
     public GameObject animacion;
+
+    public GameObject modalCarta;
     
 
     //public const string url ="https://firebasestorage.googleapis.com/v0/b/lideresocialespg.appspot.com/o/juego0.json?alt=media&token=3d8deac2-9fd0-4a22-98a3-3bc7629f809b";
@@ -25,6 +27,7 @@ public class JSONLoader : MonoBehaviour
     void Start()
     {
         loadingSpriteStart.SetActive(false);
+        modalCarta.SetActive(false);
         Request();
     }
 
@@ -254,6 +257,12 @@ public class JSONLoader : MonoBehaviour
 
         yield return newData.ToArray();
 
+    }
+
+
+    public void MostrarCarta()
+    {
+        modalCarta.SetActive(true);
     }
 
 
