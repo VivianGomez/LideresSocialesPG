@@ -1,46 +1,49 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using LitJson;
+using System.IO;
+using UnityEditor;
 
-[System.Serializable]
 public class JSONWriter : MonoBehaviour
 {
-    public int diaActual;
-    public List<int> cantidadAlimentos;
-    public int porcentajeEnergia;
+    public GameData infoPartida = new GameData(1, new int[] {0,0,0,0}, 100);
+    JsonData jsonCreado;
 
+    
     // Start is called before the first frame update
     void Start()
     {
-        diaActual = 1;
-        cantidadAlimentos = new List<int>();
-        cantidadAlimentos.Add(1);
-        cantidadAlimentos.Add(2);
-        cantidadAlimentos.Add(3);
-        porcentajeEnergia = 100;
+        jsonCreado = JsonMapper.ToJson(infoPartida);
+        File.WriteAllText(Application.dataPath + "/Gamedata.json", jsonCreado.ToString());
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
     }
-    
-    private JSONWriter CreateSaveGameObject()
+
+    public void reescribirJSON(int dia, int[] lista, int porcentajeBarra)
     {
-        GameObject p = GameObject.Find("Main Camera");
-        JSONWriter save = p.GetComponent<JSONWriter>();
-        print(cantidadAlimentos.Count);
-        for (int i=0; i<cantidadAlimentos.Count; i++)
-        {
-            save.cantidadAlimentos.Add(i);
-        }
+        infoPartida = new GameData(dia, lista, porcentajeBarra);
 
-        save.diaActual = diaActual;
-        save.porcentajeEnergia = porcentajeEnergia;
+        jsonCreado = JsonMapper.ToJson(infoPartida);
+        File.WriteAllText(Application.dataPath + "/Gamedata.json", jsonCreado.ToString());
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+    }  
 
-        return save;
-    }
-    
-    public void SaveAsJSON()
+
+}
+
+public class GameData
+{
+    public int diaActual;
+    public int[] cantidadAlimentos;
+    public int porcentajeEnergia;
+
+    public GameData(int dia, int[] cantidad, int porcentaje)
     {
-        JSONWriter save = CreateSaveGameObject();
-        string json = JsonUtility.ToJson(save);
+        this.diaActual = dia;
+        this.cantidadAlimentos = cantidad;
+        this.porcentajeEnergia= porcentaje;
 
-        print("Saving as JSON: ");
     }
 }
