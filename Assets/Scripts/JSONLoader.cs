@@ -13,6 +13,9 @@ public class JSONLoader : MonoBehaviour
 {
     private string jsonString;
     private JsonData jData;
+    private string textoCartaDia;
+    private string textoNoticiaDia;
+
 
     public GameObject jugador;
     public SpriteRenderer backgroundSprite;
@@ -23,12 +26,17 @@ public class JSONLoader : MonoBehaviour
     public Image imageModal;
     public TextMeshProUGUI  letterT;
     public TextMeshProUGUI  newsT;
+    public TextMeshProUGUI  informationT;
+
+    public Button buttonLetter;
+
     
 
     //public const string url ="https://firebasestorage.googleapis.com/v0/b/lideresocialespg.appspot.com/o/juego0.json?alt=media&token=3d8deac2-9fd0-4a22-98a3-3bc7629f809b";
     public const string url ="https://lideresocialespg.firebaseio.com/juegos.json";
     void Start()
     {
+        informationT.text = "";
         loadingSpriteStart.SetActive(false);
         modalCarta.SetActive(false);
         Request();
@@ -55,6 +63,8 @@ public class JSONLoader : MonoBehaviour
            StartCoroutine(LoadSprite(reqSprite));
 
            LoadScene(jData[0]["escenas"]);
+
+           LoadInfoDia(jData[0]["infoDias"]);
            
         }
         else
@@ -187,7 +197,7 @@ public class JSONLoader : MonoBehaviour
     private IEnumerator OutputRoutine(WWW url, int width, int height)
     {
         string file = Path.GetFileNameWithoutExtension(url.url);
-        print("archivo se llamaria:::" + file);
+        //print("archivo se llamaria:::" + file);
 
         Texture2D tex = new Texture2D(2, 2);
         byte[] bytes;
@@ -259,24 +269,51 @@ public class JSONLoader : MonoBehaviour
 
     }
 
+    void LoadInfoDia(JsonData infoDias){
+            
+        textoCartaDia = ""+infoDias[0]["textoCarta"];
+        textoNoticiaDia = ""+infoDias[0]["textoPeriodico"];
+    }
+
+    
     public void AbrirPeriodico()
     {
-        imageModal.sprite = Resources.Load<Sprite>("periodico");
-        modalCarta.SetActive(true);
-        letterT.text="";
-        newsT.text="Es periódico";
+        if(!(textoNoticiaDia.Equals(""))){
+            imageModal.sprite = Resources.Load<Sprite>("periodico");
+            modalCarta.SetActive(true);
+            letterT.text="";
+            newsT.text = textoNoticiaDia;
+        }
+        else{
+            informationT.text = "Hoy no me trajeron el periódico ... ";
+            StartCoroutine(ActivationRoutine());
+        }
+    }
+
+    private IEnumerator ActivationRoutine()
+    {
+        yield return new WaitForSeconds(3);
+        informationT.text = "";
     }
 
     public void AbrirCarta()
     {
-        imageModal.sprite = Resources.Load<Sprite>("paper");
-        modalCarta.SetActive(true);
-        newsT.text="";
-        letterT.text="Es carta";
+        if(!(textoCartaDia.Equals(""))){
+            buttonLetter.image.sprite = Resources.Load<Sprite>("sobreAbierto");
+            imageModal.sprite = Resources.Load<Sprite>("paper");
+            modalCarta.SetActive(true);
+            newsT.text="";
+            letterT.text = textoCartaDia;
+        }
+        else{
+            letterT.text = "Hoy no me trajeron cartas ... ";
+            StartCoroutine(ActivationRoutine());
+        }
     }
 
     public void CerrarCarta()
     {
+        buttonLetter.image.sprite = Resources.Load<Sprite>("letter");
         modalCarta.SetActive(false);
     }
 
