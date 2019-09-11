@@ -10,15 +10,11 @@ public class Movimiento : MonoBehaviour
     bool permiteMoverse = true;
     public GameObject animacion;
     AnimationLoadManager animationLoadManager;
-    public int diaActual;
-    public GameObject objeto;
-    public bool trigger;
+    private TimeDayFunction scriptDía;
 
 
     void Start()
     {
-        trigger = false;
-        objeto.SetActive(false);
         escala = transform.localScale;
         escalaX = escala.x;
         escalaY = escala.y;
@@ -94,13 +90,11 @@ public class Movimiento : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        GameObject fondo = GameObject.Find("Background");
         Debug.Log("Colisión con " + col.name);
 
-        if (col.name== "sofa" && fondo.GetComponent<TimeDayFunction>().hora>19)
+        if(col.name== "sofa" && scriptDía.GetComponent<TimeDayFunction>().hora>19)
         {
-            trigger = true;
-            objeto.SetActive(true);
+            scriptDía.GetComponent<TimeDayFunction>().dia = scriptDía.GetComponent<TimeDayFunction>().dia + 1;
         }
 
         //loadAnimation();   

@@ -11,17 +11,17 @@ public class Movimiento : MonoBehaviour
     public GameObject animacion;
     AnimationLoadManager animationLoadManager;
     public int diaActual;
-    public GameObject objeto;
-    public bool trigger;
+    public bool duerme;
+    public GameObject loadingSpriteStart;
 
 
     void Start()
     {
-        trigger = false;
-        objeto.SetActive(false);
         escala = transform.localScale;
         escalaX = escala.x;
         escalaY = escala.y;
+        duerme = false;
+        diaActual = 1;
     }
 
     void Update()
@@ -96,11 +96,13 @@ public class Movimiento : MonoBehaviour
     {
         GameObject fondo = GameObject.Find("Background");
         Debug.Log("Colisión con " + col.name);
+                        
 
-        if (col.name== "sofa" && fondo.GetComponent<TimeDayFunction>().hora>19)
+        if (col.name== "sofa" && fondo.GetComponent<TimeDayFunction>().hora>7)
         {
-            trigger = true;
-            objeto.SetActive(true);
+            fondo.GetComponent<TimeDayFunction>().dia = fondo.GetComponent<TimeDayFunction>().dia + 1;
+            diaActual = fondo.GetComponent<TimeDayFunction>().dia;
+            print("se aumento el dia");
         }
 
         //loadAnimation();   
