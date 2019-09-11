@@ -7,8 +7,8 @@ using UnityEditor;
 using System.Collections.Generic;
 using UnityEngine.Networking;
 using System.Net;
-using System;
-
+using UnityEngine.UI;
+using TMPro;
 public class JSONLoader : MonoBehaviour
 {
     private string jsonString;
@@ -20,6 +20,9 @@ public class JSONLoader : MonoBehaviour
     public GameObject animacion;
 
     public GameObject modalCarta;
+    public Image imageModal;
+    public TextMeshProUGUI  letterT;
+    public TextMeshProUGUI  newsT;
     
 
     //public const string url ="https://firebasestorage.googleapis.com/v0/b/lideresocialespg.appspot.com/o/juego0.json?alt=media&token=3d8deac2-9fd0-4a22-98a3-3bc7629f809b";
@@ -246,9 +249,6 @@ public class JSONLoader : MonoBehaviour
                 newData.Add(smd);
             }
         }
-
-
-
         importer.spritesheet = newData.ToArray();
 
 
@@ -259,10 +259,25 @@ public class JSONLoader : MonoBehaviour
 
     }
 
-
-    public void MostrarCarta()
+    public void AbrirPeriodico()
     {
+        imageModal.sprite = Resources.Load<Sprite>("periodico");
         modalCarta.SetActive(true);
+        letterT.text="";
+        newsT.text="Es periódico";
+    }
+
+    public void AbrirCarta()
+    {
+        imageModal.sprite = Resources.Load<Sprite>("paper");
+        modalCarta.SetActive(true);
+        newsT.text="";
+        letterT.text="Es carta";
+    }
+
+    public void CerrarCarta()
+    {
+        modalCarta.SetActive(false);
     }
 
 
