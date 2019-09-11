@@ -2688,6 +2688,7 @@ GameObject:
   - component: {fileID: 1364455207}
   - component: {fileID: 1364455206}
   - component: {fileID: 1364455210}
+  - component: {fileID: 1364455211}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2796,6 +2797,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   energyBar: {fileID: 408719890}
   Energy: 100
+--- !u!114 &1364455211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364455205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a567c4e0a103a9542b7fbfaf62f0a1ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  diaActual: 0
+  cantidadAlimentos: 
+  porcentajeEnergia: 0
 --- !u!1 &1368783702
 GameObject:
   m_ObjectHideFlags: 0

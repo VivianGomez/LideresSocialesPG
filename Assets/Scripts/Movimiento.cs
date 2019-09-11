@@ -97,7 +97,7 @@ public class Movimiento : MonoBehaviour
         GameObject fondo = GameObject.Find("Background");
         Debug.Log("Colisión con " + col.name);
 
-        if (col.name== "sofa" && fondo.GetComponent<TimeDayFunction>().hora>19)
+        if (col.name== "sofa" && fondo.GetComponent<TimeDayFunction>().hora>7)
         {
             trigger = true;
             objeto.SetActive(true);
