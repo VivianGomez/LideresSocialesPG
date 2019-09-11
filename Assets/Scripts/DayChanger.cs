@@ -26,9 +26,9 @@ public class DayChanger : MonoBehaviour
         GameObject fondo = GameObject.Find("Background");
 
         fondo.GetComponent<TimeDayFunction>().dia = fondo.GetComponent<TimeDayFunction>().dia + 1;
-        fondo.GetComponent<TimeDayFunction>().red = 0.8f;
-        fondo.GetComponent<TimeDayFunction>().green = 0.8f;
-        fondo.GetComponent<TimeDayFunction>().blue = 0.8f;
+        fondo.GetComponent<TimeDayFunction>().red = 1;
+        fondo.GetComponent<TimeDayFunction>().green = 1;
+        fondo.GetComponent<TimeDayFunction>().blue = 1;
         fondo.GetComponent<TimeDayFunction>().inicio = Time.time;
         fondo.GetComponent<TimeDayFunction>().hora = 6;
         fondo.GetComponent<TimeDayFunction>().ultimoSegundo = 0.0;

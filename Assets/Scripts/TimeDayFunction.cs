@@ -21,9 +21,9 @@ public class TimeDayFunction : MonoBehaviour
     void Start()
     {
         dia = 1;
-        red = 0.8f;
-        green = 0.8f;
-        blue = 0.8f;
+        red = 1.0f;
+        green = 1.0f;
+        blue = 1.0f;
         inicio = Time.time;
         hora = 6;
         ultimoSegundo = 0.0;
@@ -39,10 +39,18 @@ public class TimeDayFunction : MonoBehaviour
                 float t = Time.time - inicio;
                 string minutos = ((int)t / 60).ToString();
                 string segundos = (t % 60).ToString("f1");
-                //print(minutos + ":"+segundos);            
+            //print(minutos + ":"+segundos);            
 
+            Color color = new Color(red, green, blue, 1)
+            {
+                r = red,
+                g = green,
+                b = blue,
+                a = 1
+            };
+            fondoEscena.color = color;
 
-                double segundoActual = double.Parse(segundos);
+            double segundoActual = double.Parse(segundos);
 
                 if (segundoActual != 0.0 && segundoActual % 12.50 == 0)
                 {
@@ -56,14 +64,7 @@ public class TimeDayFunction : MonoBehaviour
                         //texto.text="Día " + dia + " - Hora: " + hora + ":00";
                         //print("cambia la hora, hora " + hora + ":00");
                         if (hora > 17)
-                        {
-                            Color color = new Color(red, green, blue, 1)
-                            {
-                                r = red,
-                                g = green,
-                                b = blue,
-                                a = 1
-                            };
+                        {                           
 
                             fondoEscena.color = color;
 
@@ -71,6 +72,13 @@ public class TimeDayFunction : MonoBehaviour
                             green = green - 0.1f;
                             blue = blue - 0.1f;
                         }
+                        else if (hora == 17)
+                    {
+
+                        red = 0.8f;
+                        green = 0.8f;
+                        blue = 0.8f;
+                    }
                     }
 
                     ultimoSegundo = segundoActual;
