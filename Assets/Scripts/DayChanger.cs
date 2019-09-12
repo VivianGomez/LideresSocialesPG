@@ -25,7 +25,7 @@ public class DayChanger : MonoBehaviour
     {
         GameObject fondo = GameObject.Find("Background");
         GameObject camara = GameObject.Find("Main Camera");
-               
+        
 
         fondo.GetComponent<TimeDayFunction>().dia = fondo.GetComponent<TimeDayFunction>().dia + 1;
         fondo.GetComponent<TimeDayFunction>().red = 1;
@@ -38,8 +38,14 @@ public class DayChanger : MonoBehaviour
 
         camara.GetComponent<JSONWriter>().reescribirJSON(fondo.GetComponent<TimeDayFunction>().dia, new int[] { 0, 0, 0, 0 }, (int)camara.GetComponent<EnergyBar>().Energy);
 
+        
+        
+
+    }
+
+    public void pasarEstado()
+    {
         GameObject p = GameObject.Find("Personaje");
         p.GetComponent<Movimiento>().trigger = false;
-
     }
 }

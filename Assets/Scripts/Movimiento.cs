@@ -13,12 +13,14 @@ public class Movimiento : MonoBehaviour
     public int diaActual;
     public GameObject objeto;
     public bool trigger;
+    public GameObject imagen;
 
 
     void Start()
     {
         trigger = false;
         objeto.SetActive(false);
+        imagen.SetActive(false);
         escala = transform.localScale;
         escalaX = escala.x;
         escalaY = escala.y;
@@ -97,10 +99,18 @@ public class Movimiento : MonoBehaviour
         GameObject fondo = GameObject.Find("Background");
         Debug.Log("Colisión con " + col.name);
 
-        if (col.name== "sofa" && fondo.GetComponent<TimeDayFunction>().hora>19)
+        if (col.name== "sofa" && fondo.GetComponent<TimeDayFunction>().hora>8)
         {
+            imagen.SetActive(true);
+            if (imagen != null)
+            {
+                //StartCoroutine(imagen.GetComponent<VideoStream>().playVideo());
+            }
+            else print("es nula");
+            
             trigger = true;
             objeto.SetActive(true);
+            imagen.SetActive(false);
         }
 
         //loadAnimation();   
