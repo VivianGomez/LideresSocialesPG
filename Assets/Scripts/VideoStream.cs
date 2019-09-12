@@ -12,7 +12,14 @@ public class VideoStream : MonoBehaviour
     private VideoSource videoSource;
     private VideoPlayer videoPlayer;
     public VideoClip video;
-    // Start is called before the first frame update
+    public GameObject barra;
+    public GameObject b1;
+    public GameObject b2;
+    public GameObject b3;
+    public GameObject b4;
+    public GameObject textoDia;
+
+
     void Start()
     {
         Application.runInBackground = true;
@@ -21,6 +28,13 @@ public class VideoStream : MonoBehaviour
 
     public IEnumerator playVideo()
     {
+        barra.SetActive(false);
+        b1.SetActive(false);
+        b2.SetActive(false);
+        b3.SetActive(false);
+        b4.SetActive(false);
+        textoDia.SetActive(false); 
+
         videoPlayer = gameObject.AddComponent<VideoPlayer>();
         gameObject.GetComponent<VideoPlayer>().renderMode= VideoRenderMode.CameraNearPlane;
 
@@ -68,5 +82,11 @@ public class VideoStream : MonoBehaviour
         print("Ya dejó de reproducirse");
         
         o.SetActive(false);
+        barra.SetActive(true);
+        b1.SetActive(true);
+        b2.SetActive(true);
+        b3.SetActive(true);
+        b4.SetActive(true);
+        textoDia.SetActive(true);
     }
 }

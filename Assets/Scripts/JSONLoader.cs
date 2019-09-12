@@ -26,6 +26,10 @@ public class JSONLoader : MonoBehaviour
 
     public GameObject modal;
     public Image imageModal;
+
+    public GameObject barra;
+
+
     public TextMeshProUGUI  letterT;
     public TextMeshProUGUI  newsT;
     public TextMeshProUGUI  informationT;
