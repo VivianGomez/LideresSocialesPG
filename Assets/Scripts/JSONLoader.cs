@@ -9,6 +9,8 @@ using UnityEngine.Networking;
 using System.Net;
 using UnityEngine.UI;
 using TMPro;
+using System;
+
 public class JSONLoader : MonoBehaviour
 {
     private string jsonString;
@@ -22,15 +24,24 @@ public class JSONLoader : MonoBehaviour
     public GameObject loadingSpriteStart;
     public GameObject animacion;
 
-    public GameObject modalCarta;
+    public GameObject modal;
     public Image imageModal;
     public TextMeshProUGUI  letterT;
     public TextMeshProUGUI  newsT;
     public TextMeshProUGUI  informationT;
+    public GameObject panelInventario;
 
     public Button buttonLetter;
+    public Button buttonCloseModal;
 
-    
+    public TextMeshProUGUI buttonAlimento1;
+    public TextMeshProUGUI buttonAlimento2;
+    public TextMeshProUGUI buttonAlimento3;
+
+    public TextMeshProUGUI cantidadAlimento1;
+    public TextMeshProUGUI cantidadAlimento2;
+    public TextMeshProUGUI cantidadAlimento3;
+
 
     //public const string url ="https://firebasestorage.googleapis.com/v0/b/lideresocialespg.appspot.com/o/juego0.json?alt=media&token=3d8deac2-9fd0-4a22-98a3-3bc7629f809b";
     public const string url ="https://lideresocialespg.firebaseio.com/juegos.json";
@@ -38,7 +49,8 @@ public class JSONLoader : MonoBehaviour
     {
         informationT.text = "";
         loadingSpriteStart.SetActive(false);
-        modalCarta.SetActive(false);
+        modal.SetActive(false);
+        panelInventario.SetActive(false);
         Request();
     }
 
@@ -63,9 +75,8 @@ public class JSONLoader : MonoBehaviour
            StartCoroutine(LoadSprite(reqSprite));
 
            LoadScene(jData[0]["escenas"]);
-
            LoadInfoDia(jData[0]["infoDias"]);
-           
+           LoadInfoAlimentos(jData[0]["alimentos"]);
         }
         else
         {
@@ -275,12 +286,21 @@ public class JSONLoader : MonoBehaviour
         textoNoticiaDia = ""+infoDias[0]["textoPeriodico"];
     }
 
-    
+    void LoadInfoAlimentos(JsonData alimentos)
+    {
+        buttonAlimento1.text= "" + alimentos[0];
+        buttonAlimento2.text = "" + alimentos[1];
+        buttonAlimento3.text = "" + alimentos[2];
+    }
+
     public void AbrirPeriodico()
     {
         if(!(textoNoticiaDia.Equals(""))){
+            buttonCloseModal.image.color = Color.black;
+            panelInventario.SetActive(false);
+            imageModal.enabled = true;
             imageModal.sprite = Resources.Load<Sprite>("periodico");
-            modalCarta.SetActive(true);
+            modal.SetActive(true);
             letterT.text="";
             newsT.text = textoNoticiaDia;
         }
@@ -299,9 +319,12 @@ public class JSONLoader : MonoBehaviour
     public void AbrirCarta()
     {
         if(!(textoCartaDia.Equals(""))){
+            buttonCloseModal.image.color = Color.black;
+            panelInventario.SetActive(false);
+            imageModal.enabled = true;
             buttonLetter.image.sprite = Resources.Load<Sprite>("sobreAbierto");
             imageModal.sprite = Resources.Load<Sprite>("paper");
-            modalCarta.SetActive(true);
+            modal.SetActive(true);
             newsT.text="";
             letterT.text = textoCartaDia;
         }
@@ -311,10 +334,42 @@ public class JSONLoader : MonoBehaviour
         }
     }
 
+    public void AbrirDespensa()
+    {
+        panelInventario.SetActive(true);
+        imageModal.enabled = false;
+        newsT.text = "";
+        letterT.text = "";
+        modal.SetActive(true);
+        buttonCloseModal.image.color = Color.white;
+    }
+
     public void CerrarCarta()
     {
         buttonLetter.image.sprite = Resources.Load<Sprite>("letter");
-        modalCarta.SetActive(false);
+        modal.SetActive(false);
+    }
+
+
+    //ESTE MÉTODO ES TEMPORAL, LA IDEA ES QUE EL ÍNDICE ENTRE POR PARÁMETRO Y CON ESE SE BUSQUE EN EL ARREGLO DE porcentajes, ES DECIR SÓLO DICHA BÚSQUEDA SE RETORNA SIN LOS IF's
+    // return porcentajesEnergia[indiceAlimento];
+    public int darPorcentajeEnergiaAlimento(int indiceAlimento)
+    { 
+        if(indiceAlimento == 1)
+        {
+            cantidadAlimento1.text = ""+(Int32.Parse(cantidadAlimento1.text)-1);
+            return 1;
+        }
+        else if(indiceAlimento == 2)
+        {
+            cantidadAlimento2.text = "" + (Int32.Parse(cantidadAlimento2.text) - 1);
+            return 5;
+        }
+        else
+        {
+            cantidadAlimento3.text = "" + (Int32.Parse(cantidadAlimento3.text) - 1);
+            return 2;
+        }
     }
 
 

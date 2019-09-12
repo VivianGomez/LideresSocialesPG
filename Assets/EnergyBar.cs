@@ -1,11 +1,18 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
+using System;
 
 public class EnergyBar : MonoBehaviour
 {
 	public Scrollbar energyBar;
 	public float Energy = 100;
+
+    private JSONLoader jsonLoader;
+
+    void Awake()
+    {
+        jsonLoader = GameObject.FindObjectOfType<JSONLoader>();
+    }
 
     void Update()
     {
@@ -17,6 +24,12 @@ public class EnergyBar : MonoBehaviour
 		Energy -= value;
 		energyBar.size = Energy / 100f;
 	}
+
+    public void Comer(int indice)
+    {
+        Energy += (float)jsonLoader.darPorcentajeEnergiaAlimento(indice);
+        energyBar.size = Energy / 100f;
+    }
 
 }
 
