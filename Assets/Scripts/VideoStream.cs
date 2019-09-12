@@ -30,16 +30,16 @@ public class VideoStream : MonoBehaviour
         audioSource.playOnAwake = false;
         audioSource.Pause();
 
-        //videoPlayer.source = VideoSource.Url;
-        //videoPlayer.url = "https://streamable.com/s/zsj7u/dafzpd.mp4";
-        videoPlayer.source = VideoSource.VideoClip;
+        videoPlayer.source = VideoSource.Url;
+        videoPlayer.url = "https://firebasestorage.googleapis.com/v0/b/lideresocialespg.appspot.com/o/NRQA7837.MP4?alt=media&token=e4f298a1-6d69-4556-8577-13dc99a6d20f";
+        //videoPlayer.source = VideoSource.VideoClip;
 
         videoPlayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
 
         videoPlayer.EnableAudioTrack(0, true);
         videoPlayer.SetTargetAudioSource(0, audioSource);
 
-        videoPlayer.clip= video;
+        //videoPlayer.clip= video;
         videoPlayer.Prepare();
 
         WaitForSeconds waitTime = new WaitForSeconds(1);
