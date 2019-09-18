@@ -32,4 +32,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Plaza.unity
     guid: 7c2729eede569144e854c392f9ee7111
+  - enabled: 1
+    path: Assets/Scenes/Juego0/Sala.unity
+    guid: 9f4330194c666d446b9ac44fa7002724
+  - enabled: 1
+    path: Assets/Scenes/Juego0/Cuarto.unity
+    guid: 779d96726e0de3649912b76e9b587126
+  - enabled: 1
+    path: Assets/Scenes/Juego0/Cocina.unity
+    guid: 5154c4a7ec6991f47a2ae45b33012e61
   m_configObjects: {}
