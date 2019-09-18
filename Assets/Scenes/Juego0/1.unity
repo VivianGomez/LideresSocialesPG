@@ -384,7 +384,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1364455206}
+      - m_Target: {fileID: 1364455212}
         m_MethodName: CerrarCarta
         m_Mode: 1
         m_Arguments:
@@ -2703,7 +2703,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1364455206}
+      - m_Target: {fileID: 1364455212}
         m_MethodName: AbrirCarta
         m_Mode: 1
         m_Arguments:
@@ -4403,7 +4403,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1364455206}
+      - m_Target: {fileID: 1364455212}
         m_MethodName: AbrirDespensa
         m_Mode: 1
         m_Arguments:
@@ -4464,7 +4464,6 @@ GameObject:
   - component: {fileID: 1364455209}
   - component: {fileID: 1364455208}
   - component: {fileID: 1364455207}
-  - component: {fileID: 1364455206}
   - component: {fileID: 1364455212}
   - component: {fileID: 1364455210}
   - component: {fileID: 1364455211}
@@ -4475,37 +4474,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1364455206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1364455205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d52dd823105bdb4abdb3fa8293b4282, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jugador: {fileID: 2074691604}
-  backgroundSprite: {fileID: 718662462}
-  loadingSpriteStart: {fileID: 217909295}
-  animacion: {fileID: 0}
-  modal: {fileID: 683594095}
-  imageModal: {fileID: 1368783704}
-  barra: {fileID: 0}
-  letterT: {fileID: 1980725916}
-  newsT: {fileID: 425654278}
-  informationT: {fileID: 405146948}
-  panelInventario: {fileID: 12189340}
-  buttonLetter: {fileID: 685604682}
-  buttonCloseModal: {fileID: 143524849}
-  buttonAlimento1: {fileID: 1863889730}
-  buttonAlimento2: {fileID: 967318530}
-  buttonAlimento3: {fileID: 1019872255}
-  cantidadAlimento1: {fileID: 510057267}
-  cantidadAlimento2: {fileID: 729101953}
-  cantidadAlimento3: {fileID: 1012793203}
 --- !u!81 &1364455207
 AudioListener:
   m_ObjectHideFlags: 0
@@ -4609,25 +4577,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3910bb4186150ae4daa90392b203a221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jugador: {fileID: 0}
-  backgroundSprite: {fileID: 0}
-  loadingSpriteStart: {fileID: 0}
+  jugador: {fileID: 2074691604}
+  loadingSpriteStart: {fileID: 217909295}
   animacion: {fileID: 0}
-  modal: {fileID: 0}
-  imageModal: {fileID: 0}
-  barra: {fileID: 0}
-  letterT: {fileID: 0}
-  newsT: {fileID: 0}
-  informationT: {fileID: 0}
-  panelInventario: {fileID: 0}
-  buttonLetter: {fileID: 0}
-  buttonCloseModal: {fileID: 0}
-  buttonAlimento1: {fileID: 0}
-  buttonAlimento2: {fileID: 0}
-  buttonAlimento3: {fileID: 0}
-  cantidadAlimento1: {fileID: 0}
-  cantidadAlimento2: {fileID: 0}
-  cantidadAlimento3: {fileID: 0}
+  modal: {fileID: 683594095}
+  imageModal: {fileID: 1368783704}
+  letterT: {fileID: 1980725916}
+  newsT: {fileID: 425654278}
+  informationT: {fileID: 405146948}
+  panelInventario: {fileID: 12189340}
+  buttonLetter: {fileID: 685604682}
+  buttonCloseModal: {fileID: 143524849}
+  buttonAlimento1: {fileID: 1863889730}
+  buttonAlimento2: {fileID: 967318530}
+  buttonAlimento3: {fileID: 1019872255}
+  cantidadAlimento1: {fileID: 510057267}
+  cantidadAlimento2: {fileID: 729101953}
+  cantidadAlimento3: {fileID: 1012793203}
 --- !u!1 &1368783702
 GameObject:
   m_ObjectHideFlags: 0
@@ -5017,7 +4983,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1364455206}
+      - m_Target: {fileID: 1364455212}
         m_MethodName: AbrirPeriodico
         m_Mode: 1
         m_Arguments:
