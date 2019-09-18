@@ -187,7 +187,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
         }
         else
         {
-            cantidadAlimento3.text = "" + (Int32.Parse(cantidadAlimento3.text) - 1);  
+            cantidadAlimento3.text = "" + (Int32.Parse(cantidadAlimento3.text) - 1); 
             return 2;
         }
     }

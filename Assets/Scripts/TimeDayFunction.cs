@@ -142,7 +142,7 @@ public class TimeDayFunction : MonoBehaviour
 
                     double valorAbsoluto = Math.Abs(ultimoSegundo - segundoActual);
 
-                    if (valorAbsoluto != 0)
+                    if (valorAbsoluto != 0) 
                     {
                     if (hora < 17)
                     {

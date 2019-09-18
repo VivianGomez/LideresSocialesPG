@@ -1,15 +1,31 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System;
+using System.IO;
+using LitJson;
 
 public class EnergyBar : MonoBehaviour
 {
 	public Scrollbar energyBar;
-	public float Energy = 100;
+    private JsonData gameData;
+    public float Energy = 100;
 
     //private JSONLoader jsonLoader;
-
+    
     private JSONLoaderJuego0 jsonLoader;
+
+    private void Start()
+    {
+        if (!File.Exists(Application.dataPath + "/Gamedata.json"))
+        {
+            Energy = 100;
+        }
+        else
+        {
+            gameData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json"));
+            Energy = (float)((double.Parse(gameData[2].ToString()))); 
+        }
+    }
 
     void Awake()
     {

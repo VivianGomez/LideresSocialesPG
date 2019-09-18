@@ -16,7 +16,7 @@ public class JSONWriter : MonoBehaviour
     {
         if(!File.Exists(Application.dataPath + "/Gamedata.json"))
         {
-            infoPartida = new GameData(1, new int[] { 0, 0, 0, 0 }, 100, 6, false, Time.time, 0.0, 0.0);
+            infoPartida = new GameData(1, new int[] { 1,3,5,0,0,0,0,0 }, 100, 6, false, Time.time, 0.0, 0.0);
             jsonCreado = JsonMapper.ToJson(infoPartida);
             File.WriteAllText(Application.dataPath + "/Gamedata.json", jsonCreado.ToString());
             AssetDatabase.SaveAssets();

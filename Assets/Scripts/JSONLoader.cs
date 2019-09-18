@@ -18,6 +18,8 @@ public class JSONLoader : MonoBehaviour
     private string textoCartaDia;
     private string textoNoticiaDia;
 
+    public JsonData gameData;
+
 
     public GameObject jugador;
     public SpriteRenderer backgroundSprite;
@@ -51,10 +53,14 @@ public class JSONLoader : MonoBehaviour
     public const string url ="https://lideresocialespg.firebaseio.com/juegos.json";
     void Start()
     {
+        gameData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json")); 
         informationT.text = "";
         loadingSpriteStart.SetActive(false);
         modal.SetActive(false);
         panelInventario.SetActive(false);
+        cantidadAlimento1.text= (gameData[1][0]).ToString();
+        cantidadAlimento2.text = (gameData[1][1]).ToString();
+        cantidadAlimento3.text = (gameData[1][2]).ToString();
         Request();
     }
 
@@ -358,20 +364,21 @@ public class JSONLoader : MonoBehaviour
     //ESTE MÉTODO ES TEMPORAL, LA IDEA ES QUE EL ÍNDICE ENTRE POR PARÁMETRO Y CON ESE SE BUSQUE EN EL ARREGLO DE porcentajes, ES DECIR SÓLO DICHA BÚSQUEDA SE RETORNA SIN LOS IF's
     // return porcentajesEnergia[indiceAlimento];
     public int darPorcentajeEnergiaAlimento(int indiceAlimento)
-    { 
-        if(indiceAlimento == 1)
+    {
+        gameData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json"));
+        if (indiceAlimento == 1)
         {
-            cantidadAlimento1.text = ""+(Int32.Parse(cantidadAlimento1.text)-1);
+            cantidadAlimento1.text = ""+(Int32.Parse((gameData[1][0]).ToString())-1); 
             return 1;
         }
         else if(indiceAlimento == 2)
         {
-            cantidadAlimento2.text = "" + (Int32.Parse(cantidadAlimento2.text) - 1);
+            cantidadAlimento2.text = "" + (Int32.Parse((gameData[1][1]).ToString()) - 1);
             return 5;
         }
         else
         {
-            cantidadAlimento3.text = "" + (Int32.Parse(cantidadAlimento3.text) - 1);
+            cantidadAlimento3.text = "" + (Int32.Parse((gameData[1][2]).ToString()) - 1);
             return 2;
         }
     }
