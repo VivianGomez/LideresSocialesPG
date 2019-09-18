@@ -40,7 +40,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
     public TextMeshProUGUI cantidadAlimento1;
     public TextMeshProUGUI cantidadAlimento2;
     public TextMeshProUGUI cantidadAlimento3;
-
+   
 
     //public const string url ="https://firebasestorage.googleapis.com/v0/b/lideresocialespg.appspot.com/o/juego0.json?alt=media&token=3d8deac2-9fd0-4a22-98a3-3bc7629f809b";
     public const string url ="https://lideresocialespg.firebaseio.com/juegos.json";
