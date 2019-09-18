@@ -2,7 +2,7 @@
 using TMPro;
 using UnityEngine.UI;
 using System.Collections;
-
+using UnityEngine.SceneManagement;
 
 public class PanelInicioFin : MonoBehaviour
 {
@@ -22,7 +22,6 @@ public class PanelInicioFin : MonoBehaviour
         imagenLider.sprite = null;
         infoLider.text = "Kevin Julian León";
         yield return new WaitForSeconds(4);
-        imagenLider.enabled = false;
-        panelIF.SetActive(false);
+        SceneManager.LoadSceneAsync("Cuarto");
     }
 }
