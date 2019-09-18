@@ -7,11 +7,13 @@ public class EnergyBar : MonoBehaviour
 	public Scrollbar energyBar;
 	public float Energy = 100;
 
-    private JSONLoader jsonLoader;
+    //private JSONLoader jsonLoader;
+
+    private JSONLoaderJuego0 jsonLoader;
 
     void Awake()
     {
-        jsonLoader = GameObject.FindObjectOfType<JSONLoader>();
+        jsonLoader = GameObject.FindObjectOfType<JSONLoaderJuego0>();
     }
 
     void Update()
