@@ -18,10 +18,10 @@ public class PanelInicioFin : MonoBehaviour
 
      IEnumerator quitImage()
     { 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(4.5f);
         imagenLider.sprite = null;
         infoLider.text = "Kevin Julian León";
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(5);
         SceneManager.LoadSceneAsync("Cuarto");
     }
 }
