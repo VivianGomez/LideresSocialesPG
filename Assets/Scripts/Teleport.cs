@@ -11,6 +11,10 @@ public class Teleport : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D cTrigger)
     {
+        GameObject camara = GameObject.Find("Main Camera");
+        GameObject fondo = GameObject.Find("Background");
+        camara.GetComponent<JSONWriter>().reescribirJSON(fondo.GetComponent<TimeDayFunction>().dia, new int[] { 0, 0, 0, 0 }, (int)camara.GetComponent<EnergyBar>().Energy, fondo.GetComponent<TimeDayFunction>().hora, false, fondo.GetComponent<TimeDayFunction>().inicio, fondo.GetComponent<TimeDayFunction>().ultimoSegundo, fondo.GetComponent<TimeDayFunction>().segundoActual);
+
 
         if (cTrigger.tag != "Player") { return; }
 

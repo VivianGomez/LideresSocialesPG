@@ -16,17 +16,18 @@ public class JSONWriter : MonoBehaviour
     {
         if(!File.Exists(Application.dataPath + "/Gamedata.json"))
         {
-            infoPartida = new GameData(1, new int[] { 0, 0, 0, 0 }, 100, 6, false, Time.time, 0.0, 0.0);
+            infoPartida = new GameData(1, new int[] { 0, 0, 0, 0 }, 100, 6, 0.0, false);
             jsonCreado = JsonMapper.ToJson(infoPartida);
             File.WriteAllText(Application.dataPath + "/Gamedata.json", jsonCreado.ToString());
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
-        }        
+        } 
+        
     }
 
-    public void reescribirJSON(int dia, int[] lista, int porcentajeBarra, int hora, bool tomoRegaloCarta, double inicio, double ultimoSegundo, double segundoActual)
+    public void reescribirJSON(int dia, int[] lista, int porcentajeBarra, int hora, double segundos, bool tomoRegaloCarta)
     {
-        infoPartida = new GameData(dia, lista, porcentajeBarra, hora, tomoRegaloCarta, inicio, ultimoSegundo, segundoActual);
+        infoPartida = new GameData(dia, lista, porcentajeBarra, hora, segundos, tomoRegaloCarta);
 
         jsonCreado = JsonMapper.ToJson(infoPartida);
         File.WriteAllText(Application.dataPath + "/Gamedata.json", jsonCreado.ToString());
@@ -43,22 +44,17 @@ public class GameData
     public int[] cantidadAlimentos;
     public int porcentajeEnergia;
     public int hora;
+    public double segundos;
     public bool tomoRegaloCarta;
-    public double inicio ;
-    public double ultimoSegundo ;
-    public double segundoActual ;
 
-    public GameData(int dia, int[] cantidad, int porcentaje, int hora, bool tomoRegaloCarta, double inicio, double ultimoSegundo, double segundoActual)
+    public GameData(int dia, int[] cantidad, int porcentaje, int hora, double segundos, bool tomoRegaloCarta)
     {
         this.diaActual = dia;
         this.cantidadAlimentos = cantidad;
         this.porcentajeEnergia= porcentaje;
         this.hora = hora;
-        
+        this.segundos = segundos;
         this.tomoRegaloCarta = tomoRegaloCarta;
-        this.inicio = inicio;
-        this.ultimoSegundo = ultimoSegundo;
-        this.segundoActual = segundoActual;
 
     }
 }

@@ -36,10 +36,10 @@ public class DayChanger : MonoBehaviour
         fondo.GetComponent<TimeDayFunction>().ultimoSegundo = 0.0;
         print("se aumento el dia");
 
-        camara.GetComponent<JSONWriter>().reescribirJSON(fondo.GetComponent<TimeDayFunction>().dia, new int[] { 0, 0, 0, 0 }, (int)camara.GetComponent<EnergyBar>().Energy);
+        camara.GetComponent<JSONWriter>().reescribirJSON(fondo.GetComponent<TimeDayFunction>().dia, new int[] { 0, 0, 0, 0 }, (int)camara.GetComponent<EnergyBar>().Energy, fondo.GetComponent<TimeDayFunction>().hora, false, Time.time, fondo.GetComponent<TimeDayFunction>().ultimoSegundo, fondo.GetComponent<TimeDayFunction>().segundoActual);
 
-        
-        
+
+
 
     }
 
