@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class PanelInicioFin : MonoBehaviour
+public class PanelInicio : MonoBehaviour
 {
     public GameObject panelIF;
     public Image imagenLider;
