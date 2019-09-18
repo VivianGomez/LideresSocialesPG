@@ -37,11 +37,21 @@ public class JSONLoaderJuego0 : MonoBehaviour
     public TextMeshProUGUI buttonAlimento1;
     public TextMeshProUGUI buttonAlimento2;
     public TextMeshProUGUI buttonAlimento3;
+    public TextMeshProUGUI buttonAlimento4;
+    public TextMeshProUGUI buttonAlimento5;
+    public TextMeshProUGUI buttonAlimento6;
+    public TextMeshProUGUI buttonAlimento7;
+    public TextMeshProUGUI buttonAlimento8;
 
     public TextMeshProUGUI cantidadAlimento1;
     public TextMeshProUGUI cantidadAlimento2;
     public TextMeshProUGUI cantidadAlimento3;
-   
+    public TextMeshProUGUI cantidadAlimento4;
+    public TextMeshProUGUI cantidadAlimento5;
+    public TextMeshProUGUI cantidadAlimento6;
+    public TextMeshProUGUI cantidadAlimento7;
+    public TextMeshProUGUI cantidadAlimento8;
+
 
     //public const string url ="https://firebasestorage.googleapis.com/v0/b/lideresocialespg.appspot.com/o/juego0.json?alt=media&token=3d8deac2-9fd0-4a22-98a3-3bc7629f809b";
     public const string url ="https://lideresocialespg.firebaseio.com/juegos.json";
@@ -52,6 +62,11 @@ public class JSONLoaderJuego0 : MonoBehaviour
             cantidadAlimento1.text = (1).ToString();
             cantidadAlimento2.text = (3).ToString();
             cantidadAlimento3.text = (5).ToString();
+            cantidadAlimento4.text = (0).ToString();
+            cantidadAlimento5.text = (0).ToString();
+            cantidadAlimento6.text = (0).ToString();
+            cantidadAlimento7.text = (0).ToString();
+            cantidadAlimento8.text = (0).ToString();
         }
         else
         {
@@ -59,6 +74,11 @@ public class JSONLoaderJuego0 : MonoBehaviour
             cantidadAlimento1.text = (gameData[1][0]).ToString();
             cantidadAlimento2.text = (gameData[1][1]).ToString();
             cantidadAlimento3.text = (gameData[1][2]).ToString();
+            cantidadAlimento4.text = (gameData[1][3]).ToString();
+            cantidadAlimento5.text = (gameData[1][4]).ToString();
+            cantidadAlimento6.text = (gameData[1][5]).ToString();
+            cantidadAlimento7.text = (gameData[1][6]).ToString();
+            cantidadAlimento8.text = (gameData[1][7]).ToString();
         }
 
         informationT.text = "";
@@ -85,10 +105,11 @@ public class JSONLoaderJuego0 : MonoBehaviour
            //print(req.text);
            jData = JsonMapper.ToObject(req.text);
 
-           WWW reqSprite = new WWW(""+jData[0]["personaje"]["imagenPersonaje"]);
+           WWW reqSprite = new WWW(""+jData[1]["personaje"]["imagenPersonaje"]);
 
-           LoadInfoDia(jData[0]["infoDias"]);
-           LoadInfoAlimentos(jData[0]["alimentos"]);
+           LoadInfoDia(jData[1]["infoDias"]);
+           gameData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json"));
+           LoadInfoAlimentos(gameData[8]);
            loadingSpriteStart.SetActive(false);
 
         }
@@ -110,6 +131,11 @@ public class JSONLoaderJuego0 : MonoBehaviour
         buttonAlimento1.text= "" + alimentos[0];
         buttonAlimento2.text = "" + alimentos[1];
         buttonAlimento3.text = "" + alimentos[2];
+        buttonAlimento4.text = "" + alimentos[3];
+        buttonAlimento5.text = "" + alimentos[4];
+        buttonAlimento6.text = "" + alimentos[5];
+        buttonAlimento7.text = "" + alimentos[6];
+        buttonAlimento8.text = "" + alimentos[7];
     }
 
     public void AbrirPeriodico()
@@ -175,20 +201,49 @@ public class JSONLoaderJuego0 : MonoBehaviour
     public int darPorcentajeEnergiaAlimento(int indiceAlimento)
     {
         gameData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json"));
-        if (indiceAlimento == 1)
+        if (indiceAlimento == 1 && int.Parse(cantidadAlimento1.text)!=0)
         {
             cantidadAlimento1.text = ""+(Int32.Parse(cantidadAlimento1.text) -1);
             return 1;
         }
-        else if(indiceAlimento == 2)
+        else if(indiceAlimento == 2 && int.Parse(cantidadAlimento2.text) != 0)
         {
             cantidadAlimento2.text = "" + (Int32.Parse(cantidadAlimento2.text) - 1);
             return 5;
         }
+        else if (indiceAlimento == 3 && int.Parse(cantidadAlimento3.text) != 0)
+        {
+            cantidadAlimento3.text = "" + (Int32.Parse(cantidadAlimento3.text) - 1);
+            return 2;
+        }
+        else if (indiceAlimento == 4 && int.Parse(cantidadAlimento4.text) != 0)
+        {
+            cantidadAlimento4.text = "" + (Int32.Parse(cantidadAlimento4.text) - 1);
+            return 4;
+        }
+        else if (indiceAlimento == 5 && int.Parse(cantidadAlimento5.text) != 0)
+        {
+            cantidadAlimento5.text = "" + (Int32.Parse(cantidadAlimento5.text) - 1);
+            return 3;
+        }
+        else if (indiceAlimento == 6 && int.Parse(cantidadAlimento6.text) != 0)
+        {
+            cantidadAlimento6.text = "" + (Int32.Parse(cantidadAlimento6.text) - 1);
+            return 1; 
+        }
+        else if (indiceAlimento == 7 && int.Parse(cantidadAlimento7.text) != 0)
+        {
+            cantidadAlimento7.text = "" + (Int32.Parse(cantidadAlimento7.text) - 1);
+            return 5;
+        }
+        else if(indiceAlimento==8 && int.Parse(cantidadAlimento8.text) != 0)
+        {
+            cantidadAlimento8.text = "" + (Int32.Parse(cantidadAlimento8.text) - 1);
+            return 5;
+        }
         else
         {
-            cantidadAlimento3.text = "" + (Int32.Parse(cantidadAlimento3.text) - 1);  
-            return 2;
+            return 0;
         }
     }
 

@@ -41,4 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Juego0/Cocina.unity
     guid: 5154c4a7ec6991f47a2ae45b33012e61
+  - enabled: 1
+    path: Assets/Scenes/Juego0/Coorporacion.unity
+    guid: 713dc03250a99ce41b652716252e440f
   m_configObjects: {}
