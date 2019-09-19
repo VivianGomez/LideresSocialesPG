@@ -6,7 +6,14 @@ public class ClickableObject : MonoBehaviour
 {
     private void OnMouseEnter()
     {
-        CursorController.Instance.SetClickableCursor();
+        if(gameObject.name.Equals("Nevera"))
+        {
+            CursorController.Instance.SetNeveraCursor();
+        }
+        else if (gameObject.name.Equals("mom"))
+        {
+            CursorController.Instance.SetMomCursor();
+        }
     }
 
     private void OnMouseExit()

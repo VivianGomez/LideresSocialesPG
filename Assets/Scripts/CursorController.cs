@@ -5,7 +5,9 @@ using UnityEngine;
 public class CursorController : MonoBehaviour
 {
     [SerializeField]
-    private Texture2D clickableCursor;
+    private Texture2D momCursor;
+    [SerializeField]
+    private Texture2D neveraCursor;
     [SerializeField]
     private Texture2D moveCursor;
 
@@ -39,9 +41,19 @@ public class CursorController : MonoBehaviour
         Cursor.SetCursor(moveCursor, Vector2.zero, CursorMode.Auto);
     }
 
+    public void SetMomCursor()
+    {
+        Cursor.SetCursor(momCursor, Vector2.zero, CursorMode.Auto);
+    }
+
+    public void SetNeveraCursor()
+    {
+        Cursor.SetCursor(neveraCursor, Vector2.zero, CursorMode.Auto);
+    }
+
     public void SetClickableCursor()
     {
-        Cursor.SetCursor(clickableCursor, Vector2.zero, CursorMode.Auto);
+        Cursor.SetCursor(momCursor, Vector2.zero, CursorMode.Auto);
     }
 
 }
