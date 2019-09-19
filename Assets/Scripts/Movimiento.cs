@@ -126,11 +126,7 @@ public class Movimiento : MonoBehaviour
             //else print("es nula");
 
             animator.SetTrigger("duerme");
-            
-            trigger = true;
-            objeto.SetActive(true);
-
-            animator.SetTrigger("despierta");
+                        
         }
 
         //loadAnimation();   
@@ -138,6 +134,13 @@ public class Movimiento : MonoBehaviour
         
         //Invoke("LoadAnimataionClip", 3);
 
+    }
+
+    public void permitirAnimacion()
+    {
+        trigger = true;
+        objeto.SetActive(true);
+                
     }
 
     void LoadAnimataionClip()
