@@ -284,7 +284,6 @@ public class JSONLoaderJuego0 : MonoBehaviour
     
     public void AbrirRegalo()
     {
-        print("te"+ textoRegaloCarta);
         gameData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json"));
         if((!(textoRegaloCarta.Equals(""))) && (gameData[4].ToString().Equals("0")))
         {

@@ -11,15 +11,6 @@ public class DayChanger : MonoBehaviour
 
     private string tomoRegaloCarta;
 
-    void Start()
-    {
-        if (File.Exists(Application.dataPath + "/Gamedata.json"))
-        {
-            gameData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json")); ;
-            tomoRegaloCarta = "" + gameData[4];
-        }
-
-    }
     private void Update()
     {
         GameObject p = GameObject.Find("Personaje");
@@ -37,6 +28,8 @@ public class DayChanger : MonoBehaviour
 
     public void onFadeComplete()
     {
+        gameData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json")); ;
+        tomoRegaloCarta = "" + gameData[4];
         GameObject p = GameObject.Find("Personaje");
         p.GetComponent<Movimiento>().animator.SetTrigger("despierta");
 
@@ -52,7 +45,7 @@ public class DayChanger : MonoBehaviour
         fondo.GetComponent<TimeDayFunction>().hora = 6;
         fondo.GetComponent<TimeDayFunction>().segundoActual = 0.0;
         fondo.GetComponent<TimeDayFunction>().ultimoSegundo = 0.0;
-        print("se aumento el dia");
+        //print("se aumento el dia");
 
         camara.GetComponent<JSONWriter>().reescribirJSON(fondo.GetComponent<TimeDayFunction>().dia,
          new int[] { int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento1.text),
