@@ -1,12 +1,7 @@
 ﻿using System.Collections;
-using UnityEngine.SceneManagement;
 using System.IO;
 using UnityEngine;
 using LitJson;
-using UnityEditor;
-using System.Collections.Generic;
-using UnityEngine.Networking;
-using System.Net;
 using UnityEngine.UI;
 using TMPro;
 using System;
@@ -22,7 +17,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
 
     private TimeDayFunction timeDayFunction;
 
-    private string textoRegaloCarta;
+    private string textoRegaloCarta="";
     private string textoRegaloLiderazgo;
     private string regaloCarta;
     public int cantRegaloCarta;
@@ -289,7 +284,10 @@ public class JSONLoaderJuego0 : MonoBehaviour
     
     public void AbrirRegalo()
     {
-        if(!(textoRegaloCarta.Equals(""))){
+        print("te"+ textoRegaloCarta);
+        gameData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json"));
+        if((!(textoRegaloCarta.Equals(""))) 
+        && (gameData[4].Equals("0"))){
             buttonCloseModal.image.color = Color.black;
             panelInventario.SetActive(false);
             imageRegalo.enabled = true;
@@ -304,11 +302,34 @@ public class JSONLoaderJuego0 : MonoBehaviour
             giftT.text=textoRegaloCarta;
             cantRegaloModal.text = "X "+ cantRegaloCarta;
             int indiceAl = buscarAlimento(regaloCarta);
-            print(darAlimentoCantText(indiceAl));
-            darAlimentoCantText(indiceAl).text = "" + (Int32.Parse(darAlimentoCantText(indiceAl).text) + cantRegaloCarta);
+            GameObject camara = GameObject.Find("Main Camera");
+            GameObject fondo = GameObject.Find("Background");  
+            camara.GetComponent<JSONWriter>().reescribirJSON(
+                fondo.GetComponent<TimeDayFunction>().dia,
+                new int[] { int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento1.text), 
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento2.text), 
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento3.text), 
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento4.text), 
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento5.text), 
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento6.text), 
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento7.text), 
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento8.text) }, 
+                (int)camara.GetComponent<EnergyBar>().Energy, fondo.GetComponent<TimeDayFunction>().hora, 
+                "1", 
+                fondo.GetComponent<TimeDayFunction>().inicio, 
+                fondo.GetComponent<TimeDayFunction>().ultimoSegundo, 
+                fondo.GetComponent<TimeDayFunction>().segundoActual, 
+                new string[] { "Arroz", "Huevos", "Agua", "Arroz con leche", "Chocolate", "Dulces", "Granos", "Pan de centeno" });
+                darAlimentoCantText(indiceAl).text = "" + (Int32.Parse(darAlimentoCantText(indiceAl).text) + cantRegaloCarta);
         }
         else{
-            informationT.text = "Hoy no me trajeron regalos ... ";
+            if(gameData[4].Equals("1")){
+                informationT.text = "No hay más regalos ... ";
+            }
+            else{
+                informationT.text = "Hoy no me trajeron regalos ... ";
+            }
+
             StartCoroutine(ActivationRoutine());
         }
     }
