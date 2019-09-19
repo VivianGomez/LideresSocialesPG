@@ -9,7 +9,7 @@ public class Movimiento : MonoBehaviour
     Vector3 escala;
     float escalaX;
     float escalaY;
-    public bool permiteMoverse = true;
+    bool permiteMoverse = true;
     public GameObject animacion;
     AnimationLoadManager animationLoadManager;
     public int diaActual;
@@ -160,6 +160,7 @@ public class Movimiento : MonoBehaviour
 
     public void permitirAnimacion()
     {
+        permiteMoverse = false;
         trigger = true;
         objeto.SetActive(true);
                 

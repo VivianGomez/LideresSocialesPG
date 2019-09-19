@@ -69,5 +69,6 @@ public class DayChanger : MonoBehaviour
     {
         GameObject p = GameObject.Find("Personaje");
         p.GetComponent<Movimiento>().trigger = false;
+        p.GetComponent<Movimiento>().permiteMoverse = true;
     }
 }
