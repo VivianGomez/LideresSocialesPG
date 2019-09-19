@@ -8046,7 +8046,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8188c0b1572444e9a089eea9dac02b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: Sala
+  levelToLoad: Calle
 --- !u!61 &1678628986
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8616,6 +8616,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3910bb4186150ae4daa90392b203a221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cantRegaloCarta: 0
+  cantRegaloLiderazgo: 0
+  imageRegalo: {fileID: 0}
+  wowRegalo: {fileID: 0}
+  giftT: {fileID: 0}
+  tituloR: {fileID: 0}
+  cantRegaloModal: {fileID: 0}
   jugador: {fileID: 1147645591}
   loadingSpriteStart: {fileID: 1719602588}
   animacion: {fileID: 0}

@@ -101,12 +101,12 @@ public class Movimiento : MonoBehaviour
 
         if (col.name== "cama" && fondo.GetComponent<TimeDayFunction>().hora>6)
         {
-            imagen.SetActive(true);
-            if (imagen != null)
-            {
-                StartCoroutine(imagen.GetComponent<VideoStream>().playVideo());
-            }
-            else print("es nula");
+            //imagen.SetActive(true);
+           // if (imagen != null)
+            //{
+              //  StartCoroutine(imagen.GetComponent<VideoStream>().playVideo());
+            //}
+            //else print("es nula");
             
             trigger = true;
             objeto.SetActive(true);
