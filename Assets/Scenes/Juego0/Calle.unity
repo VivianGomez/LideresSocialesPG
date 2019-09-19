@@ -4544,6 +4544,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3910bb4186150ae4daa90392b203a221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cantRegaloCarta: 0
+  cantRegaloLiderazgo: 0
+  imageRegalo: {fileID: 0}
+  wowRegalo: {fileID: 0}
+  giftT: {fileID: 0}
+  tituloR: {fileID: 0}
+  cantRegaloModal: {fileID: 0}
   jugador: {fileID: 1731151755}
   loadingSpriteStart: {fileID: 1461782139}
   animacion: {fileID: 245785019}
@@ -8199,6 +8206,7 @@ GameObject:
   - component: {fileID: 1731151758}
   - component: {fileID: 1731151757}
   - component: {fileID: 1731151756}
+  - component: {fileID: 1731151761}
   m_Layer: 0
   m_Name: Personaje
   m_TagString: Player
@@ -8242,8 +8250,10 @@ MonoBehaviour:
   animacion: {fileID: 245785019}
   diaActual: 0
   objeto: {fileID: 506079460}
+  camina: 0
   trigger: 0
   imagen: {fileID: 1628265984}
+  animator: {fileID: 1731151761}
 --- !u!61 &1731151758
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8333,6 +8343,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1731151761
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731151755}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fc9f73ff53bded64c9445f34764d4edc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1764129884
 GameObject:
   m_ObjectHideFlags: 0

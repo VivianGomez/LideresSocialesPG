@@ -1,7 +1,5 @@
-﻿using LitJson;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
 
 public class Movimiento : MonoBehaviour
@@ -18,7 +16,6 @@ public class Movimiento : MonoBehaviour
     public bool trigger;
     public GameObject imagen;
     public Animator animator;
-    public JsonData jsonData;
 
 
     void Start()
@@ -29,21 +26,10 @@ public class Movimiento : MonoBehaviour
         escala = transform.localScale;
         escalaX = escala.x;
         escalaY = escala.y;
-        if (File.Exists(Application.dataPath + "/Gamedata.json"))
-        {
-            jsonData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json"));
-            diaActual = (int)jsonData[0];
-        }
     }
 
     void Update()
     {
-        if (File.Exists(Application.dataPath + "/Gamedata.json"))
-        {
-            jsonData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json"));
-            diaActual = (int)jsonData[0];
-        }
-
         GameObject player = GameObject.Find("Personaje");
 
         transform.Translate(Input.GetAxis("Horizontal") * 3f * Time.deltaTime, 0f, 0f);
@@ -130,7 +116,6 @@ public class Movimiento : MonoBehaviour
         GameObject fondo = GameObject.Find("Background");
         Debug.Log("Colisión con " + col.name);
 
-        //print("El dia actual era....." + diaActual);
         if (col.name== "cama" && fondo.GetComponent<TimeDayFunction>().hora>6 && diaActual<4)
         {
             //imagen.SetActive(true);
