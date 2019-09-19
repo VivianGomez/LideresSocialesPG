@@ -84,6 +84,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
 
     void Start()
     {
+
         if (!File.Exists(Application.dataPath + "/Gamedata.json"))
         {
             cantidadAlimento1.text = (1).ToString();
@@ -205,13 +206,15 @@ public class JSONLoaderJuego0 : MonoBehaviour
     public void AbrirCarta()
     {
         if(!(textoCartaDia.Equals(""))){
-            SoundManager.PlaySound("abrirAlgo");            
+            //SoundManager.PlaySound("abrirAlgo");
+            
+                       
             buttonCloseModal.image.color = Color.black;
             panelInventario.SetActive(false);
             imageRegalo.enabled = false;
             wowRegalo.enabled = false;
             imageModal.enabled = true;
-            buttonLetter.image.sprite = Resources.Load<Sprite>("sobreAbierto");
+            buttonLetter.image.sprite = Resources.Load<Sprite>("sobreAbierto"); 
             imageModal.sprite = Resources.Load<Sprite>("paper");
             modal.SetActive(true);
             newsT.text="";
