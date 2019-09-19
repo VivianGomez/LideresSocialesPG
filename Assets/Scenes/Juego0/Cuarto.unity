@@ -1225,7 +1225,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.0742898, y: 1.2186611}
+  m_Offset: {x: -1.0897624, y: 1.4777596}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1236,7 +1236,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.8665915, y: 2.1743865}
+  m_Size: {x: 0.53595686, y: 0.6834321}
   m_EdgeRadius: 0
 --- !u!212 &300343116
 SpriteRenderer:
@@ -1578,6 +1578,7 @@ GameObject:
   - component: {fileID: 371112824}
   - component: {fileID: 371112823}
   - component: {fileID: 371112822}
+  - component: {fileID: 371112826}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -1763,7 +1764,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.9321074, y: -0.32138503}
+  m_Offset: {x: -1.9600089, y: -0.8039148}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1774,7 +1775,33 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.72283554, y: 1.0668926}
+  m_Size: {x: 0.85030794, y: 0.20056248}
+  m_EdgeRadius: 0
+--- !u!61 &371112826
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371112818}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -1.9115793, y: 0.11167055}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 8.03, y: 5.95}
+    newSize: {x: 8.02, y: 5.98}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.8334596, y: 0.1878196}
   m_EdgeRadius: 0
 --- !u!114 &371300342 stripped
 MonoBehaviour:
@@ -2167,6 +2194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 675998347}
+  personaje: {fileID: 0}
 --- !u!95 &675998347
 Animator:
   serializedVersion: 3
