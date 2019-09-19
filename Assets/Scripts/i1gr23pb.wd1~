@@ -154,10 +154,9 @@ public class JSONLoaderJuego0 : MonoBehaviour
 
 
     public IEnumerator LoadInfoDia(int dia){
-        if (infoDias != null)
-        {
-            yield return new WaitForSeconds(1); 
-                textoCartaDia = "" + infoDias[dia]["textoCarta"];           
+        while(!loadingSpriteStart.active)   {
+            yield return new WaitForSeconds(1);   
+            textoCartaDia = ""+infoDias[dia]["textoCarta"];
             textoNoticiaDia = ""+infoDias[dia]["textoPeriodico"];
             textoRegaloCarta = ""+infoDias[dia]["textoRegaloCarta"];
             textoRegaloLiderazgo = ""+infoDias[dia]["textoRegaloLiderazgo"];
@@ -165,7 +164,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
             cantRegaloCarta = (int)infoDias[dia]["regaloCarta"]["cantidad"];
             regaloLiderazgo = ""+infoDias[dia]["regaloLiderazgo"]["nombre"];
             cantRegaloLiderazgo = (int)infoDias[dia]["regaloLiderazgo"]["cantidad"];
-        }  
+        } 
     }
 
     void LoadInfoAlimentos(JsonData alimentos)

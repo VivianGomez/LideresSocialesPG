@@ -31,7 +31,7 @@ public class DayChanger : MonoBehaviour
         fondo.GetComponent<TimeDayFunction>().red = 1.0f;
         fondo.GetComponent<TimeDayFunction>().green = 1.0f;
         fondo.GetComponent<TimeDayFunction>().blue = 1.0f;
-        fondo.GetComponent<TimeDayFunction>().inicio = 0.0f;
+        fondo.GetComponent<TimeDayFunction>().inicio = Time.time;
         fondo.GetComponent<TimeDayFunction>().hora = 6;
         fondo.GetComponent<TimeDayFunction>().segundoActual = 0.0;
         fondo.GetComponent<TimeDayFunction>().ultimoSegundo = 0.0;
