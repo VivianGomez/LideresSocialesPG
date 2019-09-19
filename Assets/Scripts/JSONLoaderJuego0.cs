@@ -154,8 +154,8 @@ public class JSONLoaderJuego0 : MonoBehaviour
 
 
     public IEnumerator LoadInfoDia(int dia){
-        if(!loadingSpriteStart.active)   {
-            yield return new WaitForSeconds(1);   
+        if(infoDias!=null)   {
+            yield return new WaitForSeconds(1); 
             textoCartaDia = ""+infoDias[dia]["textoCarta"];
             textoNoticiaDia = ""+infoDias[dia]["textoPeriodico"];
             textoRegaloCarta = ""+infoDias[dia]["textoRegaloCarta"];
@@ -245,6 +245,22 @@ public class JSONLoaderJuego0 : MonoBehaviour
         buttonCloseModal.image.color = Color.white;
     }
 
+    private int buscarAlimento(string nombre)
+    {
+        int rta = -1;
+        for (int i = 0; i < gameData[8].Count; i++)
+        {
+            if(gameData[8][i].Equals(nombre)){
+                rta = i;
+            }
+        }
+        return rta;
+    }
+
+    private TextMeshProUGUI darAlimentoCantText(int indice)
+    {
+        return GameObject.Find("cantidadAlimento1").GetComponent<TextMeshProUGUI>();
+    }
     
     public void AbrirRegalo()
     {
@@ -262,6 +278,9 @@ public class JSONLoaderJuego0 : MonoBehaviour
             tituloR.text="¡Recibiste un regalo";
             giftT.text=textoRegaloCarta;
             cantRegaloModal.text = "X "+ cantRegaloCarta;
+            int indiceAl = buscarAlimento(regaloCarta);
+            print(darAlimentoCantText(indiceAl));
+            darAlimentoCantText(indiceAl).text = "" + (Int32.Parse(darAlimentoCantText(indiceAl).text) + 1);
         }
         else{
             informationT.text = "Hoy no me trajeron regalos ... ";
