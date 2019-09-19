@@ -286,8 +286,8 @@ public class JSONLoaderJuego0 : MonoBehaviour
     {
         print("te"+ textoRegaloCarta);
         gameData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json"));
-        if((!(textoRegaloCarta.Equals(""))) 
-        && (gameData[4].Equals("0"))){
+        if((!(textoRegaloCarta.Equals(""))) && (gameData[4].ToString().Equals("0")))
+        {
             buttonCloseModal.image.color = Color.black;
             panelInventario.SetActive(false);
             imageRegalo.enabled = true;
