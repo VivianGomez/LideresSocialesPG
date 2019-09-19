@@ -17,6 +17,28 @@ public class JSONLoaderJuego0 : MonoBehaviour
     private JsonData jData;
     private JsonData gameData;
     private string textoCartaDia;
+
+    private JsonData infoDias;
+
+    private TimeDayFunction timeDayFunction;
+
+    private string textoRegaloCarta;
+    private string textoRegaloLiderazgo;
+    private string regaloCarta;
+    public int cantRegaloCarta;
+
+    private string regaloLiderazgo;
+    public int cantRegaloLiderazgo;
+
+    public Image imageRegalo;
+    public Image wowRegalo;
+    public TextMeshProUGUI giftT;
+    public TextMeshProUGUI tituloR;
+    public TextMeshProUGUI cantRegaloModal;
+
+
+    //****************************************************************************************
+
     private string textoNoticiaDia;
 
     public GameObject jugador;
@@ -55,6 +77,16 @@ public class JSONLoaderJuego0 : MonoBehaviour
 
     //public const string url ="https://firebasestorage.googleapis.com/v0/b/lideresocialespg.appspot.com/o/juego0.json?alt=media&token=3d8deac2-9fd0-4a22-98a3-3bc7629f809b";
     public const string url ="https://lideresocialespg.firebaseio.com/juegos.json";
+
+    void Awake()
+    {
+        timeDayFunction = GameObject.FindObjectOfType<TimeDayFunction>();
+    }
+
+    void Update(){
+         StartCoroutine(LoadInfoDia((timeDayFunction.dia)-1));
+    }
+
     void Start()
     {
         if (!File.Exists(Application.dataPath + "/Gamedata.json"))
@@ -107,7 +139,8 @@ public class JSONLoaderJuego0 : MonoBehaviour
 
            WWW reqSprite = new WWW(""+jData[1]["personaje"]["imagenPersonaje"]);
 
-           LoadInfoDia(jData[1]["infoDias"]);
+           infoDias = jData[1]["infoDias"];
+
            gameData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json"));
            LoadInfoAlimentos(gameData[8]);
            loadingSpriteStart.SetActive(false);
@@ -120,10 +153,18 @@ public class JSONLoaderJuego0 : MonoBehaviour
     }
 
 
-    void LoadInfoDia(JsonData infoDias){
-            
-        textoCartaDia = ""+infoDias[0]["textoCarta"];
-        textoNoticiaDia = ""+infoDias[0]["textoPeriodico"];
+    public IEnumerator LoadInfoDia(int dia){
+        if(!loadingSpriteStart.active)   {
+            yield return new WaitForSeconds(1);   
+            textoCartaDia = ""+infoDias[dia]["textoCarta"];
+            textoNoticiaDia = ""+infoDias[dia]["textoPeriodico"];
+            textoRegaloCarta = ""+infoDias[dia]["textoRegaloCarta"];
+            textoRegaloLiderazgo = ""+infoDias[dia]["textoRegaloLiderazgo"];
+            regaloCarta = ""+infoDias[dia]["regaloCarta"]["nombre"];
+            cantRegaloCarta = (int)infoDias[dia]["regaloCarta"]["cantidad"];
+            regaloLiderazgo = ""+infoDias[dia]["regaloLiderazgo"]["nombre"];
+            cantRegaloLiderazgo = (int)infoDias[dia]["regaloLiderazgo"]["cantidad"];
+        } 
     }
 
     void LoadInfoAlimentos(JsonData alimentos)
@@ -147,6 +188,11 @@ public class JSONLoaderJuego0 : MonoBehaviour
             imageModal.sprite = Resources.Load<Sprite>("periodico");
             modal.SetActive(true);
             letterT.text="";
+            giftT.text="";
+            cantRegaloModal.text="";
+            tituloR.text="";
+            imageRegalo.enabled = false;
+            wowRegalo.enabled = false;
             newsT.text = textoNoticiaDia;
         }
         else{
@@ -166,15 +212,20 @@ public class JSONLoaderJuego0 : MonoBehaviour
         if(!(textoCartaDia.Equals(""))){
             buttonCloseModal.image.color = Color.black;
             panelInventario.SetActive(false);
+            imageRegalo.enabled = false;
+            wowRegalo.enabled = false;
             imageModal.enabled = true;
             buttonLetter.image.sprite = Resources.Load<Sprite>("sobreAbierto");
             imageModal.sprite = Resources.Load<Sprite>("paper");
             modal.SetActive(true);
             newsT.text="";
+            giftT.text="";
+            cantRegaloModal.text="";
+            tituloR.text="";
             letterT.text = textoCartaDia;
         }
         else{
-            letterT.text = "Hoy no me trajeron cartas ... ";
+            informationT.text = "Hoy no me trajeron cartas ... ";
             StartCoroutine(ActivationRoutine());
         }
     }
@@ -185,8 +236,37 @@ public class JSONLoaderJuego0 : MonoBehaviour
         imageModal.enabled = false;
         newsT.text = "";
         letterT.text = "";
+        giftT.text="";
+        cantRegaloModal.text="";
+        tituloR.text="";
+        imageRegalo.enabled = false;
+        wowRegalo.enabled = false;
         modal.SetActive(true);
         buttonCloseModal.image.color = Color.white;
+    }
+
+    
+    public void AbrirRegalo()
+    {
+        if(!(textoRegaloCarta.Equals(""))){
+            buttonCloseModal.image.color = Color.black;
+            panelInventario.SetActive(false);
+            imageRegalo.enabled = true;
+            wowRegalo.enabled = true;
+            imageRegalo.sprite = Resources.Load<Sprite>("comida/"+regaloCarta.ToLowerInvariant());
+            imageModal.enabled = true;
+            imageModal.sprite = Resources.Load<Sprite>("paper");
+            modal.SetActive(true);
+            newsT.text="";
+            letterT.text = "";
+            tituloR.text="¡Recibiste un regalo";
+            giftT.text=textoRegaloCarta;
+            cantRegaloModal.text = "X "+ cantRegaloCarta;
+        }
+        else{
+            informationT.text = "Hoy no me trajeron regalos ... ";
+            StartCoroutine(ActivationRoutine());
+        }
     }
 
     public void CerrarCarta()
