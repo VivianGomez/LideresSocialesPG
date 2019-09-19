@@ -99,7 +99,7 @@ public class Movimiento : MonoBehaviour
         GameObject fondo = GameObject.Find("Background");
         Debug.Log("Colisión con " + col.name);
 
-        if (col.name== "sofa" && fondo.GetComponent<TimeDayFunction>().hora>6)
+        if (col.name== "cama" && fondo.GetComponent<TimeDayFunction>().hora>6)
         {
             imagen.SetActive(true);
             if (imagen != null)

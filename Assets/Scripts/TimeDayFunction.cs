@@ -26,6 +26,7 @@ public class TimeDayFunction : MonoBehaviour
     public double segundoActual;
     public JsonData jsonData;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +48,7 @@ public class TimeDayFunction : MonoBehaviour
         }
         else
         {
+            
             jsonData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json"));
             dia = (int)jsonData[0];
             hora = (int)jsonData[3];
