@@ -39,9 +39,13 @@ public class EnergyBar : MonoBehaviour
 
     public void Hungry(float value)
 	{
-		Energy -= value;
-		energyBar.size = Energy / 100f;
-	}
+        if(Energy>0)
+        {
+            Energy -= value;
+            
+        }
+        energyBar.size = Energy / 100f;
+    }
 
     public void Comer(int indice)
     {
