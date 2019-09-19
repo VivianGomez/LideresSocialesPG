@@ -33,6 +33,7 @@ public class DayChanger : MonoBehaviour
         fondo.GetComponent<TimeDayFunction>().blue = 1;
         fondo.GetComponent<TimeDayFunction>().inicio = Time.time;
         fondo.GetComponent<TimeDayFunction>().hora = 6;
+        fondo.GetComponent<TimeDayFunction>().segundoActual = 0.0;
         fondo.GetComponent<TimeDayFunction>().ultimoSegundo = 0.0;
         print("se aumento el dia");
 
