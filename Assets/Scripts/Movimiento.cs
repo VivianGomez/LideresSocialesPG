@@ -12,8 +12,10 @@ public class Movimiento : MonoBehaviour
     AnimationLoadManager animationLoadManager;
     public int diaActual;
     public GameObject objeto;
+    public bool camina;
     public bool trigger;
     public GameObject imagen;
+    public Animator animator;
 
 
     void Start()
@@ -30,22 +32,37 @@ public class Movimiento : MonoBehaviour
     {
         GameObject player = GameObject.Find("Personaje");
 
-        transform.Translate(Input.GetAxis("Horizontal") * 5f * Time.deltaTime, 0f, 0f);
-        transform.Translate(0f, Input.GetAxis("Vertical") * 5f * Time.deltaTime, 0f);
+        transform.Translate(Input.GetAxis("Horizontal") * 3f * Time.deltaTime, 0f, 0f);
+        transform.Translate(0f, Input.GetAxis("Vertical") * 3f * Time.deltaTime, 0f);
 
         if (Input.GetAxis("Horizontal") < 0)
         {
+            camina = true;
+            animator.SetTrigger("camina");
             escala.x = -escalaX;
         }
         if (Input.GetAxis("Horizontal") > 0)
         {
+            camina = true;
+            animator.SetTrigger("camina");
             escala.x = escalaX;
         }
         if (Input.GetAxis("Vertical") > 0)
         {
+            camina = true;
+            animator.SetTrigger("camina");
+            escala.y = escalaY;
+        }
+        if (Input.GetAxis("Vertical") < 0)
+        {
+            camina = true;
+            animator.SetTrigger("camina");
             escala.y = escalaY;
         }
         transform.localScale = escala;
+
+        camina = false;
+        animator.SetTrigger("dejaCaminar"); 
     }
 
     void loadAnimation()
@@ -102,14 +119,18 @@ public class Movimiento : MonoBehaviour
         if (col.name== "cama" && fondo.GetComponent<TimeDayFunction>().hora>6)
         {
             //imagen.SetActive(true);
-           // if (imagen != null)
+            // if (imagen != null)
             //{
-              //  StartCoroutine(imagen.GetComponent<VideoStream>().playVideo());
+            //  StartCoroutine(imagen.GetComponent<VideoStream>().playVideo());
             //}
             //else print("es nula");
+
+            animator.SetTrigger("duerme");
             
             trigger = true;
             objeto.SetActive(true);
+
+            animator.SetTrigger("despierta");
         }
 
         //loadAnimation();   

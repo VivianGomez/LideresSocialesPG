@@ -2011,6 +2011,7 @@ GameObject:
   - component: {fileID: 1003190626}
   - component: {fileID: 1003190624}
   - component: {fileID: 1003190625}
+  - component: {fileID: 1003190629}
   m_Layer: 0
   m_Name: Personaje
   m_TagString: Player
@@ -2033,8 +2034,10 @@ MonoBehaviour:
   animacion: {fileID: 1456124649}
   diaActual: 0
   objeto: {fileID: 867632307}
+  camina: 0
   trigger: 0
   imagen: {fileID: 717994511}
+  animator: {fileID: 1003190629}
 --- !u!50 &1003190625
 Rigidbody2D:
   serializedVersion: 4
@@ -2145,6 +2148,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1003190629
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003190623}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fc9f73ff53bded64c9445f34764d4edc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1009768287
 GameObject:
   m_ObjectHideFlags: 0
@@ -4132,6 +4154,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Modal
       objectReference: {fileID: 0}
+    - target: {fileID: 4065673786119580880, guid: e0e008e40871480448f258210af85bc2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1378855917}
     - target: {fileID: 4065673786331652474, guid: e0e008e40871480448f258210af85bc2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4277,10 +4304,5 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1378855918}
-    - target: {fileID: 4065673786119580880, guid: e0e008e40871480448f258210af85bc2,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1378855917}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0e008e40871480448f258210af85bc2, type: 3}
