@@ -68,6 +68,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
     public TextMeshProUGUI cantidadAlimento6;
     public TextMeshProUGUI cantidadAlimento7;
     public TextMeshProUGUI cantidadAlimento8;
+    GameObject p;
 
 
     //public const string url ="https://firebasestorage.googleapis.com/v0/b/lideresocialespg.appspot.com/o/juego0.json?alt=media&token=3d8deac2-9fd0-4a22-98a3-3bc7629f809b";
@@ -84,7 +85,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
 
     void Start()
     {
-
+        p= GameObject.Find("Personaje");
         if (!File.Exists(Application.dataPath + "/Gamedata.json"))
         {
             cantidadAlimento1.text = (1).ToString();
@@ -119,6 +120,8 @@ public class JSONLoaderJuego0 : MonoBehaviour
     public void Request()
     {
         WWW request = new WWW(url);
+       
+        p.GetComponent<Movimiento>().permiteMoverse = false;
         loadingSpriteStart.SetActive(true);
         StartCoroutine(OnResponse(request));
     }
@@ -140,11 +143,12 @@ public class JSONLoaderJuego0 : MonoBehaviour
            gameData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json"));
            LoadInfoAlimentos(gameData[8]);
            loadingSpriteStart.SetActive(false);
+            p.GetComponent<Movimiento>().permiteMoverse = true;
 
         }
         else
         {
-            Debug.LogError("No se puedieron cargar los datos del juego");
+            Debug.LogError("No se puedieron cargar los datos del juego"); 
         }
     }
 
@@ -178,6 +182,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
     public void AbrirPeriodico()
     {
         if(!(textoNoticiaDia.Equals(""))){
+            p.GetComponent<Movimiento>().permiteMoverse = false;
             buttonCloseModal.image.color = Color.black;
             panelInventario.SetActive(false);
             imageModal.enabled = true;
@@ -207,8 +212,8 @@ public class JSONLoaderJuego0 : MonoBehaviour
     {
         if(!(textoCartaDia.Equals(""))){
             //SoundManager.PlaySound("abrirAlgo");
-            
-                       
+
+            p.GetComponent<Movimiento>().permiteMoverse = false;
             buttonCloseModal.image.color = Color.black;
             panelInventario.SetActive(false);
             imageRegalo.enabled = false;
@@ -231,6 +236,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
 
     public void AbrirDespensa()
     {
+        p.GetComponent<Movimiento>().permiteMoverse = false;
         panelInventario.SetActive(true);
         imageModal.enabled = false;
         newsT.text = "";
@@ -340,8 +346,10 @@ public class JSONLoaderJuego0 : MonoBehaviour
 
     public void CerrarCarta()
     {
+
         buttonLetter.image.sprite = Resources.Load<Sprite>("letter");
         modal.SetActive(false);
+        p.GetComponent<Movimiento>().permiteMoverse = true;
     }
 
 
