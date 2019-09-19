@@ -110,7 +110,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
             cantidadAlimento5.text = (gameData[1][4]).ToString();
             cantidadAlimento6.text = (gameData[1][5]).ToString();
             cantidadAlimento7.text = (gameData[1][6]).ToString();
-            cantidadAlimento8.text = (gameData[1][7]).ToString(); 
+            cantidadAlimento8.text = (gameData[1][7]).ToString();
         }
 
         informationT.text = "";
@@ -154,10 +154,9 @@ public class JSONLoaderJuego0 : MonoBehaviour
 
 
     public IEnumerator LoadInfoDia(int dia){
-        if (infoDias != null)
-        {
+        if(infoDias!=null)   {
             yield return new WaitForSeconds(1); 
-                textoCartaDia = "" + infoDias[dia]["textoCarta"];           
+            textoCartaDia = ""+infoDias[dia]["textoCarta"];
             textoNoticiaDia = ""+infoDias[dia]["textoPeriodico"];
             textoRegaloCarta = ""+infoDias[dia]["textoRegaloCarta"];
             textoRegaloLiderazgo = ""+infoDias[dia]["textoRegaloLiderazgo"];
@@ -165,7 +164,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
             cantRegaloCarta = (int)infoDias[dia]["regaloCarta"]["cantidad"];
             regaloLiderazgo = ""+infoDias[dia]["regaloLiderazgo"]["nombre"];
             cantRegaloLiderazgo = (int)infoDias[dia]["regaloLiderazgo"]["cantidad"];
-        }  
+        } 
     }
 
     void LoadInfoAlimentos(JsonData alimentos)
@@ -246,6 +245,47 @@ public class JSONLoaderJuego0 : MonoBehaviour
         buttonCloseModal.image.color = Color.white;
     }
 
+    private int buscarAlimento(string nombre)
+    {
+        int rta = -1;
+        for (int i = 0; i < gameData[8].Count; i++)
+        {
+            if(gameData[8][i].Equals(nombre)){
+                rta = i;
+            }
+        }
+        return rta;
+    }
+
+    private TextMeshProUGUI darAlimentoCantText(int indice)
+    {
+       TextMeshProUGUI rta = null;
+       if(indice == 0){
+           rta = cantidadAlimento1;
+       }
+       else if(indice == 1){
+           rta = cantidadAlimento2;
+       }
+       else if(indice == 2){
+           rta = cantidadAlimento3;
+       }
+       else if(indice == 3){
+           rta = cantidadAlimento4;
+       }
+       else if(indice == 4){
+           rta = cantidadAlimento5;
+       }
+       else if(indice == 5){
+           rta = cantidadAlimento6;
+       }
+       else if(indice == 6){
+           rta = cantidadAlimento7;
+       }
+       else{
+           rta = cantidadAlimento8;
+       }
+       return rta;
+    }
     
     public void AbrirRegalo()
     {
@@ -263,6 +303,9 @@ public class JSONLoaderJuego0 : MonoBehaviour
             tituloR.text="¡Recibiste un regalo";
             giftT.text=textoRegaloCarta;
             cantRegaloModal.text = "X "+ cantRegaloCarta;
+            int indiceAl = buscarAlimento(regaloCarta);
+            print(darAlimentoCantText(indiceAl));
+            darAlimentoCantText(indiceAl).text = "" + (Int32.Parse(darAlimentoCantText(indiceAl).text) + cantRegaloCarta);
         }
         else{
             informationT.text = "Hoy no me trajeron regalos ... ";
