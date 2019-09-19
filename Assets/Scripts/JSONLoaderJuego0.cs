@@ -205,6 +205,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
     public void AbrirCarta()
     {
         if(!(textoCartaDia.Equals(""))){
+            SoundManager.PlaySound("abrirAlgo");            
             buttonCloseModal.image.color = Color.black;
             panelInventario.SetActive(false);
             imageRegalo.enabled = false;
@@ -287,6 +288,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
         gameData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json"));
         if((!(textoRegaloCarta.Equals(""))) && (gameData[4].ToString().Equals("0")))
         {
+            //SoundManager.PlaySound("abrirAlgo");            
             buttonCloseModal.image.color = Color.black;
             panelInventario.SetActive(false);
             imageRegalo.enabled = true;
@@ -344,6 +346,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
     // return porcentajesEnergia[indiceAlimento];
     public int darPorcentajeEnergiaAlimento(int indiceAlimento)
     {
+        SoundManager.PlaySound("comer");
         gameData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json"));
         if (indiceAlimento == 1 && int.Parse(cantidadAlimento1.text)!=0)
         {

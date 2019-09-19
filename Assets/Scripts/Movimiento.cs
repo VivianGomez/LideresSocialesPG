@@ -141,7 +141,7 @@ public class Movimiento : MonoBehaviour
             //else print("es nula");
 
             animator.SetTrigger("duerme");
-                        
+            SoundManager.PlaySound("dormir");            
         }
 
         //loadAnimation();   
