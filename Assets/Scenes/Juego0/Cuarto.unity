@@ -2724,6 +2724,18 @@ RectTransform:
   m_AnchoredPosition: {x: -0.007, y: 0.013}
   m_SizeDelta: {x: 13.335, y: 10.091}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1018920409 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5027317481937468087, guid: e0e008e40871480448f258210af85bc2,
+    type: 3}
+  m_PrefabInstance: {fileID: 4065673786454355228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1067029208 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4065673786779975620, guid: e0e008e40871480448f258210af85bc2,
@@ -2758,6 +2770,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1222195032 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5027317481845259053, guid: e0e008e40871480448f258210af85bc2,
+    type: 3}
+  m_PrefabInstance: {fileID: 4065673786454355228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1271142854 stripped
@@ -4285,6 +4309,16 @@ PrefabInstance:
       propertyPath: cantidadAlimento8
       value: 
       objectReference: {fileID: 420067700}
+    - target: {fileID: 4023264202631286061, guid: cf0e63a536d57b742a2b08ba29ba3fdd,
+        type: 3}
+      propertyPath: cantRegaloModal
+      value: 
+      objectReference: {fileID: 1018920409}
+    - target: {fileID: 4023264202631286061, guid: cf0e63a536d57b742a2b08ba29ba3fdd,
+        type: 3}
+      propertyPath: wowRegalo
+      value: 
+      objectReference: {fileID: 1222195032}
     - target: {fileID: 4023264202631286060, guid: cf0e63a536d57b742a2b08ba29ba3fdd,
         type: 3}
       propertyPath: energyBar
@@ -4303,6 +4337,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Modal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065673786331652473, guid: e0e008e40871480448f258210af85bc2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4065673786331652474, guid: e0e008e40871480448f258210af85bc2,
         type: 3}
@@ -4488,6 +4527,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textAlignment
       value: 514
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065673787827043745, guid: e0e008e40871480448f258210af85bc2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065673786594668124, guid: e0e008e40871480448f258210af85bc2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4065673786594668066, guid: e0e008e40871480448f258210af85bc2,
         type: 3}
