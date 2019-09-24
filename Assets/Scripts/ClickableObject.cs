@@ -14,6 +14,10 @@ public class ClickableObject : MonoBehaviour
         {
             CursorController.Instance.SetMomCursor();
         }
+        else if(gameObject.name.Equals("camaClick"))
+        {
+            CursorController.Instance.SetDormirCursor();
+        }
     }
 
     private void OnMouseExit()
