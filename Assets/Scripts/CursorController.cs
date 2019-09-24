@@ -11,6 +11,9 @@ public class CursorController : MonoBehaviour
     [SerializeField]
     private Texture2D moveCursor;
 
+    [SerializeField]
+    private Texture2D dormirCursor;
+
     public static CursorController Instance { get; private set; }
 
     private void Awake()
@@ -39,6 +42,11 @@ public class CursorController : MonoBehaviour
     public void SetMoveCursor()
     {
         Cursor.SetCursor(moveCursor, Vector2.zero, CursorMode.Auto);
+    }
+
+     public void SetDormirCursor()
+    {
+        Cursor.SetCursor(dormirCursor, Vector2.zero, CursorMode.Auto);
     }
 
     public void SetMomCursor()

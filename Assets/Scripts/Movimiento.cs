@@ -1,6 +1,6 @@
 ﻿using LitJson;
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.UI;
+using TMPro;
 using System.IO;
 using UnityEngine;
 
@@ -20,6 +20,8 @@ public class Movimiento : MonoBehaviour
     public Animator animator;
     public JsonData jsonData;
 
+    public GameObject panelOpcionesCama;
+    //public TextMeshProUGUI buttonAlimento1;
 
     void Start()
     {
@@ -29,6 +31,7 @@ public class Movimiento : MonoBehaviour
         escala = transform.localScale;
         escalaX = escala.x;
         escalaY = escala.y;
+        panelOpcionesCama.SetActive(false);
         if (File.Exists(Application.dataPath + "/Gamedata.json"))
         {
             jsonData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json"));
@@ -128,7 +131,7 @@ public class Movimiento : MonoBehaviour
         }
     }
 
-
+/**
     void OnTriggerEnter2D(Collider2D col)
     {
         GameObject fondo = GameObject.Find("Background");
@@ -156,6 +159,25 @@ public class Movimiento : MonoBehaviour
         
         //Invoke("LoadAnimataionClip", 3);
 
+    }
+ */
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        GameObject fondo = GameObject.Find("Background");
+
+        if (col.name== "camaClick" && fondo.GetComponent<TimeDayFunction>().hora>6 && diaActual<4)
+        {   
+            print("si"+ col.name);
+            panelOpcionesCama.SetActive(true);
+        }
+    }
+
+    public void dormir(){
+        animator.SetTrigger("duerme");
+            
+        SoundManager.PlaySound("dormir");
+        permiteMoverse = false;
     }
 
     public void permitirAnimacion()
