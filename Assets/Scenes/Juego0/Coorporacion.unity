@@ -8923,6 +8923,11 @@ PrefabInstance:
       propertyPath: m_margin.z
       value: 0.24075222
       objectReference: {fileID: 0}
+    - target: {fileID: 8812127580723722417, guid: 50a8cdd4aa3b9b64386c6a669ce221a6,
+        type: 3}
+      propertyPath: m_text
+      value: Cargando...
+      objectReference: {fileID: 0}
     - target: {fileID: 8812127582385496913, guid: 50a8cdd4aa3b9b64386c6a669ce221a6,
         type: 3}
       propertyPath: m_LocalPosition.x
