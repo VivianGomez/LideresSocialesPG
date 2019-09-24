@@ -245,6 +245,13 @@ MonoBehaviour:
   green1: 0
   blue1: 0
   segundoActual: 0
+  ninaCalle: {fileID: 0}
+  ninoCalle: {fileID: 0}
+  ninaCoorp: {fileID: 0}
+  ninoCoorp: {fileID: 0}
+  calvoGrandeCoorp: {fileID: 0}
+  calvoPequenoCoorp: {fileID: 0}
+  nino2Coorp: {fileID: 0}
 --- !u!212 &115774683
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -544,9 +551,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.0030500889, y: 0.00029993057}
+  m_AnchoredPosition: {x: -0.0030501783, y: 0.00029993057}
   m_SizeDelta: {x: 0, y: 0.5886}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.035105225, y: 0.5}
 --- !u!114 &170426334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -921,6 +928,8 @@ MonoBehaviour:
   momCursor: {fileID: 2800000, guid: c281e3d965083ea4eabae3afe303789f, type: 3}
   neveraCursor: {fileID: 2800000, guid: b2cfce490f3beaf40bab2abba46a308e, type: 3}
   moveCursor: {fileID: 2800000, guid: ddd71415732a2c945957bce4fe2346ba, type: 3}
+  dormirCursor: {fileID: 0}
+  infoCursor: {fileID: 0}
 --- !u!4 &335471852
 Transform:
   m_ObjectHideFlags: 0
@@ -2362,6 +2371,7 @@ MonoBehaviour:
   trigger: 0
   imagen: {fileID: 717994511}
   animator: {fileID: 1003190629}
+  panelOpcionesCama: {fileID: 0}
 --- !u!50 &1003190625
 Rigidbody2D:
   serializedVersion: 4
@@ -3846,9 +3856,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 3.8515, y: -0.7498}
+  m_AnchoredPosition: {x: 1.315311, y: -0.7498}
   m_SizeDelta: {x: 5.4003, y: 0.5886}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.030361515, y: 0.5}
 --- !u!1 &1571589440
 GameObject:
   m_ObjectHideFlags: 0
@@ -4264,9 +4274,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 2.7032, y: -0.00029993057}
+  m_AnchoredPosition: {x: 0.19262886, y: -0.00029993057}
   m_SizeDelta: {x: 5.4003, y: 0.5886}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.03510527, y: 0.5}
 --- !u!114 &2020795264
 MonoBehaviour:
   m_ObjectHideFlags: 0
