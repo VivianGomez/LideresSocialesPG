@@ -20,7 +20,7 @@ public class PanelInicio : MonoBehaviour
     { 
         yield return new WaitForSeconds(4.5f);
         imagenLider.sprite = null;
-        infoLider.text = "Kevin Julian León";
+        infoLider.text = "Kevin Julian Leon";
         yield return new WaitForSeconds(5);
         SceneManager.LoadSceneAsync("Cuarto");
     }
