@@ -126,6 +126,12 @@ public class JSONLoaderJuego0 : MonoBehaviour
         StartCoroutine(OnResponse(request));
     }
 
+    IEnumerator loading(){
+       yield return new WaitForSeconds(2); 
+        loadingSpriteStart.SetActive(false);
+    }
+
+
     private IEnumerator OnResponse(WWW req)
     {
         yield return req;
@@ -142,7 +148,8 @@ public class JSONLoaderJuego0 : MonoBehaviour
 
            gameData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json"));
            LoadInfoAlimentos(gameData[8]);
-           loadingSpriteStart.SetActive(false);
+            StartCoroutine(loading());
+
             p.GetComponent<Movimiento>().permiteMoverse = true;
 
         }
@@ -334,7 +341,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
         }
         else{
             if(gameData[4].Equals("1")){
-                informationT.text = "No hay más regalos ... ";
+                informationT.text = "NO HAY MÁS REGALOS ... ";
             }
             else{
                 informationT.text = "Hoy no me trajeron regalos ... ";
