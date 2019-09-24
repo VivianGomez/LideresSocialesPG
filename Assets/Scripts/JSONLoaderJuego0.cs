@@ -129,6 +129,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
     IEnumerator loading(){
        yield return new WaitForSeconds(2); 
         loadingSpriteStart.SetActive(false);
+        p.GetComponent<Movimiento>().permiteMoverse = true;
     }
 
 
@@ -150,7 +151,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
            LoadInfoAlimentos(gameData[8]);
             StartCoroutine(loading());
 
-            p.GetComponent<Movimiento>().permiteMoverse = true;
+            
 
         }
         else

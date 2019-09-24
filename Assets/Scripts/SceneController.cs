@@ -6,6 +6,7 @@ public class SceneController : MonoBehaviour
 
     public static string prevScene = "";
     public static string currentScene = "";
+    GameObject p;
 
     public virtual void Start()
     {

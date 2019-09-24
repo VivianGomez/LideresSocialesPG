@@ -39,18 +39,5 @@ public class Teleport : MonoBehaviour
 
     }
 
-    public IEnumerator LoadingNextLevel(string levelLoad)
-    {
-       
-        GameObject player = GameObject.Find("Personaje");
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(levelToLoad);
-        //ls.LoadImageCanvas();
-
-        while (!asyncLoad.isDone)
-        {
-            yield return null;
-        }
-        
-    }
-
+   
     }

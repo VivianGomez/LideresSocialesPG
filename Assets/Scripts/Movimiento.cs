@@ -9,7 +9,7 @@ public class Movimiento : MonoBehaviour
     Vector3 escala;
     float escalaX;
     float escalaY;
-    public bool permiteMoverse = true;
+    public bool permiteMoverse ;
     public GameObject animacion;
     AnimationLoadManager animationLoadManager;
     public int diaActual;
