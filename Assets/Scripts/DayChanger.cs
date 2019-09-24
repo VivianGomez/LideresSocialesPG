@@ -32,6 +32,7 @@ public class DayChanger : MonoBehaviour
         tomoRegaloCarta = "" + gameData[4];
         GameObject p = GameObject.Find("Personaje");
         p.GetComponent<Movimiento>().animator.SetTrigger("despierta");
+        p.GetComponent<Movimiento>().panelOpcionesCama.SetActive(false);
 
         GameObject fondo = GameObject.Find("Background");
         GameObject camara = GameObject.Find("Main Camera");

@@ -192,10 +192,18 @@ public class Movimiento : MonoBehaviour
     }
 
     public void OnClick(){
-        animator.SetTrigger("duerme");
-            
-        SoundManager.PlaySound("dormir");
-        permiteMoverse = false;
+
+        GameObject fondo = GameObject.Find("Background");
+        if ( fondo.GetComponent<TimeDayFunction>().hora > 6 && diaActual < 4)
+        {
+            panelOpcionesCama.SetActive(false);
+            animator.SetTrigger("duerme");
+
+            SoundManager.PlaySound("dormir");
+            permiteMoverse = false;
+
+        }
+        
     }
 
     public void permitirAnimacion()
