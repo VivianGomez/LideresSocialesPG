@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - sceneChanger
+  - Cocina
+  - Cuarto
+  - Calle
   layers:
   - Default
   - TransparentFX

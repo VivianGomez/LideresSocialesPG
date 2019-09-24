@@ -6,18 +6,15 @@ using System.Collections;
 
 public class Teleport : MonoBehaviour
 {
-    [SerializeField] private string levelToLoad;
+    public string levelToLoad;
+    public string puntoAparicion;
     //public LoadSceneTransition ls;
     private JsonData gameData;
 
     private string tomoRegaloCarta;
 
-    private SceneController sceneController;
-    
-
     void Start()
     {
-        sceneController = GameObject.FindGameObjectWithTag("GameController").GetComponent<SceneController>();
         if (File.Exists(Application.dataPath + "/Gamedata.json"))
         {
             gameData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json"));
@@ -35,13 +32,13 @@ public class Teleport : MonoBehaviour
 
         if (cTrigger.tag != "Player") { return; }
 
-        sceneController.LoadScene(levelToLoad);
+            StartCoroutine(LoadingNextLevel(levelToLoad, puntoAparicion));
 
     }
 
-    public IEnumerator LoadingNextLevel(string levelLoad)
+    public IEnumerator LoadingNextLevel(string levelLoad, string spawnPoint)
     {
-       
+       // Scene currentScene = SceneManager.GetActiveScene();
         GameObject player = GameObject.Find("Personaje");
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(levelToLoad);
         //ls.LoadImageCanvas();
@@ -51,6 +48,28 @@ public class Teleport : MonoBehaviour
             yield return null;
         }
         
+        if (spawnPoint== "Sala")
+        {
+            player.transform.position= GameObject.FindGameObjectWithTag("Sala").transform.position;
+        }
+        else if(spawnPoint == "Cocina")
+        {
+            player.transform.position = GameObject.FindGameObjectWithTag("Cocina").transform.position;
+        }
+        else if (spawnPoint == "Cuarto")
+        {
+            player.transform.position = GameObject.FindGameObjectWithTag("Cuarto").transform.position;
+        }
+        else if (spawnPoint == "Coorporacion")
+        {
+            player.transform.position = GameObject.FindGameObjectWithTag("Coorporacion").transform.position;
+        }
+        else if (spawnPoint == "Calle")
+        {
+            player.transform.position = GameObject.FindGameObjectWithTag("Calle").transform.position;
+        }
+
+       // SceneManager.UnloadSceneAsync(currentScene);
     }
 
     }

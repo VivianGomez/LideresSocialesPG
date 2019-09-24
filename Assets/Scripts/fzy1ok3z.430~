@@ -35,7 +35,7 @@ public class Teleport : MonoBehaviour
 
         if (cTrigger.tag != "Player") { return; }
 
-        sceneController.LoadScene(levelToLoad);
+            StartCoroutine(LoadingNextLevel(levelToLoad));
 
     }
 
