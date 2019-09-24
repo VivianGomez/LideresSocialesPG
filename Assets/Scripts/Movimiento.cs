@@ -31,7 +31,11 @@ public class Movimiento : MonoBehaviour
         escala = transform.localScale;
         escalaX = escala.x;
         escalaY = escala.y;
-        panelOpcionesCama.SetActive(false);
+        if(panelOpcionesCama!=null)
+        {
+            panelOpcionesCama.SetActive(false);
+        }
+        
         if (File.Exists(Application.dataPath + "/Gamedata.json"))
         {
             jsonData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json"));
@@ -131,49 +135,63 @@ public class Movimiento : MonoBehaviour
         }
     }
 
-/**
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        GameObject fondo = GameObject.Find("Background");
-        Debug.Log("Colisión con " + col.name);
-
-        //print("El dia actual era....." + diaActual);
-        if (col.name== "cama" && fondo.GetComponent<TimeDayFunction>().hora>6 && diaActual<4)
+    /**
+        void OnTriggerEnter2D(Collider2D col)
         {
-            //imagen.SetActive(true);
-            // if (imagen != null)
-            //{
-            //  StartCoroutine(imagen.GetComponent<VideoStream>().playVideo());
-            //}
-            //else print("es nula");
+            GameObject fondo = GameObject.Find("Background");
+            Debug.Log("Colisión con " + col.name);
 
+            //print("El dia actual era....." + diaActual);
+            if (col.name== "cama" && fondo.GetComponent<TimeDayFunction>().hora>6 && diaActual<4)
+            {
+                //imagen.SetActive(true);
+                // if (imagen != null)
+                //{
+                //  StartCoroutine(imagen.GetComponent<VideoStream>().playVideo());
+                //}
+                //else print("es nula");
+
+                
+                animator.SetTrigger("duerme");
+                
+                SoundManager.PlaySound("dormir");
+                permiteMoverse = false;
+            }
+
+            //loadAnimation();   
+            //animationLoadManager = animacion.GetComponent<AnimationLoadManager>();
             
-            animator.SetTrigger("duerme");
-            
-            SoundManager.PlaySound("dormir");
-            permiteMoverse = false;
+            //Invoke("LoadAnimataionClip", 3);
+
         }
+     */
 
-        //loadAnimation();   
-        //animationLoadManager = animacion.GetComponent<AnimationLoadManager>();
-        
-        //Invoke("LoadAnimataionClip", 3);
-
-    }
- */
-
-    void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerStay2D(Collider2D col)
     {
         GameObject fondo = GameObject.Find("Background");
 
-        if (col.name== "camaClick" && fondo.GetComponent<TimeDayFunction>().hora>6 && diaActual<4)
-        {   
-            print("si"+ col.name);
-            panelOpcionesCama.SetActive(true);
+        if (col.name == "camaClick" && fondo.GetComponent<TimeDayFunction>().hora > 6 && diaActual < 4)
+        {
+            print("si" + col.name);
+            if(panelOpcionesCama!=null)
+            {
+                panelOpcionesCama.SetActive(true);
+            }
+            
         }
     }
 
-    public void dormir(){
+    void OnTriggerExit2D(Collider2D col)
+    {
+        GameObject fondo = GameObject.Find("Background");
+        if (panelOpcionesCama != null)
+        {
+            panelOpcionesCama.SetActive(false);
+        }
+
+    }
+
+    public void OnClick(){
         animator.SetTrigger("duerme");
             
         SoundManager.PlaySound("dormir");
