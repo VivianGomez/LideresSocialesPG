@@ -4578,6 +4578,13 @@ MonoBehaviour:
   green1: 0
   blue1: 0
   segundoActual: 0
+  ninaCalle: {fileID: 0}
+  ninoCalle: {fileID: 0}
+  ninaCoorp: {fileID: 787949916}
+  ninoCoorp: {fileID: 1634505268}
+  calvoGrandeCoorp: {fileID: 2052225869}
+  calvoPequenoCoorp: {fileID: 1812988887}
+  nino2Coorp: {fileID: 55018798}
 --- !u!212 &898726560
 SpriteRenderer:
   m_ObjectHideFlags: 0

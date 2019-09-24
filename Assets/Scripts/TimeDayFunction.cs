@@ -26,6 +26,16 @@ public class TimeDayFunction : MonoBehaviour
     public double segundoActual;
     public JsonData jsonData;
 
+    public SpriteRenderer ninaCalle;
+    public SpriteRenderer ninoCalle;
+
+    public SpriteRenderer ninaCoorp;
+    public SpriteRenderer ninoCoorp;
+    public SpriteRenderer calvoGrandeCoorp;
+    public SpriteRenderer calvoPequenoCoorp;
+    public SpriteRenderer nino2Coorp;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -137,7 +147,36 @@ public class TimeDayFunction : MonoBehaviour
             };
             fondoEscena.color = color;
 
-            segundoActual = double.Parse(segundos);
+            if(ninaCalle!=null)
+            {
+                ninaCalle.color = color;
+            }
+            if (ninoCalle != null)
+            {
+                ninoCalle.color = color;
+            }
+            if (ninaCoorp != null)
+            {
+                ninaCoorp.color = color;
+            }
+            if (ninoCoorp != null)
+            {
+                ninoCoorp.color = color;
+            }
+            if (calvoGrandeCoorp != null)
+            {
+                calvoGrandeCoorp.color = color;
+            }
+            if (calvoPequenoCoorp != null)
+            {
+                calvoPequenoCoorp.color = color;
+            }
+            if (nino2Coorp != null)
+            {
+                nino2Coorp.color = color;
+            }
+
+             segundoActual = double.Parse(segundos);
             
             if (segundoActual != 0.0 && segundoActual % 12.50 == 0)
                 {
@@ -163,6 +202,35 @@ public class TimeDayFunction : MonoBehaviour
                             a = 1
                         };
                         fondoEscena.color = color;
+
+                        if (ninaCalle != null)
+                        {
+                            ninaCalle.color = color;
+                        }
+                        if (ninoCalle != null)
+                        {
+                            ninoCalle.color = color;
+                        }
+                        if (ninaCoorp != null)
+                        {
+                            ninaCoorp.color = color;
+                        }
+                        if (ninoCoorp != null)
+                        {
+                            ninoCoorp.color = color;
+                        }
+                        if (calvoGrandeCoorp != null)
+                        {
+                            calvoGrandeCoorp.color = color;
+                        }
+                        if (calvoPequenoCoorp != null)
+                        {
+                            calvoPequenoCoorp.color = color;
+                        }
+                        if (nino2Coorp != null)
+                        {
+                            nino2Coorp.color = color;
+                        }
                     }
                     else if (hora == 17 || hora == 18)
                     {
@@ -181,6 +249,35 @@ public class TimeDayFunction : MonoBehaviour
                             a = 1
                         };
                         fondoEscena.color = color;
+
+                        if (ninaCalle != null)
+                        {
+                            ninaCalle.color = color;
+                        }
+                        if (ninoCalle != null)
+                        {
+                            ninoCalle.color = color;
+                        }
+                        if (ninaCoorp != null)
+                        {
+                            ninaCoorp.color = color;
+                        }
+                        if (ninoCoorp != null)
+                        {
+                            ninoCoorp.color = color;
+                        }
+                        if (calvoGrandeCoorp != null)
+                        {
+                            calvoGrandeCoorp.color = color;
+                        }
+                        if (calvoPequenoCoorp != null)
+                        {
+                            calvoPequenoCoorp.color = color;
+                        }
+                        if (nino2Coorp != null)
+                        {
+                            nino2Coorp.color = color;
+                        }
 
                     }
                     else if (hora == 19)
@@ -201,6 +298,35 @@ public class TimeDayFunction : MonoBehaviour
                         };
                         fondoEscena.color = color;
 
+                        if (ninaCalle != null)
+                        {
+                            ninaCalle.color = color;
+                        }
+                        if (ninoCalle != null)
+                        {
+                            ninoCalle.color = color;
+                        }
+                        if (ninaCoorp != null)
+                        {
+                            ninaCoorp.color = color;
+                        }
+                        if (ninoCoorp != null)
+                        {
+                            ninoCoorp.color = color;
+                        }
+                        if (calvoGrandeCoorp != null)
+                        {
+                            calvoGrandeCoorp.color = color;
+                        }
+                        if (calvoPequenoCoorp != null)
+                        {
+                            calvoPequenoCoorp.color = color;
+                        }
+                        if (nino2Coorp != null)
+                        {
+                            nino2Coorp.color = color;
+                        }
+
                     }
                     else if (hora == 20)
                     {
@@ -220,6 +346,35 @@ public class TimeDayFunction : MonoBehaviour
                         };
                         fondoEscena.color = color;
 
+                        if (ninaCalle != null)
+                        {
+                            ninaCalle.color = color;
+                        }
+                        if (ninoCalle != null)
+                        {
+                            ninoCalle.color = color;
+                        }
+                        if (ninaCoorp != null)
+                        {
+                            ninaCoorp.color = color;
+                        }
+                        if (ninoCoorp != null)
+                        {
+                            ninoCoorp.color = color;
+                        }
+                        if (calvoGrandeCoorp != null)
+                        {
+                            calvoGrandeCoorp.color = color;
+                        }
+                        if (calvoPequenoCoorp != null)
+                        {
+                            calvoPequenoCoorp.color = color;
+                        }
+                        if (nino2Coorp != null)
+                        {
+                            nino2Coorp.color = color;
+                        }
+
                     }
                     else if (hora == 21)
                     {
@@ -238,6 +393,35 @@ public class TimeDayFunction : MonoBehaviour
                             a = 1
                         };
                         fondoEscena.color = color;
+
+                        if (ninaCalle != null)
+                        {
+                            ninaCalle.color = color;
+                        }
+                        if (ninoCalle != null)
+                        {
+                            ninoCalle.color = color;
+                        }
+                        if (ninaCoorp != null)
+                        {
+                            ninaCoorp.color = color;
+                        }
+                        if (ninoCoorp != null)
+                        {
+                            ninoCoorp.color = color;
+                        }
+                        if (calvoGrandeCoorp != null)
+                        {
+                            calvoGrandeCoorp.color = color;
+                        }
+                        if (calvoPequenoCoorp != null)
+                        {
+                            calvoPequenoCoorp.color = color;
+                        }
+                        if (nino2Coorp != null)
+                        {
+                            nino2Coorp.color = color;
+                        }
                     }
                     else if (hora == 22)
                     {
@@ -256,6 +440,35 @@ public class TimeDayFunction : MonoBehaviour
                             a = 1
                         };
                         fondoEscena.color = color;
+
+                        if (ninaCalle != null)
+                        {
+                            ninaCalle.color = color;
+                        }
+                        if (ninoCalle != null)
+                        {
+                            ninoCalle.color = color;
+                        }
+                        if (ninaCoorp != null)
+                        {
+                            ninaCoorp.color = color;
+                        }
+                        if (ninoCoorp != null)
+                        {
+                            ninoCoorp.color = color;
+                        }
+                        if (calvoGrandeCoorp != null)
+                        {
+                            calvoGrandeCoorp.color = color;
+                        }
+                        if (calvoPequenoCoorp != null)
+                        {
+                            calvoPequenoCoorp.color = color;
+                        }
+                        if (nino2Coorp != null)
+                        {
+                            nino2Coorp.color = color;
+                        }
 
                     }
                     else if (hora == 23)
@@ -276,6 +489,35 @@ public class TimeDayFunction : MonoBehaviour
                         };
                         fondoEscena.color = color;
 
+                        if (ninaCalle != null)
+                        {
+                            ninaCalle.color = color;
+                        }
+                        if (ninoCalle != null)
+                        {
+                            ninoCalle.color = color;
+                        }
+                        if (ninaCoorp != null)
+                        {
+                            ninaCoorp.color = color;
+                        }
+                        if (ninoCoorp != null)
+                        {
+                            ninoCoorp.color = color;
+                        }
+                        if (calvoGrandeCoorp != null)
+                        {
+                            calvoGrandeCoorp.color = color;
+                        }
+                        if (calvoPequenoCoorp != null)
+                        {
+                            calvoPequenoCoorp.color = color;
+                        }
+                        if (nino2Coorp != null)
+                        {
+                            nino2Coorp.color = color;
+                        }
+
                     }
                     else if (hora == 24)
                     {
@@ -292,6 +534,35 @@ public class TimeDayFunction : MonoBehaviour
                             a = 1
                         };
                         fondoEscena.color = color;
+
+                        if (ninaCalle != null)
+                        {
+                            ninaCalle.color = color;
+                        }
+                        if (ninoCalle != null)
+                        {
+                            ninoCalle.color = color;
+                        }
+                        if (ninaCoorp != null)
+                        {
+                            ninaCoorp.color = color;
+                        }
+                        if (ninoCoorp != null)
+                        {
+                            ninoCoorp.color = color;
+                        }
+                        if (calvoGrandeCoorp != null)
+                        {
+                            calvoGrandeCoorp.color = color;
+                        }
+                        if (calvoPequenoCoorp != null)
+                        {
+                            calvoPequenoCoorp.color = color;
+                        }
+                        if (nino2Coorp != null)
+                        {
+                            nino2Coorp.color = color;
+                        }
                     }
                 }
 

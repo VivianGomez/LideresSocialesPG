@@ -7620,6 +7620,13 @@ MonoBehaviour:
   green1: 0
   blue1: 0
   segundoActual: 0
+  ninaCalle: {fileID: 63099591}
+  ninoCalle: {fileID: 683590242}
+  ninaCoorp: {fileID: 0}
+  ninoCoorp: {fileID: 0}
+  calvoGrandeCoorp: {fileID: 0}
+  calvoPequenoCoorp: {fileID: 0}
+  nino2Coorp: {fileID: 0}
 --- !u!212 &1455050071
 SpriteRenderer:
   m_ObjectHideFlags: 0
