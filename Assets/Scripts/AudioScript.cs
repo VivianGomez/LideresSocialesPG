@@ -19,12 +19,13 @@ public class AudioScript : MonoBehaviour
     public JsonData jsonData;
     public int diaActual;
 
-    /* 
-    void Awake()
-    {
-        movimiento = GameObject.FindObjectOfType<Movimiento>();
-    }*/
+    public GameObject rain;
+    
     void Start () {
+        if(rain!=null){
+            rain.SetActive(false);
+        }
+
         if (File.Exists(Application.dataPath + "/Gamedata.json"))
         {
             jsonData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json"));
@@ -45,6 +46,9 @@ public class AudioScript : MonoBehaviour
         {
             if(SceneManager.GetActiveScene().name.Equals("Calle")){
                 MusicSource.clip = MusicFinalOut;
+                rain.SetActive(true);
+                GameObject bg = GameObject.Find("Background");
+                bg.GetComponent<TimeDayFunction>().oscurecer();
             }
             else if(SceneManager.GetActiveScene().name.Equals("Cuarto") || SceneManager.GetActiveScene().name.Equals("Cocina") || SceneManager.GetActiveScene().name.Equals("Sala")){
                 MusicSource.clip = MusicFinalIns;
