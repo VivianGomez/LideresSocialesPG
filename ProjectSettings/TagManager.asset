@@ -9,6 +9,7 @@ TagManager:
   - Cuarto
   - Calle
   - HH
+  - Colegio
   layers:
   - Default
   - TransparentFX

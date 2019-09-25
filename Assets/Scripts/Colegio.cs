@@ -9,9 +9,11 @@ public class Colegio : MonoBehaviour
     public GameObject panelIF;
     public Image imagenLider;
     public TextMeshProUGUI infoLider;
+    private SceneController sceneController;
 
     void Start()
     {
+        sceneController = GameObject.FindGameObjectWithTag("GameController").GetComponent<SceneController>();
         infoLider.text = "Kevin va a sus clases...";
         StartCoroutine(quitImage());
     }
@@ -24,6 +26,6 @@ public class Colegio : MonoBehaviour
         imagenLider.sprite = null;
         infoLider.text = "Tras una larga jornada...";
         yield return new WaitForSeconds(5);
-        SceneManager.LoadSceneAsync("Calle");
+        sceneController.LoadScene("Calle");
     }
 }

@@ -35,11 +35,11 @@ public class Teleport : MonoBehaviour
 
         if (cTrigger.tag != "Player") { return; }
 
-        if(fondo.GetComponent<TimeDayFunction>().dia == 4 && ((levelToLoad.Equals("Sala") && SceneManager.GetActiveScene().name.Equals("Calle")) || levelToLoad.Equals("Coorporacion")))
+        if(fondo.GetComponent<TimeDayFunction>().dia == 4 && ((levelToLoad.Equals("Sala") && SceneManager.GetActiveScene().name.Equals("Calle")) || levelToLoad.Equals("Colegio")  || levelToLoad.Equals("Coorporacion")))
         {
             SceneManager.LoadScene("Fin");
         }         
-        else{                          
+        else{  
             sceneController.LoadScene(levelToLoad);
         }
     }

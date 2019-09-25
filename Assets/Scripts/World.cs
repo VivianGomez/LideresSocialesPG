@@ -25,6 +25,10 @@ public class World : SceneController
         {
             player.position = GameObject.FindGameObjectWithTag("HH").transform.position;
         }
+        else if( prevScene == "Colegio" && currentScene == "Calle")
+        {
+            player.position = GameObject.FindGameObjectWithTag("Colegio").transform.position;
+        }
     }
 
 }

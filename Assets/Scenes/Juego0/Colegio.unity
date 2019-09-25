@@ -524,7 +524,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MusicClip: {fileID: 8300000, guid: 08ea965244e93a648b8dc75d3c46ebe4, type: 3}
+  MusicFinalOut: {fileID: 0}
+  MusicFinalIns: {fileID: 0}
   MusicSource: {fileID: 810811682}
+  diaActual: 0
+  rain: {fileID: 0}
 --- !u!82 &810811682
 AudioSource:
   m_ObjectHideFlags: 0
@@ -647,6 +651,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &914706768
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 914706771}
+  - component: {fileID: 914706770}
+  - component: {fileID: 914706769}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: GameController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &914706769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914706768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98c3e84455156354894e91becc787625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+--- !u!114 &914706770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914706768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c864f7e205421b4685e7e97251bc04b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &914706771
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914706768}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.613702, y: 1.6453302, z: -3108.3247}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1165474311 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7430868395677908387, guid: 5a36035c19b864340925f3a4ce5d4d59,
@@ -855,7 +916,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MusicClip: {fileID: 8300000, guid: dfbe19c6da029b74486adc4fe348ce6d, type: 3}
+  MusicFinalOut: {fileID: 0}
+  MusicFinalIns: {fileID: 0}
   MusicSource: {fileID: 1762395127}
+  diaActual: 0
+  rain: {fileID: 0}
 --- !u!82 &1762395127
 AudioSource:
   m_ObjectHideFlags: 0
