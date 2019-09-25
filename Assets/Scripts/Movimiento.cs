@@ -23,10 +23,10 @@ public class Movimiento : MonoBehaviour
     public GameObject panelOpcionesCama;
 
     //NPC dialogs
-    //public GameObject  DialogoMomC;
+    public GameObject  DialogoMomC;
     public GameObject  DialogoNPC1C;
     public GameObject  DialogoNPC2C; 
-    //public TextMeshProUGUI  DialogoMom;
+    public TextMeshProUGUI  DialogoMom;
     public TextMeshProUGUI  DialogoNPC1;
     public TextMeshProUGUI  DialogoNPC2;
 
@@ -54,15 +54,11 @@ public class Movimiento : MonoBehaviour
         escalaX = escala.x;
         escalaY = escala.y;
 
-/** 
+ 
         if(DialogoMomC!=null)
         {
             DialogoMomC.SetActive(false);
         }
-        if(DialogoMom!=null)
-        {
-            DialogoMom.enabled = false;
-        }*/
         
         if(DialogoNPC1C!=null)
         {
@@ -232,7 +228,7 @@ public class Movimiento : MonoBehaviour
 
         if (col.name == "camaClick" && fondo.GetComponent<TimeDayFunction>().hora > 6 && diaActual < 4)
         {
-            print("si" + col.name);
+
             if(panelOpcionesCama!=null)
             {
                 panelOpcionesCama.SetActive(true);
@@ -248,7 +244,6 @@ public class Movimiento : MonoBehaviour
         //PARA SENTARSE
         else if (col.name == "silla")
         {
-            print("si" + col.name);
             if (panelOpcionesSilla != null)
             {
                 panelOpcionesSilla.SetActive(true);
@@ -257,23 +252,17 @@ public class Movimiento : MonoBehaviour
         }
         else if(col.name == "sillon")
         {
-            print("si" + col.name);
+
             if (panelOpcionesSillon != null)
             {
                 panelOpcionesSillon.SetActive(true);
             }
 
         }
-
         //PARA HABLAR
-        else if (col.name == "mama")
+        else if (panelOpcionesHablar != null &&col.name == "mama")
         {
-            print("si" + col.name);
-            if (panelOpcionesHablar != null)
-            {
-                panelOpcionesHablar.SetActive(true);
-            }
-
+            hablarMom();
         }
 
         else if (col.name == "Nevera")
@@ -302,17 +291,17 @@ public class Movimiento : MonoBehaviour
             DialogoNPC2C.SetActive(false);
             DialogoNPC2.text = jsonLoader.dialogNPC2;
         }
-        else if(panelOpcionesSilla!= null)
+        else if(panelOpcionesSilla!= null && col.name =="silla")
         {
             panelOpcionesSilla.SetActive(false);
         }
-        else if (panelOpcionesSillon != null)
+        else if (panelOpcionesSillon != null && col.name =="sillon" )
         {
             panelOpcionesSillon.SetActive(false);
         }
-        else if (panelOpcionesHablar != null)
+        else if (panelOpcionesHablar != null && col.name =="mama")
         {
-            panelOpcionesHablar.SetActive(false);
+            DialogoMomC.SetActive(false);
         }
         if (panelOpcionesComer != null)
         {
@@ -398,7 +387,6 @@ public class Movimiento : MonoBehaviour
         animationLoadManager.LoadAnimation("an", null);
     }
 
-    
     public void hablarNPC1(){
         DialogoNPC1C.SetActive(true);
         DialogoNPC1.text = jsonLoader.dialogNPC1;
@@ -409,9 +397,9 @@ public class Movimiento : MonoBehaviour
         DialogoNPC2.text = jsonLoader.dialogNPC2;
     }
 
-/** 
     public void hablarMom(){
-         DialogoMomC.SetActive(true);
+        DialogoMomC.SetActive(true);
+        DialogoMom.text = jsonLoader.dialogMom;
     }
-*/
+
 }
