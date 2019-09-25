@@ -199,6 +199,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
             {
                 //print("" + infoDias[dia]["textosHH"][i]);
                 DialogoNino.text = "" + infoDias[dia]["textosHH"][i];
+                //SoundManager.PlaySound("hablaPlayer");
                 yield return new WaitForSeconds(5);
             }
             
@@ -209,7 +210,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
         p.GetComponent<Movimiento>().permiteMoverse = true;
         
         p.GetComponent<Movimiento>().DialogoCoorp.SetActive(false);
-
+        AbrirRegaloLiderazgo();
     }
 
     void LoadInfoAlimentos(JsonData alimentos)
@@ -396,6 +397,36 @@ public class JSONLoaderJuego0 : MonoBehaviour
             StartCoroutine(ActivationRoutine());
         }
     }
+
+    public void AbrirRegaloLiderazgo()
+    {
+        gameData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json"));
+        if(!(textoRegaloLiderazgo.Equals("")))
+        {
+            //SoundManager.PlaySound("abrirAlgo");            
+            buttonCloseModal.image.color = Color.black;
+            panelInventario.SetActive(false);
+            imageRegalo.enabled = true;
+            wowRegalo.enabled = true;
+            imageRegalo.sprite = Resources.Load<Sprite>("comida/"+regaloLiderazgo.ToLowerInvariant());
+            imageModal.enabled = true;
+            imageModal.sprite = Resources.Load<Sprite>("paper");
+            modal.SetActive(true);
+            newsT.text="";
+            letterT.text = "";
+            tituloR.text="¡Recibiste un regalo";
+            giftT.text=textoRegaloLiderazgo;
+            cantRegaloModal.text = "X "+ cantRegaloLiderazgo;
+            int indiceAl = buscarAlimento(regaloLiderazgo);
+            GameObject camara = GameObject.Find("Main Camera");
+            GameObject fondo = GameObject.Find("Background");  
+            darAlimentoCantText(indiceAl).text = "" + (Int32.Parse(darAlimentoCantText(indiceAl).text) + cantRegaloLiderazgo);
+        }
+        else{
+                informationT.text = "NO HAY MÁS REGALOS ... ";
+        }
+    }
+
 
     public void CerrarCarta()
     {

@@ -408,16 +408,19 @@ public class Movimiento : MonoBehaviour
     }
 
     public void hablarNPC1(){
+        //SoundManager.PlaySound("hablaCalvo");
         DialogoNPC1C.SetActive(true);
         DialogoNPC1.text = jsonLoader.dialogNPC1;
     }
 
     public void hablarNPC2(){
+        //SoundManager.PlaySound("hablaNina");
         DialogoNPC2C.SetActive(true);
         DialogoNPC2.text = jsonLoader.dialogNPC2;
     }
 
     public void hablarMom(){
+        //SoundManager.PlaySound("hablaMama");
         DialogoMomC.SetActive(true);
         DialogoMom.text = jsonLoader.dialogMom;
     }
@@ -428,6 +431,7 @@ public class Movimiento : MonoBehaviour
         permiteMoverse = false;
         animator.SetTrigger("hablar");
         StartCoroutine(jsonLoader.cargarDialogosHH(diaActual-1));
+        
     }
 
 }
