@@ -10,7 +10,7 @@ public class ClickableObjectCursor : MonoBehaviour
         {
             CursorController.Instance.SetNeveraCursor();
         }
-        else if (gameObject.name.Equals("mom"))
+        else if (gameObject.name.Equals("mom") || gameObject.name.Equals("calvo_7") || gameObject.name.Equals("nina_11"))
         {
             CursorController.Instance.SetMomCursor();
         }
