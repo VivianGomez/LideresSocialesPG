@@ -25,13 +25,19 @@ public class PanelFin : MonoBehaviour
         i1.enabled = false;
         i2.enabled = false;
         lideresCaidos.enabled = false;
-        MusicSource.clip = disparos;
-        MusicSource.Play();	
+        StartCoroutine(playDisparos());
         infoLider.text = "";
         creditos.text = "";
         mem.text = "";
         StartCoroutine(quitImage());
     }
+
+        IEnumerator playDisparos(){
+            yield return new WaitForSeconds(2);
+            MusicSource.clip = disparos;
+            MusicSource.volume = 0.674f;
+            MusicSource.Play();	
+        }
 
      IEnumerator quitImage()
     { 

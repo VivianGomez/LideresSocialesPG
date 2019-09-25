@@ -1,5 +1,4 @@
 ﻿using LitJson;
-using UnityEngine.SceneManagement;
 using TMPro;
 using System.IO;
 using UnityEngine;
@@ -335,8 +334,6 @@ public class Movimiento : MonoBehaviour
 
         GameObject fondo = GameObject.Find("Background");
                     
-
-        
 
         if ( fondo.GetComponent<TimeDayFunction>().hora > 6 && diaActual < 4)
         {

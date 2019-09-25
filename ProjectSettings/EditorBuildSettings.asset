@@ -47,4 +47,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Juego0/Calle.unity
     guid: 1cfdeede619a8874087ff486eec2073f
+  - enabled: 1
+    path: Assets/Scenes/Juego0/Fin.unity
+    guid: 72fe39f8fc85e8744bac8dca65c35ef2
   m_configObjects: {}
