@@ -24,6 +24,8 @@ public class Movimiento : MonoBehaviour
     public GameObject panelOpcionesSilla;
     public GameObject panelOpcionesSillon;
     public GameObject panelOpcionesHablar;
+    public GameObject panelOpcionesComer;
+
     //public TextMeshProUGUI buttonAlimento1;
 
     void Start()
@@ -49,6 +51,10 @@ public class Movimiento : MonoBehaviour
         if (panelOpcionesHablar != null)
         {
             panelOpcionesHablar.SetActive(false);
+        }
+        if (panelOpcionesComer != null)
+        {
+            panelOpcionesComer.SetActive(false);
         }
 
         if (File.Exists(Application.dataPath + "/Gamedata.json"))
@@ -226,6 +232,16 @@ public class Movimiento : MonoBehaviour
             }
 
         }
+
+        else if (col.name == "Nevera")
+        {
+            print("si" + col.name);
+            if (panelOpcionesComer != null)
+            {
+                panelOpcionesComer.SetActive(true);
+            }
+
+        }
     }
 
     void OnTriggerExit2D(Collider2D col)
@@ -246,6 +262,10 @@ public class Movimiento : MonoBehaviour
         if (panelOpcionesHablar != null)
         {
             panelOpcionesHablar.SetActive(false);
+        }
+        if (panelOpcionesComer != null)
+        {
+            panelOpcionesComer.SetActive(false);
         }
 
     }
@@ -288,6 +308,17 @@ public class Movimiento : MonoBehaviour
 
         panelOpcionesHablar.SetActive(false);
         animator.SetTrigger("hablar");
+        //permiteMoverse = false;
+
+    }
+
+    public void OnClickComer()
+    {
+
+        panelOpcionesComer.SetActive(false);
+        GameObject camara = GameObject.Find("Main Camera");
+        camara.GetComponent<JSONLoaderJuego0>().AbrirDespensa();
+
         //permiteMoverse = false;
 
     }
