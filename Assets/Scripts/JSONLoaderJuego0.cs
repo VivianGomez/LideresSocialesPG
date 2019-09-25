@@ -373,7 +373,11 @@ public class JSONLoaderJuego0 : MonoBehaviour
     // return porcentajesEnergia[indiceAlimento];
     public int darPorcentajeEnergiaAlimento(int indiceAlimento)
     {
+        GameObject p = GameObject.Find("Personaje");
+        p.GetComponent<Movimiento>().animator.SetTrigger("comer");
+
         SoundManager.PlaySound("comer");
+        
         gameData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json"));
         if (indiceAlimento == 1 && int.Parse(cantidadAlimento1.text)!=0)
         {
