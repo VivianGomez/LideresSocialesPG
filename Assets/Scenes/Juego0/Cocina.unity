@@ -1006,6 +1006,7 @@ MonoBehaviour:
   dormirCursor: {fileID: 0}
   infoCursor: {fileID: 0}
   closeCursor: {fileID: 0}
+  doorCursor: {fileID: 0}
 --- !u!4 &335471852
 Transform:
   m_ObjectHideFlags: 0
@@ -1175,6 +1176,8 @@ GameObject:
   - component: {fileID: 389847237}
   - component: {fileID: 389847236}
   - component: {fileID: 389847235}
+  - component: {fileID: 389847238}
+  - component: {fileID: 389847239}
   m_Layer: 5
   m_Name: ButtonGift
   m_TagString: Untagged
@@ -1256,6 +1259,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 389847239}
+        m_MethodName: clickBtn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &389847236
@@ -1295,6 +1309,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 389847233}
   m_CullTransparentMesh: 0
+--- !u!95 &389847238
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389847233}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9247c0d78b7dff84084170e6883d3cd5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &389847239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389847233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0755c4000fac9c443820edaac220132f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationBtn: {fileID: 389847238}
 --- !u!1 &448025530
 GameObject:
   m_ObjectHideFlags: 0
@@ -2010,6 +2056,8 @@ GameObject:
   - component: {fileID: 713418920}
   - component: {fileID: 713418919}
   - component: {fileID: 713418918}
+  - component: {fileID: 713418921}
+  - component: {fileID: 713418922}
   m_Layer: 5
   m_Name: ButtonNews
   m_TagString: Untagged
@@ -2024,7 +2072,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 713418916}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2091,6 +2139,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 713418922}
+        m_MethodName: clickBtn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &713418919
@@ -2130,6 +2189,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 713418916}
   m_CullTransparentMesh: 0
+--- !u!95 &713418921
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713418916}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8ce1a21364e5a954bb6da03873db5bde, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &713418922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713418916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0755c4000fac9c443820edaac220132f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationBtn: {fileID: 713418921}
 --- !u!1 &717994511
 GameObject:
   m_ObjectHideFlags: 0
@@ -2580,6 +2671,12 @@ MonoBehaviour:
   imagen: {fileID: 717994511}
   animator: {fileID: 1003190629}
   panelOpcionesCama: {fileID: 0}
+  DialogoMomC: {fileID: 0}
+  DialogoNPC1C: {fileID: 0}
+  DialogoNPC2C: {fileID: 0}
+  DialogoMom: {fileID: 0}
+  DialogoNPC1: {fileID: 0}
+  DialogoNPC2: {fileID: 0}
   panelOpcionesSilla: {fileID: 0}
   panelOpcionesSillon: {fileID: 0}
   panelOpcionesHablar: {fileID: 0}
@@ -3105,6 +3202,8 @@ GameObject:
   - component: {fileID: 1269723956}
   - component: {fileID: 1269723955}
   - component: {fileID: 1269723954}
+  - component: {fileID: 1269723958}
+  - component: {fileID: 1269723959}
   m_Layer: 5
   m_Name: ButtonLetter
   m_TagString: Untagged
@@ -3166,6 +3265,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1269723959}
+        m_MethodName: clickBtn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1269723955
@@ -3212,19 +3322,51 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1269723953}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.0062531033, w: 0.99998045}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 744582659}
   m_Father: {fileID: 2119628634}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.717}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 4.11, y: -4.23}
   m_SizeDelta: {x: -11.843, y: -9.029}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1269723958
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269723953}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8d5b9ec094e45db408d413dc4a34e4fb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1269723959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269723953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0755c4000fac9c443820edaac220132f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationBtn: {fileID: 1269723958}
 --- !u!1 &1273911488 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4065673786331652473, guid: e0e008e40871480448f258210af85bc2,
@@ -3364,6 +3506,9 @@ MonoBehaviour:
   cantidadAlimento6: {fileID: 1291340532}
   cantidadAlimento7: {fileID: 65806854}
   cantidadAlimento8: {fileID: 203049154}
+  dialogMom: 
+  dialogNPC1: 
+  dialogNPC2: 
 --- !u!114 &1378855918
 MonoBehaviour:
   m_ObjectHideFlags: 0
