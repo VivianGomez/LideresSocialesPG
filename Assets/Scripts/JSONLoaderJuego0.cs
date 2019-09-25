@@ -201,6 +201,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
         }
         Destroy(GameObject.Find("PuntoDiscurso"));
         GameObject p = GameObject.Find("Personaje");
+        p.GetComponent<Movimiento>().animator.SetTrigger("camina");
         p.GetComponent<Movimiento>().permiteMoverse = true;
         
         p.GetComponent<Movimiento>().DialogoCoorp.SetActive(false);

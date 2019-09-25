@@ -426,6 +426,7 @@ public class Movimiento : MonoBehaviour
     {
         DialogoCoorp.SetActive(true);
         permiteMoverse = false;
+        animator.SetTrigger("hablar");
         StartCoroutine(jsonLoader.cargarDialogosHH(diaActual-1));
     }
 
