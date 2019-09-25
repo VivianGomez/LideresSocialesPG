@@ -286,7 +286,12 @@ public class Movimiento : MonoBehaviour
 
         }
 
-        else if(col.name== "PuntoDiscurso")
+        
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.name== "PuntoDiscurso")
         {
             hablarNino();
         }
@@ -431,7 +436,6 @@ public class Movimiento : MonoBehaviour
         permiteMoverse = false;
         animator.SetTrigger("hablar");
         StartCoroutine(jsonLoader.cargarDialogosHH(diaActual-1));
-        
     }
 
 }

@@ -192,6 +192,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
 
     public IEnumerator cargarDialogosHH(int dia)
     {
+        print("Entra");
         DialogoNino.text = "";
         if (infoDias!=null)
         {
@@ -420,7 +421,9 @@ public class JSONLoaderJuego0 : MonoBehaviour
             int indiceAl = buscarAlimento(regaloLiderazgo);
             GameObject camara = GameObject.Find("Main Camera");
             GameObject fondo = GameObject.Find("Background");  
-            darAlimentoCantText(indiceAl).text = "" + (Int32.Parse(darAlimentoCantText(indiceAl).text) + cantRegaloLiderazgo);
+            int tenia = Int32.Parse(darAlimentoCantText(indiceAl).text);
+            print("TENIAAAAAAAAAAAA "+ tenia  +" +++ "+ cantRegaloLiderazgo);
+            darAlimentoCantText(indiceAl).text = "" + (tenia+cantRegaloLiderazgo) ;
         }
         else{
                 informationT.text = "NO HAY MÁS REGALOS ... ";
