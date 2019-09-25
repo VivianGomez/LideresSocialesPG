@@ -21,7 +21,24 @@ public class Movimiento : MonoBehaviour
     public JsonData jsonData;
 
     public GameObject panelOpcionesCama;
-    //public TextMeshProUGUI buttonAlimento1;
+
+    //NPC dialogs
+    //public GameObject  DialogoMomC;
+    public GameObject  DialogoNPC1C;
+    public GameObject  DialogoNPC2C; 
+    //public TextMeshProUGUI  DialogoMom;
+    public TextMeshProUGUI  DialogoNPC1;
+    public TextMeshProUGUI  DialogoNPC2;
+
+
+    private JSONLoaderJuego0 jsonLoader;
+
+
+    void Awake()
+    {
+        jsonLoader = GameObject.FindObjectOfType<JSONLoaderJuego0>();
+    }
+
 
     void Start()
     {
@@ -31,6 +48,27 @@ public class Movimiento : MonoBehaviour
         escala = transform.localScale;
         escalaX = escala.x;
         escalaY = escala.y;
+
+/** 
+        if(DialogoMomC!=null)
+        {
+            DialogoMomC.SetActive(false);
+        }
+        if(DialogoMom!=null)
+        {
+            DialogoMom.enabled = false;
+        }*/
+        
+        if(DialogoNPC1C!=null)
+        {
+            DialogoNPC1C.SetActive(false);
+        }
+
+        if(DialogoNPC2C!=null)
+        {
+            DialogoNPC2C.SetActive(false);
+        }
+
         if(panelOpcionesCama!=null)
         {
             panelOpcionesCama.SetActive(false);
@@ -179,6 +217,12 @@ public class Movimiento : MonoBehaviour
             }
             
         }
+        else if (col.name == "HablarCalvo"){
+            hablarNPC1();
+        }
+        else if (col.name == "HablarNina"){
+            hablarNPC2();
+        }
     }
 
     void OnTriggerExit2D(Collider2D col)
@@ -187,6 +231,14 @@ public class Movimiento : MonoBehaviour
         if (panelOpcionesCama != null)
         {
             panelOpcionesCama.SetActive(false);
+        }
+        else if (col.name == "HablarCalvo"){
+            DialogoNPC1C.SetActive(false);
+            DialogoNPC1.text = jsonLoader.dialogNPC1;
+        }
+        else if (col.name == "HablarNina"){
+            DialogoNPC2C.SetActive(false);
+            DialogoNPC2.text = jsonLoader.dialogNPC2;
         }
 
     }
@@ -218,4 +270,20 @@ public class Movimiento : MonoBehaviour
         animationLoadManager.LoadAnimation("an", null);
     }
 
+    
+    public void hablarNPC1(){
+        DialogoNPC1C.SetActive(true);
+        DialogoNPC1.text = jsonLoader.dialogNPC1;
+    }
+
+    public void hablarNPC2(){
+        DialogoNPC2C.SetActive(true);
+        DialogoNPC2.text = jsonLoader.dialogNPC2;
+    }
+
+/** 
+    public void hablarMom(){
+         DialogoMomC.SetActive(true);
+    }
+*/
 }

@@ -70,6 +70,11 @@ public class JSONLoaderJuego0 : MonoBehaviour
     public TextMeshProUGUI cantidadAlimento8;
     GameObject p;
 
+    //Dialogo
+      public string dialogMom="";
+     public string dialogNPC1="";
+     public string dialogNPC2="";
+
 
     //public const string url ="https://firebasestorage.googleapis.com/v0/b/lideresocialespg.appspot.com/o/juego0.json?alt=media&token=3d8deac2-9fd0-4a22-98a3-3bc7629f809b";
     public const string url ="https://lideresocialespg.firebaseio.com/juegos.json";
@@ -172,6 +177,9 @@ public class JSONLoaderJuego0 : MonoBehaviour
             cantRegaloCarta = (int)infoDias[dia]["regaloCarta"]["cantidad"];
             regaloLiderazgo = ""+infoDias[dia]["regaloLiderazgo"]["nombre"];
             cantRegaloLiderazgo = (int)infoDias[dia]["regaloLiderazgo"]["cantidad"];
+            dialogMom = ""+infoDias[dia]["textosMadre"];
+            dialogNPC1 = ""+infoDias[dia]["textosPersona1"];
+            dialogNPC2 = ""+infoDias[dia]["textosPersona2"];
         } 
     }
 
@@ -412,6 +420,5 @@ public class JSONLoaderJuego0 : MonoBehaviour
             return 0;
         }
     }
-
 
 }
