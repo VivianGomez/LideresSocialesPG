@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CursorController : MonoBehaviour
 {
@@ -13,6 +11,10 @@ public class CursorController : MonoBehaviour
 
     [SerializeField]
     private Texture2D dormirCursor;
+    [SerializeField]
+    private Texture2D infoCursor;
+    [SerializeField]
+    private Texture2D closeCursor;
 
     public static CursorController Instance { get; private set; }
 
@@ -21,6 +23,7 @@ public class CursorController : MonoBehaviour
         Instance = this;
     }
 
+/** 
     private void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -28,7 +31,7 @@ public class CursorController : MonoBehaviour
         RaycastHit hitInfo;
         if(Physics.Raycast(ray, out hitInfo, Mathf.Infinity))
         {
-            if(hitInfo.collider.GetComponent<ClickableObject>() != null)
+            if(hitInfo.collider.GetComponent<ClickableObjectCursor>() != null)
             {
                 SetClickableCursor();
             }
@@ -38,7 +41,7 @@ public class CursorController : MonoBehaviour
             }
         }
     }
-
+*/
     public void SetMoveCursor()
     {
         Cursor.SetCursor(moveCursor, Vector2.zero, CursorMode.Auto);
@@ -62,6 +65,16 @@ public class CursorController : MonoBehaviour
     public void SetClickableCursor()
     {
         Cursor.SetCursor(momCursor, Vector2.zero, CursorMode.Auto);
+    }
+
+     public void SetInfoCursor()
+    {
+        Cursor.SetCursor(infoCursor, Vector2.zero, CursorMode.Auto);
+    }
+
+    public void SetCloseCursor()
+    {
+        Cursor.SetCursor(closeCursor, Vector2.zero, CursorMode.Auto);
     }
 
 }
