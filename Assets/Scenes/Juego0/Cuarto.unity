@@ -3148,6 +3148,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 968499525557860499, guid: 8c5773ea54ebecc438fdfa848b2c846d,
+        type: 3}
+      propertyPath: MinDistance
+      value: 2.9683075
+      objectReference: {fileID: 0}
+    - target: {fileID: 968499525557860499, guid: 8c5773ea54ebecc438fdfa848b2c846d,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c5773ea54ebecc438fdfa848b2c846d, type: 3}
 --- !u!114 &756761625 stripped
@@ -3426,6 +3436,7 @@ MonoBehaviour:
   dormirCursor: {fileID: 2800000, guid: 6390fbfdeb984b646bf82e79bc3c7434, type: 3}
   infoCursor: {fileID: 0}
   closeCursor: {fileID: 0}
+  doorCursor: {fileID: 0}
 --- !u!4 &965319329
 Transform:
   m_ObjectHideFlags: 0
@@ -4178,6 +4189,7 @@ MonoBehaviour:
   panelOpcionesSilla: {fileID: 0}
   panelOpcionesSillon: {fileID: 0}
   panelOpcionesHablar: {fileID: 0}
+  panelOpcionesComer: {fileID: 0}
 --- !u!61 &1550501090
 BoxCollider2D:
   m_ObjectHideFlags: 0
