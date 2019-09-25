@@ -124,6 +124,14 @@ public class TimeDayFunction : MonoBehaviour
         
     }
 
+    public void oscurecer(){
+        
+        red = 0.2f;
+        green = 0.2f;
+        blue = 0.2f;
+            
+    }
+
     // Update is called once per frame
     void Update()
     {
