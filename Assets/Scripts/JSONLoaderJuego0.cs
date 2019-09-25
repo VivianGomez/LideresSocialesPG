@@ -31,10 +31,13 @@ public class JSONLoaderJuego0 : MonoBehaviour
     public TextMeshProUGUI tituloR;
     public TextMeshProUGUI cantRegaloModal;
 
+    public Button urlNews;
+
 
     //****************************************************************************************
 
     private string textoNoticiaDia;
+    private string urlNoticiaDia;
 
     public GameObject jugador;
     public GameObject loadingSpriteStart;
@@ -174,6 +177,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
             yield return new WaitForSeconds(1); 
             textoCartaDia = ""+infoDias[dia]["textoCarta"];
             textoNoticiaDia = ""+infoDias[dia]["textoPeriodico"];
+            urlNoticiaDia = ""+infoDias[dia]["urlNoticiaDia"];
             textoRegaloCarta = ""+infoDias[dia]["textoRegaloCarta"];
             textoRegaloLiderazgo = ""+infoDias[dia]["textoRegaloLiderazgo"];
             regaloCarta = ""+infoDias[dia]["regaloCarta"]["nombre"];
@@ -236,6 +240,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
             imageRegalo.enabled = false;
             wowRegalo.enabled = false;
             newsT.text = textoNoticiaDia;
+            urlNews.enabled = true;
         }
         else{
             informationT.text = "Hoy no me trajeron el periódico ... ";
@@ -247,6 +252,10 @@ public class JSONLoaderJuego0 : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         informationT.text = "";
+    }
+
+    public void abrirUrlNews(){
+        Application.OpenURL(urlNoticiaDia);
     }
 
     public void AbrirCarta()
@@ -268,6 +277,8 @@ public class JSONLoaderJuego0 : MonoBehaviour
             cantRegaloModal.text="";
             tituloR.text="";
             letterT.text = textoCartaDia;
+            urlNews.enabled = false;
+
         }
         else{
             informationT.text = "Hoy no me trajeron cartas ... ";
@@ -285,6 +296,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
         giftT.text="";
         cantRegaloModal.text="";
         tituloR.text="";
+        urlNews.enabled = false;
         imageRegalo.enabled = false;
         wowRegalo.enabled = false;
         modal.SetActive(true);
