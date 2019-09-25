@@ -245,12 +245,7 @@ public class Movimiento : MonoBehaviour
             }
             
         }
-        else if (col.name == "HablarCalvo"){
-            hablarNPC1();
-        }
-        else if (col.name == "HablarNina"){
-            hablarNPC2();
-        }
+        
         //PARA SENTARSE
         else if (col.name == "silla")
         {
@@ -269,11 +264,7 @@ public class Movimiento : MonoBehaviour
             }
 
         }
-        //PARA HABLAR
-        else if (panelOpcionesHablar != null &&col.name == "mama")
-        {
-            hablarMom();
-        }
+        
 
 
         else if (col.name == "Nevera")
@@ -294,6 +285,17 @@ public class Movimiento : MonoBehaviour
         if(col.name== "PuntoDiscurso")
         {
             hablarNino();
+        }
+        else if (col.name == "HablarCalvo"){
+            hablarNPC1();
+        }
+        else if (col.name == "HablarNina"){
+            hablarNPC2();
+        }
+        //PARA HABLAR
+        else if (panelOpcionesHablar != null &&col.name == "mama")
+        {
+            hablarMom();
         }
     }
 
@@ -413,19 +415,19 @@ public class Movimiento : MonoBehaviour
     }
 
     public void hablarNPC1(){
-        //SoundManager.PlaySound("hablaCalvo");
+        SoundManager.PlaySound("hablaCalvo");
         DialogoNPC1C.SetActive(true);
         DialogoNPC1.text = jsonLoader.dialogNPC1;
     }
 
     public void hablarNPC2(){
-        //SoundManager.PlaySound("hablaNina");
+        SoundManager.PlaySound("hablaNina");
         DialogoNPC2C.SetActive(true);
         DialogoNPC2.text = jsonLoader.dialogNPC2;
     }
 
     public void hablarMom(){
-        //SoundManager.PlaySound("hablaMama");
+        SoundManager.PlaySound("hablaMama");
         DialogoMomC.SetActive(true);
         DialogoMom.text = jsonLoader.dialogMom;
     }

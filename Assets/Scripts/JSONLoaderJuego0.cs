@@ -200,7 +200,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
             {
                 //print("" + infoDias[dia]["textosHH"][i]);
                 DialogoNino.text = "" + infoDias[dia]["textosHH"][i];
-                //SoundManager.PlaySound("hablaPlayer");
+                SoundManager.PlaySound("hablaPlayer");
                 yield return new WaitForSeconds(5);
             }
             
