@@ -35,7 +35,7 @@ public class PanelFin : MonoBehaviour
         IEnumerator playDisparos(){
             yield return new WaitForSeconds(2);
             MusicSource.clip = disparos;
-            MusicSource.volume = 0.674f;
+            MusicSource.volume = 0.1f;
             MusicSource.Play();	
         }
 
@@ -43,6 +43,7 @@ public class PanelFin : MonoBehaviour
     { 
         yield return new WaitForSeconds(4);
         imagenLider.color = Color.white;
+        MusicSource.volume = 0.7f;
         MusicSource.clip = vacio;
         MusicSource.Play();	
         yield return new WaitForSeconds(5);
