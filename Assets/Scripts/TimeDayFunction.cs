@@ -34,6 +34,7 @@ public class TimeDayFunction : MonoBehaviour
     public SpriteRenderer calvoGrandeCoorp;
     public SpriteRenderer calvoPequenoCoorp;
     public SpriteRenderer nino2Coorp;
+    public SpriteRenderer balon;
 
 
 
@@ -183,6 +184,10 @@ public class TimeDayFunction : MonoBehaviour
             {
                 nino2Coorp.color = color;
             }
+            if(balon!= null)
+            {
+                balon.color = color;
+            }
 
              segundoActual = double.Parse(segundos);
             
@@ -239,6 +244,10 @@ public class TimeDayFunction : MonoBehaviour
                         {
                             nino2Coorp.color = color;
                         }
+                        if(balon!= null)
+                        {
+                            balon.color = color;
+                        }
                     }
                     else if (hora == 17 || hora == 18)
                     {
@@ -286,6 +295,11 @@ public class TimeDayFunction : MonoBehaviour
                         {
                             nino2Coorp.color = color;
                         }
+                        if (balon != null)
+                        {
+                            balon.color = color;
+                        }
+
 
                     }
                     else if (hora == 19)
@@ -333,6 +347,10 @@ public class TimeDayFunction : MonoBehaviour
                         if (nino2Coorp != null)
                         {
                             nino2Coorp.color = color;
+                        }
+                        if (balon != null)
+                        {
+                            balon.color = color;
                         }
 
                     }
@@ -382,6 +400,10 @@ public class TimeDayFunction : MonoBehaviour
                         {
                             nino2Coorp.color = color;
                         }
+                        if (balon != null)
+                        {
+                            balon.color = color;
+                        }
 
                     }
                     else if (hora == 21)
@@ -430,6 +452,10 @@ public class TimeDayFunction : MonoBehaviour
                         {
                             nino2Coorp.color = color;
                         }
+                        if (balon != null)
+                        {
+                            balon.color = color;
+                        }
                     }
                     else if (hora == 22)
                     {
@@ -476,6 +502,10 @@ public class TimeDayFunction : MonoBehaviour
                         if (nino2Coorp != null)
                         {
                             nino2Coorp.color = color;
+                        }
+                        if (balon != null)
+                        {
+                            balon.color = color;
                         }
 
                     }
@@ -525,6 +555,10 @@ public class TimeDayFunction : MonoBehaviour
                         {
                             nino2Coorp.color = color;
                         }
+                        if (balon != null)
+                        {
+                            balon.color = color;
+                        }
 
                     }
                     else if (hora == 24)
@@ -570,6 +604,10 @@ public class TimeDayFunction : MonoBehaviour
                         if (nino2Coorp != null)
                         {
                             nino2Coorp.color = color;
+                        }
+                        if (balon != null)
+                        {
+                            balon.color = color;
                         }
                     }
                 }
