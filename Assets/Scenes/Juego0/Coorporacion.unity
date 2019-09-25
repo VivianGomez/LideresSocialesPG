@@ -6786,16 +6786,15 @@ MonoBehaviour:
   DialogoMomC: {fileID: 0}
   DialogoNPC1C: {fileID: 0}
   DialogoNPC2C: {fileID: 0}
-  DialogoCoorp: {fileID: 0}
+  DialogoCoorp: {fileID: 1983121979}
   DialogoMom: {fileID: 0}
   DialogoNPC1: {fileID: 0}
   DialogoNPC2: {fileID: 0}
-  DialogoNino: {fileID: 0}
+  DialogoNino: {fileID: 2055591824}
   panelOpcionesSilla: {fileID: 0}
   panelOpcionesSillon: {fileID: 0}
   panelOpcionesHablar: {fileID: 0}
   panelOpcionesComer: {fileID: 0}
-  panelOpcionesCoorp: {fileID: 0}
 --- !u!61 &1147645594
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10004,7 +10003,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1.8, y: -0.36}
+  m_AnchoredPosition: {x: 3.46, y: 0.1}
   m_SizeDelta: {x: -8.972, y: -8.249}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1983121981

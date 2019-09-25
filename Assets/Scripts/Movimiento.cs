@@ -44,7 +44,6 @@ public class Movimiento : MonoBehaviour
     public GameObject panelOpcionesSillon;
     public GameObject panelOpcionesHablar;
     public GameObject panelOpcionesComer;
-    public GameObject panelOpcionesCoorp;
 
     //public TextMeshProUGUI buttonAlimento1;
 
@@ -98,10 +97,6 @@ public class Movimiento : MonoBehaviour
         if (panelOpcionesComer != null)
         {
             panelOpcionesComer.SetActive(false);
-        }
-        if (panelOpcionesCoorp != null)
-        {
-            panelOpcionesCoorp.SetActive(false);
         }
 
         if (File.Exists(Application.dataPath + "/Gamedata.json"))
@@ -292,7 +287,7 @@ public class Movimiento : MonoBehaviour
 
         }
 
-        else if(panelOpcionesCoorp!= null && col.name=="")
+        else if(col.name== "PuntoDiscurso")
         {
             hablarNino();
         }
@@ -325,7 +320,11 @@ public class Movimiento : MonoBehaviour
         {
             DialogoMomC.SetActive(false);
         }
-        if (panelOpcionesComer != null)
+        else if ( col.name == "PuntoDiscurso")
+        {
+            DialogoCoorp.SetActive(false);
+        }
+        else if (panelOpcionesComer != null)
         {
             panelOpcionesComer.SetActive(false);
         }
@@ -429,7 +428,8 @@ public class Movimiento : MonoBehaviour
     public void hablarNino()
     {
         DialogoCoorp.SetActive(true);
-        DialogoNino.text = jsonLoader.dialogMom;
+        permiteMoverse = false;
+        StartCoroutine(jsonLoader.cargarDialogosHH(diaActual-1));
     }
 
 }

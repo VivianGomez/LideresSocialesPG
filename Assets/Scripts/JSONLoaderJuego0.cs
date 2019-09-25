@@ -74,6 +74,8 @@ public class JSONLoaderJuego0 : MonoBehaviour
       public string dialogMom="";
      public string dialogNPC1="";
      public string dialogNPC2="";
+    public string dialogNino = "";
+    public TextMeshProUGUI DialogoNino;
 
 
     //public const string url ="https://firebasestorage.googleapis.com/v0/b/lideresocialespg.appspot.com/o/juego0.json?alt=media&token=3d8deac2-9fd0-4a22-98a3-3bc7629f809b";
@@ -86,6 +88,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
 
     void Update(){
          StartCoroutine(LoadInfoDia((timeDayFunction.dia)-1));
+        
     }
 
     void Start()
@@ -181,6 +184,27 @@ public class JSONLoaderJuego0 : MonoBehaviour
             dialogNPC1 = ""+infoDias[dia]["textosPersona1"];
             dialogNPC2 = ""+infoDias[dia]["textosPersona2"];
         } 
+    }
+
+    public IEnumerator cargarDialogosHH(int dia)
+    {
+        DialogoNino.text = "";
+        if (infoDias!=null)
+        {
+            for (int i = 0; i < infoDias[dia]["textosHH"].Count; i++)
+            {
+                //print("" + infoDias[dia]["textosHH"][i]);
+                DialogoNino.text = "" + infoDias[dia]["textosHH"][i];
+                yield return new WaitForSeconds(5);
+            }
+            
+        }
+        Destroy(GameObject.Find("PuntoDiscurso"));
+        GameObject p = GameObject.Find("Personaje");
+        p.GetComponent<Movimiento>().permiteMoverse = true;
+        
+        p.GetComponent<Movimiento>().DialogoCoorp.SetActive(false);
+
     }
 
     void LoadInfoAlimentos(JsonData alimentos)
