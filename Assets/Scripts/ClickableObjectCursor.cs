@@ -26,6 +26,10 @@ public class ClickableObjectCursor : MonoBehaviour
         {
             CursorController.Instance.SetCloseCursor();
         }
+        else if (gameObject.name.Equals("Doors_Inside_70") || gameObject.name.Equals("Doors_Inside_6") || gameObject.name.Equals("PuertaCasa") || gameObject.name.Equals("PuertaCol") || gameObject.name.Equals("PuertaCoorp"))
+        {
+            CursorController.Instance.SetDoorCursor();
+        }
     }
 
     private void OnMouseExit()

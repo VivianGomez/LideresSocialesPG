@@ -16,6 +16,9 @@ public class CursorController : MonoBehaviour
     [SerializeField]
     private Texture2D closeCursor;
 
+    [SerializeField]
+    private Texture2D doorCursor;
+
     public static CursorController Instance { get; private set; }
 
     private void Awake()
@@ -75,6 +78,11 @@ public class CursorController : MonoBehaviour
     public void SetCloseCursor()
     {
         Cursor.SetCursor(closeCursor, Vector2.zero, CursorMode.Auto);
+    }
+
+    public void SetDoorCursor()
+    {
+        Cursor.SetCursor(doorCursor, Vector2.zero, CursorMode.Auto);
     }
 
 }
