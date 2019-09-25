@@ -64,6 +64,9 @@ public class DayChanger : MonoBehaviour
          fondo.GetComponent<TimeDayFunction>().ultimoSegundo,
          fondo.GetComponent<TimeDayFunction>().segundoActual,
          new string[] { "Arroz", "Huevos", "Agua", "Arroz con leche", "Chocolate", "Dulces", "Granos", "Pan" });
+
+         GameObject aS = GameObject.Find("AudioObject");
+         aS.GetComponent<AudioScript>().verificarAudioDia(fondo.GetComponent<TimeDayFunction>().dia);
     }
 
     public void pasarEstado()

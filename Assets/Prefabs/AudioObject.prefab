@@ -141,4 +141,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MusicClip: {fileID: 8300000, guid: dfbe19c6da029b74486adc4fe348ce6d, type: 3}
+  MusicFinalOut: {fileID: 8300000, guid: 9ea1be649efc91f409efd814069018f2, type: 3}
+  MusicFinalIns: {fileID: 8300000, guid: 283c4e6fd99185842a50dc149228e2b4, type: 3}
   MusicSource: {fileID: 968499525557860499}

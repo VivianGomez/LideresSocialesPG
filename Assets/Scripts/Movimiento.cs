@@ -1,5 +1,5 @@
 ﻿using LitJson;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 using System.IO;
 using UnityEngine;
@@ -47,6 +47,7 @@ public class Movimiento : MonoBehaviour
 
     void Start()
     {
+
         trigger = false;
         objeto.SetActive(false);
         imagen.SetActive(false);
@@ -98,6 +99,8 @@ public class Movimiento : MonoBehaviour
         }
     }
 
+
+
     void Update()
     {
         if(permiteMoverse)
@@ -106,6 +109,7 @@ public class Movimiento : MonoBehaviour
             {
                 jsonData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json"));
                 diaActual = (int)jsonData[0];
+                
             }
 
             GameObject player = GameObject.Find("Personaje");
@@ -313,6 +317,10 @@ public class Movimiento : MonoBehaviour
     public void OnClick(){
 
         GameObject fondo = GameObject.Find("Background");
+                    
+
+        
+
         if ( fondo.GetComponent<TimeDayFunction>().hora > 6 && diaActual < 4)
         {
             panelOpcionesCama.SetActive(false);
@@ -320,7 +328,6 @@ public class Movimiento : MonoBehaviour
 
             SoundManager.PlaySound("dormir");
             permiteMoverse = false;
-
         }
         
     }
@@ -331,7 +338,6 @@ public class Movimiento : MonoBehaviour
         panelOpcionesSilla.SetActive(false);
         animator.SetTrigger("sientaSilla");        
         
-
     }
 
     public void OnClickSentarseSillon()
