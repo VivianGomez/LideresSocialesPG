@@ -16,7 +16,7 @@ public class SoundManager : MonoBehaviour
         campanaColegio = Resources.Load<AudioClip>("audios/campColegio");
         vocesColegio = Resources.Load<AudioClip>("audios/ninosEscuela");
         hablarGente = Resources.Load<AudioClip>("audios/genteHabla");
-        patearBalon = Resources.Load<AudioClip>("audios/hablarGente");
+        patearBalon = Resources.Load<AudioClip>("audios/patearBalon");
 
 
         audioSource = GetComponent<AudioSource>();

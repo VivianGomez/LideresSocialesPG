@@ -230,6 +230,13 @@ public class Movimiento : MonoBehaviour
 
         }
      */
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.name == "GameObject")
+        {
+            SoundManager.PlaySound("patearBalon");
+        }
+    }
 
     void OnTriggerStay2D(Collider2D col)
     {
@@ -290,6 +297,7 @@ public class Movimiento : MonoBehaviour
         {
             hablarNino();
         }
+        
     }
 
     void OnTriggerExit2D(Collider2D col)
