@@ -267,19 +267,17 @@ public class Movimiento : MonoBehaviour
 
     public void OnClickSentarseSilla()
     {
-        permiteMoverse = false;
         panelOpcionesSilla.SetActive(false);
         animator.SetTrigger("sientaSilla");        
-        
+       // permiteMoverse = false;
 
     }
 
     public void OnClickSentarseSillon()
     {
-        permiteMoverse = false;
         panelOpcionesSillon.SetActive(false);
         animator.SetTrigger("sientaSilla");    
-               
+       // permiteMoverse = false;        
     }
         
 
@@ -288,14 +286,13 @@ public class Movimiento : MonoBehaviour
 
         panelOpcionesHablar.SetActive(false);
         animator.SetTrigger("hablar");
-        //permiteMoverse = false;
+        permiteMoverse = false;
 
     }
 
     public void mantenerseSentado()
     {
         animator.SetTrigger("quedarseSentado");
-        
     }
 
     public void permitirMovimiento()

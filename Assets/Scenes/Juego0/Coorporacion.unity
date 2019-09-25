@@ -6566,6 +6566,7 @@ MonoBehaviour:
   trigger: 0
   imagen: {fileID: 708511234}
   animator: {fileID: 1147645597}
+  panelOpcionesCama: {fileID: 0}
 --- !u!61 &1147645594
 BoxCollider2D:
   m_ObjectHideFlags: 0
