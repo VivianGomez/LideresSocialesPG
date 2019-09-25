@@ -24,10 +24,12 @@ public class Movimiento : MonoBehaviour
     //NPC dialogs
     public GameObject  DialogoMomC;
     public GameObject  DialogoNPC1C;
-    public GameObject  DialogoNPC2C; 
+    public GameObject  DialogoNPC2C;
+    public GameObject DialogoCoorp;
     public TextMeshProUGUI  DialogoMom;
     public TextMeshProUGUI  DialogoNPC1;
     public TextMeshProUGUI  DialogoNPC2;
+    public TextMeshProUGUI  DialogoNino;
 
     private JSONLoaderJuego0 jsonLoader;
 
@@ -70,7 +72,12 @@ public class Movimiento : MonoBehaviour
             DialogoNPC2C.SetActive(false);
         }
 
-        if(panelOpcionesCama!=null)
+        if (DialogoCoorp != null)
+        {
+            DialogoCoorp.SetActive(false);
+        }
+
+        if (panelOpcionesCama!=null)
         {
             panelOpcionesCama.SetActive(false);
         }
@@ -268,6 +275,7 @@ public class Movimiento : MonoBehaviour
             hablarMom();
         }
 
+
         else if (col.name == "Nevera")
         {
             print("si" + col.name);
@@ -276,6 +284,11 @@ public class Movimiento : MonoBehaviour
                 panelOpcionesComer.SetActive(true);
             }
 
+        }
+
+        else if(col.name== "PuntoDiscurso")
+        {
+            hablarNino();
         }
     }
 
@@ -306,7 +319,11 @@ public class Movimiento : MonoBehaviour
         {
             DialogoMomC.SetActive(false);
         }
-        if (panelOpcionesComer != null)
+        else if ( col.name == "PuntoDiscurso")
+        {
+            DialogoCoorp.SetActive(false);
+        }
+        else if (panelOpcionesComer != null)
         {
             panelOpcionesComer.SetActive(false);
         }
@@ -403,6 +420,14 @@ public class Movimiento : MonoBehaviour
     public void hablarMom(){
         DialogoMomC.SetActive(true);
         DialogoMom.text = jsonLoader.dialogMom;
+    }
+
+    public void hablarNino()
+    {
+        DialogoCoorp.SetActive(true);
+        permiteMoverse = false;
+        animator.SetTrigger("hablar");
+        StartCoroutine(jsonLoader.cargarDialogosHH(diaActual-1));
     }
 
 }
