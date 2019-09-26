@@ -387,6 +387,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
                 darAlimentoCantText(indiceAl).text = "" + (Int32.Parse(darAlimentoCantText(indiceAl).text) + cantRegaloCarta);
         }
         else{
+            
             if(gameData[4].Equals("1")){
                 informationT.text = "NO HAY MÁS REGALOS ... ";
             }
