@@ -17,7 +17,6 @@ public class SoundManager : MonoBehaviour
         vocesColegio = Resources.Load<AudioClip>("audios/ninosEscuela");
         hablarGente = Resources.Load<AudioClip>("audios/genteHabla");
         patearBalon = Resources.Load<AudioClip>("audios/patearBalon");
-        patearBalon = Resources.Load<AudioClip>("audios/hablarGente");
         hablaPlayer = Resources.Load<AudioClip>("audios/habla2");
         hablaNina = Resources.Load<AudioClip>("audios/risaNina");
         hablaCalvo = Resources.Load<AudioClip>("audios/heyHombre");
