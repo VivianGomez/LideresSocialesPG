@@ -270,7 +270,6 @@ public class Movimiento : MonoBehaviour
 
         else if (col.name == "Nevera")
         {
-            print("si" + col.name);
             if (panelOpcionesComer != null)
             {
                 panelOpcionesComer.SetActive(true);

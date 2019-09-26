@@ -192,8 +192,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
 
     public IEnumerator cargarDialogosHH(int dia)
     {
-        print("Entra");
-        DialogoNino.text = "";
+¿        DialogoNino.text = "";
         if (infoDias!=null)
         {
             for (int i = 0; i < infoDias[dia]["textosHH"].Count; i++)
@@ -404,7 +403,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
         gameData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json"));
         if(!(textoRegaloLiderazgo.Equals("")))
         {
-            //SoundManager.PlaySound("abrirAlgo");            
+            SoundManager.PlaySound("wow");           
             buttonCloseModal.image.color = Color.black;
             panelInventario.SetActive(false);
             imageRegalo.enabled = true;
@@ -422,7 +421,6 @@ public class JSONLoaderJuego0 : MonoBehaviour
             GameObject camara = GameObject.Find("Main Camera");
             GameObject fondo = GameObject.Find("Background");  
             int tenia = Int32.Parse(darAlimentoCantText(indiceAl).text);
-            print("TENIAAAAAAAAAAAA "+ tenia  +" +++ "+ cantRegaloLiderazgo);
             darAlimentoCantText(indiceAl).text = "" + (tenia+cantRegaloLiderazgo) ;
         }
         else{
