@@ -192,7 +192,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
 
     public IEnumerator cargarDialogosHH(int dia)
     {
-¿        DialogoNino.text = "";
+        DialogoNino.text = "";
         if (infoDias!=null)
         {
             for (int i = 0; i < infoDias[dia]["textosHH"].Count; i++)
