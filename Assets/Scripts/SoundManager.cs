@@ -5,7 +5,7 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     public static AudioClip dormir, abrirAlgo, cocinar, 
-    comer, campanaColegio, vocesColegio, hablarGente, patearBalon, hablaPlayer, hablaNina, hablaCalvo, hablaMama;
+    comer, campanaColegio, vocesColegio, hablarGente, patearBalon, hablaPlayer, hablaNina, hablaCalvo, hablaMama, wow;
     static AudioSource audioSource; 
     void Start()
     {
@@ -21,6 +21,7 @@ public class SoundManager : MonoBehaviour
         hablaNina = Resources.Load<AudioClip>("audios/risaNina");
         hablaCalvo = Resources.Load<AudioClip>("audios/heyHombre");
         hablaMama = Resources.Load<AudioClip>("audios/mom");
+        wow = Resources.Load<AudioClip>("audios/wow");
 
         audioSource = GetComponent<AudioSource>();
     }
@@ -62,6 +63,9 @@ public class SoundManager : MonoBehaviour
             break; 
         case "hablaMama":
             audioSource.PlayOneShot(hablaMama);
+            break; 
+        case "wow":
+            audioSource.PlayOneShot(wow);
             break; 
         }
         
