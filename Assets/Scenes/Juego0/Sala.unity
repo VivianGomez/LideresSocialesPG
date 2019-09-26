@@ -649,6 +649,7 @@ MonoBehaviour:
   panelOpcionesSillon: {fileID: 441427712}
   panelOpcionesHablar: {fileID: 2066728676}
   panelOpcionesComer: {fileID: 0}
+  panelOpcionesDiscurso: {fileID: 0}
 --- !u!61 &128451468
 BoxCollider2D:
   m_ObjectHideFlags: 0
