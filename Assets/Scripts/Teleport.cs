@@ -13,7 +13,14 @@ public class Teleport : MonoBehaviour
     private string tomoRegaloCarta;
 
     private SceneController sceneController;
-    
+
+    private JSONLoaderJuego0 jsonLoader;
+
+
+    void Awake()
+    {
+        jsonLoader = GameObject.FindObjectOfType<JSONLoaderJuego0>();
+    }
 
     void Start()
     {
@@ -39,8 +46,15 @@ public class Teleport : MonoBehaviour
         {
             SceneManager.LoadScene("Fin");
         }         
-        else{  
-            sceneController.LoadScene(levelToLoad);
+        else{
+            if (fondo.GetComponent<TimeDayFunction>().hora >17 && levelToLoad.Equals("Colegio"))
+            {
+                jsonLoader.darInformacion("El colegio se encuentra cerrado.");
+            }
+            else {
+                sceneController.LoadScene(levelToLoad);
+            }
+            
         }
     }
 

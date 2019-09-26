@@ -409,6 +409,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
         gameData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json"));
         if(!(textoRegaloLiderazgo.Equals("")))
         {
+            p.GetComponent<Movimiento>().permiteMoverse = false;
             SoundManager.PlaySound("wow");           
             buttonCloseModal.image.color = Color.black;
             panelInventario.SetActive(false);
@@ -428,6 +429,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
             GameObject fondo = GameObject.Find("Background");  
             int tenia = Int32.Parse(darAlimentoCantText(indiceAl).text);
             darAlimentoCantText(indiceAl).text = "" + (tenia+cantRegaloLiderazgo) ;
+
         }
         else{
                 informationT.text = "NO HAY MÁS REGALOS ... ";

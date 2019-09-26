@@ -239,24 +239,18 @@ public class Movimiento : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D col)
     {
-        //PARA DORMIR
         GameObject fondo = GameObject.Find("Background");
-
-        if (col.name == "camaClick" && fondo.GetComponent<TimeDayFunction>().hora > 6 && diaActual < 4)
+        if (col.name == "camaClick" && fondo.GetComponent<TimeDayFunction>().hora > 18 && diaActual < 4)
         //if (col.name == "camaClick" && fondo.GetComponent<TimeDayFunction>().hora > 18 && diaActual < 4)
         {
 
-            if(panelOpcionesCama!=null)
+            if (panelOpcionesCama != null)
             {
                 panelOpcionesCama.SetActive(true);
             }
-            
+
         }
-        else if(col.name == "camaClick" && fondo.GetComponent<TimeDayFunction>().hora < 18)
-        {
-            jsonLoader.darInformacion("NO TENGO GANAS DE DORMIR");
-        }
-        
+
         //PARA SENTARSE
         else if (col.name == "silla")
         {
@@ -294,7 +288,13 @@ public class Movimiento : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.name== "PuntoDiscurso")
+        //PARA DORMIR
+        GameObject fondo = GameObject.Find("Background");
+        if (col.name == "cama" && fondo.GetComponent<TimeDayFunction>().hora < 19)
+        {
+            jsonLoader.darInformacion("NO TENGO GANAS DE DORMIR");
+        }
+        else if(col.name== "PuntoDiscurso")
         {
             if (panelOpcionesDiscurso != null)
             {
