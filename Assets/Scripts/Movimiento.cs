@@ -43,6 +43,7 @@ public class Movimiento : MonoBehaviour
     public GameObject panelOpcionesSillon;
     public GameObject panelOpcionesHablar;
     public GameObject panelOpcionesComer;
+    public GameObject panelOpcionesDiscurso;
 
     //public TextMeshProUGUI buttonAlimento1;
 
@@ -96,6 +97,10 @@ public class Movimiento : MonoBehaviour
         if (panelOpcionesComer != null)
         {
             panelOpcionesComer.SetActive(false);
+        }
+        if (panelOpcionesDiscurso != null)
+        {
+            panelOpcionesDiscurso.SetActive(false);
         }
 
         if (File.Exists(Application.dataPath + "/Gamedata.json"))
@@ -278,13 +283,18 @@ public class Movimiento : MonoBehaviour
         }
 
         
+
+
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
         if(col.name== "PuntoDiscurso")
         {
-            hablarNino();
+            if (panelOpcionesDiscurso != null)
+            {
+                panelOpcionesDiscurso.SetActive(true);
+            }
         }
         else if (col.name == "HablarCalvo"){
             hablarNPC1();
@@ -332,7 +342,7 @@ public class Movimiento : MonoBehaviour
         }
         else if ( col.name == "PuntoDiscurso")
         {
-            DialogoCoorp.SetActive(false);
+            panelOpcionesDiscurso.SetActive(false);
         }
         else if (panelOpcionesComer != null)
         {
@@ -438,6 +448,8 @@ public class Movimiento : MonoBehaviour
 
     public void hablarNino()
     {
+        Destroy(GameObject.Find("Particle System"));
+        panelOpcionesDiscurso.SetActive(false);
         DialogoCoorp.SetActive(true);
         permiteMoverse = false;
         animator.SetTrigger("hablar");
