@@ -27,6 +27,7 @@ public class SoundManager : MonoBehaviour
     }
 
     public static void PlaySound(string clip){
+        audioSource.volume = 0.5f;
         switch(clip){
         case "dormir":
             audioSource.PlayOneShot(dormir);
@@ -50,6 +51,7 @@ public class SoundManager : MonoBehaviour
             audioSource.PlayOneShot(hablarGente);
             break;
         case "patearBalon":
+            audioSource.volume = 0.2f;
             audioSource.PlayOneShot(patearBalon);
             break; 
         case "hablaNina":
@@ -59,6 +61,7 @@ public class SoundManager : MonoBehaviour
             audioSource.PlayOneShot(hablaCalvo);
             break; 
         case "hablaPlayer":
+            audioSource.volume = 0.4f;
             audioSource.PlayOneShot(hablaPlayer);
             break; 
         case "hablaMama":
