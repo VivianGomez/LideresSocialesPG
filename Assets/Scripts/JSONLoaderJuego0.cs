@@ -249,6 +249,11 @@ public class JSONLoaderJuego0 : MonoBehaviour
         }
     }
 
+    public void darInformacion(string info){
+        informationT.text = info;
+        StartCoroutine(ActivationRoutine());
+    }
+
     private IEnumerator ActivationRoutine()
     {
         yield return new WaitForSeconds(3);

@@ -243,6 +243,7 @@ public class Movimiento : MonoBehaviour
         GameObject fondo = GameObject.Find("Background");
 
         if (col.name == "camaClick" && fondo.GetComponent<TimeDayFunction>().hora > 6 && diaActual < 4)
+        //if (col.name == "camaClick" && fondo.GetComponent<TimeDayFunction>().hora > 18 && diaActual < 4)
         {
 
             if(panelOpcionesCama!=null)
@@ -250,6 +251,10 @@ public class Movimiento : MonoBehaviour
                 panelOpcionesCama.SetActive(true);
             }
             
+        }
+        else if(col.name == "camaClick" && fondo.GetComponent<TimeDayFunction>().hora < 18)
+        {
+            jsonLoader.darInformacion("NO TENGO GANAS DE DORMIR");
         }
         
         //PARA SENTARSE
