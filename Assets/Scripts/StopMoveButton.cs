@@ -10,15 +10,13 @@ public class StopMoveButton : MonoBehaviour
     public Animator animationBtn;
     public JsonData jsonData;
 
-    private bool tomo;
-
     void Start()
     {        
         if ( this.name.Equals("ButtonGift") && File.Exists(Application.dataPath + "/Gamedata.json"))
-        {
+        {   
             jsonData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json"));
-            tomo = ("0").Equals(jsonData[4]);
-            animationBtn.enabled = tomo;
+            print("YES! "+(("0").Equals(""+jsonData[4])));
+            animationBtn.enabled = (("0").Equals(""+jsonData[4]));
         }
         else{
             animationBtn.enabled = true;
