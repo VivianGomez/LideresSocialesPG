@@ -31,6 +31,11 @@ public class Movimiento : MonoBehaviour
     public TextMeshProUGUI  DialogoNPC2;
     public TextMeshProUGUI  DialogoNino;
 
+    public GameObject botonRegalo;
+    public GameObject botonCarta;
+    public GameObject botonPeriodico;
+
+
     private JSONLoaderJuego0 jsonLoader;
 
 
@@ -299,6 +304,9 @@ public class Movimiento : MonoBehaviour
             if (panelOpcionesDiscurso != null)
             {
                 panelOpcionesDiscurso.SetActive(true);
+                botonCarta.SetActive(false);
+                botonPeriodico.SetActive(false);
+                botonRegalo.SetActive(false);
             }
         }
         else if (col.name == "HablarCalvo"){
@@ -348,6 +356,9 @@ public class Movimiento : MonoBehaviour
         else if ( col.name == "PuntoDiscurso")
         {
             panelOpcionesDiscurso.SetActive(false);
+            botonCarta.SetActive(true);
+            botonPeriodico.SetActive(true);
+            botonRegalo.SetActive(true);
         }
         else if (panelOpcionesComer != null)
         {

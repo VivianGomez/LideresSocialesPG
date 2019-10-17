@@ -19,8 +19,8 @@ public class JSONWriter : MonoBehaviour
             infoPartida = new GameData(1, new int[] { 1,3,5,0,0,0,0,0 }, 100, 6, "0", Time.time, 0.0, 0.0, new string[] { "Arroz", "Huevos", "Agua", "Arroz con leche", "Chocolate", "Dulces", "Granos", "Pan" });
             jsonCreado = JsonMapper.ToJson(infoPartida);
             File.WriteAllText(Application.dataPath + "/Gamedata.json", jsonCreado.ToString());
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
+            //AssetDatabase.SaveAssets();
+            //AssetDatabase.Refresh();
         }        
     }
 
@@ -30,8 +30,8 @@ public class JSONWriter : MonoBehaviour
 
         jsonCreado = JsonMapper.ToJson(infoPartida);
         File.WriteAllText(Application.dataPath + "/Gamedata.json", jsonCreado.ToString());
-        AssetDatabase.SaveAssets();
-        AssetDatabase.Refresh();
+       // AssetDatabase.SaveAssets();
+        //AssetDatabase.Refresh();
     }  
 
 

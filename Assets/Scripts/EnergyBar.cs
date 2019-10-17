@@ -9,6 +9,7 @@ public class EnergyBar : MonoBehaviour
 	public Scrollbar energyBar;
     private JsonData gameData;
     public float Energy = 100;
+    private int tiempo=0;
 
     //private JSONLoader jsonLoader;
     
@@ -16,6 +17,7 @@ public class EnergyBar : MonoBehaviour
 
     private void Start()
     {
+
         if (!File.Exists(Application.dataPath + "/Gamedata.json"))
         {
             Energy = 100;
@@ -34,7 +36,8 @@ public class EnergyBar : MonoBehaviour
 
     void Update()
     {
-        Hungry(0.4e-2f);
+       print(tiempo);
+       Hungry(0.0001f);
     }
 
     public void Hungry(float value)
