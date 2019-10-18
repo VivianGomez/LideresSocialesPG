@@ -16,7 +16,7 @@ public class JSONWriter : MonoBehaviour
     {
         if(!File.Exists(Application.dataPath + "/Gamedata.json"))
         {
-            infoPartida = new GameData(1, new int[] { 1,3,5,0,0,0,0,0 }, 100, 6, "0", Time.time, 0.0, 0.0, new string[] { "Arroz", "Huevos", "Agua", "Arroz con leche", "Chocolate", "Dulces", "Granos", "Pan" });
+            infoPartida = new GameData(1, new int[] { 1,3,5,0,0,0,0,0 }, 100, 6, "0","0","0", Time.time, 0.0, 0.0, new string[] { "Arroz", "Huevos", "Agua", "Arroz con leche", "Chocolate", "Dulces", "Granos", "Pan" });
             jsonCreado = JsonMapper.ToJson(infoPartida);
             File.WriteAllText(Application.dataPath + "/Gamedata.json", jsonCreado.ToString());
             //AssetDatabase.SaveAssets();
@@ -24,9 +24,9 @@ public class JSONWriter : MonoBehaviour
         }        
     }
 
-    public void reescribirJSON(int dia, int[] lista, int porcentajeBarra, int hora, string tomoRegaloCarta, double inicio, double ultimoSegundo, double segundoActual, string[] nombresAlimentos)
+    public void reescribirJSON(int dia, int[] lista, int porcentajeBarra, int hora, string tomoRegaloCarta, string tomoCarta, string tomoPeriodico, double inicio, double ultimoSegundo, double segundoActual, string[] nombresAlimentos)
     {
-        infoPartida = new GameData(dia, lista, porcentajeBarra, hora, tomoRegaloCarta, inicio, ultimoSegundo, segundoActual, nombresAlimentos);
+        infoPartida = new GameData(dia, lista, porcentajeBarra, hora, tomoRegaloCarta, tomoCarta,tomoPeriodico, inicio, ultimoSegundo, segundoActual, nombresAlimentos);
 
         jsonCreado = JsonMapper.ToJson(infoPartida);
         File.WriteAllText(Application.dataPath + "/Gamedata.json", jsonCreado.ToString());
@@ -44,12 +44,14 @@ public class GameData
     public int porcentajeEnergia;
     public int hora;
     public string tomoRegaloCarta;
+    public string tomoCarta;
+    public string tomoPeriodico;
     public double inicio ;
     public double ultimoSegundo ;
     public double segundoActual ;
     public string[] nombresAlimentos;
 
-    public GameData(int dia, int[] cantidad, int porcentaje, int hora, string tomoRegaloCarta, double inicio, double ultimoSegundo, double segundoActual, string[] nombresAlimentos)
+    public GameData(int dia, int[] cantidad, int porcentaje, int hora, string tomoRegaloCarta, string tomoCarta, string tomoPeriodico, double inicio, double ultimoSegundo, double segundoActual, string[] nombresAlimentos)
     {
         this.diaActual = dia;
         this.cantidadAlimentos = cantidad;
@@ -57,6 +59,8 @@ public class GameData
         this.hora = hora;
         
         this.tomoRegaloCarta = tomoRegaloCarta;
+        this.tomoCarta = tomoCarta;
+        this.tomoPeriodico = tomoPeriodico;
         this.inicio = inicio;
         this.ultimoSegundo = ultimoSegundo;
         this.segundoActual = segundoActual;

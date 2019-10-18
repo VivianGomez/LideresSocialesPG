@@ -48,6 +48,9 @@ public class DayChanger : MonoBehaviour
         fondo.GetComponent<TimeDayFunction>().ultimoSegundo = 0.0;
         //print("se aumento el dia");
 
+        string toma= (camara.GetComponent<JSONLoaderJuego0>().textoRegaloCarta!=null)?"0":"1";
+        string tomaPeriodico = (camara.GetComponent<JSONLoaderJuego0>().textoNoticiaDia != null) ? "0" : "1";
+
         camara.GetComponent<JSONWriter>().reescribirJSON(fondo.GetComponent<TimeDayFunction>().dia,
          new int[] { int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento1.text),
          int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento2.text),
@@ -59,7 +62,9 @@ public class DayChanger : MonoBehaviour
          int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento8.text) },
          (int)camara.GetComponent<EnergyBar>().Energy,
          fondo.GetComponent<TimeDayFunction>().hora,
-         tomoRegaloCarta,
+         toma,
+         "0",
+         tomaPeriodico,
          fondo.GetComponent<TimeDayFunction>().inicio,
          fondo.GetComponent<TimeDayFunction>().ultimoSegundo,
          fondo.GetComponent<TimeDayFunction>().segundoActual,

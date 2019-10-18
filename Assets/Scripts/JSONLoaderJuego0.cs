@@ -17,7 +17,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
 
     private TimeDayFunction timeDayFunction;
 
-    private string textoRegaloCarta="";
+    public string textoRegaloCarta="";
     private string textoRegaloLiderazgo;
     private string regaloCarta;
     public int cantRegaloCarta;
@@ -36,7 +36,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
 
     //****************************************************************************************
 
-    private string textoNoticiaDia;
+    public string textoNoticiaDia;
     private string urlNoticiaDia;
 
     public GameObject jugador;
@@ -71,6 +71,16 @@ public class JSONLoaderJuego0 : MonoBehaviour
     public TextMeshProUGUI cantidadAlimento6;
     public TextMeshProUGUI cantidadAlimento7;
     public TextMeshProUGUI cantidadAlimento8;
+
+    public TextMeshProUGUI porcentajeAlimento1;
+    public TextMeshProUGUI porcentajeAlimento2;
+    public TextMeshProUGUI porcentajeAlimento3;
+    public TextMeshProUGUI porcentajeAlimento4;
+    public TextMeshProUGUI porcentajeAlimento5;
+    public TextMeshProUGUI porcentajeAlimento6;
+    public TextMeshProUGUI porcentajeAlimento7;
+    public TextMeshProUGUI porcentajeAlimento8;
+
     GameObject p;
 
     //Dialogo
@@ -90,7 +100,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
     }
 
     void Update(){
-         StartCoroutine(LoadInfoDia((timeDayFunction.dia)-1));
+         StartCoroutine(LoadInfoDia((timeDayFunction.dia)-1, timeDayFunction.hora));
         
     }
 
@@ -119,6 +129,18 @@ public class JSONLoaderJuego0 : MonoBehaviour
             cantidadAlimento6.text = (gameData[1][5]).ToString();
             cantidadAlimento7.text = (gameData[1][6]).ToString();
             cantidadAlimento8.text = (gameData[1][7]).ToString();
+        }
+
+        if(porcentajeAlimento1!= null)
+        {
+            porcentajeAlimento1.text = "+ 1% de energía";
+            porcentajeAlimento2.text = "+ 5% de energía";
+            porcentajeAlimento3.text = "+ 2% de energía";
+            porcentajeAlimento4.text = "+ 4% de energía";
+            porcentajeAlimento5.text = "+ 3% de energía";
+            porcentajeAlimento6.text = "+ 1% de energía";
+            porcentajeAlimento7.text = "+ 5% de energía";
+            porcentajeAlimento8.text = "+ 5% de energía";
         }
 
         informationT.text = "";
@@ -159,7 +181,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
            infoDias = jData[1]["infoDias"];
 
            gameData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json"));
-           LoadInfoAlimentos(gameData[8]);
+           LoadInfoAlimentos(gameData[10]);
             StartCoroutine(loading());
 
             
@@ -172,21 +194,21 @@ public class JSONLoaderJuego0 : MonoBehaviour
     }
 
 
-    public IEnumerator LoadInfoDia(int dia){
-        if(infoDias!=null)   {
-            yield return new WaitForSeconds(1); 
-            textoCartaDia = ""+infoDias[dia]["textoCarta"];
-            textoNoticiaDia = ""+infoDias[dia]["textoPeriodico"];
-            urlNoticiaDia = ""+infoDias[dia]["urlNoticiaDia"];
-            textoRegaloCarta = ""+infoDias[dia]["textoRegaloCarta"];
-            textoRegaloLiderazgo = ""+infoDias[dia]["textoRegaloLiderazgo"];
-            regaloCarta = ""+infoDias[dia]["regaloCarta"]["nombre"];
+    public IEnumerator LoadInfoDia(int dia, int hora){
+        if (infoDias != null) {
+            yield return new WaitForSeconds(1);
+            textoCartaDia = "" + infoDias[dia]["textoCarta"];
+            textoNoticiaDia = "" + infoDias[dia]["textoPeriodico"];
+            urlNoticiaDia = "" + infoDias[dia]["urlNoticiaDia"];
+            textoRegaloCarta = "" + infoDias[dia]["textoRegaloCarta"];
+            textoRegaloLiderazgo = "" + infoDias[dia]["textoRegaloLiderazgo"];
+            regaloCarta = "" + infoDias[dia]["regaloCarta"]["nombre"];
             cantRegaloCarta = (int)infoDias[dia]["regaloCarta"]["cantidad"];
-            regaloLiderazgo = ""+infoDias[dia]["regaloLiderazgo"]["nombre"];
+            regaloLiderazgo = "" + infoDias[dia]["regaloLiderazgo"]["nombre"];
             cantRegaloLiderazgo = (int)infoDias[dia]["regaloLiderazgo"]["cantidad"];
-            dialogMom = ""+infoDias[dia]["textosMadre"];
-            dialogNPC1 = ""+infoDias[dia]["textosPersona1"];
-            dialogNPC2 = ""+infoDias[dia]["textosPersona2"];
+            dialogMom = (hora < 18) ? ("" + infoDias[dia]["textosMadre"]) : ("" + infoDias[dia]["textosMadreNoche"]);
+            dialogNPC1 = (hora < 18) ? ("" +infoDias[dia]["textosPersona1"]):("" + infoDias[dia]["textosPersona1Noche"]);
+            dialogNPC2 = (hora < 18) ? ("" +infoDias[dia]["textosPersona2"]): ("" + infoDias[dia]["textosPersona2Noche"]);
         } 
     }
 
@@ -227,7 +249,29 @@ public class JSONLoaderJuego0 : MonoBehaviour
 
     public void AbrirPeriodico()
     {
-        if(!(textoNoticiaDia.Equals(""))){
+        GameObject camara = GameObject.Find("Main Camera");
+        GameObject fondo = GameObject.Find("Background");
+
+        camara.GetComponent<JSONWriter>().reescribirJSON(
+                fondo.GetComponent<TimeDayFunction>().dia,
+                new int[] { int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento1.text),
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento2.text),
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento3.text),
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento4.text),
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento5.text),
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento6.text),
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento7.text),
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento8.text) },
+                (int)camara.GetComponent<EnergyBar>().Energy, fondo.GetComponent<TimeDayFunction>().hora,
+                gameData[4].ToString(),
+                gameData[5].ToString(),
+                "1",
+                fondo.GetComponent<TimeDayFunction>().inicio,
+                fondo.GetComponent<TimeDayFunction>().ultimoSegundo,
+                fondo.GetComponent<TimeDayFunction>().segundoActual,
+                new string[] { "Arroz", "Huevos", "Agua", "Arroz con leche", "Chocolate", "Dulces", "Granos", "Pan de centeno" });
+
+        if (!(textoNoticiaDia.Equals(""))){
             p.GetComponent<Movimiento>().permiteMoverse = false;
             if(p.GetComponent<Movimiento>().DialogoNPC1C!= null)
             {
@@ -291,8 +335,13 @@ public class JSONLoaderJuego0 : MonoBehaviour
 
     public void AbrirCarta()
     {
-        if(!(textoCartaDia.Equals(""))){
+        GameObject camara = GameObject.Find("Main Camera");
+        GameObject fondo = GameObject.Find("Background");
+                
+
+        if (!(textoCartaDia.Equals(""))){
             //SoundManager.PlaySound("abrirAlgo");
+
 
             p.GetComponent<Movimiento>().permiteMoverse = false;
             if (p.GetComponent<Movimiento>().DialogoNPC1C != null)
@@ -322,8 +371,47 @@ public class JSONLoaderJuego0 : MonoBehaviour
             letterT.text = textoCartaDia;
             urlNews.enabled = false;
 
+            camara.GetComponent<JSONWriter>().reescribirJSON(
+                fondo.GetComponent<TimeDayFunction>().dia,
+                new int[] { int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento1.text),
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento2.text),
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento3.text),
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento4.text),
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento5.text),
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento6.text),
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento7.text),
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento8.text) },
+                (int)camara.GetComponent<EnergyBar>().Energy, fondo.GetComponent<TimeDayFunction>().hora,
+                 gameData[4].ToString(),
+                "1",
+                gameData[6].ToString(),
+                fondo.GetComponent<TimeDayFunction>().inicio,
+                fondo.GetComponent<TimeDayFunction>().ultimoSegundo,
+                fondo.GetComponent<TimeDayFunction>().segundoActual,
+                new string[] { "Arroz", "Huevos", "Agua", "Arroz con leche", "Chocolate", "Dulces", "Granos", "Pan de centeno" });
+
         }
         else{
+
+            camara.GetComponent<JSONWriter>().reescribirJSON(
+                fondo.GetComponent<TimeDayFunction>().dia,
+                new int[] { int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento1.text),
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento2.text),
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento3.text),
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento4.text),
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento5.text),
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento6.text),
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento7.text),
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento8.text) },
+                (int)camara.GetComponent<EnergyBar>().Energy, fondo.GetComponent<TimeDayFunction>().hora,
+                 gameData[4].ToString(),
+                "1",
+                gameData[6].ToString(),
+                fondo.GetComponent<TimeDayFunction>().inicio,
+                fondo.GetComponent<TimeDayFunction>().ultimoSegundo,
+                fondo.GetComponent<TimeDayFunction>().segundoActual,
+                new string[] { "Arroz", "Huevos", "Agua", "Arroz con leche", "Chocolate", "Dulces", "Granos", "Pan de centeno" });
+
             if (p.GetComponent<Movimiento>().DialogoNPC1C != null)
             {
                 p.GetComponent<Movimiento>().DialogoNPC1C.SetActive(false);
@@ -361,9 +449,9 @@ public class JSONLoaderJuego0 : MonoBehaviour
     private int buscarAlimento(string nombre)
     {
         int rta = -1;
-        for (int i = 0; i < gameData[8].Count; i++)
+        for (int i = 0; i < gameData[10].Count; i++)
         {
-            if(gameData[8][i].Equals(nombre)){
+            if(gameData[10][i].Equals(nombre)){
                 rta = i;
             }
         }
@@ -403,7 +491,10 @@ public class JSONLoaderJuego0 : MonoBehaviour
     public void AbrirRegalo()
     {
         gameData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json"));
-        if((!(textoRegaloCarta.Equals(""))) && (gameData[4].ToString().Equals("0")))
+        GameObject camara = GameObject.Find("Main Camera");
+        GameObject fondo = GameObject.Find("Background");              
+
+        if ((!(textoRegaloCarta.Equals(""))) && (gameData[4].ToString().Equals("0")))
         {
             //SoundManager.PlaySound("abrirAlgo");            
             buttonCloseModal.image.color = Color.black;
@@ -420,33 +511,54 @@ public class JSONLoaderJuego0 : MonoBehaviour
             giftT.text=textoRegaloCarta;
             cantRegaloModal.text = "X "+ cantRegaloCarta;
             int indiceAl = buscarAlimento(regaloCarta);
-            GameObject camara = GameObject.Find("Main Camera");
-            GameObject fondo = GameObject.Find("Background");  
+
             camara.GetComponent<JSONWriter>().reescribirJSON(
-                fondo.GetComponent<TimeDayFunction>().dia,
-                new int[] { int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento1.text), 
-                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento2.text), 
-                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento3.text), 
-                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento4.text), 
-                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento5.text), 
-                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento6.text), 
-                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento7.text), 
-                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento8.text) }, 
-                (int)camara.GetComponent<EnergyBar>().Energy, fondo.GetComponent<TimeDayFunction>().hora, 
-                "1", 
-                fondo.GetComponent<TimeDayFunction>().inicio, 
-                fondo.GetComponent<TimeDayFunction>().ultimoSegundo, 
-                fondo.GetComponent<TimeDayFunction>().segundoActual, 
-                new string[] { "Arroz", "Huevos", "Agua", "Arroz con leche", "Chocolate", "Dulces", "Granos", "Pan de centeno" });
-                darAlimentoCantText(indiceAl).text = "" + (Int32.Parse(darAlimentoCantText(indiceAl).text) + cantRegaloCarta);
+               fondo.GetComponent<TimeDayFunction>().dia,
+               new int[] { int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento1.text),
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento2.text),
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento3.text),
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento4.text),
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento5.text),
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento6.text),
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento7.text),
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento8.text) },
+               (int)camara.GetComponent<EnergyBar>().Energy, fondo.GetComponent<TimeDayFunction>().hora,
+               "1",
+               gameData[5].ToString(),
+               gameData[6].ToString(),
+               fondo.GetComponent<TimeDayFunction>().inicio,
+               fondo.GetComponent<TimeDayFunction>().ultimoSegundo,
+               fondo.GetComponent<TimeDayFunction>().segundoActual,
+               new string[] { "Arroz", "Huevos", "Agua", "Arroz con leche", "Chocolate", "Dulces", "Granos", "Pan de centeno" });
+
+            darAlimentoCantText(indiceAl).text = "" + (Int32.Parse(darAlimentoCantText(indiceAl).text) + cantRegaloCarta);
         }
         else{
-            
-            if(gameData[4].Equals("1")){
-                informationT.text = "NO HAY MÁS REGALOS ... ";
-            }
-            else{
+            camara.GetComponent<JSONWriter>().reescribirJSON(
+               fondo.GetComponent<TimeDayFunction>().dia,
+               new int[] { int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento1.text),
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento2.text),
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento3.text),
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento4.text),
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento5.text),
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento6.text),
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento7.text),
+                int.Parse(camara.GetComponent<JSONLoaderJuego0>().cantidadAlimento8.text) },
+               (int)camara.GetComponent<EnergyBar>().Energy, fondo.GetComponent<TimeDayFunction>().hora,
+               "1",
+               gameData[5].ToString(),
+               gameData[6].ToString(),
+               fondo.GetComponent<TimeDayFunction>().inicio,
+               fondo.GetComponent<TimeDayFunction>().ultimoSegundo,
+               fondo.GetComponent<TimeDayFunction>().segundoActual,
+               new string[] { "Arroz", "Huevos", "Agua", "Arroz con leche", "Chocolate", "Dulces", "Granos", "Pan de centeno" });
+            //if (gameData[4].Equals("1")){
+            if (textoRegaloCarta.Equals("")){ 
                 informationT.text = "Hoy no me trajeron regalos ... ";
+            }
+            else if(gameData[4].Equals("1"))
+            {
+                informationT.text = "No hay más regalos ... ";
             }
 
             StartCoroutine(ActivationRoutine());
@@ -563,5 +675,5 @@ public class JSONLoaderJuego0 : MonoBehaviour
             return 0;
         }
     }
-
+    
 }
