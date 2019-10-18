@@ -29,6 +29,7 @@ public class DayChanger : MonoBehaviour
     public void onFadeComplete()
     {
         gameData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json")); ;
+        
         tomoRegaloCarta = "" + gameData[4];
         GameObject p = GameObject.Find("Personaje");
         p.GetComponent<Movimiento>().animator.SetTrigger("despierta");
@@ -37,6 +38,7 @@ public class DayChanger : MonoBehaviour
         GameObject fondo = GameObject.Find("Background");
         GameObject camara = GameObject.Find("Main Camera");
 
+        camara.GetComponent<JSONLoaderJuego0>().informationT.text = "";
 
         fondo.GetComponent<TimeDayFunction>().dia = fondo.GetComponent<TimeDayFunction>().dia + 1;
         fondo.GetComponent<TimeDayFunction>().red = 1.0f;

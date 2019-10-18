@@ -622,52 +622,61 @@ public class JSONLoaderJuego0 : MonoBehaviour
     {
                 
         gameData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json"));
+        
         if (indiceAlimento == 1 && int.Parse(cantidadAlimento1.text)!=0)
         {
-            agregarAudioAnimacion();
+            agregarAudioAnimacion();            
             cantidadAlimento1.text = ""+(Int32.Parse(cantidadAlimento1.text) -1);
+            informationT.text = "";
             return 1;
         }
         else if(indiceAlimento == 2 && int.Parse(cantidadAlimento2.text) != 0)
         {
             agregarAudioAnimacion();
             cantidadAlimento2.text = "" + (Int32.Parse(cantidadAlimento2.text) - 1);
+            informationT.text = "";
             return 5;
         }
         else if (indiceAlimento == 3 && int.Parse(cantidadAlimento3.text) != 0)
         {
             agregarAudioAnimacion();
             cantidadAlimento3.text = "" + (Int32.Parse(cantidadAlimento3.text) - 1);
+            informationT.text = "";
             return 2;
         }
         else if (indiceAlimento == 4 && int.Parse(cantidadAlimento4.text) != 0)
         {
             agregarAudioAnimacion();
             cantidadAlimento4.text = "" + (Int32.Parse(cantidadAlimento4.text) - 1);
+            informationT.text = "";
             return 4;
         }
         else if (indiceAlimento == 5 && int.Parse(cantidadAlimento5.text) != 0)
         {
             agregarAudioAnimacion();
             cantidadAlimento5.text = "" + (Int32.Parse(cantidadAlimento5.text) - 1);
+            informationT.text = "";
             return 3;
         }
         else if (indiceAlimento == 6 && int.Parse(cantidadAlimento6.text) != 0)
         {
             agregarAudioAnimacion();
             cantidadAlimento6.text = "" + (Int32.Parse(cantidadAlimento6.text) - 1);
+            informationT.text = "";
             return 1; 
         }
         else if (indiceAlimento == 7 && int.Parse(cantidadAlimento7.text) != 0)
         {
             agregarAudioAnimacion();
             cantidadAlimento7.text = "" + (Int32.Parse(cantidadAlimento7.text) - 1);
+            informationT.text = "";
             return 5;
         }
         else if(indiceAlimento==8 && int.Parse(cantidadAlimento8.text) != 0)
         {
             agregarAudioAnimacion();
             cantidadAlimento8.text = "" + (Int32.Parse(cantidadAlimento8.text) - 1);
+            informationT.text = "";
             return 5;
         }
         else
