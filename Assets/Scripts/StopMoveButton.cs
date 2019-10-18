@@ -18,13 +18,13 @@ public class StopMoveButton : MonoBehaviour
             
             animationBtn.enabled = (("0").Equals(""+jsonData[4]));
         }
-        else if (this.name.Equals("ButtonLetter") && File.Exists(Application.dataPath + "/Gamedata.json"))
+        if (this.name.Equals("ButtonLetter") && File.Exists(Application.dataPath + "/Gamedata.json"))
         {
             jsonData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json"));
             
             animationBtn.enabled = (("0").Equals("" + jsonData[5]));
         }
-        else if (this.name.Equals("ButtonNews") && File.Exists(Application.dataPath + "/Gamedata.json"))
+        if (this.name.Equals("ButtonNews") && File.Exists(Application.dataPath + "/Gamedata.json"))
         {
             jsonData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json"));
             
