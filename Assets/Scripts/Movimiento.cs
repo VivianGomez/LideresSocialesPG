@@ -19,6 +19,7 @@ public class Movimiento : MonoBehaviour
     public Animator animator;
     public JsonData jsonData;
 
+
     public GameObject panelOpcionesCama;
 
     //NPC dialogs
@@ -136,31 +137,31 @@ public class Movimiento : MonoBehaviour
             if (Input.GetAxis("Horizontal") < 0)
             {
                 camina = true;
-                animator.SetTrigger("camina");
+             //   animator.SetTrigger("camina");
                 escala.x = -escalaX;
             }
             if (Input.GetAxis("Horizontal") > 0)
             {
                 camina = true;
-                animator.SetTrigger("camina");
+              //  animator.SetTrigger("camina");
                 escala.x = escalaX;
             }
             if (Input.GetAxis("Vertical") > 0)
             {
                 camina = true;
-                animator.SetTrigger("camina");
+             //   animator.SetTrigger("camina");
                 escala.y = escalaY;
             }
             if (Input.GetAxis("Vertical") < 0)
             {
                 camina = true;
-                animator.SetTrigger("camina");
+             //   animator.SetTrigger("camina");
                 escala.y = escalaY;
             }
             transform.localScale = escala;
 
             camina = false;
-            animator.SetTrigger("dejaCaminar");
+           // animator.SetTrigger("dejaCaminar");
         }
        
     }

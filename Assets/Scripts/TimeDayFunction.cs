@@ -36,6 +36,13 @@ public class TimeDayFunction : MonoBehaviour
     public SpriteRenderer nino2Coorp;
     public SpriteRenderer balon;
 
+    private EnergyBar energyBar;
+
+
+    void Awake()
+    {
+        energyBar = GameObject.FindObjectOfType<EnergyBar>();
+    }
 
 
     // Start is called before the first frame update
@@ -198,6 +205,7 @@ public class TimeDayFunction : MonoBehaviour
 
                     if (valorAbsoluto != 0) 
                     {
+                        energyBar.Hungry(3.5f);
                     if (hora < 17)
                     {
                         hora = hora + 1;

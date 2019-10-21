@@ -34,14 +34,10 @@ public class EnergyBar : MonoBehaviour
         jsonLoader = GameObject.FindObjectOfType<JSONLoaderJuego0>();
     }
 
-    void Update()
-    {
-       print(tiempo);
-       Hungry(0.0001f);
-    }
 
     public void Hungry(float value)
 	{
+        print(value);
         GameObject fondo = GameObject.Find("Background");
         GameObject camara = GameObject.Find("Main Camera");
         int hora=fondo.GetComponent<TimeDayFunction>().hora;
