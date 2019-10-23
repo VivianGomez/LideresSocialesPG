@@ -446,6 +446,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1a7adbb416f595438ac1ec1e6370ef3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  o: {fileID: 0}
+  image: {fileID: 0}
+  video: {fileID: 0}
+  barra: {fileID: 0}
+  b1: {fileID: 0}
+  b2: {fileID: 0}
+  b3: {fileID: 0}
+  b4: {fileID: 0}
+  textoDia: {fileID: 0}
 --- !u!114 &50103921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4128,6 +4137,8 @@ MonoBehaviour:
   botonRegalo: {fileID: 0}
   botonCarta: {fileID: 0}
   botonPeriodico: {fileID: 0}
+  personaje: {fileID: 1550501087}
+  animacionClip: {fileID: 7400000, guid: ad01288a58143304ebb8903944f211f6, type: 2}
   panelOpcionesSilla: {fileID: 0}
   panelOpcionesSillon: {fileID: 0}
   panelOpcionesHablar: {fileID: 0}

@@ -59,8 +59,8 @@ public class Movimiento : MonoBehaviour
 
     void Start()
     {
-        //if(personaje!=null) animacionObject = personaje.AddComponent<Animation>();
-        //if(animacionClip!=null) personaje.GetComponent<Animation>().AddClip(animacionClip, "sentarse");
+        if(personaje!=null) animacionObject = personaje.AddComponent<Animation>();
+        if(animacionClip!=null) personaje.GetComponent<Animation>().AddClip(animacionClip, "sentarse");
         trigger = false;
         objeto.SetActive(false);
         imagen.SetActive(false);
@@ -393,8 +393,8 @@ public class Movimiento : MonoBehaviour
     {
         permiteMoverse = false;
         panelOpcionesSilla.SetActive(false);
-        animator.SetTrigger("sientaSilla");  
-        //animacionObject.GetComponent<Animation>().Play("sentarse");
+        //animator.SetTrigger("sientaSilla");  
+        animacionObject.GetComponent<Animation>().Play("sentarse");
         
     }
 
@@ -429,8 +429,8 @@ public class Movimiento : MonoBehaviour
 
     public void mantenerseSentado()
     {
-        animator.SetTrigger("quedarseSentado");
-        //permiteMoverse = true;
+        //animator.SetTrigger("quedarseSentado");
+        permiteMoverse = true;
     }
 
     public void permitirMovimiento()
