@@ -135,9 +135,8 @@ public class Movimiento : MonoBehaviour
             }
 
             GameObject player = GameObject.Find("Personaje");
-            GameObject camara = GameObject.Find("Main Camera");
 
-            if (camara.GetComponent<EnergyBar>().Energy < 1)
+            if ((float)((double.Parse(jsonData[2].ToString()))) < 1)
             {
                 print("auda");
                 transform.Translate(Input.GetAxis("Horizontal") * 1.0f * Time.deltaTime, 0f, 0f);
