@@ -136,8 +136,16 @@ public class Movimiento : MonoBehaviour
 
             GameObject player = GameObject.Find("Personaje");
 
-            transform.Translate(Input.GetAxis("Horizontal") * 3f * Time.deltaTime, 0f, 0f);
-            transform.Translate(0f, Input.GetAxis("Vertical") * 3f * Time.deltaTime, 0f);
+            if ((float)((double.Parse(jsonData[2].ToString()))) < 1)
+            {
+                transform.Translate(Input.GetAxis("Horizontal") * 1f * Time.deltaTime, 0f, 0f);
+                transform.Translate(0f, Input.GetAxis("Vertical") * 1f * Time.deltaTime, 0f);
+            }
+            else
+            {
+                transform.Translate(Input.GetAxis("Horizontal") * 3.2f * Time.deltaTime, 0f, 0f);
+                transform.Translate(0f, Input.GetAxis("Vertical") * 3.2f * Time.deltaTime, 0f);
+            }
 
             if (Input.GetAxis("Horizontal") < 0)
             {
@@ -148,7 +156,7 @@ public class Movimiento : MonoBehaviour
             if (Input.GetAxis("Horizontal") > 0)
             {
                 camina = true;
-                animator.SetTrigger("camina");
+                animator.SetTrigger("camina"); 
                 escala.x = escalaX;
             }
             if (Input.GetAxis("Vertical") > 0)
