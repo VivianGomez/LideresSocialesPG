@@ -223,20 +223,21 @@ public class JSONLoaderJuego0 : MonoBehaviour
                     actual["tpLlegada"]["coordenadas"],
                     ""+actual["tpLlegada"]["Tag"]
                     );
-
+                /**
                     for (int j = 0; j < actual["interacciones"].Count; j++)
                     {
                         interaccionActual = actual["interacciones"][j];
                         createCollidersInteractions(""+interaccionActual["colliderActivador"], interaccionActual["coordenadasCollider"], interaccionActual["offsetCollider"], interaccionActual["tamCollider"], ""+interaccionActual["isTrigger"], ""+interaccionActual["script"], ""+interaccionActual["escenaACambiar"]);
-                        /*for (int k=0;k<interaccionActual["sprites"].Count;k++)
+                        for (int k=0;k<interaccionActual["sprites"].Count;k++)
                          {
                         spriteActual = interaccionActual["sprites"][k];
                         WWW spritesheet = new WWW("" + spriteActual["nombreImagen"]);
                         StartCoroutine(OutputRoutine(spritesheet,int.Parse("" + spriteActual["coordenadaX"]), int.Parse("" + spriteActual["coordenadaY"])));
 
                          } 
-                         */                  
-                    }                    
+                                         
+                    } 
+    **/
                }             
             }
     }
