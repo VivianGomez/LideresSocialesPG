@@ -20,13 +20,17 @@ public class EnergyBar : MonoBehaviour
 
         if (!File.Exists(Application.dataPath + "/Gamedata.json"))
         {
+            print("popo");
             Energy = 100;
         }
         else
         {
+            print("caca");
+
             gameData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json"));
             Energy = (float)((double.Parse(gameData[2].ToString()))); 
         }
+        energyBar.size = Energy / 100f;
     }
 
     void Awake()
