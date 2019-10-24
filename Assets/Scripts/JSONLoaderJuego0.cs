@@ -266,7 +266,27 @@ public class JSONLoaderJuego0 : MonoBehaviour
 
             objTP.transform.position = new Vector3(x,y,z);
             objTP.tag = tag;
-        }
+    }
+
+    private IEnumerator crearObjSprite(string nombre, JsonData posicion, WWW spriteWWW){
+        yield return spriteWWW;
+            if (spriteWWW.error == null)
+            {
+                GameObject objTP;
+                objTP = new GameObject(nombre);
+                float x = float.Parse(""+posicion[0]);
+                float y = float.Parse(""+posicion[1]);
+                float z = float.Parse(""+posicion[2]);
+
+                objTP.transform.position = new Vector3(x,y,z);
+                objTP.AddComponent<SpriteRenderer>();
+                objTP.GetComponent<SpriteRenderer>().sprite = Sprite.Create(spriteWWW.texture, new Rect(0, 0, spriteWWW.texture.width, spriteWWW.texture.height), new Vector2(0.5f, 0.5f));
+            }
+            else
+            {
+                Debug.LogError("No se puede cargar la imágen del personaje");
+            }
+    }
 
     private void createCollidersInteractions(string nombreActivador, JsonData posicion, JsonData offset, JsonData tamanio, string isTrigger, string tpScript, string cambio){
             GameObject objToSpawn;

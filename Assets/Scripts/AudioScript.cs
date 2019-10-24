@@ -36,9 +36,7 @@ public class AudioScript : MonoBehaviour
 	}
 
     public void verificarAudioDia(int dia){
-        print(dia);
         if(dia!=4){
-            
             MusicSource.clip = MusicClip;
             MusicSource.Play();	
         }
