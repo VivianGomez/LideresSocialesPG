@@ -38,7 +38,6 @@ public class EnergyBar : MonoBehaviour
 
     public void Hungry(float value)
 	{
-        print(value);
         GameObject fondo = GameObject.Find("Background");
         GameObject camara = GameObject.Find("Main Camera");
         int hora=fondo.GetComponent<TimeDayFunction>().hora;
