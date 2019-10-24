@@ -145,7 +145,6 @@ public class Movimiento : MonoBehaviour
             }
             else
             {
-                print("todobien");
                 transform.Translate(Input.GetAxis("Horizontal") * 3.2f * Time.deltaTime, 0f, 0f);
                 transform.Translate(0f, Input.GetAxis("Vertical") * 3.2f * Time.deltaTime, 0f);
             }
