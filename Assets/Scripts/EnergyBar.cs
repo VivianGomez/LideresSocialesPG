@@ -9,7 +9,6 @@ public class EnergyBar : MonoBehaviour
 	public Scrollbar energyBar;
     private JsonData gameData;
     public float Energy = 100;
-    private int tiempo=0;
 
     //private JSONLoader jsonLoader;
     
