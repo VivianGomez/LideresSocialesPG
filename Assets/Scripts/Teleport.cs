@@ -6,7 +6,7 @@ using System.Collections;
 
 public class Teleport : MonoBehaviour
 {
-    [SerializeField] private string levelToLoad;
+    [SerializeField] public string levelToLoad;
     //public LoadSceneTransition ls;
     private JsonData gameData;
 

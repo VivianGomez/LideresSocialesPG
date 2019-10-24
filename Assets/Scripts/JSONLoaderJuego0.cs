@@ -5,9 +5,15 @@ using LitJson;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using UnityEngine.SceneManagement;
 
 public class JSONLoaderJuego0 : MonoBehaviour
 {
+
+    //Para cargar assets desde JSON
+    public SpriteRenderer backgroundSprite;
+
+
     private string jsonString;
     private JsonData jData;
     private JsonData gameData;
@@ -177,6 +183,9 @@ public class JSONLoaderJuego0 : MonoBehaviour
            jData = JsonMapper.ToObject(req.text);
 
            WWW reqSprite = new WWW(""+jData[1]["personaje"]["imagenPersonaje"]);
+            
+           LoadScene(jData[1]["escenas"]);
+
 
            infoDias = jData[1]["infoDias"];
 
@@ -193,6 +202,93 @@ public class JSONLoaderJuego0 : MonoBehaviour
         }
     }
 
+    private void LoadScene(JsonData escenas)
+    {
+            var actual = escenas[0];
+            var interaccionActual = escenas[0];
+            var spriteActual = escenas[0];
+        for (int i = 0; i < escenas.Count; i++)
+        {
+               actual = escenas[i];
+               if((""+actual["nombreEscena"]).Equals(""+SceneManager.GetActiveScene().name))
+               {
+                    WWW reqBackground = new WWW(""+actual["imagenFondo"]);
+                    StartCoroutine(LoadBackground(reqBackground, ""+actual["nombreEscena"]));
+                    crearTPLlegada(
+                    ""+actual["tpLlegada"]["nombre"], 
+                    actual["tpLlegada"]["coordenadas"],
+                    ""+actual["tpLlegada"]["Tag"]
+                    );
+
+                    for (int j = 0; j < actual["interacciones"].Count; j++)
+                    {
+                        interaccionActual = actual["interacciones"][j];
+                        createCollidersInteractions(""+interaccionActual["colliderActivador"], interaccionActual["coordenadasCollider"], interaccionActual["offsetCollider"], interaccionActual["tamCollider"], ""+interaccionActual["isTrigger"], ""+interaccionActual["script"], ""+interaccionActual["escenaACambiar"]);
+                        /*for (int k=0;k<interaccionActual["sprites"].Count;k++)
+                         {
+                        spriteActual = interaccionActual["sprites"][k];
+                        WWW spritesheet = new WWW("" + spriteActual["nombreImagen"]);
+                        StartCoroutine(OutputRoutine(spritesheet,int.Parse("" + spriteActual["coordenadaX"]), int.Parse("" + spriteActual["coordenadaY"])));
+
+                         } 
+                         */                  
+                    }                    
+               }             
+            }
+    }
+
+    private IEnumerator LoadBackground(WWW wwwBG, string nombre){
+        yield return wwwBG;
+        if (wwwBG.error == null)
+        {
+            print(nombre);
+            backgroundSprite.sprite = Sprite.Create(wwwBG.texture, new Rect(0, 0, wwwBG.texture.width, wwwBG.texture.height), new Vector2(0.5f, 0.5f));
+        }
+        else
+        {
+            Debug.LogError("No se puede cargar el fondo de la escena "+nombre);
+        }
+    }
+
+    private void crearTPLlegada(string nombre, JsonData posicion, string tag){
+            GameObject objTP;
+            objTP = new GameObject(nombre);
+            float x = float.Parse(""+posicion[0]);
+            float y = float.Parse(""+posicion[1]);
+            float z = float.Parse(""+posicion[2]);
+
+            objTP.transform.position = new Vector3(x,y,z);
+            objTP.tag = tag;
+        }
+
+    private void createCollidersInteractions(string nombreActivador, JsonData posicion, JsonData offset, JsonData tamanio, string isTrigger, string tpScript, string cambio){
+            GameObject objToSpawn;
+            objToSpawn = new GameObject(nombreActivador);
+            float x = float.Parse(""+posicion[0]);
+            float y = float.Parse(""+posicion[1]);
+            float z = float.Parse(""+posicion[2]);
+
+            float xO = float.Parse(""+offset[0]);
+            float yO = float.Parse(""+offset[1]);
+
+            float xT = float.Parse(""+tamanio[0]);
+            float yT = float.Parse(""+tamanio[1]);
+
+            objToSpawn.transform.position = new Vector3(x,y,z);
+
+            //Add Components
+            objToSpawn.AddComponent<BoxCollider2D>();
+            var coll = objToSpawn.GetComponent<BoxCollider2D>();
+            coll.isTrigger = isTrigger.Equals("1");
+            //define el centro del collider
+            coll.offset = new Vector2(xO,yO);
+            //define el tamanio del collider
+            coll.size = new Vector2(xT,yT);
+            //agrega el script si es TP
+            if(!(tpScript.Equals("")) && !(cambio.Equals(""))){
+                objToSpawn.AddComponent<Teleport>().levelToLoad = cambio;
+            }
+        }
 
     public IEnumerator LoadInfoDia(int dia, int hora){
         if (infoDias != null) {

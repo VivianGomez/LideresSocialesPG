@@ -166,7 +166,7 @@ public class Movimiento : MonoBehaviour
             transform.localScale = escala;
 
             camina = false;
-            animator.SetTrigger("dejaCaminar");
+            //animator.SetTrigger("dejaCaminar");
         }
        
     }
