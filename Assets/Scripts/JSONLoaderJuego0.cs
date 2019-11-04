@@ -189,7 +189,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
            WWW reqSprite = new WWW(""+jData[1]["personaje"]["imagenPersonaje"]);
             
            LoadScene(jData[1]["escenas"]);
-
+           GameObject.FindObjectOfType<MenuPausa>().instrucciones = jData[1]["instrucciones"];
 
            infoDias = jData[1]["infoDias"];
 
@@ -205,6 +205,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
             Debug.LogError("No se puedieron cargar los datos del juego"); 
         }
     }
+
 
     private void LoadScene(JsonData escenas)
     {
@@ -242,6 +243,8 @@ public class JSONLoaderJuego0 : MonoBehaviour
                }             
             }
     }
+
+   
 
     private IEnumerator LoadBackground(WWW wwwBG, string nombre){
         yield return wwwBG;
