@@ -1,15 +1,8 @@
 ﻿using System.Collections;
-using System.IO;
 using UnityEngine;
 using LitJson;
 using UnityEngine.UI;
-using TMPro;
-using System;
-using UnityEngine.SceneManagement;
-using UnityEditor;
-using UnityEngine.Networking;
-using System.Collections.Generic;
-using System.Net;
+
 
 public class MenuPausa : MonoBehaviour
 {
@@ -23,11 +16,19 @@ public class MenuPausa : MonoBehaviour
 
     public GameObject panelInstrucciones;
     public Image instruccionActual;
+    
+    public GameObject btnNext;
+
 
     public Slider sliderAmbient;
     public Slider sliderDialogue;
 
+
+
     private bool enable;
+
+    private int indiceInstruccion = 0;
+
 
     public void switchViewMenu()
     {
@@ -71,8 +72,19 @@ public class MenuPausa : MonoBehaviour
      public void ClickMostrarInstrucciones()
     {
         panelInstrucciones.SetActive(true);
-        WWW requestImage = new WWW(""+instrucciones[0]["imagen"]);
-        StartCoroutine(LoadImageInstruction(requestImage));
+        cambiarInstruccion();
+    }
+
+    public void cambiarInstruccion(){
+        if(indiceInstruccion<instrucciones.Count){
+           WWW requestImage = new WWW(""+instrucciones[indiceInstruccion]["imagen"]);
+           StartCoroutine(LoadImageInstruction(requestImage));
+           indiceInstruccion++;
+        }
+        else
+        {
+           btnNext.SetActive(false);
+        }
     }
 
      private IEnumerator LoadImageInstruction(WWW wwwBG){
@@ -91,6 +103,8 @@ public class MenuPausa : MonoBehaviour
     public void cerrarInstrucciones()
     {
         panelInstrucciones.SetActive(false);
+        btnNext.SetActive(true);
+        indiceInstruccion = 0;
     }
 
     public void changeVolumeAmbient()
