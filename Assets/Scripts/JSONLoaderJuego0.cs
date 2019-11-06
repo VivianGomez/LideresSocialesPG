@@ -94,9 +94,9 @@ public class JSONLoaderJuego0 : MonoBehaviour
     GameObject p;
 
     //Dialogo
-      public string dialogMom="";
-     public string dialogNPC1="";
-     public string dialogNPC2="";
+     public JsonData dialogosDia;
+    public JsonData dialogosNoche;
+
     public string dialogNino = "";
     public TextMeshProUGUI DialogoNino;
 
@@ -111,7 +111,6 @@ public class JSONLoaderJuego0 : MonoBehaviour
 
     void Update(){
          StartCoroutine(LoadInfoDia((timeDayFunction.dia)-1, timeDayFunction.hora));
-        
     }
 
     void Start()
@@ -338,9 +337,13 @@ public class JSONLoaderJuego0 : MonoBehaviour
             cantRegaloCarta = (int)infoDias[dia]["regaloCarta"]["cantidad"];
             regaloLiderazgo = "" + infoDias[dia]["regaloLiderazgo"]["nombre"];
             cantRegaloLiderazgo = (int)infoDias[dia]["regaloLiderazgo"]["cantidad"];
-            dialogMom = (hora < 18) ? ("" + infoDias[dia]["textosMadre"]) : ("" + infoDias[dia]["textosMadreNoche"]);
+            
+            /*dialogMom = (hora < 18) ? ("" + infoDias[dia]["textosMadre"]) : ("" + infoDias[dia]["textosMadreNoche"]);
             dialogNPC1 = (hora < 18) ? ("" +infoDias[dia]["textosPersona1"]):("" + infoDias[dia]["textosPersona1Noche"]);
             dialogNPC2 = (hora < 18) ? ("" +infoDias[dia]["textosPersona2"]): ("" + infoDias[dia]["textosPersona2Noche"]);
+            */
+            dialogosDia = infoDias[dia]["textosDia"];
+            dialogosNoche = infoDias[dia]["textosNoche"];
         } 
     }
 

@@ -410,19 +410,8 @@ public class Movimiento : MonoBehaviour
     {
         SoundManager.PlaySound(nombrePersonaje);
         DialogoNPC.SetActive(true);
-
-        if(nombrePersonaje == "NPC1")
-        {
-            txtDialogo.text = jsonLoader.dialogNPC1;
-        }
-        else if(nombrePersonaje == "NPC2")
-        {
-            txtDialogo.text = jsonLoader.dialogNPC2;
-        }
-        else
-        {
-            txtDialogo.text = jsonLoader.dialogMom;
-        }
+        GameObject fondo = GameObject.Find("Background");
+        txtDialogo.text = (fondo.GetComponent<TimeDayFunction>().hora < 18) ? (""+jsonLoader.dialogosDia[nombrePersonaje]):(""+jsonLoader.dialogosNoche[nombrePersonaje]);
     }
 
 
