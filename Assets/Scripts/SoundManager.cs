@@ -54,17 +54,17 @@ public class SoundManager : MonoBehaviour
             audioSource.volume = 0.2f;
             audioSource.PlayOneShot(patearBalon);
             break; 
-        case "hablaNina":
+        case "NPC2":
             audioSource.PlayOneShot(hablaNina);
             break; 
-        case "hablaCalvo":
+        case "NPC1":
             audioSource.PlayOneShot(hablaCalvo);
             break; 
         case "hablaPlayer":
             audioSource.volume = 0.4f;
             audioSource.PlayOneShot(hablaPlayer);
             break; 
-        case "hablaMama":
+        case "mama":
             audioSource.PlayOneShot(hablaMama);
             break; 
         case "wow":

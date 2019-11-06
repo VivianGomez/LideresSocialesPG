@@ -22,15 +22,8 @@ public class Movimiento : MonoBehaviour
 
     public GameObject panelOpcionesCama;
 
-    //NPC dialogs
-    public GameObject  DialogoMomC;
-    public GameObject  DialogoNPC1C;
-    public GameObject  DialogoNPC2C;
-    public GameObject DialogoCoorp;
-    public TextMeshProUGUI  DialogoMom;
-    public TextMeshProUGUI  DialogoNPC1;
-    public TextMeshProUGUI  DialogoNPC2;
-    public TextMeshProUGUI  DialogoNino;
+    public GameObject DialogoNPC;
+    public TextMeshProUGUI  txtDialogo;
 
     public GameObject botonRegalo;
     public GameObject botonCarta;
@@ -67,27 +60,6 @@ public class Movimiento : MonoBehaviour
         escala = transform.localScale;
         escalaX = escala.x;
         escalaY = escala.y;
-
- 
-        if(DialogoMomC!=null)
-        {
-            DialogoMomC.SetActive(false);
-        }
-        
-        if(DialogoNPC1C!=null)
-        {
-            DialogoNPC1C.SetActive(false);
-        }
-
-        if(DialogoNPC2C!=null)
-        {
-            DialogoNPC2C.SetActive(false);
-        }
-
-        if (DialogoCoorp != null)
-        {
-            DialogoCoorp.SetActive(false);
-        }
 
         if (panelOpcionesCama!=null)
         {
@@ -324,16 +296,8 @@ public class Movimiento : MonoBehaviour
                 botonRegalo.SetActive(false);
             }
         }
-        else if (col.name == "HablarCalvo"){
-            hablarNPC1();
-        }
-        else if (col.name == "HablarNina"){
-            hablarNPC2();
-        }
-        //PARA HABLAR
-        else if (panelOpcionesHablar != null &&col.name == "mama")
-        {
-            hablarMom();
+        else if (col.tag == "npc"){
+            hablarNPC(col.name);
         }
         if (col.name == "GameObject")
         {
@@ -348,13 +312,8 @@ public class Movimiento : MonoBehaviour
         {
             panelOpcionesCama.SetActive(false);
         }
-        else if (col.name == "HablarCalvo"){
-            DialogoNPC1C.SetActive(false);
-            DialogoNPC1.text = jsonLoader.dialogNPC1;
-        }
-        else if (col.name == "HablarNina"){
-            DialogoNPC2C.SetActive(false);
-            DialogoNPC2.text = jsonLoader.dialogNPC2;
+        else if (col.tag == "npc"){
+            DialogoNPC.SetActive(false);
         }
         else if(panelOpcionesSilla!= null && col.name =="silla")
         {
@@ -366,7 +325,7 @@ public class Movimiento : MonoBehaviour
         }
         else if (panelOpcionesHablar != null && col.name =="mama")
         {
-            DialogoMomC.SetActive(false);
+            DialogoNPC.SetActive(false);
         }
         else if ( col.name == "PuntoDiscurso")
         {
@@ -414,26 +373,13 @@ public class Movimiento : MonoBehaviour
         animator.SetTrigger("sientaSilla");    
                
     }
-        
-
-    public void OnClickHablarMama()
-    {
-
-        panelOpcionesHablar.SetActive(false);
-        animator.SetTrigger("hablar");
-        //permiteMoverse = false;
-
-    }
 
     public void OnClickComer()
     {
-
         panelOpcionesComer.SetActive(false);
         GameObject camara = GameObject.Find("Main Camera");
         camara.GetComponent<JSONLoaderJuego0>().AbrirDespensa();
-
         //permiteMoverse = false;
-
     }
 
     public void mantenerseSentado()
@@ -460,29 +406,20 @@ public class Movimiento : MonoBehaviour
         animationLoadManager.LoadAnimation("an", null);
     }
 
-    public void hablarNPC1(){
-        SoundManager.PlaySound("hablaCalvo");
-        DialogoNPC1C.SetActive(true);
-        DialogoNPC1.text = jsonLoader.dialogNPC1;
+    public void hablarNPC(string nombrePersonaje) //, string imagen
+    {
+        SoundManager.PlaySound(nombrePersonaje);
+        DialogoNPC.SetActive(true);
+        GameObject fondo = GameObject.Find("Background");
+        txtDialogo.text = (fondo.GetComponent<TimeDayFunction>().hora < 18) ? (""+jsonLoader.dialogosDia[nombrePersonaje]):(""+jsonLoader.dialogosNoche[nombrePersonaje]);
     }
 
-    public void hablarNPC2(){
-        SoundManager.PlaySound("hablaNina");
-        DialogoNPC2C.SetActive(true);
-        DialogoNPC2.text = jsonLoader.dialogNPC2;
-    }
-
-    public void hablarMom(){
-        SoundManager.PlaySound("hablaMama");
-        DialogoMomC.SetActive(true);
-        DialogoMom.text = jsonLoader.dialogMom;
-    }
 
     public void hablarNino()
     {
         Destroy(GameObject.Find("Particle System"));
         panelOpcionesDiscurso.SetActive(false);
-        DialogoCoorp.SetActive(true);
+        DialogoNPC.SetActive(true);
         permiteMoverse = false;
         animator.SetTrigger("hablar");
         StartCoroutine(jsonLoader.cargarDialogosHH(diaActual-1));

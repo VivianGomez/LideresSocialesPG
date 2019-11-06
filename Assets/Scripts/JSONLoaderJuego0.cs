@@ -94,9 +94,9 @@ public class JSONLoaderJuego0 : MonoBehaviour
     GameObject p;
 
     //Dialogo
-      public string dialogMom="";
-     public string dialogNPC1="";
-     public string dialogNPC2="";
+     public JsonData dialogosDia;
+    public JsonData dialogosNoche;
+
     public string dialogNino = "";
     public TextMeshProUGUI DialogoNino;
 
@@ -111,7 +111,6 @@ public class JSONLoaderJuego0 : MonoBehaviour
 
     void Update(){
          StartCoroutine(LoadInfoDia((timeDayFunction.dia)-1, timeDayFunction.hora));
-        
     }
 
     void Start()
@@ -228,7 +227,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
                     for (int j = 0; j < actual["interacciones"].Count; j++)
                     {
                         interaccionActual = actual["interacciones"][j];
-                        createCollidersInteractions(""+interaccionActual["colliderActivador"], interaccionActual["coordenadasCollider"], interaccionActual["offsetCollider"], interaccionActual["tamCollider"], ""+interaccionActual["isTrigger"], ""+interaccionActual["script"], ""+interaccionActual["escenaACambiar"]);
+                        createCollidersInteractions(""+interaccionActual["colliderActivador"], interaccionActual["coordenadasCollider"], interaccionActual["offsetCollider"], interaccionActual["tamCollider"], ""+interaccionActual["isTrigger"], ""+interaccionActual["script"], ""+interaccionActual["escenaACambiar"], ""+interaccionActual["tag"]);
                         /**
                         for (int k=0;k<interaccionActual["sprites"].Count;k++)
                          {
@@ -291,7 +290,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
             }
     }
 
-    private void createCollidersInteractions(string nombreActivador, JsonData posicion, JsonData offset, JsonData tamanio, string isTrigger, string tpScript, string cambio){
+    private void createCollidersInteractions(string nombreActivador, JsonData posicion, JsonData offset, JsonData tamanio, string isTrigger, string tpScript, string cambio, string tagJ){
             GameObject objToSpawn;
             objToSpawn = new GameObject(nombreActivador);
             float x = float.Parse(""+posicion[0]);
@@ -314,6 +313,12 @@ public class JSONLoaderJuego0 : MonoBehaviour
             coll.offset = new Vector2(xO,yO);
             //define el tamanio del collider
             coll.size = new Vector2(xT,yT);
+
+            if(!(tagJ.Equals("")))
+            {
+               objToSpawn.tag = tagJ;
+            }
+
             //agrega el script si es TP
             if(!(tpScript.Equals("")) && !(cambio.Equals(""))){
                 objToSpawn.AddComponent<Teleport>().levelToLoad = cambio;
@@ -332,9 +337,13 @@ public class JSONLoaderJuego0 : MonoBehaviour
             cantRegaloCarta = (int)infoDias[dia]["regaloCarta"]["cantidad"];
             regaloLiderazgo = "" + infoDias[dia]["regaloLiderazgo"]["nombre"];
             cantRegaloLiderazgo = (int)infoDias[dia]["regaloLiderazgo"]["cantidad"];
-            dialogMom = (hora < 18) ? ("" + infoDias[dia]["textosMadre"]) : ("" + infoDias[dia]["textosMadreNoche"]);
+            
+            /*dialogMom = (hora < 18) ? ("" + infoDias[dia]["textosMadre"]) : ("" + infoDias[dia]["textosMadreNoche"]);
             dialogNPC1 = (hora < 18) ? ("" +infoDias[dia]["textosPersona1"]):("" + infoDias[dia]["textosPersona1Noche"]);
             dialogNPC2 = (hora < 18) ? ("" +infoDias[dia]["textosPersona2"]): ("" + infoDias[dia]["textosPersona2Noche"]);
+            */
+            dialogosDia = infoDias[dia]["textosDia"];
+            dialogosNoche = infoDias[dia]["textosNoche"];
         } 
     }
 
@@ -357,7 +366,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
         p.GetComponent<Movimiento>().animator.SetTrigger("camina");
         p.GetComponent<Movimiento>().permiteMoverse = true;
         
-        p.GetComponent<Movimiento>().DialogoCoorp.SetActive(false);
+        p.GetComponent<Movimiento>().DialogoNPC.SetActive(false);
         AbrirRegaloLiderazgo();
     }
 
@@ -508,18 +517,11 @@ public class JSONLoaderJuego0 : MonoBehaviour
 
         if (!(textoNoticiaDia.Equals(""))){
             p.GetComponent<Movimiento>().permiteMoverse = false;
-            if(p.GetComponent<Movimiento>().DialogoNPC1C!= null)
+            if(p.GetComponent<Movimiento>().DialogoNPC!= null)
             {
-                p.GetComponent<Movimiento>().DialogoNPC1C.SetActive(false);
+                p.GetComponent<Movimiento>().DialogoNPC.SetActive(false);
             }
-            if (p.GetComponent<Movimiento>().DialogoNPC2C != null)
-            {
-                p.GetComponent<Movimiento>().DialogoNPC2C.SetActive(false);
-            }
-            if (p.GetComponent<Movimiento>().DialogoMomC != null)
-            {
-                p.GetComponent<Movimiento>().DialogoMomC.SetActive(false);
-            }
+            
 
             buttonCloseModal.image.color = Color.black;
             panelInventario.SetActive(false);
@@ -536,18 +538,11 @@ public class JSONLoaderJuego0 : MonoBehaviour
             urlNews.enabled = true;
         }
         else{
-            if (p.GetComponent<Movimiento>().DialogoNPC1C != null)
+            if (p.GetComponent<Movimiento>().DialogoNPC != null)
             {
-                p.GetComponent<Movimiento>().DialogoNPC1C.SetActive(false);
+                p.GetComponent<Movimiento>().DialogoNPC.SetActive(false);
             }
-            if (p.GetComponent<Movimiento>().DialogoNPC2C != null)
-            {
-                p.GetComponent<Movimiento>().DialogoNPC2C.SetActive(false);
-            }
-            if (p.GetComponent<Movimiento>().DialogoMomC != null)
-            {
-                p.GetComponent<Movimiento>().DialogoMomC.SetActive(false);
-            }
+            
             informationT.text = "Hoy no me trajeron el periódico ... ";
             StartCoroutine(ActivationRoutine());
         }
@@ -579,18 +574,11 @@ public class JSONLoaderJuego0 : MonoBehaviour
 
 
             p.GetComponent<Movimiento>().permiteMoverse = false;
-            if (p.GetComponent<Movimiento>().DialogoNPC1C != null)
+            if (p.GetComponent<Movimiento>().DialogoNPC != null)
             {
-                p.GetComponent<Movimiento>().DialogoNPC1C.SetActive(false);
+                p.GetComponent<Movimiento>().DialogoNPC.SetActive(false);
             }
-            if (p.GetComponent<Movimiento>().DialogoNPC2C != null)
-            {
-                p.GetComponent<Movimiento>().DialogoNPC2C.SetActive(false);
-            }
-            if (p.GetComponent<Movimiento>().DialogoMomC != null)
-            {
-                p.GetComponent<Movimiento>().DialogoMomC.SetActive(false);
-            }
+            
             buttonCloseModal.image.color = Color.black;
             panelInventario.SetActive(false);
             imageRegalo.enabled = false;
@@ -647,18 +635,11 @@ public class JSONLoaderJuego0 : MonoBehaviour
                 fondo.GetComponent<TimeDayFunction>().segundoActual,
                 new string[] { "Arroz", "Huevos", "Agua", "Arroz con leche", "Chocolate", "Dulces", "Granos", "Pan de centeno" });
 
-            if (p.GetComponent<Movimiento>().DialogoNPC1C != null)
+            if (p.GetComponent<Movimiento>().DialogoNPC != null)
             {
-                p.GetComponent<Movimiento>().DialogoNPC1C.SetActive(false);
+                p.GetComponent<Movimiento>().DialogoNPC.SetActive(false);
             }
-            if (p.GetComponent<Movimiento>().DialogoNPC2C != null)
-            {
-                p.GetComponent<Movimiento>().DialogoNPC2C.SetActive(false);
-            }
-            if (p.GetComponent<Movimiento>().DialogoMomC != null)
-            {
-                p.GetComponent<Movimiento>().DialogoMomC.SetActive(false);
-            }
+            
             informationT.text = "Hoy no me trajeron cartas ... ";
             StartCoroutine(ActivationRoutine());
         }
