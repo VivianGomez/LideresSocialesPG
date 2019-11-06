@@ -228,7 +228,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
                     for (int j = 0; j < actual["interacciones"].Count; j++)
                     {
                         interaccionActual = actual["interacciones"][j];
-                        createCollidersInteractions(""+interaccionActual["colliderActivador"], interaccionActual["coordenadasCollider"], interaccionActual["offsetCollider"], interaccionActual["tamCollider"], ""+interaccionActual["isTrigger"], ""+interaccionActual["script"], ""+interaccionActual["escenaACambiar"]);
+                        createCollidersInteractions(""+interaccionActual["colliderActivador"], interaccionActual["coordenadasCollider"], interaccionActual["offsetCollider"], interaccionActual["tamCollider"], ""+interaccionActual["isTrigger"], ""+interaccionActual["script"], ""+interaccionActual["escenaACambiar"], ""+interaccionActual["tag"]);
                         /**
                         for (int k=0;k<interaccionActual["sprites"].Count;k++)
                          {
@@ -291,7 +291,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
             }
     }
 
-    private void createCollidersInteractions(string nombreActivador, JsonData posicion, JsonData offset, JsonData tamanio, string isTrigger, string tpScript, string cambio){
+    private void createCollidersInteractions(string nombreActivador, JsonData posicion, JsonData offset, JsonData tamanio, string isTrigger, string tpScript, string cambio, string tagJ){
             GameObject objToSpawn;
             objToSpawn = new GameObject(nombreActivador);
             float x = float.Parse(""+posicion[0]);
@@ -314,6 +314,12 @@ public class JSONLoaderJuego0 : MonoBehaviour
             coll.offset = new Vector2(xO,yO);
             //define el tamanio del collider
             coll.size = new Vector2(xT,yT);
+
+            if(!(tagJ.Equals("")))
+            {
+               objToSpawn.tag = tagJ;
+            }
+
             //agrega el script si es TP
             if(!(tpScript.Equals("")) && !(cambio.Equals(""))){
                 objToSpawn.AddComponent<Teleport>().levelToLoad = cambio;
