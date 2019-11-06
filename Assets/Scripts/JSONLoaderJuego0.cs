@@ -357,7 +357,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
         p.GetComponent<Movimiento>().animator.SetTrigger("camina");
         p.GetComponent<Movimiento>().permiteMoverse = true;
         
-        p.GetComponent<Movimiento>().DialogoCoorp.SetActive(false);
+        p.GetComponent<Movimiento>().DialogoNPC.SetActive(false);
         AbrirRegaloLiderazgo();
     }
 
@@ -508,18 +508,11 @@ public class JSONLoaderJuego0 : MonoBehaviour
 
         if (!(textoNoticiaDia.Equals(""))){
             p.GetComponent<Movimiento>().permiteMoverse = false;
-            if(p.GetComponent<Movimiento>().DialogoNPC1C!= null)
+            if(p.GetComponent<Movimiento>().DialogoNPC!= null)
             {
-                p.GetComponent<Movimiento>().DialogoNPC1C.SetActive(false);
+                p.GetComponent<Movimiento>().DialogoNPC.SetActive(false);
             }
-            if (p.GetComponent<Movimiento>().DialogoNPC2C != null)
-            {
-                p.GetComponent<Movimiento>().DialogoNPC2C.SetActive(false);
-            }
-            if (p.GetComponent<Movimiento>().DialogoMomC != null)
-            {
-                p.GetComponent<Movimiento>().DialogoMomC.SetActive(false);
-            }
+            
 
             buttonCloseModal.image.color = Color.black;
             panelInventario.SetActive(false);
@@ -536,18 +529,11 @@ public class JSONLoaderJuego0 : MonoBehaviour
             urlNews.enabled = true;
         }
         else{
-            if (p.GetComponent<Movimiento>().DialogoNPC1C != null)
+            if (p.GetComponent<Movimiento>().DialogoNPC != null)
             {
-                p.GetComponent<Movimiento>().DialogoNPC1C.SetActive(false);
+                p.GetComponent<Movimiento>().DialogoNPC.SetActive(false);
             }
-            if (p.GetComponent<Movimiento>().DialogoNPC2C != null)
-            {
-                p.GetComponent<Movimiento>().DialogoNPC2C.SetActive(false);
-            }
-            if (p.GetComponent<Movimiento>().DialogoMomC != null)
-            {
-                p.GetComponent<Movimiento>().DialogoMomC.SetActive(false);
-            }
+            
             informationT.text = "Hoy no me trajeron el periódico ... ";
             StartCoroutine(ActivationRoutine());
         }
@@ -579,18 +565,11 @@ public class JSONLoaderJuego0 : MonoBehaviour
 
 
             p.GetComponent<Movimiento>().permiteMoverse = false;
-            if (p.GetComponent<Movimiento>().DialogoNPC1C != null)
+            if (p.GetComponent<Movimiento>().DialogoNPC != null)
             {
-                p.GetComponent<Movimiento>().DialogoNPC1C.SetActive(false);
+                p.GetComponent<Movimiento>().DialogoNPC.SetActive(false);
             }
-            if (p.GetComponent<Movimiento>().DialogoNPC2C != null)
-            {
-                p.GetComponent<Movimiento>().DialogoNPC2C.SetActive(false);
-            }
-            if (p.GetComponent<Movimiento>().DialogoMomC != null)
-            {
-                p.GetComponent<Movimiento>().DialogoMomC.SetActive(false);
-            }
+            
             buttonCloseModal.image.color = Color.black;
             panelInventario.SetActive(false);
             imageRegalo.enabled = false;
@@ -647,18 +626,11 @@ public class JSONLoaderJuego0 : MonoBehaviour
                 fondo.GetComponent<TimeDayFunction>().segundoActual,
                 new string[] { "Arroz", "Huevos", "Agua", "Arroz con leche", "Chocolate", "Dulces", "Granos", "Pan de centeno" });
 
-            if (p.GetComponent<Movimiento>().DialogoNPC1C != null)
+            if (p.GetComponent<Movimiento>().DialogoNPC != null)
             {
-                p.GetComponent<Movimiento>().DialogoNPC1C.SetActive(false);
+                p.GetComponent<Movimiento>().DialogoNPC.SetActive(false);
             }
-            if (p.GetComponent<Movimiento>().DialogoNPC2C != null)
-            {
-                p.GetComponent<Movimiento>().DialogoNPC2C.SetActive(false);
-            }
-            if (p.GetComponent<Movimiento>().DialogoMomC != null)
-            {
-                p.GetComponent<Movimiento>().DialogoMomC.SetActive(false);
-            }
+            
             informationT.text = "Hoy no me trajeron cartas ... ";
             StartCoroutine(ActivationRoutine());
         }

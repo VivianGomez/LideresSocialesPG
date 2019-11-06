@@ -6236,6 +6236,18 @@ RectTransform:
   m_AnchoredPosition: {x: -0.028999805, y: 0.3399999}
   m_SizeDelta: {x: -4.604, y: -5.223}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1116734353 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2369313423037847998, guid: 6130dbbb39c8ea54f9fbe11d3edcdda3,
+    type: 3}
+  m_PrefabInstance: {fileID: 2095159670780306430}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1163593094
 GameObject:
   m_ObjectHideFlags: 0
@@ -14190,14 +14202,8 @@ MonoBehaviour:
   imagen: {fileID: 1628265984}
   animator: {fileID: 1731151761}
   panelOpcionesCama: {fileID: 0}
-  DialogoMomC: {fileID: 0}
-  DialogoNPC1C: {fileID: 1328037198}
-  DialogoNPC2C: {fileID: 1407658328}
-  DialogoCoorp: {fileID: 0}
-  DialogoMom: {fileID: 0}
-  DialogoNPC1: {fileID: 896036770}
-  DialogoNPC2: {fileID: 517517461}
-  DialogoNino: {fileID: 0}
+  DialogoNPC: {fileID: 2058676173}
+  txtDialogo: {fileID: 1116734353}
   botonRegalo: {fileID: 0}
   botonCarta: {fileID: 0}
   botonPeriodico: {fileID: 0}
@@ -15812,6 +15818,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2036117328}
   m_CullTransparentMesh: 0
+--- !u!1 &2058676173 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2796999850682637004, guid: 6130dbbb39c8ea54f9fbe11d3edcdda3,
+    type: 3}
+  m_PrefabInstance: {fileID: 2095159670780306430}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2058688839
 GameObject:
   m_ObjectHideFlags: 0
@@ -16487,11 +16499,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Dialogo
-      objectReference: {fileID: 0}
-    - target: {fileID: 2796999850682637004, guid: 6130dbbb39c8ea54f9fbe11d3edcdda3,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5171948754702069410, guid: 6130dbbb39c8ea54f9fbe11d3edcdda3,
         type: 3}
