@@ -400,7 +400,7 @@ public class Movimiento : MonoBehaviour
 
     public void OnClickSentarseSilla()
     {
-        permiteMoverse = false;
+        //permiteMoverse = false;
         panelOpcionesSilla.SetActive(false);
         animator.SetTrigger("sientaSilla");  
         //animacionObject.GetComponent<Animation>().Play("sentarse");
@@ -409,7 +409,7 @@ public class Movimiento : MonoBehaviour
 
     public void OnClickSentarseSillon()
     {
-        permiteMoverse = false;
+        //permiteMoverse = false;
         panelOpcionesSillon.SetActive(false);
         animator.SetTrigger("sientaSilla");    
                

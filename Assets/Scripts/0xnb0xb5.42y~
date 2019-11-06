@@ -1,0 +1,71 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEditor.Animations;
+using UnityEngine;
+
+public class AnimatorController : MonoBehaviour
+{
+    private void Start()
+    {
+        CreateController();
+    }
+
+    static void CreateController()
+    {
+        // Se crea el controlador
+        var controller = UnityEditor.Animations.AnimatorController.CreateAnimatorControllerAtPath("Assets/StateMachineTransitions.controller");
+
+        // Se crean los parametros
+        controller.AddParameter("quedaQuieto", AnimatorControllerParameterType.Trigger);
+        controller.AddParameter("camina", AnimatorControllerParameterType.Trigger);
+        controller.AddParameter("dejaCaminar", AnimatorControllerParameterType.Trigger);
+        controller.AddParameter("duerme", AnimatorControllerParameterType.Trigger);
+        controller.AddParameter("despierta", AnimatorControllerParameterType.Trigger);
+        controller.AddParameter("sientaSilla", AnimatorControllerParameterType.Trigger);
+        controller.AddParameter("quedarseSentado", AnimatorControllerParameterType.Trigger);
+        controller.AddParameter("comer", AnimatorControllerParameterType.Trigger);
+        controller.AddParameter("hablar", AnimatorControllerParameterType.Trigger);
+
+        // Añadir los estados
+        var rootStateMachine = controller.layers[0].stateMachine;
+        var stateMachineQuedaQuieto = rootStateMachine.AddState("quedaQuieto");
+        var stateMachineCamina = rootStateMachine.AddState("camina");
+        var stateMachineDejaCaminar = rootStateMachine.AddState("dejaCaminar");
+        var stateMachineDuerme = rootStateMachine.AddState("duerme");
+        var stateMachineDespierta = rootStateMachine.AddState("despierta");
+        var stateMachineSientaSilla = rootStateMachine.AddState("sientaSilla");
+        var stateMachineQuedarseSentado = rootStateMachine.AddState("quedarseSentado");
+        var stateMachineComer = rootStateMachine.AddState("comer");
+        var stateMachineHablar = rootStateMachine.AddState("hablar");
+        
+
+        // Añadir todas las transiciones
+
+        var stateMachineTransitionA = rootStateMachine.AddAnyStateTransition(stateMachineQuedaQuieto);
+        stateMachineTransitionA.AddCondition(UnityEditor.Animations.AnimatorConditionMode.If, 0, "camina");
+
+        var stateMachineTransition = stateMachineDejaCaminar.AddTransition(stateMachineQuedaQuieto);
+        stateMachineTransition.AddCondition(UnityEditor.Animations.AnimatorConditionMode.If, 0, "dejaCaminar");
+
+        var stateMachineTransitionB = stateMachineQuedaQuieto.AddTransition(stateMachineDuerme);
+        stateMachineTransitionB.AddCondition(UnityEditor.Animations.AnimatorConditionMode.If, 0, "duerme");
+
+        var stateMachineTransitionC = stateMachineDuerme.AddTransition(stateMachineQuedaQuieto);
+        stateMachineTransitionC.AddCondition(UnityEditor.Animations.AnimatorConditionMode.If, 0, "despierta");
+
+        var stateMachineTransitionD = stateMachineQuedaQuieto.AddTransition(stateMachineSientaSilla);
+        stateMachineTransitionD.AddCondition(UnityEditor.Animations.AnimatorConditionMode.If, 0, "sientaSilla");
+
+        var stateMachineTransitionE = stateMachineQuedaQuieto.AddTransition(stateMachineQuedarseSentado);
+        stateMachineTransitionE.AddCondition(UnityEditor.Animations.AnimatorConditionMode.If, 0, "quedarseSentado");
+
+        var stateMachineTransitionH = stateMachineQuedarseSentado.AddTransition(stateMachineQuedaQuieto);
+        stateMachineTransitionH.AddCondition(UnityEditor.Animations.AnimatorConditionMode.If, 0, "camina");
+
+        var stateMachineTransitionF = stateMachineQuedaQuieto.AddTransition(stateMachineComer);
+        stateMachineTransitionF.AddCondition(UnityEditor.Animations.AnimatorConditionMode.If, 0, "comer");
+
+        var stateMachineTransitionG = stateMachineQuedaQuieto.AddTransition(stateMachineHablar);
+        stateMachineTransitionG.AddCondition(UnityEditor.Animations.AnimatorConditionMode.If, 0, "hablar");
+    }
+}
