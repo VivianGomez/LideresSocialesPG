@@ -10,6 +10,7 @@ TagManager:
   - Calle
   - HH
   - Colegio
+  - npc
   layers:
   - Default
   - TransparentFX
