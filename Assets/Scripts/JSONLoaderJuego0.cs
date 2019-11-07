@@ -371,7 +371,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
         AbrirRegaloLiderazgo();
     }
 
-    public IEnumerator createSaveAnim(string nombre)
+    public IEnumerator createSaveAnim(string nombre, bool loop)
     {
 
         Sprite[] sprites = Resources.LoadAll<Sprite>(nombre);// load all sprites in "assets/Resources/nombre" folder
@@ -392,20 +392,20 @@ public class JSONLoaderJuego0 : MonoBehaviour
         }
 
         AnimationClipSettings animClipSett = new AnimationClipSettings();
-        animClipSett.loopTime = true;
+        animClipSett.loopTime = loop;
 
         AnimationUtility.SetAnimationClipSettings(animClip, animClipSett);
 
         AnimationUtility.SetObjectReferenceCurve(animClip, spriteBinding, spriteKeyFrames);
 
-        AssetDatabase.CreateAsset(animClip, "assets/Resources/an.anim");
+        AssetDatabase.CreateAsset(animClip, "assets/Resources/"+"nombre.anim");
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
 
         yield return sprites;
     }
 
-    private IEnumerator OutputRoutine(WWW url, int width, int height)
+    private IEnumerator OutputRoutine(WWW url, int width, int height, bool loop)
     {
         string file = Path.GetFileNameWithoutExtension(url.url);
         //print("archivo se llamaria:::" + file);
@@ -425,7 +425,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
             AssetDatabase.Refresh();
 
             StartCoroutine(ProcesarTextura("assets/Resources/" + file + ".png", width, height));
-            StartCoroutine(createSaveAnim(file));
+            StartCoroutine(createSaveAnim(file, loop));
 
 
         }
