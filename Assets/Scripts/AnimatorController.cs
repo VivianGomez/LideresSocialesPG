@@ -9,13 +9,13 @@ public class AnimatorController : MonoBehaviour
 {
     private void Start()
     {
-        if(!File.Exists("Assets/StateMachineTransitions.controller")) CreateController();
+        if(!File.Exists("Assets/StateMachineTransitions.controller")) CreateController();        
     }
 
     static void CreateController()
     {
         // Se crea el controlador
-        var controller = UnityEditor.Animations.AnimatorController.CreateAnimatorControllerAtPath("Assets/StateMachineTransitions.controller");
+        var controller = UnityEditor.Animations.AnimatorController.CreateAnimatorControllerAtPath("Assets/Resources/StateMachineTransitions.controller");
 
         // Se crean los parametros
         controller.AddParameter("quedaQuieto", AnimatorControllerParameterType.Trigger);

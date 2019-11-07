@@ -116,6 +116,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
     void Start()
     {
         p= GameObject.Find("Personaje");
+        if(p!=null) p.GetComponent<Animator>().runtimeAnimatorController = (RuntimeAnimatorController)RuntimeAnimatorController.Instantiate(Resources.Load("StateMachineTransitions", typeof(RuntimeAnimatorController)));
         if (!File.Exists(Application.dataPath + "/Gamedata.json"))
         {
             cantidadAlimento1.text = (1).ToString();
