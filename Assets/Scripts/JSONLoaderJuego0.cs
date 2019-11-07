@@ -300,16 +300,19 @@ public class JSONLoaderJuego0 : MonoBehaviour
 
                 float xE = float.Parse(""+escala[0]);
                 float yE = float.Parse(""+escala[1]);
-                
+                objToSpawn.AddComponent<SpriteRenderer>().sprite = Sprite.Create(spriteWWW.texture, new Rect(0, 0, spriteWWW.texture.width, spriteWWW.texture.height), new Vector2(0.5f, 0.5f));
+                Vector2 S = objToSpawn.GetComponent<SpriteRenderer>().sprite.bounds.size;
                 objToSpawn.transform.position = new Vector3(x,y,z);
                 objToSpawn.transform.localScale = new Vector3(xE,yE,1f);
                 objToSpawn.AddComponent<BoxCollider2D>();
                 var coll = objToSpawn.GetComponent<BoxCollider2D>();
                 coll.isTrigger = false;
-                objToSpawn.AddComponent<SpriteRenderer>().sprite = Sprite.Create(spriteWWW.texture, new Rect(0, 0, spriteWWW.texture.width, spriteWWW.texture.height), new Vector2(0.5f, 0.5f));
-                Vector2 S = objToSpawn.GetComponent<SpriteRenderer>().sprite.bounds.size;
+                objToSpawn.AddComponent<BoxCollider2D>();
                 objToSpawn.GetComponent<BoxCollider2D>().size = S;
-                //jugador.GetComponent<BoxCollider2D>().offset = new Vector2 ((S.x / 2), 0);
+                var coll2 = objToSpawn.GetComponent<BoxCollider2D>();
+                coll2.isTrigger = true;
+                objToSpawn.GetComponent<BoxCollider2D>().size = S;
+
             }
             else
             {
