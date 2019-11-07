@@ -406,7 +406,7 @@ public class Movimiento : MonoBehaviour
         animationLoadManager.LoadAnimation("an", null);
     }
 
-    public void hablarNPC(string nombrePersonaje) //, string imagen
+    public void hablarNPC(string nombrePersonaje) 
     {
         SoundManager.PlaySound(nombrePersonaje);
         DialogoNPC.SetActive(true);

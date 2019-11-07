@@ -186,7 +186,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
            //print(req.text);
            jData = JsonMapper.ToObject(req.text);
 
-           WWW reqSprite = new WWW(""+jData[1]["personaje"]["imagenPersonaje"]);
+           WWW reqSprite = new WWW(""+jData[1]["personajePrincipal"]["imagenPersonaje"]);
             
            LoadScene(jData[1]["escenas"]);
            GameObject.FindObjectOfType<MenuPausa>().instrucciones = jData[1]["instrucciones"];
@@ -228,7 +228,10 @@ public class JSONLoaderJuego0 : MonoBehaviour
                     for (int j = 0; j < actual["interacciones"].Count; j++)
                     {
                         interaccionActual = actual["interacciones"][j];
+                        if(actual["interacciones"][j]!=null)
+                        {
                         createCollidersInteractions(""+interaccionActual["colliderActivador"], interaccionActual["coordenadasCollider"], interaccionActual["offsetCollider"], interaccionActual["tamCollider"], ""+interaccionActual["isTrigger"], ""+interaccionActual["script"], ""+interaccionActual["escenaACambiar"], ""+interaccionActual["tag"]);
+                        }
                         /**
                         for (int k=0;k<interaccionActual["sprites"].Count;k++)
                          {
@@ -238,6 +241,15 @@ public class JSONLoaderJuego0 : MonoBehaviour
 
                          }  **/
                                          
+                    } 
+
+                    for (int k = 0; k < actual["personajes"].Count; k++)
+                    {
+                        interaccionActual = actual["personajes"][k];
+                        if(!(interaccionActual["imagen"].ToString().Equals("")))
+                        {
+                            StartCoroutine(crearPersonaje(new WWW(""+interaccionActual["imagen"]),""+interaccionActual["colliderActivador"], interaccionActual["coordenadasCollider"], interaccionActual["tamCollider"], ""+interaccionActual["tag"]));
+                        }
                     } 
    
                }             
@@ -271,25 +283,40 @@ public class JSONLoaderJuego0 : MonoBehaviour
             objTP.tag = tag;
     }
 
-    private IEnumerator crearObjSprite(string nombre, JsonData posicion, WWW spriteWWW){
-        yield return spriteWWW;
+    private IEnumerator crearPersonaje(WWW spriteWWW, string nombreActivador, JsonData posicion, JsonData escala, string tagJ) 
+        {
+            yield return spriteWWW;
             if (spriteWWW.error == null)
             {
-                GameObject objTP;
-                objTP = new GameObject(nombre);
+                GameObject objToSpawn;
+                objToSpawn = new GameObject(nombreActivador);
+                if(!(tagJ.Equals("")))
+                {
+                 objToSpawn.tag = tagJ;
+                }
                 float x = float.Parse(""+posicion[0]);
                 float y = float.Parse(""+posicion[1]);
                 float z = float.Parse(""+posicion[2]);
 
-                objTP.transform.position = new Vector3(x,y,z);
-                objTP.AddComponent<SpriteRenderer>();
-                objTP.GetComponent<SpriteRenderer>().sprite = Sprite.Create(spriteWWW.texture, new Rect(0, 0, spriteWWW.texture.width, spriteWWW.texture.height), new Vector2(0.5f, 0.5f));
+                float xE = float.Parse(""+escala[0]);
+                float yE = float.Parse(""+escala[1]);
+                
+                objToSpawn.transform.position = new Vector3(x,y,z);
+                objToSpawn.transform.localScale = new Vector3(xE,yE,1f);
+                objToSpawn.AddComponent<BoxCollider2D>();
+                var coll = objToSpawn.GetComponent<BoxCollider2D>();
+                coll.isTrigger = false;
+                objToSpawn.AddComponent<SpriteRenderer>().sprite = Sprite.Create(spriteWWW.texture, new Rect(0, 0, spriteWWW.texture.width, spriteWWW.texture.height), new Vector2(0.5f, 0.5f));
+                Vector2 S = objToSpawn.GetComponent<SpriteRenderer>().sprite.bounds.size;
+                objToSpawn.GetComponent<BoxCollider2D>().size = S;
+                //jugador.GetComponent<BoxCollider2D>().offset = new Vector2 ((S.x / 2), 0);
             }
             else
             {
                 Debug.LogError("No se puede cargar la imágen del personaje");
             }
-    }
+
+        }
 
     private void createCollidersInteractions(string nombreActivador, JsonData posicion, JsonData offset, JsonData tamanio, string isTrigger, string tpScript, string cambio, string tagJ){
             GameObject objToSpawn;
