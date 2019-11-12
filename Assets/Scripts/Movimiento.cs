@@ -49,12 +49,10 @@ public class Movimiento : MonoBehaviour
     public GameObject panelOpcionesComer;
     public GameObject panelOpcionesDiscurso;
 
-    //public TextMeshProUGUI buttonAlimento1;
 
     void Start()
     {
-        //if(personaje!=null) animacionObject = personaje.AddComponent<Animation>();
-        //if(animacionClip!=null) personaje.GetComponent<Animation>().AddClip(animacionClip, "sentarse");
+
         trigger = false;
         objeto.SetActive(false);
         imagen.SetActive(false);
@@ -198,43 +196,10 @@ public class Movimiento : MonoBehaviour
         }
     }
 
-    /**
-        void OnTriggerEnter2D(Collider2D col)
-        {
-            GameObject fondo = GameObject.Find("Background");
-            Debug.Log("Colisión con " + col.name);
-
-            //print("El dia actual era....." + diaActual);
-            if (col.name== "cama" && fondo.GetComponent<TimeDayFunction>().hora>6 && diaActual<4)
-            {
-                //imagen.SetActive(true);
-                // if (imagen != null)
-                //{
-                //  StartCoroutine(imagen.GetComponent<VideoStream>().playVideo());
-                //}
-                //else print("es nula");
-
-                
-                animator.SetTrigger("duerme");
-                
-                soundManager.PlaySound("dormir");
-                permiteMoverse = false;
-            }
-
-            //loadAnimation();   
-            //animationLoadManager = animacion.GetComponent<AnimationLoadManager>();
-            
-            //Invoke("LoadAnimataionClip", 3);
-
-        }
-     */
-    
-
     void OnTriggerStay2D(Collider2D col)
     {
         GameObject fondo = GameObject.Find("Background");
         if (col.name == "camaClick" && fondo.GetComponent<TimeDayFunction>().hora > 18 && diaActual < 4)
-        //if (col.name == "camaClick" && fondo.GetComponent<TimeDayFunction>().hora > 18 && diaActual < 4)
         {
 
             if (panelOpcionesCama != null)
@@ -243,8 +208,6 @@ public class Movimiento : MonoBehaviour
             }
 
         }
-
-        //PARA SENTARSE
         else if (col.name == "silla")
         {
             if (panelOpcionesSilla != null)
@@ -255,33 +218,23 @@ public class Movimiento : MonoBehaviour
         }
         else if(col.name == "sillon")
         {
-
             if (panelOpcionesSillon != null)
             {
                 panelOpcionesSillon.SetActive(true);
             }
 
         }
-        
-
-
         else if (col.name == "Nevera")
         {
             if (panelOpcionesComer != null)
             {
                 panelOpcionesComer.SetActive(true);
             }
-
         }
-
-        
-
-
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        //PARA DORMIR
         GameObject fondo = GameObject.Find("Background");
         if (col.name == "cama" && fondo.GetComponent<TimeDayFunction>().hora < 19)
         {
@@ -300,9 +253,9 @@ public class Movimiento : MonoBehaviour
         else if (col.tag == "npc"){
             hablarNPC(col.name);
         }
-        if (col.name == "GameObject")
+        if (col.tag == "interactivo")
         {
-            soundManager.PlaySound("patearBalon");
+            soundManager.PlaySound(col.name);
         }
     }
 
@@ -346,7 +299,6 @@ public class Movimiento : MonoBehaviour
 
         GameObject fondo = GameObject.Find("Background");
                     
-
         if ( fondo.GetComponent<TimeDayFunction>().hora > 6 && diaActual < 4)
         {
             panelOpcionesCama.SetActive(false);

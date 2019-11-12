@@ -14,10 +14,7 @@ using System.Net;
 public class JSONLoaderJuego0 : MonoBehaviour
 {
 
-    //Para cargar assets desde JSON
     public SpriteRenderer backgroundSprite;
-
-
     private string jsonString;
     private JsonData jData;
     private JsonData gameData;
@@ -100,14 +97,14 @@ public class JSONLoaderJuego0 : MonoBehaviour
     public string dialogNino = "";
     public TextMeshProUGUI DialogoNino;
 
-
-    //public const string url ="https://firebasestorage.googleapis.com/v0/b/lideresocialespg.appspot.com/o/juego0.json?alt=media&token=3d8deac2-9fd0-4a22-98a3-3bc7629f809b";
     public const string url ="https://lideresocialespg.firebaseio.com/juegos.json";
 
     private SoundManager soundManager;
+    private AudioScript audioScript;
     void Awake()
     {
         soundManager = GameObject.FindObjectOfType<SoundManager>();
+        audioScript = GameObject.FindObjectOfType<AudioScript>();
         timeDayFunction = GameObject.FindObjectOfType<TimeDayFunction>();
     }
 
@@ -181,14 +178,14 @@ public class JSONLoaderJuego0 : MonoBehaviour
     private IEnumerator OnResponse(WWW req)
     {
         yield return req;
-        //string path=Application.dataPath + "/Resources/data.json";
         if (req.error == null)
         {
-           //jsonString = File.ReadAllText(path);
-           //print(req.text);
            jData = JsonMapper.ToObject(req.text);
 
            WWW reqSprite = new WWW(""+jData[1]["personajePrincipal"]["imagenPersonaje"]);
+
+           audioScript.sonidosAmbiente = jData[1]["sonidosAmbiente"];
+           audioScript.empieza();
             
            LoadScene(jData[1]["escenas"]);
            GameObject.FindObjectOfType<MenuPausa>().instrucciones = jData[1]["instrucciones"];
@@ -198,9 +195,6 @@ public class JSONLoaderJuego0 : MonoBehaviour
            gameData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json"));
            LoadInfoAlimentos(gameData[10]);
             StartCoroutine(loading());
-
-            
-
         }
         else
         {
@@ -233,16 +227,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
                         if(actual["interacciones"][j]!=null)
                         {
                         createCollidersInteractions(""+interaccionActual["colliderActivador"], interaccionActual["coordenadasCollider"], interaccionActual["offsetCollider"], interaccionActual["tamCollider"], ""+interaccionActual["isTrigger"], ""+interaccionActual["script"], ""+interaccionActual["escenaACambiar"], ""+interaccionActual["tag"], ""+interaccionActual["sonido"]);
-                        }
-                        /**
-                        for (int k=0;k<interaccionActual["sprites"].Count;k++)
-                         {
-                        spriteActual = interaccionActual["sprites"][k];
-                        WWW spritesheet = new WWW("" + spriteActual["nombreImagen"]);
-                        StartCoroutine(OutputRoutine(spritesheet,int.Parse("" + spriteActual["coordenadaX"]), int.Parse("" + spriteActual["coordenadaY"])));
-
-                         }  **/
-                                         
+                        }               
                     } 
 
                     for (int k = 0; k < actual["personajes"].Count; k++)
@@ -258,7 +243,6 @@ public class JSONLoaderJuego0 : MonoBehaviour
             }
     }
 
-   
 
     private IEnumerator LoadBackground(WWW wwwBG, string nombre){
         yield return wwwBG;
@@ -350,13 +334,10 @@ public class JSONLoaderJuego0 : MonoBehaviour
 
             objToSpawn.transform.position = new Vector3(x,y,z);
 
-            //Add Components
             objToSpawn.AddComponent<BoxCollider2D>();
             var coll = objToSpawn.GetComponent<BoxCollider2D>();
             coll.isTrigger = isTrigger.Equals("1");
-            //define el centro del collider
             coll.offset = new Vector2(xO,yO);
-            //define el tamanio del collider
             coll.size = new Vector2(xT,yT);
 
             if(!(tagJ.Equals("")))
@@ -364,7 +345,6 @@ public class JSONLoaderJuego0 : MonoBehaviour
                objToSpawn.tag = tagJ;
             }
 
-            //agrega el script si es TP
             if(!(tpScript.Equals("")) && !(cambio.Equals(""))){
                 objToSpawn.AddComponent<Teleport>().levelToLoad = cambio;
             }
@@ -609,8 +589,6 @@ public class JSONLoaderJuego0 : MonoBehaviour
                 
 
         if (!(textoCartaDia.Equals(""))){
-            //soundManager.PlaySound("abrirAlgo");
-
 
             p.GetComponent<Movimiento>().permiteMoverse = false;
             if (p.GetComponent<Movimiento>().DialogoNPC != null)
@@ -751,7 +729,6 @@ public class JSONLoaderJuego0 : MonoBehaviour
 
         if ((!(textoRegaloCarta.Equals(""))) && (gameData[4].ToString().Equals("0")))
         {
-            //soundManager.PlaySound("abrirAlgo");            
             buttonCloseModal.image.color = Color.black;
             panelInventario.SetActive(false);
             imageRegalo.enabled = true;
@@ -866,9 +843,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
     {
         GameObject p = GameObject.Find("Personaje");
         p.GetComponent<Movimiento>().animator.SetTrigger("comer");
-
         soundManager.PlaySound("comer");
-        
     }
 
     //ESTE MÉTODO ES TEMPORAL, LA IDEA ES QUE EL ÍNDICE ENTRE POR PARÁMETRO Y CON ESE SE BUSQUE EN EL ARREGLO DE porcentajes, ES DECIR SÓLO DICHA BÚSQUEDA SE RETORNA SIN LOS IF's

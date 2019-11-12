@@ -21,7 +21,7 @@ public class SoundManager : MonoBehaviour
             clips.Add(myClip);
         }
         else{
-            print("No se puede cargar el audio");
+            print("No se puede cargar el audio"+ nombre);
         }
         
     }
@@ -30,14 +30,23 @@ public class SoundManager : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
 
-        abrirAlgo = Resources.Load<AudioClip>("audios/abrir");
-        cocinar = Resources.Load<AudioClip>("audios/cocinando");
-        comer = Resources.Load<AudioClip>("audios/comerCorto");
         campanaColegio = Resources.Load<AudioClip>("audios/campColegio");
+        clips.Add(campanaColegio);
         vocesColegio = Resources.Load<AudioClip>("audios/ninosEscuela");
-        hablarGente = Resources.Load<AudioClip>("audios/genteHabla");
+        clips.Add(vocesColegio);
+        abrirAlgo = Resources.Load<AudioClip>("audios/abrir");
+        clips.Add(abrirAlgo);
+
+        comer = Resources.Load<AudioClip>("audios/comerCorto");
+        comer.name = "comer";
+        clips.Add(comer);
+
         patearBalon = Resources.Load<AudioClip>("audios/patearBalon");
+        patearBalon.name = "balon";
+        clips.Add(patearBalon);
+
         wow = Resources.Load<AudioClip>("audios/wow");
+        clips.Add(wow);
 
         audioSource = GetComponent<AudioSource>();
     }

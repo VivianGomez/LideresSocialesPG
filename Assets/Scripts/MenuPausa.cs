@@ -22,12 +22,18 @@ public class MenuPausa : MonoBehaviour
 
     public Slider sliderAmbient;
     public Slider sliderDialogue;
-
-
-
     private bool enable;
 
     private int indiceInstruccion = 0;
+
+    private SoundManager soundManager;
+    private AudioScript audioScript;
+
+    void Awake()
+    {
+        soundManager = GameObject.FindObjectOfType<SoundManager>();
+        audioScript = GameObject.FindObjectOfType<AudioScript>();
+    }
 
 
     public void switchViewMenu()
@@ -54,7 +60,6 @@ public class MenuPausa : MonoBehaviour
         enable = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -62,7 +67,6 @@ public class MenuPausa : MonoBehaviour
             switchViewMenu();
         }
     }
-
 
     public void ClickGuardar()
     {
@@ -109,7 +113,7 @@ public class MenuPausa : MonoBehaviour
 
     public void changeVolumeAmbient()
     {
-        Debug.Log("VolAmbient"+ sliderAmbient.value);
+        audioScript.volumen = (sliderAmbient.value/10);
     }
 
     public void changeVolumeDialogues()
