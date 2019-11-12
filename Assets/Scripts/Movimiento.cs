@@ -36,9 +36,10 @@ public class Movimiento : MonoBehaviour
 
     private JSONLoaderJuego0 jsonLoader;
 
-
+    private SoundManager soundManager;
     void Awake()
     {
+        soundManager = GameObject.FindObjectOfType<SoundManager>();
         jsonLoader = GameObject.FindObjectOfType<JSONLoaderJuego0>();
     }
 
@@ -216,7 +217,7 @@ public class Movimiento : MonoBehaviour
                 
                 animator.SetTrigger("duerme");
                 
-                SoundManager.PlaySound("dormir");
+                soundManager.PlaySound("dormir");
                 permiteMoverse = false;
             }
 
@@ -301,7 +302,7 @@ public class Movimiento : MonoBehaviour
         }
         if (col.name == "GameObject")
         {
-            SoundManager.PlaySound("patearBalon");
+            soundManager.PlaySound("patearBalon");
         }
     }
 
@@ -351,7 +352,7 @@ public class Movimiento : MonoBehaviour
             panelOpcionesCama.SetActive(false);
             animator.SetTrigger("duerme");
 
-            SoundManager.PlaySound("dormir");
+            soundManager.PlaySound("cama");
             permiteMoverse = false;
         }
         
@@ -408,10 +409,12 @@ public class Movimiento : MonoBehaviour
 
     public void hablarNPC(string nombrePersonaje) 
     {
-        SoundManager.PlaySound(nombrePersonaje);
-        DialogoNPC.SetActive(true);
-        GameObject fondo = GameObject.Find("Background");
-        txtDialogo.text = (fondo.GetComponent<TimeDayFunction>().hora < 18) ? (""+jsonLoader.dialogosDia[nombrePersonaje]):(""+jsonLoader.dialogosNoche[nombrePersonaje]);
+        if(jsonLoader.dialogosDia[nombrePersonaje]!=null){
+            soundManager.PlaySound(nombrePersonaje);
+            DialogoNPC.SetActive(true);
+            GameObject fondo = GameObject.Find("Background");
+            txtDialogo.text = (fondo.GetComponent<TimeDayFunction>().hora < 18) ? (""+jsonLoader.dialogosDia[nombrePersonaje]):(""+jsonLoader.dialogosNoche[nombrePersonaje]);
+        }
     }
 
 

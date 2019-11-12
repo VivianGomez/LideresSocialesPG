@@ -33,6 +33,12 @@ public class DialogDetection : MonoBehaviour
 
     public bool unaVez;
 
+    private SoundManager soundManager;
+    void Awake()
+    {
+        soundManager = GameObject.FindObjectOfType<SoundManager>();
+    }
+
     void Start()
     {
         //GetComponent<Collider>().isTrigger = true;
@@ -43,13 +49,16 @@ public class DialogDetection : MonoBehaviour
         if(btnClose2 != null)  btnClose2.gameObject.SetActive(false);
         if(btnContinue2 != null) btnContinue2.gameObject.SetActive(false);
     }
+
+    
+
     IEnumerator OnTriggerEnter(Collider other)
     {
         //if ((other.name == "Player") && Input.GetKeyDown(KeyCode.X))
         if (other.tag == "npc" )
         {
             actualNPC = other.gameObject;
-            SoundManager.PlaySound("hablaMujer");
+            soundManager.PlaySound("hablaMujer");
 
             yield return new WaitForSeconds(3);
             

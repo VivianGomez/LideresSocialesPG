@@ -104,8 +104,10 @@ public class JSONLoaderJuego0 : MonoBehaviour
     //public const string url ="https://firebasestorage.googleapis.com/v0/b/lideresocialespg.appspot.com/o/juego0.json?alt=media&token=3d8deac2-9fd0-4a22-98a3-3bc7629f809b";
     public const string url ="https://lideresocialespg.firebaseio.com/juegos.json";
 
+    private SoundManager soundManager;
     void Awake()
     {
+        soundManager = GameObject.FindObjectOfType<SoundManager>();
         timeDayFunction = GameObject.FindObjectOfType<TimeDayFunction>();
     }
 
@@ -230,7 +232,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
                         interaccionActual = actual["interacciones"][j];
                         if(actual["interacciones"][j]!=null)
                         {
-                        createCollidersInteractions(""+interaccionActual["colliderActivador"], interaccionActual["coordenadasCollider"], interaccionActual["offsetCollider"], interaccionActual["tamCollider"], ""+interaccionActual["isTrigger"], ""+interaccionActual["script"], ""+interaccionActual["escenaACambiar"], ""+interaccionActual["tag"]);
+                        createCollidersInteractions(""+interaccionActual["colliderActivador"], interaccionActual["coordenadasCollider"], interaccionActual["offsetCollider"], interaccionActual["tamCollider"], ""+interaccionActual["isTrigger"], ""+interaccionActual["script"], ""+interaccionActual["escenaACambiar"], ""+interaccionActual["tag"], ""+interaccionActual["sonido"]);
                         }
                         /**
                         for (int k=0;k<interaccionActual["sprites"].Count;k++)
@@ -248,7 +250,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
                         interaccionActual = actual["personajes"][k];
                         if(!(interaccionActual["imagen"].ToString().Equals("")))
                         {
-                            StartCoroutine(crearPersonaje(new WWW(""+interaccionActual["imagen"]),""+interaccionActual["colliderActivador"], interaccionActual["coordenadasCollider"], interaccionActual["tamCollider"], ""+interaccionActual["tag"]));
+                            StartCoroutine(crearPersonaje(new WWW(""+interaccionActual["imagen"]),""+interaccionActual["colliderActivador"], interaccionActual["coordenadasCollider"], interaccionActual["tamCollider"], ""+interaccionActual["tag"], ""+interaccionActual["sonido"]));
                         }
                     } 
    
@@ -283,12 +285,18 @@ public class JSONLoaderJuego0 : MonoBehaviour
             objTP.tag = tag;
     }
 
-    private IEnumerator crearPersonaje(WWW spriteWWW, string nombreActivador, JsonData posicion, JsonData escala, string tagJ) 
+    private IEnumerator crearPersonaje(WWW spriteWWW, string nombreActivador, JsonData posicion, JsonData escala, string tagJ, string sonido) 
         {
             yield return spriteWWW;
             if (spriteWWW.error == null)
             {
                 GameObject objToSpawn;
+                
+                if(!(sonido.Equals("")))
+                {
+                    StartCoroutine(soundManager.loadAudio(sonido, nombreActivador));
+                }
+                
                 objToSpawn = new GameObject(nombreActivador);
                 if(!(tagJ.Equals("")))
                 {
@@ -321,8 +329,14 @@ public class JSONLoaderJuego0 : MonoBehaviour
 
         }
 
-    private void createCollidersInteractions(string nombreActivador, JsonData posicion, JsonData offset, JsonData tamanio, string isTrigger, string tpScript, string cambio, string tagJ){
+    private void createCollidersInteractions(string nombreActivador, JsonData posicion, JsonData offset, JsonData tamanio, string isTrigger, string tpScript, string cambio, string tagJ, string sonido){
             GameObject objToSpawn;
+
+            if(!(sonido.Equals("")))
+            {
+                StartCoroutine(soundManager.loadAudio(sonido, nombreActivador));
+            }
+
             objToSpawn = new GameObject(nombreActivador);
             float x = float.Parse(""+posicion[0]);
             float y = float.Parse(""+posicion[1]);
@@ -368,11 +382,6 @@ public class JSONLoaderJuego0 : MonoBehaviour
             cantRegaloCarta = (int)infoDias[dia]["regaloCarta"]["cantidad"];
             regaloLiderazgo = "" + infoDias[dia]["regaloLiderazgo"]["nombre"];
             cantRegaloLiderazgo = (int)infoDias[dia]["regaloLiderazgo"]["cantidad"];
-            
-            /*dialogMom = (hora < 18) ? ("" + infoDias[dia]["textosMadre"]) : ("" + infoDias[dia]["textosMadreNoche"]);
-            dialogNPC1 = (hora < 18) ? ("" +infoDias[dia]["textosPersona1"]):("" + infoDias[dia]["textosPersona1Noche"]);
-            dialogNPC2 = (hora < 18) ? ("" +infoDias[dia]["textosPersona2"]): ("" + infoDias[dia]["textosPersona2Noche"]);
-            */
             dialogosDia = infoDias[dia]["textosDia"];
             dialogosNoche = infoDias[dia]["textosNoche"];
         } 
@@ -385,9 +394,8 @@ public class JSONLoaderJuego0 : MonoBehaviour
         {
             for (int i = 0; i < infoDias[dia]["textosHH"].Count; i++)
             {
-                //print("" + infoDias[dia]["textosHH"][i]);
                 DialogoNino.text = "" + infoDias[dia]["textosHH"][i];
-                SoundManager.PlaySound("hablaPlayer");
+                soundManager.PlaySound("PuntoDiscurso");
                 yield return new WaitForSeconds(5);
             }
             
@@ -601,7 +609,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
                 
 
         if (!(textoCartaDia.Equals(""))){
-            //SoundManager.PlaySound("abrirAlgo");
+            //soundManager.PlaySound("abrirAlgo");
 
 
             p.GetComponent<Movimiento>().permiteMoverse = false;
@@ -743,7 +751,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
 
         if ((!(textoRegaloCarta.Equals(""))) && (gameData[4].ToString().Equals("0")))
         {
-            //SoundManager.PlaySound("abrirAlgo");            
+            //soundManager.PlaySound("abrirAlgo");            
             buttonCloseModal.image.color = Color.black;
             panelInventario.SetActive(false);
             imageRegalo.enabled = true;
@@ -818,7 +826,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
         if(!(textoRegaloLiderazgo.Equals("")))
         {
             p.GetComponent<Movimiento>().permiteMoverse = false;
-            SoundManager.PlaySound("wow");           
+            soundManager.PlaySound("wow");           
             buttonCloseModal.image.color = Color.black;
             panelInventario.SetActive(false);
             imageRegalo.enabled = true;
@@ -859,7 +867,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
         GameObject p = GameObject.Find("Personaje");
         p.GetComponent<Movimiento>().animator.SetTrigger("comer");
 
-        SoundManager.PlaySound("comer");
+        soundManager.PlaySound("comer");
         
     }
 
