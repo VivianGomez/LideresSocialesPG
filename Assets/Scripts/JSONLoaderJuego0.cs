@@ -14,10 +14,7 @@ using System.Net;
 public class JSONLoaderJuego0 : MonoBehaviour
 {
 
-    //Para cargar assets desde JSON
     public SpriteRenderer backgroundSprite;
-
-
     private string jsonString;
     private JsonData jData;
     private JsonData gameData;
@@ -100,12 +97,14 @@ public class JSONLoaderJuego0 : MonoBehaviour
     public string dialogNino = "";
     public TextMeshProUGUI DialogoNino;
 
-
-    //public const string url ="https://firebasestorage.googleapis.com/v0/b/lideresocialespg.appspot.com/o/juego0.json?alt=media&token=3d8deac2-9fd0-4a22-98a3-3bc7629f809b";
     public const string url ="https://lideresocialespg.firebaseio.com/juegos.json";
 
+    private SoundManager soundManager;
+    private AudioScript audioScript;
     void Awake()
     {
+        soundManager = GameObject.FindObjectOfType<SoundManager>();
+        audioScript = GameObject.FindObjectOfType<AudioScript>();
         timeDayFunction = GameObject.FindObjectOfType<TimeDayFunction>();
     }
 
@@ -179,14 +178,14 @@ public class JSONLoaderJuego0 : MonoBehaviour
     private IEnumerator OnResponse(WWW req)
     {
         yield return req;
-        //string path=Application.dataPath + "/Resources/data.json";
         if (req.error == null)
         {
-           //jsonString = File.ReadAllText(path);
-           //print(req.text);
            jData = JsonMapper.ToObject(req.text);
 
            WWW reqSprite = new WWW(""+jData[1]["personajePrincipal"]["imagenPersonaje"]);
+
+           audioScript.sonidosAmbiente = jData[1]["sonidosAmbiente"];
+           audioScript.empieza();
             
            LoadScene(jData[1]["escenas"]);
            GameObject.FindObjectOfType<MenuPausa>().instrucciones = jData[1]["instrucciones"];
@@ -196,9 +195,6 @@ public class JSONLoaderJuego0 : MonoBehaviour
            gameData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json"));
            LoadInfoAlimentos(gameData[10]);
             StartCoroutine(loading());
-
-            
-
         }
         else
         {
@@ -230,17 +226,8 @@ public class JSONLoaderJuego0 : MonoBehaviour
                         interaccionActual = actual["interacciones"][j];
                         if(actual["interacciones"][j]!=null)
                         {
-                        createCollidersInteractions(""+interaccionActual["colliderActivador"], interaccionActual["coordenadasCollider"], interaccionActual["offsetCollider"], interaccionActual["tamCollider"], ""+interaccionActual["isTrigger"], ""+interaccionActual["script"], ""+interaccionActual["escenaACambiar"], ""+interaccionActual["tag"]);
-                        }
-                        /**
-                        for (int k=0;k<interaccionActual["sprites"].Count;k++)
-                         {
-                        spriteActual = interaccionActual["sprites"][k];
-                        WWW spritesheet = new WWW("" + spriteActual["nombreImagen"]);
-                        StartCoroutine(OutputRoutine(spritesheet,int.Parse("" + spriteActual["coordenadaX"]), int.Parse("" + spriteActual["coordenadaY"])));
-
-                         }  **/
-                                         
+                        createCollidersInteractions(""+interaccionActual["colliderActivador"], interaccionActual["coordenadasCollider"], interaccionActual["offsetCollider"], interaccionActual["tamCollider"], ""+interaccionActual["isTrigger"], ""+interaccionActual["script"], ""+interaccionActual["escenaACambiar"], ""+interaccionActual["tag"], ""+interaccionActual["sonido"]);
+                        }               
                     } 
 
                     for (int k = 0; k < actual["personajes"].Count; k++)
@@ -248,7 +235,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
                         interaccionActual = actual["personajes"][k];
                         if(!(interaccionActual["imagen"].ToString().Equals("")))
                         {
-                            StartCoroutine(crearPersonaje(new WWW(""+interaccionActual["imagen"]),""+interaccionActual["colliderActivador"], interaccionActual["coordenadasCollider"], interaccionActual["tamCollider"], ""+interaccionActual["tag"]));
+                            StartCoroutine(crearPersonaje(new WWW(""+interaccionActual["imagen"]),""+interaccionActual["colliderActivador"], interaccionActual["coordenadasCollider"], interaccionActual["tamCollider"], ""+interaccionActual["tag"], ""+interaccionActual["sonido"]));
                         }
                     } 
    
@@ -256,7 +243,6 @@ public class JSONLoaderJuego0 : MonoBehaviour
             }
     }
 
-   
 
     private IEnumerator LoadBackground(WWW wwwBG, string nombre){
         yield return wwwBG;
@@ -283,12 +269,18 @@ public class JSONLoaderJuego0 : MonoBehaviour
             objTP.tag = tag;
     }
 
-    private IEnumerator crearPersonaje(WWW spriteWWW, string nombreActivador, JsonData posicion, JsonData escala, string tagJ) 
+    private IEnumerator crearPersonaje(WWW spriteWWW, string nombreActivador, JsonData posicion, JsonData escala, string tagJ, string sonido) 
         {
             yield return spriteWWW;
             if (spriteWWW.error == null)
             {
                 GameObject objToSpawn;
+                
+                if(!(sonido.Equals("")))
+                {
+                    StartCoroutine(soundManager.loadAudio(sonido, nombreActivador));
+                }
+                
                 objToSpawn = new GameObject(nombreActivador);
                 if(!(tagJ.Equals("")))
                 {
@@ -321,8 +313,14 @@ public class JSONLoaderJuego0 : MonoBehaviour
 
         }
 
-    private void createCollidersInteractions(string nombreActivador, JsonData posicion, JsonData offset, JsonData tamanio, string isTrigger, string tpScript, string cambio, string tagJ){
+    private void createCollidersInteractions(string nombreActivador, JsonData posicion, JsonData offset, JsonData tamanio, string isTrigger, string tpScript, string cambio, string tagJ, string sonido){
             GameObject objToSpawn;
+
+            if(!(sonido.Equals("")))
+            {
+                StartCoroutine(soundManager.loadAudio(sonido, nombreActivador));
+            }
+
             objToSpawn = new GameObject(nombreActivador);
             float x = float.Parse(""+posicion[0]);
             float y = float.Parse(""+posicion[1]);
@@ -336,13 +334,10 @@ public class JSONLoaderJuego0 : MonoBehaviour
 
             objToSpawn.transform.position = new Vector3(x,y,z);
 
-            //Add Components
             objToSpawn.AddComponent<BoxCollider2D>();
             var coll = objToSpawn.GetComponent<BoxCollider2D>();
             coll.isTrigger = isTrigger.Equals("1");
-            //define el centro del collider
             coll.offset = new Vector2(xO,yO);
-            //define el tamanio del collider
             coll.size = new Vector2(xT,yT);
 
             if(!(tagJ.Equals("")))
@@ -350,7 +345,6 @@ public class JSONLoaderJuego0 : MonoBehaviour
                objToSpawn.tag = tagJ;
             }
 
-            //agrega el script si es TP
             if(!(tpScript.Equals("")) && !(cambio.Equals(""))){
                 objToSpawn.AddComponent<Teleport>().levelToLoad = cambio;
             }
@@ -368,11 +362,6 @@ public class JSONLoaderJuego0 : MonoBehaviour
             cantRegaloCarta = (int)infoDias[dia]["regaloCarta"]["cantidad"];
             regaloLiderazgo = "" + infoDias[dia]["regaloLiderazgo"]["nombre"];
             cantRegaloLiderazgo = (int)infoDias[dia]["regaloLiderazgo"]["cantidad"];
-            
-            /*dialogMom = (hora < 18) ? ("" + infoDias[dia]["textosMadre"]) : ("" + infoDias[dia]["textosMadreNoche"]);
-            dialogNPC1 = (hora < 18) ? ("" +infoDias[dia]["textosPersona1"]):("" + infoDias[dia]["textosPersona1Noche"]);
-            dialogNPC2 = (hora < 18) ? ("" +infoDias[dia]["textosPersona2"]): ("" + infoDias[dia]["textosPersona2Noche"]);
-            */
             dialogosDia = infoDias[dia]["textosDia"];
             dialogosNoche = infoDias[dia]["textosNoche"];
         } 
@@ -385,9 +374,8 @@ public class JSONLoaderJuego0 : MonoBehaviour
         {
             for (int i = 0; i < infoDias[dia]["textosHH"].Count; i++)
             {
-                //print("" + infoDias[dia]["textosHH"][i]);
                 DialogoNino.text = "" + infoDias[dia]["textosHH"][i];
-                SoundManager.PlaySound("hablaPlayer");
+                soundManager.PlaySound("PuntoDiscurso");
                 yield return new WaitForSeconds(5);
             }
             
@@ -601,8 +589,6 @@ public class JSONLoaderJuego0 : MonoBehaviour
                 
 
         if (!(textoCartaDia.Equals(""))){
-            //SoundManager.PlaySound("abrirAlgo");
-
 
             p.GetComponent<Movimiento>().permiteMoverse = false;
             if (p.GetComponent<Movimiento>().DialogoNPC != null)
@@ -743,7 +729,6 @@ public class JSONLoaderJuego0 : MonoBehaviour
 
         if ((!(textoRegaloCarta.Equals(""))) && (gameData[4].ToString().Equals("0")))
         {
-            //SoundManager.PlaySound("abrirAlgo");            
             buttonCloseModal.image.color = Color.black;
             panelInventario.SetActive(false);
             imageRegalo.enabled = true;
@@ -818,7 +803,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
         if(!(textoRegaloLiderazgo.Equals("")))
         {
             p.GetComponent<Movimiento>().permiteMoverse = false;
-            SoundManager.PlaySound("wow");           
+            soundManager.PlaySound("wow");           
             buttonCloseModal.image.color = Color.black;
             panelInventario.SetActive(false);
             imageRegalo.enabled = true;
@@ -858,9 +843,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
     {
         GameObject p = GameObject.Find("Personaje");
         p.GetComponent<Movimiento>().animator.SetTrigger("comer");
-
-        SoundManager.PlaySound("comer");
-        
+        soundManager.PlaySound("comer");
     }
 
     //ESTE MÉTODO ES TEMPORAL, LA IDEA ES QUE EL ÍNDICE ENTRE POR PARÁMETRO Y CON ESE SE BUSQUE EN EL ARREGLO DE porcentajes, ES DECIR SÓLO DICHA BÚSQUEDA SE RETORNA SIN LOS IF's

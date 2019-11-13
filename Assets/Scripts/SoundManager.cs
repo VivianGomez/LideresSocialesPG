@@ -1,74 +1,72 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
+using System.Collections.Generic;
 
 public class SoundManager : MonoBehaviour
 {
     public static AudioClip dormir, abrirAlgo, cocinar, 
-    comer, campanaColegio, vocesColegio, hablarGente, patearBalon, hablaPlayer, hablaNina, hablaCalvo, hablaMama, wow;
+    comer, campanaColegio, vocesColegio, hablarGente, patearBalon, hablaPlayer, wow;
     static AudioSource audioSource; 
+
+    public  List<AudioClip> clips;
+
+    public IEnumerator loadAudio(string path, string nombre){
+        WWW request = new WWW(path);
+        
+        if (request.error == null)
+        {
+            yield return request;
+            AudioClip myClip = request.GetAudioClip(false, false, AudioType.WAV); 
+            myClip.name = nombre;    
+            clips.Add(myClip);
+        }
+        else{
+            print("No se puede cargar el audio"+ nombre);
+        }
+        
+    }
+    
     void Start()
     {
-        dormir = Resources.Load<AudioClip>("audios/dormir");
-        abrirAlgo = Resources.Load<AudioClip>("audios/abrir");
-        cocinar = Resources.Load<AudioClip>("audios/cocinando");
-        comer = Resources.Load<AudioClip>("audios/comerCorto");
+        audioSource = GetComponent<AudioSource>();
+
         campanaColegio = Resources.Load<AudioClip>("audios/campColegio");
+        clips.Add(campanaColegio);
         vocesColegio = Resources.Load<AudioClip>("audios/ninosEscuela");
-        hablarGente = Resources.Load<AudioClip>("audios/genteHabla");
+        clips.Add(vocesColegio);
+        abrirAlgo = Resources.Load<AudioClip>("audios/abrir");
+        clips.Add(abrirAlgo);
+
+        comer = Resources.Load<AudioClip>("audios/comerCorto");
+        comer.name = "comer";
+        clips.Add(comer);
+
         patearBalon = Resources.Load<AudioClip>("audios/patearBalon");
-        hablaPlayer = Resources.Load<AudioClip>("audios/habla2");
-        hablaNina = Resources.Load<AudioClip>("audios/risaNina");
-        hablaCalvo = Resources.Load<AudioClip>("audios/heyHombre");
-        hablaMama = Resources.Load<AudioClip>("audios/mom");
+        patearBalon.name = "balon";
+        clips.Add(patearBalon);
+
         wow = Resources.Load<AudioClip>("audios/wow");
+        clips.Add(wow);
 
         audioSource = GetComponent<AudioSource>();
     }
 
-    public static void PlaySound(string clip){
-        audioSource.volume = 0.5f;
-        switch(clip){
-        case "dormir":
-            audioSource.PlayOneShot(dormir);
-            break;
-        case "abrirAlgo":
-            audioSource.PlayOneShot(abrirAlgo);
-            break;   
-        case "cocinar":
-            audioSource.PlayOneShot(cocinar);
-            break;
-        case "comer":
-            audioSource.PlayOneShot(comer);
-            break;
-        case "campanaColegio":
-            audioSource.PlayOneShot(campanaColegio);
-            break;
-        case "vocesColegio":
-            audioSource.PlayOneShot(vocesColegio);
-            break;
-        case "hablarGente":
-            audioSource.PlayOneShot(hablarGente);
-            break;
-        case "patearBalon":
-            audioSource.volume = 0.2f;
-            audioSource.PlayOneShot(patearBalon);
-            break; 
-        case "NPC2":
-            audioSource.PlayOneShot(hablaNina);
-            break; 
-        case "NPC1":
-            audioSource.PlayOneShot(hablaCalvo);
-            break; 
-        case "hablaPlayer":
-            audioSource.volume = 0.4f;
-            audioSource.PlayOneShot(hablaPlayer);
-            break; 
-        case "mama":
-            audioSource.PlayOneShot(hablaMama);
-            break; 
-        case "wow":
-            audioSource.PlayOneShot(wow);
-            break; 
+
+    public AudioClip buscarClip(string nameClip)
+    {
+        AudioClip res = null;
+        foreach (var item in clips) 
+        {
+             if (item.name.Equals(nameClip))
+             {
+                 res = item;
+             }
         }
-        
+        return res;
+    }
+
+    public void PlaySound(string clip){
+        audioSource.volume = 0.5f;
+        audioSource.PlayOneShot(buscarClip(clip));
     }
 }
