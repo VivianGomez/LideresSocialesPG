@@ -321,12 +321,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba4d88854debbab4eaceca59b3a4b879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  volumen: 0.2
   MusicClip: {fileID: 8300000, guid: 16f088d5576256048a2758d9b62703e7, type: 3}
   MusicFinalOut: {fileID: 0}
   MusicFinalIns: {fileID: 0}
   MusicSource: {fileID: 825611341}
-  diaActual: 0
   rain: {fileID: 0}
+  diaActual: 0
 --- !u!82 &825611341
 AudioSource:
   m_ObjectHideFlags: 0
@@ -463,6 +464,7 @@ GameObject:
   - component: {fileID: 1364455211}
   - component: {fileID: 1364455206}
   - component: {fileID: 1364455212}
+  - component: {fileID: 1364455213}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -574,6 +576,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e4e08d9dcaba754682632aa54e4e49a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1364455213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364455205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26ffd104cc37e464eaed758e64144670, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1409744622
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,12 +618,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba4d88854debbab4eaceca59b3a4b879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  volumen: 0.2
   MusicClip: {fileID: 8300000, guid: dfbe19c6da029b74486adc4fe348ce6d, type: 3}
   MusicFinalOut: {fileID: 0}
   MusicFinalIns: {fileID: 0}
   MusicSource: {fileID: 1409744624}
-  diaActual: 0
   rain: {fileID: 0}
+  diaActual: 0
 --- !u!82 &1409744624
 AudioSource:
   m_ObjectHideFlags: 0
