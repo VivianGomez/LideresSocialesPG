@@ -6,7 +6,7 @@ using System.IO;
 using System.Net;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Networking;
+using UnityEngine.Networking; 
 
 public class CargaAnimatorAnimations : MonoBehaviour
 {
@@ -16,6 +16,7 @@ public class CargaAnimatorAnimations : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (!File.Exists("Assets/Resources/StateMachineTransitions.controller")) UnityEditor.Animations.AnimatorController.CreateAnimatorControllerAtPath("Assets/Resources/StateMachineTransitions.controller");
         Request();
     }
 
@@ -49,7 +50,10 @@ public class CargaAnimatorAnimations : MonoBehaviour
             actual = animaciones[i];
             WWW spritesheet = new WWW("" + actual["nombreImagen"]);
             StartCoroutine(OutputRoutine(spritesheet, int.Parse("" + actual["coordenadaX"]), int.Parse("" + actual["coordenadaY"]), ("" + actual["loop"]=="0")?false:true));
+
+            
         }
+        CreateController(); 
     }
 
     public IEnumerator createSaveAnim(string nombre, bool loop)
@@ -88,6 +92,7 @@ public class CargaAnimatorAnimations : MonoBehaviour
         AssetDatabase.SaveAssets(); 
         AssetDatabase.Refresh();
 
+       // CreateController();
         yield return sprites;
     }
 
@@ -171,6 +176,90 @@ public class CargaAnimatorAnimations : MonoBehaviour
 
         yield return newData.ToArray();
 
+    }
+
+    static void CreateController()
+    {
+        // Se crea el controlador
+        UnityEditor.Animations.AnimatorController controller = Resources.LoadAsync("StateMachineTransitions").asset as UnityEditor.Animations.AnimatorController;
+
+        // Se crean los parametros
+        print("se agregan parametris");
+        controller.AddParameter("quedaQuieto", AnimatorControllerParameterType.Trigger);
+        
+        controller.AddParameter("caminar", AnimatorControllerParameterType.Trigger);
+
+        controller.AddParameter("dejaCaminar", AnimatorControllerParameterType.Trigger);
+        controller.AddParameter("dormir", AnimatorControllerParameterType.Trigger);
+        controller.AddParameter("despierta", AnimatorControllerParameterType.Trigger);
+        controller.AddParameter("sentarse", AnimatorControllerParameterType.Trigger);
+        controller.AddParameter("quedarseSentado", AnimatorControllerParameterType.Trigger);
+        controller.AddParameter("comer", AnimatorControllerParameterType.Trigger);
+        controller.AddParameter("hablar", AnimatorControllerParameterType.Trigger);
+    
+
+        // Añadir los estados
+        
+        var rootStateMachine = controller.layers[0].stateMachine;
+        var stateMachineQuedaQuieto = rootStateMachine.AddState("quedaQuieto");
+
+        
+        var stateMachineCamina = rootStateMachine.AddState("caminar");
+        stateMachineCamina.motion = Resources.LoadAsync("caminar").asset as AnimationClip;
+
+        
+        var stateMachineDuerme = rootStateMachine.AddState("dormir");
+        stateMachineDuerme.motion = Resources.LoadAsync("dormir").asset as AnimationClip;
+
+        var stateMachineDespierta = rootStateMachine.AddState("despierta");
+
+        var stateMachineSientaSilla = rootStateMachine.AddState("sentarse");
+        stateMachineSientaSilla.motion = Resources.LoadAsync("sentarse").asset as AnimationClip;
+
+        var stateMachineComer = rootStateMachine.AddState("comer");
+
+        var stateMachineHablar = rootStateMachine.AddState("hablar");
+        stateMachineComer.motion = Resources.LoadAsync("comer").asset as AnimationClip;
+        stateMachineHablar.motion = Resources.LoadAsync("hablar").asset as AnimationClip;
+    
+
+
+        // Añadir todas las transiciones
+
+        var stateMachineTransitionA = rootStateMachine.AddAnyStateTransition(stateMachineQuedaQuieto);
+        stateMachineTransitionA.AddCondition(UnityEditor.Animations.AnimatorConditionMode.If, 0, "quedaQuieto");
+
+        
+        var stateMachineTransitionI = stateMachineQuedaQuieto.AddTransition(stateMachineCamina);
+        stateMachineTransitionI.AddCondition(UnityEditor.Animations.AnimatorConditionMode.If, 0, "caminar");
+
+        var stateMachineTransitionJ = stateMachineCamina.AddTransition(stateMachineQuedaQuieto);
+        stateMachineTransitionJ.AddCondition(UnityEditor.Animations.AnimatorConditionMode.If, 0, "dejaCaminar");
+
+        var stateMachineTransitionB = stateMachineQuedaQuieto.AddTransition(stateMachineDuerme);
+        stateMachineTransitionB.AddCondition(UnityEditor.Animations.AnimatorConditionMode.If, 0, "dormir");
+
+        var stateMachineTransitionC = stateMachineDuerme.AddTransition(stateMachineQuedaQuieto);
+        stateMachineTransitionC.AddCondition(UnityEditor.Animations.AnimatorConditionMode.If, 0, "despierta");
+
+        var stateMachineTransitionD = stateMachineQuedaQuieto.AddTransition(stateMachineSientaSilla);
+        stateMachineTransitionD.AddCondition(UnityEditor.Animations.AnimatorConditionMode.If, 0, "sentarse");
+
+        var stateMachineTransitionH = stateMachineSientaSilla.AddTransition(stateMachineQuedaQuieto);
+        stateMachineTransitionH.AddCondition(UnityEditor.Animations.AnimatorConditionMode.If, 0, "caminar");
+
+        var stateMachineTransitionF = stateMachineQuedaQuieto.AddTransition(stateMachineComer);
+        stateMachineTransitionF.AddCondition(UnityEditor.Animations.AnimatorConditionMode.If, 0, "comer");
+
+        var stateMachineTransitionK = stateMachineHablar.AddTransition(stateMachineQuedaQuieto);
+        stateMachineTransitionK.AddCondition(UnityEditor.Animations.AnimatorConditionMode.If, 0, "caminar");
+
+        var stateMachineTransitionG = stateMachineQuedaQuieto.AddTransition(stateMachineHablar);
+        stateMachineTransitionG.AddCondition(UnityEditor.Animations.AnimatorConditionMode.If, 0, "hablar");
+
+        var stateMachineTransitionL = stateMachineComer.AddTransition(stateMachineQuedaQuieto);
+        stateMachineTransitionL.AddCondition(UnityEditor.Animations.AnimatorConditionMode.If, 0, "caminar");
+    
     }
 
 }
