@@ -22,23 +22,25 @@ public class CargaAnimatorAnimations : MonoBehaviour
             controller.AddParameter("quedaQuieto", AnimatorControllerParameterType.Trigger);
         }
         
-        Request();
+        //Request();
     }
 
-    public void Request()
+    public void Request(int i)
     {
         WWW request = new WWW(url);
 
-        StartCoroutine(OnResponse(request));
+        if (i == 0) StartCoroutine(OnResponse(request,i));
+        else if (i == 1) StartCoroutine(OnResponse(request,i));
     }
      
-    private IEnumerator OnResponse(WWW req)
+    private IEnumerator OnResponse(WWW req, int i)
     {
         yield return req;
         if (req.error == null)
         {
             jData = JsonMapper.ToObject(req.text);
-            LoadAnimations(jData[1]["animaciones"]);
+            if (i == 0) LoadAnimations(jData[1]["animaciones"]);
+            else if (i == 1) StartCoroutine(CreateController(jData[1]["animaciones"]));
         }
         else
         {
@@ -46,12 +48,13 @@ public class CargaAnimatorAnimations : MonoBehaviour
         }
     }
 
+
     private void LoadAnimations(JsonData animaciones)
     {
         var actual = animaciones[0];
         for (int i = 0; i < animaciones.Count; i++)
         {
-            print("sigue ostrando animaciones");
+            print("sigue mostrando animaciones");
             actual = animaciones[i];
             WWW spritesheet = new WWW("" + actual["nombreImagen"]);
             StartCoroutine(OutputRoutine(spritesheet, int.Parse("" + actual["coordenadaX"]), int.Parse("" + actual["coordenadaY"]), ("" + actual["loop"]=="0")?false:true));
@@ -59,7 +62,7 @@ public class CargaAnimatorAnimations : MonoBehaviour
         }
 
         print("termino");
-        CreateController(animaciones);
+        //StartCoroutine(CreateController(animaciones));
     }
 
     public IEnumerator createSaveAnim(string nombre, bool loop)
@@ -94,8 +97,7 @@ public class CargaAnimatorAnimations : MonoBehaviour
         AssetDatabase.CreateAsset(animClip, "assets/Resources/" + nombre +".anim");
         AssetDatabase.SaveAssets(); 
         AssetDatabase.Refresh();
-
-       // CreateController();
+        
         yield return sprites;
     }
 
@@ -181,7 +183,7 @@ public class CargaAnimatorAnimations : MonoBehaviour
 
     }
 
-    static void CreateController(JsonData animaciones)
+    public static IEnumerator CreateController(JsonData animaciones)
     {
         // Se crea el controlador
         UnityEditor.Animations.AnimatorController controller = Resources.LoadAsync("StateMachineTransitions").asset as UnityEditor.Animations.AnimatorController;
@@ -208,8 +210,8 @@ public class CargaAnimatorAnimations : MonoBehaviour
             controller.AddParameter("" + actual["desactivador"], AnimatorControllerParameterType.Trigger);
 
             var stateMachine = rootStateMachine.AddState(parametro);
-            print(parametro);
-            print(File.Exists("assets/Resources/" + parametro + ".anim"));
+            
+            print(parametro+" "+File.Exists("assets/Resources/" + parametro + ".anim"));
             stateMachine.motion = Resources.LoadAsync(parametro).asset as AnimationClip;
 
             var stateMachineTransitionI = stateMachineQuedaQuieto.AddTransition(stateMachine);
@@ -217,9 +219,9 @@ public class CargaAnimatorAnimations : MonoBehaviour
 
             var stateMachineTransitionJ = stateMachine.AddTransition(stateMachineQuedaQuieto);
             stateMachineTransitionJ.AddCondition(UnityEditor.Animations.AnimatorConditionMode.If, 0, "" + actual["desactivador"]);
-        }       
-                             
-        
+        }
+
+        yield return null;
     
     }
 

@@ -2,7 +2,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using LitJson;
-using System.Collections;
 
 public class DayChanger : MonoBehaviour
 {
@@ -28,10 +27,10 @@ public class DayChanger : MonoBehaviour
     }
 
 
-    public IEnumerator onFadeComplete(Animator animator1)
+    public void onFadeComplete()
     {
-        animator1.SetTrigger("fade");
-        yield return new WaitForSeconds(1);
+        animator.SetTrigger("fade");
+
         gameData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json")); ;
         
         tomoRegaloCarta = "" + gameData[4];
@@ -79,12 +78,8 @@ public class DayChanger : MonoBehaviour
 
          GameObject aS = GameObject.Find("AudioObject");
          aS.GetComponent<AudioScript>().verificarAudioDia(fondo.GetComponent<TimeDayFunction>().dia);
-        
-        p.GetComponent<Movimiento>().trigger = false;
-        p.GetComponent<Movimiento>().permiteMoverse = true;
-        animator1.SetTrigger("returnn");
 
-        yield return null;
+        pasarEstado();
     }
 
     public void pasarEstado()

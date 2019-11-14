@@ -38,6 +38,7 @@ public class TimeDayFunction : MonoBehaviour
 
     private EnergyBar energyBar;
 
+    
 
     void Awake()
     {

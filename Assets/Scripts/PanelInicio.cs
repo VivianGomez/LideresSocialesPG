@@ -17,11 +17,14 @@ public class PanelInicio : MonoBehaviour
     }
 
      IEnumerator quitImage()
-    { 
+    {
+        GameObject camera= GameObject.Find("Main Camera");
+        camera.GetComponent<CargaAnimatorAnimations>().Request(0);
         yield return new WaitForSeconds(4.5f);
+        camera.GetComponent<CargaAnimatorAnimations>().Request(1);
         imagenLider.sprite = null;
         infoLider.text = "Kevin Julian Leon";
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(5);        
         SceneManager.LoadSceneAsync("Cuarto");
     }
 }
