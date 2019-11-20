@@ -153,51 +153,7 @@ public class Movimiento : MonoBehaviour
         }
        
     }
-
-    void loadAnimation()
-    {
-        GameObject tempObj = new GameObject();
-        tempObj = Resources.Load("an", typeof(GameObject)) as GameObject;
-        if (tempObj == null)
-        {
-            Debug.LogError("No esta encontrando el clip de la animacion ");
-        }
-        else
-        {
-            Animation anim = animacion.GetComponent<Animation>();
-
-            Animation animation = new Animation();
-            animation = tempObj.GetComponent<Animation>();
-            AnimationClip animationClip = new AnimationClip();
-            animationClip = animation.clip;
-
-
-            if (anim != null)
-            {
-                if (animationClip != null)
-                {
-                    anim.AddClip(animationClip, "animation");
-                    anim.Play("animation");
-                }
-                else
-                {
-                    print("objeto animacion esta bien y clip es nulo");
-                }
-            }
-            else
-            {
-                if (animationClip != null)
-                {
-                    print("Objeto animacion es nulo pero clip encontrado");
-                }
-                else
-                {
-                    print("todo es nulo");
-                }
-
-            }
-        }
-    }
+        
 
     void OnTriggerStay2D(Collider2D col)
     {
@@ -307,6 +263,7 @@ public class Movimiento : MonoBehaviour
         {
             panelOpcionesCama.SetActive(false);
             trigger = true;
+            objeto.SetActive(true);
             animator.SetTrigger("dormir");
 
             soundManager.PlaySound("cama");
@@ -342,26 +299,7 @@ public class Movimiento : MonoBehaviour
         camara.GetComponent<JSONLoaderJuego0>().AbrirDespensa();
         //permiteMoverse = false;
     }
-
-    public void mantenerseSentado()
-    {
-        animator.SetTrigger("quedarseSentado");
-        //permiteMoverse = true;
-    }
     
-
-    public void permitirAnimacion()
-    {
-        trigger = true;
-        objeto.SetActive(true);
-                
-    }
-
-    void LoadAnimataionClip()
-    {
-        animationLoadManager.LoadAnimation("an", null);
-    }
-
     public void hablarNPC(string nombrePersonaje) 
     {
         if(jsonLoader.dialogosDia[nombrePersonaje]!=null){
