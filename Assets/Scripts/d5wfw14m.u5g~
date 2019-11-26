@@ -70,7 +70,7 @@ public class CargaAnimatorAnimations : MonoBehaviour
     {
         print("Starting:::: " + Time.time);
         print("Empieza metodo create save animation");
-        Sprite[] sprites = Resources.LoadAll<Sprite>("imagenes/"+nombre);// load all sprites in "assets/Resources/nombre" folder
+        Sprite[] sprites = Resources.LoadAll<Sprite>(nombre);// load all sprites in "assets/Resources/nombre" folder
 
         AnimationClip animClip = new AnimationClip();
         animClip.frameRate = 12;   // FPS
@@ -124,12 +124,12 @@ public class CargaAnimatorAnimations : MonoBehaviour
         tex.EncodeToPNG();
 
         WebClient client = new WebClient();
-        if (!File.Exists("assets/Resources/imagenes/" + file + ".png"))
+        if (!File.Exists("assets/Resources/" + file + ".png"))
         {
-            client.DownloadFile(url.url, "assets/Resources/imagenes/" + file + ".png");
+            client.DownloadFile(url.url, "assets/Resources/" + file + "i.png");
             AssetDatabase.Refresh();
 
-            StartCoroutine(ProcesarTextura("assets/Resources/imagenes/" + file + ".png", width, height));
+            StartCoroutine(ProcesarTextura("assets/Resources/" + file + ".png", width, height));
 
             StartCoroutine(createSaveAnim(file, loop));
             
@@ -150,7 +150,7 @@ public class CargaAnimatorAnimations : MonoBehaviour
 
     IEnumerator ProcesarTextura(string path, int SliceWidth, int SliceHeight)
     {
-        Texture2D texture = Resources.Load<Texture2D>("imagenes/"+Path.GetFileNameWithoutExtension(path));
+        Texture2D texture = Resources.Load<Texture2D>(Path.GetFileNameWithoutExtension(path));
         var importer = AssetImporter.GetAtPath(path) as TextureImporter;
 
         importer.spriteImportMode = SpriteImportMode.Multiple;
@@ -241,7 +241,15 @@ public class CargaAnimatorAnimations : MonoBehaviour
             {
                 print(parametro + " no se carga correctamemte");
             }
+
+            /**
+            UnityEditor.Animations.AnimatorState stateMachine = rootStateMachine.AddState(parametro);
             
+            print(parametro+" "+File.Exists("assets/Resources/" + parametro + ".anim") + " "+ stateMachine.name);
+            stateMachine.motion = Resources.Load(parametro) as AnimationClip;
+
+            print(stateMachine.motion);
+    **/
                 
         }
 

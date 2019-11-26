@@ -21,7 +21,8 @@ public class CargaAnimatorAnimations : MonoBehaviour
         {
             UnityEditor.Animations.AnimatorController controller=UnityEditor.Animations.AnimatorController.CreateAnimatorControllerAtPath("Assets/Resources/StateMachineTransitions.controller");
             controller.AddParameter("quedaQuieto", AnimatorControllerParameterType.Trigger);
-        }        
+        }
+        
         //Request();
     }
 
@@ -68,10 +69,8 @@ public class CargaAnimatorAnimations : MonoBehaviour
 
     public IEnumerator createSaveAnim(string nombre, bool loop)
     {
-        print("Starting:::: " + Time.time);
-        print("Empieza metodo create save animation");
-        Sprite[] sprites = Resources.LoadAll<Sprite>("imagenes/"+nombre);// load all sprites in "assets/Resources/nombre" folder
-
+        Sprite[] sprites = Resources.LoadAll<Sprite>(nombre);// load all sprites in "assets/Resources/nombre" folder
+       
         AnimationClip animClip = new AnimationClip();
         animClip.frameRate = 12;   // FPS
         EditorCurveBinding spriteBinding = new EditorCurveBinding();
@@ -80,13 +79,13 @@ public class CargaAnimatorAnimations : MonoBehaviour
         spriteBinding.propertyName = "m_Sprite";
         ObjectReferenceKeyframe[] spriteKeyFrames = new ObjectReferenceKeyframe[sprites.Length];
         float j = 0.0f;
-        string k = "";
+        string k="";
         for (int i = 0; i < (sprites.Length); i++)
         {
             j += 0.01f;
-            k = j.ToString("f2");
+            k=j.ToString("f2");
             spriteKeyFrames[i] = new ObjectReferenceKeyframe();
-            spriteKeyFrames[i].time = (float)i / animClip.frameRate;
+            spriteKeyFrames[i].time = (float)i/animClip.frameRate;
             spriteKeyFrames[i].value = sprites[i];
         }
 
@@ -97,21 +96,15 @@ public class CargaAnimatorAnimations : MonoBehaviour
 
         AnimationUtility.SetObjectReferenceCurve(animClip, spriteBinding, spriteKeyFrames);
 
-        AssetDatabase.CreateAsset(animClip, "assets/Resources/" + nombre + ".anim");
-        AssetDatabase.SaveAssets();
+        AssetDatabase.CreateAsset(animClip, "assets/Resources/" + nombre +".anim");
+        AssetDatabase.SaveAssets(); 
         AssetDatabase.Refresh();
-
-        if (animClip != null) print("Animaciones:::" + animClip + " " + nombre);
-        else print("la animacion es nula");
-
-        print("Final:::: " + Time.time);
-
-        yield return null;
+        
+        yield return sprites;
     }
 
     private IEnumerator OutputRoutine(WWW url, int width, int height, bool loop)
     {
-
         string file = Path.GetFileNameWithoutExtension(url.url);
         //print("archivo se llamaria:::" + file);
 
@@ -124,15 +117,14 @@ public class CargaAnimatorAnimations : MonoBehaviour
         tex.EncodeToPNG();
 
         WebClient client = new WebClient();
-        if (!File.Exists("assets/Resources/imagenes/" + file + ".png"))
+        if (!File.Exists("assets/Resources/" + file + ".png"))
         {
-            client.DownloadFile(url.url, "assets/Resources/imagenes/" + file + ".png");
+            client.DownloadFile(url.url, "assets/Resources/" + file + ".png");
             AssetDatabase.Refresh();
 
-            StartCoroutine(ProcesarTextura("assets/Resources/imagenes/" + file + ".png", width, height));
-
+            StartCoroutine(ProcesarTextura("assets/Resources/" + file + ".png", width, height));
             StartCoroutine(createSaveAnim(file, loop));
-            
+
 
         }
         else
@@ -144,13 +136,13 @@ public class CargaAnimatorAnimations : MonoBehaviour
             
         }
         
-        yield return null;
+        yield return true;
 
     }
 
     IEnumerator ProcesarTextura(string path, int SliceWidth, int SliceHeight)
     {
-        Texture2D texture = Resources.Load<Texture2D>("imagenes/"+Path.GetFileNameWithoutExtension(path));
+        Texture2D texture = Resources.Load<Texture2D>(Path.GetFileNameWithoutExtension(path));
         var importer = AssetImporter.GetAtPath(path) as TextureImporter;
 
         importer.spriteImportMode = SpriteImportMode.Multiple;
@@ -189,7 +181,7 @@ public class CargaAnimatorAnimations : MonoBehaviour
         AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceUpdate);
         AssetDatabase.Refresh();
 
-        yield return null;
+        yield return newData.ToArray();
 
     }
 
@@ -220,29 +212,26 @@ public class CargaAnimatorAnimations : MonoBehaviour
             controller.AddParameter("" + actual["desactivador"], AnimatorControllerParameterType.Trigger);
 
             AnimationClip clip = Resources.Load(parametro) as AnimationClip;
-                                    
             if (clip != null)
             {
-
                 AnimatorState stateMachine = rootStateMachine.AddState(clip.name);
-
-                print(parametro + " " + File.Exists("assets/Resources/" + parametro + ".anim") + " " + stateMachine.name);
-
                 stateMachine.motion = clip;
-                var stateMachineTransitionI = stateMachineQuedaQuieto.AddTransition(stateMachine);
-                stateMachineTransitionI.AddCondition(UnityEditor.Animations.AnimatorConditionMode.If, 0, parametro);
-
-                var stateMachineTransitionJ = stateMachine.AddTransition(stateMachineQuedaQuieto);
-                stateMachineTransitionJ.AddCondition(UnityEditor.Animations.AnimatorConditionMode.If, 0, "" + actual["desactivador"]);
-
-                print(stateMachine.motion);
             }
-            else
-            {
-                print(parametro + " no se carga correctamemte");
-            }
+
+            /**
+            UnityEditor.Animations.AnimatorState stateMachine = rootStateMachine.AddState(parametro);
             
-                
+            print(parametro+" "+File.Exists("assets/Resources/" + parametro + ".anim") + " "+ stateMachine.name);
+            stateMachine.motion = Resources.Load(parametro) as AnimationClip;
+
+            print(stateMachine.motion);
+    **/
+
+            var stateMachineTransitionI = stateMachineQuedaQuieto.AddTransition(stateMachine);
+            stateMachineTransitionI.AddCondition(UnityEditor.Animations.AnimatorConditionMode.If, 0, parametro);
+
+            var stateMachineTransitionJ = stateMachine.AddTransition(stateMachineQuedaQuieto);
+            stateMachineTransitionJ.AddCondition(UnityEditor.Animations.AnimatorConditionMode.If, 0, "" + actual["desactivador"]);
         }
 
         yield return null;

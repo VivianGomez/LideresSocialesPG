@@ -20,7 +20,7 @@ public class PanelInicio : MonoBehaviour
     {
         GameObject camera= GameObject.Find("Main Camera");
         camera.GetComponent<CargaAnimatorAnimations>().Request(0);
-        yield return new WaitForSeconds(4.5f);
+        yield return new WaitForSeconds(20f);
         camera.GetComponent<CargaAnimatorAnimations>().Request(1);
         imagenLider.sprite = null;
         infoLider.text = "Kevin Julian Leon";
