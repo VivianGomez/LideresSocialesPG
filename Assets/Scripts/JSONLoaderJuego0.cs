@@ -347,8 +347,8 @@ public class JSONLoaderJuego0 : MonoBehaviour
             }
 
             if(!(tpScript.Equals("")) && !(cambio.Equals(""))){
-                objToSpawn.AddComponent<Teleport>().levelToLoad = cambio;
-            }
+                objToSpawn.AddComponent<Teleport>().levelToLoad = cambio;                 
+        }
         }
 
     public IEnumerator LoadInfoDia(int dia, int hora){
