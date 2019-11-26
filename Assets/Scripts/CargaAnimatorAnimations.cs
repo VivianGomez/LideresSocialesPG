@@ -22,7 +22,6 @@ public class CargaAnimatorAnimations : MonoBehaviour
             UnityEditor.Animations.AnimatorController controller=UnityEditor.Animations.AnimatorController.CreateAnimatorControllerAtPath("Assets/Resources/StateMachineTransitions.controller");
             controller.AddParameter("quedaQuieto", AnimatorControllerParameterType.Trigger);
         }        
-        //Request();
     }
 
     public void Request(int i)
@@ -55,21 +54,16 @@ public class CargaAnimatorAnimations : MonoBehaviour
         var actual = animaciones[0];
         for (int i = 0; i < animaciones.Count; i++)
         {
-            print("sigue mostrando animaciones");
             actual = animaciones[i];
             WWW spritesheet = new WWW("" + actual["nombreImagen"]);
             StartCoroutine(OutputRoutine(spritesheet, int.Parse("" + actual["coordenadaX"]), int.Parse("" + actual["coordenadaY"]), ("" + actual["loop"]=="0")?false:true));
             
         }
-
-        print("termino");
-        //StartCoroutine(CreateController(animaciones));
+        
     }
 
     public IEnumerator createSaveAnim(string nombre, bool loop)
     {
-        print("Starting:::: " + Time.time);
-        print("Empieza metodo create save animation");
         Sprite[] sprites = Resources.LoadAll<Sprite>("imagenes/"+nombre);// load all sprites in "assets/Resources/nombre" folder
 
         AnimationClip animClip = new AnimationClip();
@@ -100,12 +94,7 @@ public class CargaAnimatorAnimations : MonoBehaviour
         AssetDatabase.CreateAsset(animClip, "assets/Resources/" + nombre + ".anim");
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
-
-        if (animClip != null) print("Animaciones:::" + animClip + " " + nombre);
-        else print("la animacion es nula");
-
-        print("Final:::: " + Time.time);
-
+        
         yield return null;
     }
 
@@ -113,7 +102,6 @@ public class CargaAnimatorAnimations : MonoBehaviour
     {
 
         string file = Path.GetFileNameWithoutExtension(url.url);
-        //print("archivo se llamaria:::" + file);
 
         Texture2D tex = new Texture2D(2, 2);
         byte[] bytes;
@@ -197,10 +185,6 @@ public class CargaAnimatorAnimations : MonoBehaviour
     {
         // Se crea el controlador
         UnityEditor.Animations.AnimatorController controller = Resources.LoadAsync("StateMachineTransitions").asset as UnityEditor.Animations.AnimatorController;
-
-        // Se crean los parametros
-        print("se agregan parametro ");
-
         var actual = animaciones[0];
 
         // Añadir los estados        
@@ -225,17 +209,14 @@ public class CargaAnimatorAnimations : MonoBehaviour
             {
 
                 AnimatorState stateMachine = rootStateMachine.AddState(clip.name);
-
-                print(parametro + " " + File.Exists("assets/Resources/" + parametro + ".anim") + " " + stateMachine.name);
-
+                
                 stateMachine.motion = clip;
                 var stateMachineTransitionI = stateMachineQuedaQuieto.AddTransition(stateMachine);
                 stateMachineTransitionI.AddCondition(UnityEditor.Animations.AnimatorConditionMode.If, 0, parametro);
 
                 var stateMachineTransitionJ = stateMachine.AddTransition(stateMachineQuedaQuieto);
                 stateMachineTransitionJ.AddCondition(UnityEditor.Animations.AnimatorConditionMode.If, 0, "" + actual["desactivador"]);
-
-                print(stateMachine.motion);
+                
             }
             else
             {
