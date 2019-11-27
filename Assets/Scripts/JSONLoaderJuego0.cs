@@ -182,10 +182,10 @@ public class JSONLoaderJuego0 : MonoBehaviour
         {
            jData = JsonMapper.ToObject(req.text);
 
-           WWW reqSprite = new WWW(""+jData[1]["personajePrincipal"]["imagenPersonaje"]);
-
            audioScript.sonidosAmbiente = jData[1]["sonidosAmbiente"];
-           audioScript.empieza();
+           audioScript.empieza(jData[1]["sonidosAmbiente"]);
+
+           WWW reqSprite = new WWW(""+jData[1]["personajePrincipal"]["imagenPersonaje"]);
             
            LoadScene(jData[1]["escenas"]);
            GameObject.FindObjectOfType<MenuPausa>().instrucciones = jData[1]["instrucciones"];

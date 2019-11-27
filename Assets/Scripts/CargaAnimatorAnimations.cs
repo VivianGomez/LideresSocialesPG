@@ -14,7 +14,14 @@ public class CargaAnimatorAnimations : MonoBehaviour
     private JsonData jData;
     public const string url = "https://lideresocialespg.firebaseio.com/juegos.json";
 
-    // Start is called before the first frame update
+    public JsonData sonidosJD;
+
+    private AudioScript audioScript;
+    void Awake()
+    {
+        audioScript = GameObject.FindObjectOfType<AudioScript>();
+    }
+
     void Start()
     {
         if (!File.Exists("Assets/Resources/StateMachineTransitions.controller"))
@@ -30,7 +37,7 @@ public class CargaAnimatorAnimations : MonoBehaviour
                 
         if (i == 0) StartCoroutine(OnResponse(request,i));
         else if (i == 1) StartCoroutine(OnResponse(request,i));
-        
+        else if (i == 2) StartCoroutine(OnResponse(request,i));
     }
      
     private IEnumerator OnResponse(WWW req, int i)
@@ -41,11 +48,31 @@ public class CargaAnimatorAnimations : MonoBehaviour
             jData = JsonMapper.ToObject(req.text);
             if (i == 0) LoadAnimations(jData[1]["animaciones"]);
             else if (i == 1) StartCoroutine(CreateController(jData[1]["animaciones"]));
+            else if (i == 2) StartCoroutine(CargarSonidosAmbiente(jData[1]["sonidosAmbiente"]));
         }
         else
         {
             Debug.LogError("No se pudieron cargar los datos del juego");
         }
+    }
+
+    public IEnumerator CargarSonidosAmbiente(JsonData sonidos)
+    {
+        sonidosJD = sonidos;
+        //StartCoroutine(DescargarSonidosAmbiente());
+        audioScript.sonidosAmbiente = sonidos;
+        audioScript.empieza(sonidosJD);
+        yield return null;
+    }
+
+    public IEnumerator DescargarSonidosAmbiente()
+    {
+        for(int i = 0; i<sonidosJD.Count; i++)
+        {
+            Debug.Log ("Cargando audio..."+i);
+            //StartCoroutine(loadAudio(""+sonidosJD[i]["sonido"], ""+sonidosJD[i]["nombre"]));
+        }
+        yield return null;
     }
 
 

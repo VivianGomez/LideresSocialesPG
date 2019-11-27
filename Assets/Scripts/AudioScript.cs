@@ -3,7 +3,8 @@ using System.IO;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
+using UnityEditor;
+
 public class AudioScript : MonoBehaviour
 {
     public float volumen = 0.2f;
@@ -33,9 +34,15 @@ public class AudioScript : MonoBehaviour
             jsonData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json"));
             diaActual = (int)jsonData[0];
         }
+        
+        if(!(SceneManager.GetActiveScene().name.Equals("Inicio")))
+        {
+            verificarAudioDia(diaActual);  
+        }
 	}
 
-    public void empieza(){
+    public void empieza(JsonData sonidos){
+        sonidosAmbiente = sonidos;
         volumen = 0.2f;
         verificarAudioDia(diaActual);  
     }
@@ -61,6 +68,8 @@ public class AudioScript : MonoBehaviour
 
     public void verificarAudioDia(int dia){
 
+        if(sonidosAmbiente!=null){
+
         char[] spearator = {','}; 
         string[] escenasSonidoAct = new string[] {"Calle", "Sala", "Robert"};
         string[] diasSonidoAct = new string[] {"Calle", "Sala", "Robert"};
@@ -73,19 +82,31 @@ public class AudioScript : MonoBehaviour
 
            escenasSonidoAct= (sonidosAmbiente[i]["escenas"]).ToString().Split(spearator);
            diasSonidoAct = (sonidosAmbiente[i]["dias"]).ToString().Split(spearator);
-
-            Debug.Log ("escenasSonidoAct. "+ escenasSonidoAct.Length);
-
             
             if((System.Array.IndexOf (escenasSonidoAct, ""+SceneManager.GetActiveScene().name) != -1) && (System.Array.IndexOf (diasSonidoAct, ""+dia) != -1))
             {
-                Debug.Log ("Cargando audio...");
-                StartCoroutine(loadAudio(""+sonidosAmbiente[i]["sonido"]));
+                string nombreAudio = ""+sonidosAmbiente[i]["nombre"];
+
+                print(nombreAudio);
+
+                if (!File.Exists("assets/Resources/audios/" + nombreAudio + ".wav"))
+                {
+                    Debug.Log ("*****************************Cargando audio...*********************************");
+                    StartCoroutine(loadAudio(""+sonidosAmbiente[i]["sonido"],nombreAudio));
+                }
+                else{
+
+                    print("EXISTE");
+                    AssetDatabase.Refresh();
+                    MusicSource.clip = Resources.Load<AudioClip>("audios/"+nombreAudio);
+                    MusicSource.Play();
+                }
+
                 termina = true;
                 if(sonidosAmbiente[i]["dias"].Equals(1)){oscuroYLluvia();}
             }
-            
-        }         
+        }   
+      }      
     }
 
     void oscuroYLluvia()
@@ -95,14 +116,22 @@ public class AudioScript : MonoBehaviour
         bg.GetComponent<TimeDayFunction>().oscurecer();
     }
 
-    public IEnumerator loadAudio(string path){
+    public IEnumerator loadAudio(string path, string nombre){
         WWW request = new WWW(path);
         
         if (request.error == null)
         {
             yield return request;
             MusicSource.clip = request.GetAudioClip(false, false, AudioType.WAV);
-            MusicSource.Play();	
+            if(!(SceneManager.GetActiveScene().name.Equals("Inicio")))
+            {
+                MusicSource.Play();
+            }
+            if(request.progress == 1)
+            {
+                SavWav.Save(nombre, MusicSource.clip);
+                PanelInicio.cambioEscenaPI();
+            }
         }
         else{
             print("No se puede cargar el audio");
