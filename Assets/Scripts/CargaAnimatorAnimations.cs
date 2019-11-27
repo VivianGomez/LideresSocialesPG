@@ -94,7 +94,6 @@ public class CargaAnimatorAnimations : MonoBehaviour
             actual = animaciones[i];
             WWW spritesheet = new WWW("" + actual["nombreImagen"]);
             StartCoroutine(OutputRoutine(spritesheet, int.Parse("" + actual["coordenadaX"]), int.Parse("" + actual["coordenadaY"]), ("" + actual["loop"]=="0")?false:true));
-            
         }
         
     }
@@ -139,7 +138,7 @@ public class CargaAnimatorAnimations : MonoBehaviour
     {
 
         string file = Path.GetFileNameWithoutExtension(url.url);
-
+        
         Texture2D tex = new Texture2D(2, 2);
         byte[] bytes;
         UnityWebRequest www = UnityWebRequest.Get(url.url);
@@ -157,8 +156,6 @@ public class CargaAnimatorAnimations : MonoBehaviour
             StartCoroutine(ProcesarTextura("assets/Resources/imagenes/" + file + ".png", width, height));
 
             StartCoroutine(createSaveAnim(file, loop));
-            
-
         }
         else
         {
