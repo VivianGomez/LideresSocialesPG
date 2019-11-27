@@ -11,16 +11,25 @@ public class PanelInicio : MonoBehaviour
     public GameObject panelIF;
     public Image imagenLider;
     public TextMeshProUGUI  infoLider;
-
+    
     void Start()
     {
         infoLider.text = "";
-        StartCoroutine(quitImage());
+        StartCoroutine(cargarSonidoInicio());
     }
 
-     IEnumerator quitImage()
+    IEnumerator cargarSonidoInicio()
     {
         GameObject camera= GameObject.Find("Main Camera");
+        camera.GetComponent<CargaAnimatorAnimations>().Request(3);
+        imagenLider.sprite = Resources.Load<Sprite>("recursosImgs/inicio");
+        yield return null;
+    }
+
+    public IEnumerator quitImage()
+    {
+        GameObject camera= GameObject.Find("Main Camera");
+        imagenLider.sprite = Resources.Load<Sprite>("recursosImgs/KevinInicio");
         camera.GetComponent<CargaAnimatorAnimations>().Request(2);
         camera.GetComponent<CargaAnimatorAnimations>().Request(0);
         yield return new WaitForSeconds(6f);

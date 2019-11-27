@@ -17,9 +17,17 @@ public class CargaAnimatorAnimations : MonoBehaviour
     public JsonData sonidosJD;
 
     private AudioScript audioScript;
+
+    private PanelInicio panelInicio;
+
+    public string sonidoInicio;
+
+    private SoundManager soundManager;
     void Awake()
     {
+        soundManager = GameObject.FindObjectOfType<SoundManager>();
         audioScript = GameObject.FindObjectOfType<AudioScript>();
+        panelInicio = GameObject.FindObjectOfType<PanelInicio>();
     }
 
     void Start()
@@ -38,6 +46,7 @@ public class CargaAnimatorAnimations : MonoBehaviour
         if (i == 0) StartCoroutine(OnResponse(request,i));
         else if (i == 1) StartCoroutine(OnResponse(request,i));
         else if (i == 2) StartCoroutine(OnResponse(request,i));
+        else if (i == 3) StartCoroutine(OnResponse(request,i));
     }
      
     private IEnumerator OnResponse(WWW req, int i)
@@ -49,6 +58,7 @@ public class CargaAnimatorAnimations : MonoBehaviour
             if (i == 0) LoadAnimations(jData[1]["animaciones"]);
             else if (i == 1) StartCoroutine(CreateController(jData[1]["animaciones"]));
             else if (i == 2) StartCoroutine(CargarSonidosAmbiente(jData[1]["sonidosAmbiente"]));
+            else if (i == 3) StartCoroutine(soundManager.loadAndPlay(""+jData[1]["sonidosInicioFin"]["sonidoInicio"]));
         }
         else
         {

@@ -6,10 +6,6 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using UnityEngine.SceneManagement;
-using UnityEditor;
-using UnityEngine.Networking;
-using System.Collections.Generic;
-using System.Net;
 
 public class JSONLoaderJuego0 : MonoBehaviour
 {
