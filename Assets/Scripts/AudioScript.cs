@@ -99,6 +99,7 @@ public class AudioScript : MonoBehaviour
                     print("EXISTE");
                     AssetDatabase.Refresh();
                     MusicSource.clip = Resources.Load<AudioClip>("audios/"+nombreAudio);
+                    if(!(nombreAudio.Equals("ambiente"))) volumen = 1f;
                     MusicSource.Play();
                 }
 
