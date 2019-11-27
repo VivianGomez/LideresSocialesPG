@@ -237,6 +237,12 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7741607161176536914, guid: 6130dbbb39c8ea54f9fbe11d3edcdda3,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ed8e1345f3587ac4db7ad97c12dfb66f,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6130dbbb39c8ea54f9fbe11d3edcdda3, type: 3}
 --- !u!224 &65126330 stripped
@@ -771,6 +777,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 094a01b3e39df7a439a70e20117f63f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changer: {fileID: 0}
+  transicionNoche: {fileID: 0}
   permiteMoverse: 1
   animacion: {fileID: 0}
   diaActual: 0
@@ -8390,7 +8398,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 07fa3c6d76fa3e342926fba0a93922e4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ed8e1345f3587ac4db7ad97c12dfb66f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
