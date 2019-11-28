@@ -37,7 +37,7 @@ public class DayChanger : MonoBehaviour
         GameObject p = GameObject.Find("Personaje");
         
         p.GetComponent<Movimiento>().animator.SetTrigger("caminar");
-        p.GetComponent<Movimiento>().mostrarBotonAnimacion("dormir", false);
+        p.GetComponent<Movimiento>().MostrarBotonAnimacion("dormir", false);
 
         GameObject fondo = GameObject.Find("Background");
         GameObject camara = GameObject.Find("Main Camera");
