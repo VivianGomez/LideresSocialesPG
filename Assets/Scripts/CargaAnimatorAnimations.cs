@@ -14,7 +14,22 @@ public class CargaAnimatorAnimations : MonoBehaviour
     private JsonData jData;
     public const string url = "https://lideresocialespg.firebaseio.com/juegos.json";
 
-    // Start is called before the first frame update
+    public JsonData sonidosJD;
+
+    private AudioScript audioScript;
+
+    private PanelInicio panelInicio;
+
+    public string sonidoInicio;
+
+    private SoundManager soundManager;
+    void Awake()
+    {
+        soundManager = GameObject.FindObjectOfType<SoundManager>();
+        audioScript = GameObject.FindObjectOfType<AudioScript>();
+        panelInicio = GameObject.FindObjectOfType<PanelInicio>();
+    }
+
     void Start()
     {
         if (!File.Exists("Assets/Resources/StateMachineTransitions.controller"))
@@ -27,10 +42,11 @@ public class CargaAnimatorAnimations : MonoBehaviour
     public void Request(int i)
     {
         WWW request = new WWW(url);
-
-        if (i == 0) StartCoroutine(OnResponse(request, i));
-        else if (i == 1) StartCoroutine(OnResponse(request, i));
-
+                
+        if (i == 0) StartCoroutine(OnResponse(request,i));
+        else if (i == 1) StartCoroutine(OnResponse(request,i));
+        else if (i == 2) StartCoroutine(OnResponse(request,i));
+        else if (i == 3) StartCoroutine(OnResponse(request,i));
     }
 
     private IEnumerator OnResponse(WWW req, int i)
@@ -41,11 +57,32 @@ public class CargaAnimatorAnimations : MonoBehaviour
             jData = JsonMapper.ToObject(req.text);
             if (i == 0) LoadAnimations(jData[1]["animaciones"]);
             else if (i == 1) StartCoroutine(CreateController(jData[1]["animaciones"]));
+            else if (i == 2) StartCoroutine(CargarSonidosAmbiente(jData[1]["sonidosAmbiente"]));
+            else if (i == 3) StartCoroutine(soundManager.loadAndPlay(""+jData[1]["sonidosInicioFin"]["sonidoInicio"]));
         }
         else
         {
             Debug.LogError("No se pudieron cargar los datos del juego");
         }
+    }
+
+    public IEnumerator CargarSonidosAmbiente(JsonData sonidos)
+    {
+        sonidosJD = sonidos;
+        //StartCoroutine(DescargarSonidosAmbiente());
+        audioScript.sonidosAmbiente = sonidos;
+        audioScript.empieza(sonidosJD);
+        yield return null;
+    }
+
+    public IEnumerator DescargarSonidosAmbiente()
+    {
+        for(int i = 0; i<sonidosJD.Count; i++)
+        {
+            Debug.Log ("Cargando audio..."+i);
+            //StartCoroutine(loadAudio(""+sonidosJD[i]["sonido"], ""+sonidosJD[i]["nombre"]));
+        }
+        yield return null;
     }
 
 
@@ -56,8 +93,7 @@ public class CargaAnimatorAnimations : MonoBehaviour
         {
             actual = animaciones[i];
             WWW spritesheet = new WWW("" + actual["nombreImagen"]);
-            StartCoroutine(OutputRoutine(spritesheet, int.Parse("" + actual["coordenadaX"]), int.Parse("" + actual["coordenadaY"]), ("" + actual["loop"] == "0") ? false : true));
-
+            StartCoroutine(OutputRoutine(spritesheet, int.Parse("" + actual["coordenadaX"]), int.Parse("" + actual["coordenadaY"]), ("" + actual["loop"]=="0")?false:true));
         }
 
     }
@@ -102,7 +138,7 @@ public class CargaAnimatorAnimations : MonoBehaviour
     {
 
         string file = Path.GetFileNameWithoutExtension(url.url);
-
+        
         Texture2D tex = new Texture2D(2, 2);
         byte[] bytes;
         UnityWebRequest www = UnityWebRequest.Get(url.url);
@@ -120,8 +156,6 @@ public class CargaAnimatorAnimations : MonoBehaviour
             StartCoroutine(ProcesarTextura("assets/Resources/imagenes/" + file + ".png", width, height));
 
             StartCoroutine(createSaveAnim(file, loop));
-
-
         }
         else
         {

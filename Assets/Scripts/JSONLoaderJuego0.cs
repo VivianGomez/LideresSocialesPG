@@ -6,10 +6,6 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using UnityEngine.SceneManagement;
-using UnityEditor;
-using UnityEngine.Networking;
-using System.Collections.Generic;
-using System.Net;
 
 public class JSONLoaderJuego0 : MonoBehaviour
 {
@@ -184,10 +180,13 @@ public class JSONLoaderJuego0 : MonoBehaviour
         {
             jData = JsonMapper.ToObject(req.text);
 
-            WWW reqSprite = new WWW("" + jData[1]["personajePrincipal"]["imagenPersonaje"]);
+           audioScript.sonidosAmbiente = jData[1]["sonidosAmbiente"];
+           audioScript.empieza(jData[1]["sonidosAmbiente"]);
 
-            audioScript.sonidosAmbiente = jData[1]["sonidosAmbiente"];
-            audioScript.empieza();
+           WWW reqSprite = new WWW(""+jData[1]["personajePrincipal"]["imagenPersonaje"]);
+            
+           LoadScene(jData[1]["escenas"]);
+           GameObject.FindObjectOfType<MenuPausa>().instrucciones = jData[1]["instrucciones"];
 
             LoadScene(jData[1]["escenas"]);
             GameObject.FindObjectOfType<MenuPausa>().instrucciones = jData[1]["instrucciones"];

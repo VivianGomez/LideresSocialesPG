@@ -25,6 +25,26 @@ public class SoundManager : MonoBehaviour
         }
         
     }
+
+    public IEnumerator loadAndPlay(string path){
+        WWW request = new WWW(path);
+        
+        if (request.error == null)
+        {
+            print(path);
+            yield return request;
+            AudioClip myClip = request.GetAudioClip(false, false, AudioType.WAV); 
+            audioSource.volume = 0.5f;
+            audioSource.clip = myClip;
+            audioSource.Play();
+            GameObject camera= GameObject.Find("Main Camera");
+            StartCoroutine(camera.GetComponent<PanelInicio>().quitImage());
+        }
+        else{
+            print("No se puede cargar el audio");
+        }
+        
+    }
     
     void Start()
     {

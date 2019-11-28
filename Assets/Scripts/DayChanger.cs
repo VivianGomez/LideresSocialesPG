@@ -22,7 +22,6 @@ public class DayChanger : MonoBehaviour
         } 
         else
         {
-            print("false");
             animator.SetTrigger("returnn");
         }
     }
@@ -38,7 +37,7 @@ public class DayChanger : MonoBehaviour
         GameObject p = GameObject.Find("Personaje");
         
         p.GetComponent<Movimiento>().animator.SetTrigger("caminar");
-        p.GetComponent<Movimiento>().panelOpcionesCama.SetActive(false);
+        p.GetComponent<Movimiento>().mostrarBotonAnimacion("dormir", false);
 
         GameObject fondo = GameObject.Find("Background");
         GameObject camara = GameObject.Find("Main Camera");

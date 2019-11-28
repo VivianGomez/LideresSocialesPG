@@ -2,6 +2,9 @@
 using TMPro;
 using System.IO;
 using UnityEngine;
+using System.Collections.Generic;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Movimiento : MonoBehaviour
 {
@@ -22,9 +25,6 @@ public class Movimiento : MonoBehaviour
     public Animator animator;
     public JsonData jsonData;
 
-
-    public GameObject panelOpcionesCama;
-
     public GameObject DialogoNPC;
     public TextMeshProUGUI  txtDialogo;
 
@@ -36,6 +36,7 @@ public class Movimiento : MonoBehaviour
     public AnimationClip animacionClip;
     private Animation animacionObject;
 
+    public List<GameObject> botonesAnimaciones;
 
     private JSONLoaderJuego0 jsonLoader;
 
@@ -46,8 +47,12 @@ public class Movimiento : MonoBehaviour
         jsonLoader = GameObject.FindObjectOfType<JSONLoaderJuego0>();
     }
 
-    public GameObject panelOpcionesSilla;
-    public GameObject panelOpcionesSillon;
+    /////////////////////////////////////////////////////
+    public GameObject canvas;
+    public GameObject dormirPrefab;
+    public GameObject btnAnimacionPrefab;
+
+    /////////////////////////////////////////////////////////
     public GameObject panelOpcionesHablar;
     public GameObject panelOpcionesComer;
     public GameObject panelOpcionesDiscurso;
@@ -63,18 +68,8 @@ public class Movimiento : MonoBehaviour
         escalaX = escala.x;
         escalaY = escala.y;
 
-        if (panelOpcionesCama!=null)
-        {
-            panelOpcionesCama.SetActive(false);
-        }
-        if (panelOpcionesSilla != null)
-        {
-            panelOpcionesSilla.SetActive(false);
-        }
-        if (panelOpcionesSillon != null)
-        {
-            panelOpcionesSillon.SetActive(false);
-        }
+        llenarBotonesAnimaciones();
+
         if (panelOpcionesHablar != null)
         {
             panelOpcionesHablar.SetActive(false);
@@ -95,7 +90,42 @@ public class Movimiento : MonoBehaviour
         }
     }
 
+    void llenarBotonesAnimaciones()
+    {
+        if(SceneManager.GetActiveScene().name.Equals("Cuarto"))
+        {
+            llenarBtnAnimacion("dormir","","-3,194", "1,037", "0,82");
+        }
+        else if(SceneManager.GetActiveScene().name.Equals("Sala"))
+        {
+            llenarBtnAnimacion("sentarse","sentarse", "-0,4686719", "0,1153362", "-2,126913");
+            llenarBtnAnimacion("sentarseSofa","sentarse", "-6,01", "2,26", "-2,126913");
+        }
+    }
 
+    void llenarBtnAnimacion(string nombre, string trigger, string posX, string posY, string posZ)
+    {
+        GameObject nuevo = null;
+
+        if(nombre.Equals("dormir"))
+        {
+            nuevo = Instantiate(dormirPrefab);
+            nuevo.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => OnClick());
+        }
+        else
+        {
+            nuevo = Instantiate(btnAnimacionPrefab);
+            nuevo.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => OnClickBtnAnimacion(nombre, trigger));
+        }
+
+        nuevo.name = nombre;
+        nuevo.transform.SetParent(canvas.transform);
+        nuevo.transform.localScale = new Vector3(1, 1, 1);
+        nuevo.transform.position = new Vector3(float.Parse(posX),float.Parse(posY),float.Parse(posZ));
+        nuevo.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().text = nombre;
+        nuevo.SetActive(false);
+        botonesAnimaciones.Add(nuevo);
+    }
 
     void Update()
     {
@@ -160,28 +190,15 @@ public class Movimiento : MonoBehaviour
         GameObject fondo = GameObject.Find("Background");
         if (col.name == "camaClick" && fondo.GetComponent<TimeDayFunction>().hora > 18 && diaActual < 4)
         {
-
-            if (panelOpcionesCama != null)
-            {
-                panelOpcionesCama.SetActive(true);
-            }
-
+            mostrarBotonAnimacion("dormir", true);
         }
         else if (col.name == "silla")
         {
-            if (panelOpcionesSilla != null)
-            {
-                panelOpcionesSilla.SetActive(true);
-            }
-
+            mostrarBotonAnimacion("sentarse", true);
         }
         else if(col.name == "sillon")
         {
-            if (panelOpcionesSillon != null)
-            {
-                panelOpcionesSillon.SetActive(true);
-            }
-
+            mostrarBotonAnimacion("sentarseSofa", true);
         }
         else if (col.name == "Nevera")
         {
@@ -221,20 +238,19 @@ public class Movimiento : MonoBehaviour
     void OnTriggerExit2D(Collider2D col)
     {
         GameObject fondo = GameObject.Find("Background");
-        if (panelOpcionesCama != null)
-        {
-            panelOpcionesCama.SetActive(false);
-        }
-        else if (col.tag == "npc"){
+
+        mostrarBotonAnimacion("dormir",false);
+
+        if (col.tag == "npc"){
             DialogoNPC.SetActive(false);
         }
-        else if(panelOpcionesSilla!= null && col.name =="silla")
+        else if(col.name =="silla")
         {
-            panelOpcionesSilla.SetActive(false);
+            mostrarBotonAnimacion("sentarse", false);
         }
-        else if (panelOpcionesSillon != null && col.name =="sillon" )
+        else if (col.name =="sillon" )
         {
-            panelOpcionesSillon.SetActive(false);
+            mostrarBotonAnimacion("sentarseSofa", false);
         }
         else if (panelOpcionesHablar != null && col.name =="mama")
         {
@@ -261,35 +277,21 @@ public class Movimiento : MonoBehaviour
 
         if ( fondo.GetComponent<TimeDayFunction>().hora > 6 && diaActual < 4)
         {
-            panelOpcionesCama.SetActive(false);
+            mostrarBotonAnimacion("dormir",false);
             trigger = true;
             objeto.SetActive(true);
             animator.SetTrigger("dormir");
-
             soundManager.PlaySound("cama");
             permiteMoverse = false;
-            
-
             StartCoroutine(changer.onFadeComplete(transicionNoche));
         } 
         
     }
 
-    public void OnClickSentarseSilla()
+    public void OnClickBtnAnimacion(string nombreBtn, string nombreTrigger)
     {
-        //permiteMoverse = false;
-        panelOpcionesSilla.SetActive(false);
-        animator.SetTrigger("sentarse");  
-        //animacionObject.GetComponent<Animation>().Play("sentarse"); 
-        
-    }
-
-    public void OnClickSentarseSillon()
-    {
-        //permiteMoverse = false;
-        panelOpcionesSillon.SetActive(false);
-        animator.SetTrigger("sentarse");    
-               
+        mostrarBotonAnimacion(nombreBtn, false);
+        animator.SetTrigger(nombreTrigger);  
     }
 
     public void OnClickComer()
@@ -299,6 +301,29 @@ public class Movimiento : MonoBehaviour
         camara.GetComponent<JSONLoaderJuego0>().AbrirDespensa();
         //permiteMoverse = false;
     }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+    public void mostrarBotonAnimacion(string nombre, bool mostrar)
+    {
+        print(nombre);
+        buscarBtnAnim(nombre).SetActive(mostrar);
+    }
+
+    public GameObject buscarBtnAnim(string nombre)
+    {
+        GameObject res = null;
+        foreach (var item in botonesAnimaciones) 
+        {
+             if (item.name.Equals(nombre))
+             {
+                 res = item;
+             }
+        }
+        return res;
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
+
     
     public void hablarNPC(string nombrePersonaje) 
     {
