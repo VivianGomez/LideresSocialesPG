@@ -14,7 +14,7 @@ public class Movimiento : MonoBehaviour
     Vector3 escala;
     float escalaX;
     float escalaY;
-    public bool permiteMoverse ;
+    public bool permiteMoverse;
     public GameObject animacion;
     AnimationLoadManager animationLoadManager;
     public int diaActual;
@@ -26,7 +26,7 @@ public class Movimiento : MonoBehaviour
     public JsonData jsonData;
 
     public GameObject DialogoNPC;
-    public TextMeshProUGUI  txtDialogo;
+    public TextMeshProUGUI txtDialogo;
 
     public GameObject botonRegalo;
     public GameObject botonCarta;
@@ -52,10 +52,8 @@ public class Movimiento : MonoBehaviour
     public GameObject dormirPrefab;
     public GameObject comerPrefab;
     public GameObject btnAnimacionPrefab;
-
+    public GameObject discursoPrefab;
     /////////////////////////////////////////////////////////
-    public GameObject panelOpcionesHablar;
-    public GameObject panelOpcionesDiscurso;
 
 
     void Start()
@@ -69,16 +67,6 @@ public class Movimiento : MonoBehaviour
         escalaY = escala.y;
 
         llenarBotonesAnimaciones();
-
-        if (panelOpcionesHablar != null)
-        {
-            panelOpcionesHablar.SetActive(false);
-        }
-        if (panelOpcionesDiscurso != null)
-        {
-            panelOpcionesDiscurso.SetActive(false);
-        }
-
         if (File.Exists(Application.dataPath + "/Gamedata.json"))
         {
             jsonData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json"));
@@ -159,6 +147,10 @@ public class Movimiento : MonoBehaviour
         {
             LlenarBtnAnimacion("comer", "comer", "abrir despensa", "0,007", "-0,013", "0,45");
         }
+        else if (SceneManager.GetActiveScene().name.Equals("Coorporacion"))
+        {
+            LlenarBtnAnimacion("puntoDiscurso", "puntoDiscurso", "DAR DISCURSO \n(1min)", "0,13", "-2,95", "0,45");
+        }
     }
 
     void LlenarBtnAnimacion(string nombre, string trigger, string texto, string posX, string posY, string posZ)
@@ -174,6 +166,11 @@ public class Movimiento : MonoBehaviour
         {
             nuevo = Instantiate(comerPrefab);
             nuevo.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => OnClickComer());
+        }
+        else if (nombre.Equals("puntoDiscurso"))
+        {
+            nuevo = Instantiate(comerPrefab);
+            nuevo.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => OnClickDiscurso());
         }
         else
         {
@@ -196,19 +193,19 @@ public class Movimiento : MonoBehaviour
         GameObject fondo = GameObject.Find("Background");
         if (col.name == "camaClick" && fondo.GetComponent<TimeDayFunction>().hora > 18 && diaActual < 4)
         {
-            mostrarBotonAnimacion("dormir", true);
+            MostrarBotonAnimacion("dormir", true);
         }
         else if (col.name == "silla")
         {
-            mostrarBotonAnimacion("sentarse", true);
+            MostrarBotonAnimacion("sentarse", true);
         }
         else if(col.name == "sillon")
         {
-            mostrarBotonAnimacion("sentarseSofa", true);
+            MostrarBotonAnimacion("sentarseSofa", true);
         }
         else if (col.name == "Nevera")
         {
-            mostrarBotonAnimacion("comer", true);
+            MostrarBotonAnimacion("comer", true);
         }
     }
 
@@ -220,14 +217,11 @@ public class Movimiento : MonoBehaviour
             jsonLoader.darInformacion("NO TENGO GANAS DE DORMIR");
         }
         else if(col.name== "PuntoDiscurso")
-        {
-            if (panelOpcionesDiscurso != null)
-            {
-                panelOpcionesDiscurso.SetActive(true);
-                botonCarta.SetActive(false);
-                botonPeriodico.SetActive(false);
-                botonRegalo.SetActive(false);
-            }
+        {       
+            MostrarBotonAnimacion("puntoDiscurso", true);
+            botonCarta.SetActive(false);
+            botonPeriodico.SetActive(false);
+            botonRegalo.SetActive(false);
         }
         else if (col.tag == "npc"){
             hablarNPC(col.name);
@@ -243,33 +237,29 @@ public class Movimiento : MonoBehaviour
         GameObject fondo = GameObject.Find("Background");
         if(col.name == "dormir")
         {
-            mostrarBotonAnimacion("cama", false);
+            MostrarBotonAnimacion("cama", false);
         }
         if (col.tag == "npc"){
             DialogoNPC.SetActive(false);
         }
         else if(col.name =="silla")
         {
-            mostrarBotonAnimacion("sentarse", false);
+            MostrarBotonAnimacion("sentarse", false);
         }
         else if (col.name =="sillon" )
         {
-            mostrarBotonAnimacion("sentarseSofa", false);
-        }
-        else if (panelOpcionesHablar != null && col.name =="mama")
-        {
-            DialogoNPC.SetActive(false);
+            MostrarBotonAnimacion("sentarseSofa", false);
         }
         else if ( col.name == "PuntoDiscurso")
         {
-            panelOpcionesDiscurso.SetActive(false);
+            MostrarBotonAnimacion("puntoDiscurso", false);
             botonCarta.SetActive(true);
             botonPeriodico.SetActive(true);
             botonRegalo.SetActive(true);
         }
         else if (col.name == "Nevera")
         {
-            mostrarBotonAnimacion("comer", false);
+            MostrarBotonAnimacion("comer", false);
         }
 
     }
@@ -283,7 +273,7 @@ public class Movimiento : MonoBehaviour
 
         if ( fondo.GetComponent<TimeDayFunction>().hora > 6 && diaActual < 4)
         {
-            mostrarBotonAnimacion("dormir",false);
+            MostrarBotonAnimacion("dormir",false);
             trigger = true;
             objeto.SetActive(true);
             animator.SetTrigger("dormir");
@@ -296,27 +286,37 @@ public class Movimiento : MonoBehaviour
 
     public void OnClickBtnAnimacion(string nombreBtn, string nombreTrigger)
     {
-        mostrarBotonAnimacion(nombreBtn, false);
+        MostrarBotonAnimacion(nombreBtn, false);
         animator.SetTrigger(nombreTrigger);  
     }
 
     public void OnClickComer()
     {
-        mostrarBotonAnimacion("comer", false);
+        MostrarBotonAnimacion("comer", false);
         GameObject camara = GameObject.Find("Main Camera");
         camara.GetComponent<JSONLoaderJuego0>().AbrirDespensa();
         //permiteMoverse = false;
     }
 
-    //////////////////////////////////////////////////////////////////////////////////////////
-    
-    public void mostrarBotonAnimacion(string nombre, bool mostrar)
+    public void OnClickDiscurso()
     {
-        print(nombre);
-        buscarBtnAnim(nombre).SetActive(mostrar);
+        Destroy(GameObject.Find("Particle System"));
+        MostrarBotonAnimacion("puntoDiscurso", false);
+        DialogoNPC.SetActive(true);
+        permiteMoverse = false;
+        animator.SetTrigger("hablar");
+        StartCoroutine(jsonLoader.cargarDialogosHH(diaActual - 1));
     }
 
-    public GameObject buscarBtnAnim(string nombre)
+    //////////////////////////////////////////////////////////////////////////////////////////
+
+    public void MostrarBotonAnimacion(string nombre, bool mostrar)
+    {
+        print(nombre);
+        BuscarBtnAnim(nombre).SetActive(mostrar);
+    }
+
+    public GameObject BuscarBtnAnim(string nombre)
     {
         GameObject res = null;
         foreach (var item in botonesAnimaciones) 
@@ -339,16 +339,4 @@ public class Movimiento : MonoBehaviour
             txtDialogo.text = (fondo.GetComponent<TimeDayFunction>().hora < 18) ? (""+jsonLoader.dialogosDia[nombrePersonaje]):(""+jsonLoader.dialogosNoche[nombrePersonaje]);
         }
     }
-
-
-    public void hablarNino()
-    {
-        Destroy(GameObject.Find("Particle System"));
-        panelOpcionesDiscurso.SetActive(false);
-        DialogoNPC.SetActive(true);
-        permiteMoverse = false;
-        animator.SetTrigger("hablar");
-        StartCoroutine(jsonLoader.cargarDialogosHH(diaActual-1));
-    }
-
 }
