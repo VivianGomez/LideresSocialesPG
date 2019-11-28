@@ -63,7 +63,7 @@ public class CargaAnimatorAnimations : MonoBehaviour
                 if (!File.Exists("assets/Resources/" + file + ".anim"))
                 {
                     LoadAnimations(jData[1]["animaciones"]);
-                }
+                } 
             }
             else if (i == 1) StartCoroutine(CreateController(jData[1]["animaciones"]));
             else if (i == 2) StartCoroutine(CargarSonidosAmbiente(jData[1]["sonidosAmbiente"]));
