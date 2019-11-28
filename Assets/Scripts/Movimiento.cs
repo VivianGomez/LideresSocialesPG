@@ -50,11 +50,11 @@ public class Movimiento : MonoBehaviour
     /////////////////////////////////////////////////////
     public GameObject canvas;
     public GameObject dormirPrefab;
+    public GameObject comerPrefab;
     public GameObject btnAnimacionPrefab;
 
     /////////////////////////////////////////////////////////
     public GameObject panelOpcionesHablar;
-    public GameObject panelOpcionesComer;
     public GameObject panelOpcionesDiscurso;
 
 
@@ -74,10 +74,6 @@ public class Movimiento : MonoBehaviour
         {
             panelOpcionesHablar.SetActive(false);
         }
-        if (panelOpcionesComer != null)
-        {
-            panelOpcionesComer.SetActive(false);
-        }
         if (panelOpcionesDiscurso != null)
         {
             panelOpcionesDiscurso.SetActive(false);
@@ -88,43 +84,6 @@ public class Movimiento : MonoBehaviour
             jsonData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json"));
             diaActual = (int)jsonData[0];
         }
-    }
-
-    void llenarBotonesAnimaciones()
-    {
-        if(SceneManager.GetActiveScene().name.Equals("Cuarto"))
-        {
-            llenarBtnAnimacion("dormir","dormir","0,05", "0,07", "1,27");
-        }
-        else if(SceneManager.GetActiveScene().name.Equals("Sala"))
-        {
-            llenarBtnAnimacion("sentarse","sentarse", "-0,4686719", "0,1153362", "-2,126913");
-            llenarBtnAnimacion("sentarseSofa","sentarse", "-6,01", "2,26", "-2,126913");
-        }
-    }
-
-    void llenarBtnAnimacion(string nombre, string trigger, string posX, string posY, string posZ)
-    {
-        GameObject nuevo = dormirPrefab;
-
-        if(nombre.Equals("dormir"))
-        { 
-            nuevo = Instantiate(dormirPrefab);
-            nuevo.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => OnClick());
-        }
-        else
-        {
-            nuevo = Instantiate(btnAnimacionPrefab);
-            nuevo.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => OnClickBtnAnimacion(nombre, trigger));
-        }
-
-        nuevo.name = nombre;
-        nuevo.transform.SetParent(canvas.transform);
-        nuevo.transform.localScale = new Vector3(1, 1, 1);
-        nuevo.transform.position = new Vector3(float.Parse(posX),float.Parse(posY),float.Parse(posZ));
-        nuevo.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().text = nombre;
-        nuevo.SetActive(false);
-        botonesAnimaciones.Add(nuevo);
     }
 
     void Update()
@@ -183,7 +142,54 @@ public class Movimiento : MonoBehaviour
         }
        
     }
-        
+
+
+    void llenarBotonesAnimaciones()
+    {
+        if (SceneManager.GetActiveScene().name.Equals("Cuarto"))
+        {
+            LlenarBtnAnimacion("dormir", "dormir", "dormir", "0,05", "0,07", "1,27");
+        }
+        else if (SceneManager.GetActiveScene().name.Equals("Sala"))
+        {
+            LlenarBtnAnimacion("sentarse", "sentarse", "sentarse", "-0,4686719", "0,1153362", "-2,126913");
+            LlenarBtnAnimacion("sentarseSofa", "sentarse", "sentarse", "-6,01", "2,26", "-2,126913");
+        }
+        else if (SceneManager.GetActiveScene().name.Equals("Cocina"))
+        {
+            LlenarBtnAnimacion("comer", "comer", "abrir despensa", "0,007", "-0,013", "0,45");
+        }
+    }
+
+    void LlenarBtnAnimacion(string nombre, string trigger, string texto, string posX, string posY, string posZ)
+    {
+        GameObject nuevo = dormirPrefab;
+
+        if (nombre.Equals("dormir"))
+        {
+            nuevo = Instantiate(dormirPrefab);
+            nuevo.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => OnClick());
+        }
+        else if (nombre.Equals("comer"))
+        {
+            nuevo = Instantiate(comerPrefab);
+            nuevo.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => OnClickComer());
+        }
+        else
+        {
+            nuevo = Instantiate(btnAnimacionPrefab);
+            nuevo.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => OnClickBtnAnimacion(nombre, trigger));
+        }
+
+        nuevo.name = nombre;
+        nuevo.transform.SetParent(canvas.transform);
+        nuevo.transform.localScale = new Vector3(1, 1, 1);
+        nuevo.transform.position = new Vector3(float.Parse(posX), float.Parse(posY), float.Parse(posZ));
+        nuevo.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().text = texto;
+        nuevo.SetActive(false);
+        botonesAnimaciones.Add(nuevo);
+    }
+
 
     void OnTriggerStay2D(Collider2D col)
     {
@@ -202,10 +208,7 @@ public class Movimiento : MonoBehaviour
         }
         else if (col.name == "Nevera")
         {
-            if (panelOpcionesComer != null)
-            {
-                panelOpcionesComer.SetActive(true);
-            }
+            mostrarBotonAnimacion("comer", true);
         }
     }
 
@@ -264,13 +267,15 @@ public class Movimiento : MonoBehaviour
             botonPeriodico.SetActive(true);
             botonRegalo.SetActive(true);
         }
-        else if (panelOpcionesComer != null)
+        else if (col.name == "Nevera")
         {
-            panelOpcionesComer.SetActive(false);
+            mostrarBotonAnimacion("comer", false);
         }
 
     }
 
+    /////////////////////  FUNCIONES ONCLICK PARA ANIMACIONES  /////////////////////////////
+    
     public void OnClick(){
 
         GameObject fondo = GameObject.Find("Background");
@@ -297,13 +302,14 @@ public class Movimiento : MonoBehaviour
 
     public void OnClickComer()
     {
-        panelOpcionesComer.SetActive(false);
+        mostrarBotonAnimacion("comer", false);
         GameObject camara = GameObject.Find("Main Camera");
         camara.GetComponent<JSONLoaderJuego0>().AbrirDespensa();
         //permiteMoverse = false;
     }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////
+    
     public void mostrarBotonAnimacion(string nombre, bool mostrar)
     {
         print(nombre);
@@ -322,8 +328,6 @@ public class Movimiento : MonoBehaviour
         }
         return res;
     }
-
-    ///////////////////////////////////////////////////////////////////////////////////////////////////
 
     
     public void hablarNPC(string nombrePersonaje) 
