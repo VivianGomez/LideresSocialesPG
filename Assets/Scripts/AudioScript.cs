@@ -19,12 +19,15 @@ public class AudioScript : MonoBehaviour
     public int diaActual;
 
 
-    void Update(){
+    void Update()
+    {
         MusicSource.volume = volumen;
     }
-    
-    void Start () {
-        if(rain!=null){
+
+    void Start()
+    {
+        if (rain != null)
+        {
             rain.SetActive(false);
         }
 
@@ -33,59 +36,65 @@ public class AudioScript : MonoBehaviour
             jsonData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json"));
             diaActual = (int)jsonData[0];
         }
-	}
-
-    public void empieza(){
-        volumen = 0.2f;
-        verificarAudioDia(diaActual);  
     }
 
-    public void verificarAudioDiaLocal(int dia){
-        if(dia!=4){
+    public void empieza()
+    {
+        volumen = 0.2f;
+        verificarAudioDia(diaActual);
+    }
+
+    public void verificarAudioDiaLocal(int dia)
+    {
+        if (dia != 4)
+        {
             MusicSource.clip = MusicClip;
-            MusicSource.Play();	
+            MusicSource.Play();
         }
         else
         {
-            if(SceneManager.GetActiveScene().name.Equals("Calle")){
+            if (SceneManager.GetActiveScene().name.Equals("Calle"))
+            {
                 MusicSource.clip = MusicFinalOut;
                 oscuroYLluvia();
             }
-            else if(SceneManager.GetActiveScene().name.Equals("Cuarto") || SceneManager.GetActiveScene().name.Equals("Cocina") || SceneManager.GetActiveScene().name.Equals("Sala")){
+            else if (SceneManager.GetActiveScene().name.Equals("Cuarto") || SceneManager.GetActiveScene().name.Equals("Cocina") || SceneManager.GetActiveScene().name.Equals("Sala"))
+            {
                 MusicSource.clip = MusicFinalIns;
             }
             MusicSource.volume = volumen;
-            MusicSource.Play();	
-        }              
+            MusicSource.Play();
+        }
     }
 
-    public void verificarAudioDia(int dia){
+    public void verificarAudioDia(int dia)
+    {
 
-        char[] spearator = {','}; 
-        string[] escenasSonidoAct = new string[] {"Calle", "Sala", "Robert"};
-        string[] diasSonidoAct = new string[] {"Calle", "Sala", "Robert"};
+        char[] spearator = { ',' };
+        string[] escenasSonidoAct = new string[] { "Calle", "Sala", "Robert" };
+        string[] diasSonidoAct = new string[] { "Calle", "Sala", "Robert" };
         bool termina = false;
 
         int s = sonidosAmbiente.Count;
-        
+
         for (int i = 0; i < s && !termina; i++)
         {
 
-           escenasSonidoAct= (sonidosAmbiente[i]["escenas"]).ToString().Split(spearator);
-           diasSonidoAct = (sonidosAmbiente[i]["dias"]).ToString().Split(spearator);
+            escenasSonidoAct = (sonidosAmbiente[i]["escenas"]).ToString().Split(spearator);
+            diasSonidoAct = (sonidosAmbiente[i]["dias"]).ToString().Split(spearator);
 
-            Debug.Log ("escenasSonidoAct. "+ escenasSonidoAct.Length);
+            Debug.Log("escenasSonidoAct. " + escenasSonidoAct.Length);
 
-            
-            if((System.Array.IndexOf (escenasSonidoAct, ""+SceneManager.GetActiveScene().name) != -1) && (System.Array.IndexOf (diasSonidoAct, ""+dia) != -1))
+
+            if ((System.Array.IndexOf(escenasSonidoAct, "" + SceneManager.GetActiveScene().name) != -1) && (System.Array.IndexOf(diasSonidoAct, "" + dia) != -1))
             {
-                Debug.Log ("Cargando audio...");
-                StartCoroutine(loadAudio(""+sonidosAmbiente[i]["sonido"]));
+                Debug.Log("Cargando audio...");
+                StartCoroutine(loadAudio("" + sonidosAmbiente[i]["sonido"]));
                 termina = true;
-                if(sonidosAmbiente[i]["dias"].Equals(1)){oscuroYLluvia();}
+                if (sonidosAmbiente[i]["dias"].Equals(1)) { oscuroYLluvia(); }
             }
-            
-        }         
+
+        }
     }
 
     void oscuroYLluvia()
@@ -95,19 +104,21 @@ public class AudioScript : MonoBehaviour
         bg.GetComponent<TimeDayFunction>().oscurecer();
     }
 
-    public IEnumerator loadAudio(string path){
+    public IEnumerator loadAudio(string path)
+    {
         WWW request = new WWW(path);
-        
+
         if (request.error == null)
         {
             yield return request;
             MusicSource.clip = request.GetAudioClip(false, false, AudioType.WAV);
-            MusicSource.Play();	
+            MusicSource.Play();
         }
-        else{
+        else
+        {
             print("No se puede cargar el audio");
         }
-        
+
     }
 
 }
