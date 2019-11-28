@@ -390,7 +390,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
         }
         Destroy(GameObject.Find("PuntoDiscurso"));
         GameObject p = GameObject.Find("Personaje");
-        p.GetComponent<Movimiento>().animator.SetTrigger("camina");
+        p.GetComponent<Movimiento>().animator.SetTrigger("caminar");
         p.GetComponent<Movimiento>().permiteMoverse = true;
 
         p.GetComponent<Movimiento>().DialogoNPC.SetActive(false);
@@ -753,7 +753,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
         buttonLetter.image.sprite = Resources.Load<Sprite>("letter");
         modal.SetActive(false);
         p.GetComponent<Movimiento>().permiteMoverse = true;
-        p.GetComponent<Movimiento>().animator.SetTrigger("camina");
+        p.GetComponent<Movimiento>().animator.SetTrigger("caminar");
     }
 
     public void agregarAudioAnimacion()
