@@ -94,7 +94,7 @@ public class Movimiento : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().name.Equals("Cuarto"))
         {
-            llenarBtnAnimacion("dormir","","-3,194", "1,037", "0,82");
+            llenarBtnAnimacion("dormir","dormir","0,05", "0,07", "1,27");
         }
         else if(SceneManager.GetActiveScene().name.Equals("Sala"))
         {
@@ -105,10 +105,10 @@ public class Movimiento : MonoBehaviour
 
     void llenarBtnAnimacion(string nombre, string trigger, string posX, string posY, string posZ)
     {
-        GameObject nuevo = null;
+        GameObject nuevo = dormirPrefab;
 
         if(nombre.Equals("dormir"))
-        {
+        { 
             nuevo = Instantiate(dormirPrefab);
             nuevo.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => OnClick());
         }
@@ -238,9 +238,10 @@ public class Movimiento : MonoBehaviour
     void OnTriggerExit2D(Collider2D col)
     {
         GameObject fondo = GameObject.Find("Background");
-
-        mostrarBotonAnimacion("dormir",false);
-
+        if(col.name == "dormir")
+        {
+            mostrarBotonAnimacion("cama", false);
+        }
         if (col.tag == "npc"){
             DialogoNPC.SetActive(false);
         }

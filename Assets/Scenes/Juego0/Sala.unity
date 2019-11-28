@@ -796,11 +796,10 @@ MonoBehaviour:
   animacionClip: {fileID: 0}
   botonesAnimaciones: []
   canvas: {fileID: 1436733481}
-  dormirPrefab: {fileID: 5269914948152024389, guid: 1b30ecfb1615c584a813f095b3a322d8,
+  dormirPrefab: {fileID: 2597626171638520392, guid: 1b30ecfb1615c584a813f095b3a322d8,
     type: 3}
   btnAnimacionPrefab: {fileID: 4490366822770407273, guid: 9df10594b921da746a53554be56edcfb,
     type: 3}
-  panelOpcionesSillon: {fileID: 0}
   panelOpcionesHablar: {fileID: 2066728676}
   panelOpcionesComer: {fileID: 0}
   panelOpcionesDiscurso: {fileID: 0}
