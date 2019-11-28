@@ -62,15 +62,18 @@ public class CargaAnimatorAnimations : MonoBehaviour
                 string file=Path.GetFileNameWithoutExtension(spritesheet.url);
                 if (!File.Exists("assets/Resources/" + file + ".anim"))
                 {
+                    print("si deben crearse");
+                    print("no existia la anim " + file);
                     LoadAnimations(jData[1]["animaciones"]);
                 }
+                else print("Ya existian y habian " + animaciones.Count + " animaciones");
             }
             else if (i == 1) StartCoroutine(CreateController(jData[1]["animaciones"]));
             else if (i == 2) StartCoroutine(CargarSonidosAmbiente(jData[1]["sonidosAmbiente"]));
             else if (i == 3) StartCoroutine(soundManager.loadAndPlay("" + jData[1]["sonidosInicioFin"]["sonidoInicio"]));
         }
         else
-        { 
+        {
             Debug.LogError("No se pudieron cargar los datos del juego"); 
         }
     }

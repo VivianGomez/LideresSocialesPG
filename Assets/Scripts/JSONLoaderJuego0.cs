@@ -761,6 +761,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
         GameObject p = GameObject.Find("Personaje");
         p.GetComponent<Movimiento>().animator.SetTrigger("comer");
         soundManager.PlaySound("comer");
+        p.GetComponent<Movimiento>().animator.SetTrigger("caminar");
     }
 
     //ESTE MÉTODO ES TEMPORAL, LA IDEA ES QUE EL ÍNDICE ENTRE POR PARÁMETRO Y CON ESE SE BUSQUE EN EL ARREGLO DE porcentajes, ES DECIR SÓLO DICHA BÚSQUEDA SE RETORNA SIN LOS IF's
@@ -780,7 +781,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
         else if (indiceAlimento == 2 && int.Parse(cantidadAlimento2.text) != 0)
         {
             agregarAudioAnimacion();
-            cantidadAlimento2.text = "" + (Int32.Parse(cantidadAlimento2.text) - 1);
+            cantidadAlimento2.text = "" + (Int32.Parse(cantidadAlimento2.text) - 1); 
             informationT.text = "";
             return 5;
         }
