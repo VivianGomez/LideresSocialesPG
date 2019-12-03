@@ -220,14 +220,14 @@ public class JSONLoaderJuego0 : MonoBehaviour
             actual = escenas[i];
             if (("" + actual["nombreEscena"]).Equals("" + SceneManager.GetActiveScene().name))
             {
-                WWW reqBackground = new WWW("" + actual["imagenFondo"]);
-                StartCoroutine(LoadBackground(reqBackground, "" + actual["nombreEscena"]));
                 crearTPLlegada(
                 "" + actual["tpLlegada"]["nombre"],
                 actual["tpLlegada"]["coordenadas"],
                 "" + actual["tpLlegada"]["Tag"]
                 );
-                
+                WWW reqBackground = new WWW("" + actual["imagenFondo"]);
+                StartCoroutine(LoadBackground(reqBackground, "" + actual["nombreEscena"]));
+                                
                 if((""+actual["tieneBtnsAnimaciones"]).Equals("1"))
                 {
                     for (int h = 0; h < actual["botonesAnimaciones"].Count; h++)

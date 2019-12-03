@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class World : SceneController
 {
@@ -11,19 +12,31 @@ public class World : SceneController
 
         if (prevScene == "Sala" && currentScene=="Cocina" || prevScene == "Cocina" && currentScene == "Sala")
         {
-            player.position = GameObject.FindGameObjectWithTag("Cocina").transform.position;
+            if (player != null)
+            {
+                if (GameObject.FindGameObjectWithTag("Cocina") != null) player.position = GameObject.FindGameObjectWithTag("Cocina").transform.position;
+            }
         } 
         else if (prevScene == "Sala" && currentScene == "Cuarto" || prevScene == "Cuarto" && currentScene == "Sala")
         {
-            player.position = GameObject.FindGameObjectWithTag("Cuarto").transform.position;
+            if (player != null)
+            {
+                if (GameObject.FindGameObjectWithTag("Cuarto") != null) player.position = GameObject.FindGameObjectWithTag("Cuarto").transform.position;
+            }
         }
         else if (prevScene == "Sala" && currentScene == "Calle" || prevScene == "Calle" && currentScene == "Sala")
         {
-            player.position = GameObject.FindGameObjectWithTag("Calle").transform.position;
+            if (player != null)
+            {
+                if (GameObject.FindGameObjectWithTag("Calle") != null) player.position = GameObject.FindGameObjectWithTag("Calle").transform.position;
+            }
         }
         else if (prevScene == "Calle" && currentScene == "Coorporacion" || prevScene == "Coorporacion" && currentScene == "Calle")
         {
-            player.position = GameObject.FindGameObjectWithTag("HH").transform.position;
+            if (player != null)
+            {
+                if (GameObject.FindGameObjectWithTag("HH") != null) player.position = GameObject.FindGameObjectWithTag("HH").transform.position;
+            }
         }
         else if( prevScene == "Colegio" && currentScene == "Calle")
         {
