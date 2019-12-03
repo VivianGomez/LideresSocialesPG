@@ -97,11 +97,15 @@ public class JSONLoaderJuego0 : MonoBehaviour
 
     private SoundManager soundManager;
     private AudioScript audioScript;
+    private Movimiento movimiento;
+
+
     void Awake()
     {
         soundManager = GameObject.FindObjectOfType<SoundManager>();
         audioScript = GameObject.FindObjectOfType<AudioScript>();
         timeDayFunction = GameObject.FindObjectOfType<TimeDayFunction>();
+        movimiento = GameObject.FindObjectOfType<Movimiento>();
     }
 
     void Update()
@@ -206,7 +210,9 @@ public class JSONLoaderJuego0 : MonoBehaviour
 
     private void LoadScene(JsonData escenas)
     {
+        char[] spearator = {','}; 
         var actual = escenas[0];
+        var btnActual = escenas[0];
         var interaccionActual = escenas[0];
         var spriteActual = escenas[0];
         for (int i = 0; i < escenas.Count; i++)
@@ -221,6 +227,19 @@ public class JSONLoaderJuego0 : MonoBehaviour
                 actual["tpLlegada"]["coordenadas"],
                 "" + actual["tpLlegada"]["Tag"]
                 );
+                
+                if((""+actual["tieneBtnsAnimaciones"]).Equals("1"))
+                {
+                    for (int h = 0; h < actual["botonesAnimaciones"].Count; h++)
+                    {
+                        btnActual = actual["botonesAnimaciones"][h];
+                        if (actual["botonesAnimaciones"][h] != null)
+                        {
+                            movimiento.LlenarBtnAnimacion(""+btnActual["nombre"],""+btnActual["trigger"],""+btnActual["texto"],""+btnActual["posX"],""+btnActual["posY"],""+btnActual["posZ"]);
+                        }
+                    }  
+                }
+                
 
                 for (int j = 0; j < actual["interacciones"].Count; j++)
                 {

@@ -66,7 +66,7 @@ public class Movimiento : MonoBehaviour
         escalaX = escala.x;
         escalaY = escala.y;
 
-        llenarBotonesAnimaciones();
+        //llenarBotonesAnimaciones();
         if (File.Exists(Application.dataPath + "/Gamedata.json"))
         {
             jsonData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/Gamedata.json"));
@@ -132,6 +132,7 @@ public class Movimiento : MonoBehaviour
     }
 
 
+    /**
     void llenarBotonesAnimaciones()
     {
         if (SceneManager.GetActiveScene().name.Equals("Cuarto"))
@@ -152,8 +153,9 @@ public class Movimiento : MonoBehaviour
             LlenarBtnAnimacion("puntoDiscurso", "puntoDiscurso", "DAR DISCURSO \n(1min)", "0,13", "-2,95", "0,45");
         }
     }
+    **/
 
-    void LlenarBtnAnimacion(string nombre, string trigger, string texto, string posX, string posY, string posZ)
+    public void LlenarBtnAnimacion(string nombre, string trigger, string texto, string posX, string posY, string posZ)
     {
         GameObject nuevo = dormirPrefab;
 
@@ -169,7 +171,7 @@ public class Movimiento : MonoBehaviour
         }
         else if (nombre.Equals("puntoDiscurso"))
         {
-            nuevo = Instantiate(comerPrefab);
+            nuevo = Instantiate(discursoPrefab);
             nuevo.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => OnClickDiscurso());
         }
         else
