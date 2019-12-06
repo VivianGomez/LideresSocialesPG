@@ -16,7 +16,7 @@ public class JSONLoaderJuego0 : MonoBehaviour
     private JsonData gameData;
     private string textoCartaDia;
 
-    private JsonData infoDias;
+    public JsonData infoDias;
 
     private TimeDayFunction timeDayFunction;
 
