@@ -23,6 +23,24 @@ TextureImporter:
   - first:
       213: -620837105957682656
     second: 0, 6
+  - first:
+      213: -6397487806065288990
+    second: dormir_0
+  - first:
+      213: -3401442629496347346
+    second: dormir_1
+  - first:
+      213: 1282507852288993216
+    second: dormir_2
+  - first:
+      213: 7145287586573670568
+    second: dormir_3
+  - first:
+      213: 4216299546909322949
+    second: dormir_4
+  - first:
+      213: -2791451698940677015
+    second: dormir_5
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -65,7 +83,7 @@ TextureImporter:
   spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: 0, y: 0}
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -94,148 +112,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 0, 0
+      name: dormir_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 60
-        height: 58
+        x: 2
+        y: 2
+        width: 30
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: eb7dd23c43cc9774d93f865be765c271
-      internalID: 9044786021765537137
+      spriteID: 22714a6248d831d4c90a9306fc9e6fa5
+      internalID: -6397487806065288990
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0, 1
+      name: dormir_1
       rect:
         serializedVersion: 2
-        x: 60
-        y: 0
-        width: 60
-        height: 58
+        x: 67
+        y: 2
+        width: 31
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e18f5b400cd9c35448563be5fff111a1
-      internalID: 3647156553916755266
+      spriteID: 7712ccaefb1c78c4fba66c637072dfd7
+      internalID: -3401442629496347346
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0, 2
+      name: dormir_2
       rect:
         serializedVersion: 2
-        x: 120
-        y: 0
-        width: 60
-        height: 58
+        x: 132
+        y: 2
+        width: 30
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: ccd14834df8d8124c8e118207821702a
-      internalID: -7025760825990288548
+      spriteID: 854208e389e88a94ea7fb2379d846f55
+      internalID: 1282507852288993216
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0, 3
+      name: dormir_3
       rect:
         serializedVersion: 2
-        x: 180
-        y: 0
-        width: 60
-        height: 58
+        x: 196
+        y: 3
+        width: 30
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: eae2cd14b24200a49add531794357c7a
-      internalID: 1008453939145656331
+      spriteID: 738e1319b8753f444ac665806264b999
+      internalID: 7145287586573670568
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0, 4
+      name: dormir_4
       rect:
         serializedVersion: 2
-        x: 240
-        y: 0
-        width: 60
-        height: 58
+        x: 260
+        y: 3
+        width: 31
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: df67df60d6f19c24e9674655cf5f07a8
-      internalID: 1121910671679707029
+      spriteID: d41e61d977eacc646bc0f65bb184e543
+      internalID: 4216299546909322949
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0, 5
+      name: dormir_5
       rect:
         serializedVersion: 2
-        x: 300
+        x: 323
         y: 0
-        width: 60
-        height: 58
+        width: 34
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: acf8674a85c4433489c780db6af4a6f7
-      internalID: -5727901431455522701
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 0, 6
-      rect:
-        serializedVersion: 2
-        x: 360
-        y: 0
-        width: 60
-        height: 58
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: caf1b3ce547c1d142b666a9dcd18acf5
-      internalID: -620837105957682656
+      spriteID: 451b5c5c064406c478d5309800f80db1
+      internalID: -2791451698940677015
       vertices: []
       indices: 
       edges: []

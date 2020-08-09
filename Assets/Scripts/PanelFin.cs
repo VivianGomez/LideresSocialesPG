@@ -30,6 +30,7 @@ public class PanelFin : MonoBehaviour
         creditos.text = "";
         mem.text = "";
         StartCoroutine(quitImage());
+        
     }
 
         IEnumerator playDisparos(){
@@ -59,5 +60,7 @@ public class PanelFin : MonoBehaviour
         infoLider.text = "";
         creditos.text = "";
         mem.text = " \n  \n  \n \n  \n En memoria de todos los líderes sociales caídos";
+        yield return new WaitForSeconds(10);
+        Application.Quit();
     }
 }

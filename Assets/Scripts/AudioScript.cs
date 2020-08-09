@@ -105,7 +105,7 @@ public class AudioScript : MonoBehaviour
                 else{
 
                     print("EXISTE");
-                    AssetDatabase.Refresh();
+                   // AssetDatabase.Refresh();
                     MusicSource.clip = Resources.Load<AudioClip>("audios/"+nombreAudio);
                     if(!(nombreAudio.Equals("ambiente"))) volumen = 1f;
                     MusicSource.Play();
@@ -139,7 +139,7 @@ public class AudioScript : MonoBehaviour
             if(request.progress == 1)
             {
                 SavWav.Save(nombre, MusicSource.clip);
-                PanelInicio.cambioEscenaPI();
+                if(SceneManager.GetActiveScene().name.Equals("Inicio")) PanelInicio.cambioEscenaPI();
             }
         }
         else

@@ -14,6 +14,18 @@ TextureImporter:
   - first:
       213: 1008453939145656331
     second: 0, 3
+  - first:
+      213: 1435582784507862764
+    second: comer_0
+  - first:
+      213: 1086507471047188657
+    second: comer_1
+  - first:
+      213: 1610396380354230783
+    second: comer_2
+  - first:
+      213: 2463755437410262334
+    second: comer_3
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -56,7 +68,7 @@ TextureImporter:
   spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: 0, y: 0}
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -81,89 +93,111 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 0, 0
+      name: comer_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 58
-        height: 56
+        x: 2
+        y: 3
+        width: 30
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: ac0ba27162b73fe4c946588c31122a3c
-      internalID: 9044786021765537137
+      spriteID: 3f3f2242d345c2840b011f1ce64973b6
+      internalID: 1435582784507862764
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0, 1
+      name: comer_1
       rect:
         serializedVersion: 2
-        x: 58
-        y: 0
-        width: 58
-        height: 56
+        x: 66
+        y: 3
+        width: 30
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7828707f34854d64e80777f389f9af1e
-      internalID: 3647156553916755266
+      spriteID: b23b1a20ce78ad44699db8fe5d22c125
+      internalID: 1086507471047188657
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0, 2
+      name: comer_2
       rect:
         serializedVersion: 2
-        x: 116
-        y: 0
-        width: 58
-        height: 56
+        x: 131
+        y: 3
+        width: 28
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: ad4dfbb486790e8408d103ab230cbea3
-      internalID: -7025760825990288548
+      spriteID: 6c96b35c94c7f6848a66cb751b22db9f
+      internalID: 1610396380354230783
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0, 3
+      name: comer_3
       rect:
         serializedVersion: 2
-        x: 174
-        y: 0
-        width: 58
-        height: 56
+        x: 191
+        y: 3
+        width: 36
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 5100e1ef63f2cf247ae79950aec61ffc
-      internalID: 1008453939145656331
+      spriteID: ec8551365444bab4ab1efe8038ea792d
+      internalID: 2463755437410262334
       vertices: []
       indices: 
       edges: []

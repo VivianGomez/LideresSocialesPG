@@ -29,6 +29,33 @@ TextureImporter:
   - first:
       213: 3640451382535226330
     second: 0, 8
+  - first:
+      213: -8913757917319633677
+    second: caminar_0
+  - first:
+      213: -4199407134815586442
+    second: caminar_1
+  - first:
+      213: 6823075394268943625
+    second: caminar_2
+  - first:
+      213: 4379400099904091852
+    second: caminar_3
+  - first:
+      213: 9004852273727659997
+    second: caminar_4
+  - first:
+      213: 994404661622652260
+    second: caminar_5
+  - first:
+      213: 182354764349310824
+    second: caminar_6
+  - first:
+      213: 1363448034739836708
+    second: caminar_7
+  - first:
+      213: -4492497967870338226
+    second: caminar_8
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -71,7 +98,7 @@ TextureImporter:
   spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: 0, y: 0}
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -96,194 +123,216 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 0, 0
+      name: caminar_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 62
-        height: 56
+        x: 5
+        y: 3
+        width: 24
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 47ca2f6eb5d1f0a4ba168171b47899d7
-      internalID: 9044786021765537137
+      spriteID: da0ae9a91d40d024a8c5e3a8a8c7220f
+      internalID: -8913757917319633677
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0, 1
+      name: caminar_1
       rect:
         serializedVersion: 2
-        x: 62
-        y: 0
-        width: 62
-        height: 56
+        x: 69
+        y: 3
+        width: 25
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: ef3e42e0349b5094689bc47a9cb42c77
-      internalID: 3647156553916755266
+      spriteID: 94d1df9adf89d8b45bdf083266919ad9
+      internalID: -4199407134815586442
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0, 2
+      name: caminar_2
       rect:
         serializedVersion: 2
-        x: 124
-        y: 0
-        width: 62
-        height: 56
+        x: 133
+        y: 4
+        width: 24
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 97bc4b489488456488be504701847a36
-      internalID: -7025760825990288548
+      spriteID: 8ec3dd0936dc8944fbf9efc81b4653e5
+      internalID: 6823075394268943625
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0, 3
+      name: caminar_3
       rect:
         serializedVersion: 2
-        x: 186
-        y: 0
-        width: 62
-        height: 56
+        x: 196
+        y: 4
+        width: 25
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 9259bc0dd71b0834cae3963614d91302
-      internalID: 1008453939145656331
+      spriteID: 5d06dde5d25b58b4784526a9d297b7d9
+      internalID: 4379400099904091852
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0, 4
+      name: caminar_4
       rect:
         serializedVersion: 2
-        x: 248
-        y: 0
-        width: 62
-        height: 56
+        x: 259
+        y: 3
+        width: 26
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 19cbb892329d57d44a437b9582a4494f
-      internalID: 1121910671679707029
+      spriteID: 072dd192fdad74c4b8b51beda77432af
+      internalID: 9004852273727659997
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0, 5
+      name: caminar_5
       rect:
         serializedVersion: 2
-        x: 310
-        y: 0
-        width: 62
-        height: 56
+        x: 321
+        y: 3
+        width: 28
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 048656f8144cd3d4ab2c89cb0dfaf5b2
-      internalID: -5727901431455522701
+      spriteID: f84d560715a212c44b167d7326fff59a
+      internalID: 994404661622652260
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0, 6
+      name: caminar_6
       rect:
         serializedVersion: 2
-        x: 372
-        y: 0
-        width: 62
-        height: 56
+        x: 387
+        y: 3
+        width: 26
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 48b65dd424985e04cbfaf781d7656692
-      internalID: -620837105957682656
+      spriteID: 644bf050c79d3654abb044c8c2219ef0
+      internalID: 182354764349310824
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0, 7
+      name: caminar_7
       rect:
         serializedVersion: 2
-        x: 434
-        y: 0
-        width: 62
-        height: 56
+        x: 452
+        y: 3
+        width: 25
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a311bafcdcc388946a32c43c9671d075
-      internalID: -2743714266842379729
+      spriteID: 894df9618cc3001429559525f1359550
+      internalID: 1363448034739836708
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0, 8
+      name: caminar_8
       rect:
         serializedVersion: 2
-        x: 496
-        y: 0
-        width: 62
-        height: 56
+        x: 517
+        y: 3
+        width: 24
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 9ef3f16e2badf6c409352bbc4ed865f0
-      internalID: 3640451382535226330
+      spriteID: 04ade6de69e9d2144ad0013aa93d3448
+      internalID: -4492497967870338226
       vertices: []
       indices: 
       edges: []

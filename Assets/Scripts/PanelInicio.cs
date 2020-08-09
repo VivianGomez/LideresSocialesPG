@@ -31,9 +31,9 @@ public class PanelInicio : MonoBehaviour
         GameObject camera= GameObject.Find("Main Camera");
         imagenLider.sprite = Resources.Load<Sprite>("recursosImgs/KevinInicio");
         camera.GetComponent<CargaAnimatorAnimations>().Request(2);
-        camera.GetComponent<CargaAnimatorAnimations>().Request(0);
+        //camera.GetComponent<CargaAnimatorAnimations>().Request(0);
         yield return new WaitForSeconds(6f);
-        camera.GetComponent<CargaAnimatorAnimations>().Request(1);
+        //camera.GetComponent<CargaAnimatorAnimations>().Request(1);
         imagenLider.sprite = null;
         infoLider.text = "Kevin Julian Leon";
         yield return new WaitForSeconds(10f);   
@@ -41,7 +41,7 @@ public class PanelInicio : MonoBehaviour
         imagenLider.sprite = Resources.Load<Sprite>("recursosImgs/PCControl");
         yield return new WaitForSeconds(10f);   
         imagenLider.sprite = Resources.Load<Sprite>("recursosImgs/Interacciones");
-        if (File.Exists("assets/Resources/audios/ambiente.wav"))
+        if (File.Exists("assets/Resources/audios/ambiente.wav") && SceneManager.GetActiveScene().name.Equals("Inicio"))
         {
             cambioEscenaPI();
         }

@@ -1,0 +1,4384 @@
+fileFormatVersion: 2
+guid: c0c4bb305a4284648a7ed0577756b8b4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8155808974994092065
+    second: nino_0
+  - first:
+      213: -2969862792694406739
+    second: nino_1
+  - first:
+      213: 3820350744149661591
+    second: nino_2
+  - first:
+      213: 663574797855915816
+    second: nino_3
+  - first:
+      213: -7470230391004991439
+    second: nino_4
+  - first:
+      213: -5219308909266844296
+    second: nino_5
+  - first:
+      213: 4392020171773484989
+    second: nino_6
+  - first:
+      213: 8421342676270153853
+    second: nino_7
+  - first:
+      213: -2061827608959807002
+    second: nino_8
+  - first:
+      213: -4384406391722796579
+    second: nino_9
+  - first:
+      213: -5532933967982017014
+    second: nino_10
+  - first:
+      213: 6736821152669035815
+    second: nino_11
+  - first:
+      213: 1537212989129083770
+    second: nino_12
+  - first:
+      213: -8824532497437072713
+    second: nino_13
+  - first:
+      213: -58622052453654542
+    second: nino_14
+  - first:
+      213: 4109077189617067961
+    second: nino_15
+  - first:
+      213: 8291846914954523589
+    second: nino_16
+  - first:
+      213: -504082309197050270
+    second: nino_17
+  - first:
+      213: -949879295944109519
+    second: nino_18
+  - first:
+      213: 2611199088027200867
+    second: nino_19
+  - first:
+      213: -5323402083399389843
+    second: nino_20
+  - first:
+      213: -5825951959047550576
+    second: nino_21
+  - first:
+      213: -5960534997028046371
+    second: nino_22
+  - first:
+      213: 7082313512001154503
+    second: nino_23
+  - first:
+      213: -2475561993948593218
+    second: nino_24
+  - first:
+      213: 3547397549595653775
+    second: nino_25
+  - first:
+      213: -8242427071003420683
+    second: nino_26
+  - first:
+      213: 2468046129760999572
+    second: nino_27
+  - first:
+      213: 8816055730802070592
+    second: nino_28
+  - first:
+      213: 8689926498746272227
+    second: nino_29
+  - first:
+      213: -339023140486498452
+    second: nino_30
+  - first:
+      213: -1645016792416060659
+    second: nino_31
+  - first:
+      213: 2485745260874864869
+    second: nino_32
+  - first:
+      213: 1934500915592133002
+    second: nino_33
+  - first:
+      213: -8623965158369099921
+    second: nino_34
+  - first:
+      213: 7000758369807332420
+    second: nino_35
+  - first:
+      213: -1275961110975671840
+    second: nino_36
+  - first:
+      213: 6478692768353189958
+    second: nino_37
+  - first:
+      213: -1059116577720373959
+    second: nino_38
+  - first:
+      213: -7356671314582896255
+    second: nino_39
+  - first:
+      213: -8298555159982348886
+    second: nino_40
+  - first:
+      213: 6369635467182676005
+    second: nino_41
+  - first:
+      213: 3363584745006335722
+    second: nino_42
+  - first:
+      213: -2337224479778416088
+    second: nino_43
+  - first:
+      213: -6368824798692968088
+    second: nino_44
+  - first:
+      213: 1649437306151052452
+    second: nino_45
+  - first:
+      213: 3693730349370927944
+    second: nino_46
+  - first:
+      213: 6155473496505012819
+    second: nino_47
+  - first:
+      213: 5585131385100105130
+    second: nino_48
+  - first:
+      213: -3098473506916648112
+    second: nino_49
+  - first:
+      213: 6986844270863189844
+    second: nino_50
+  - first:
+      213: 7163865598105568034
+    second: nino_51
+  - first:
+      213: 9046744165989798
+    second: nino_52
+  - first:
+      213: -5219281607185228857
+    second: nino_53
+  - first:
+      213: -7155765416368546109
+    second: nino_54
+  - first:
+      213: 4967822350657769541
+    second: nino_55
+  - first:
+      213: 831324701094548784
+    second: nino_56
+  - first:
+      213: 9070067232139423580
+    second: nino_57
+  - first:
+      213: -6390404026669743371
+    second: nino_58
+  - first:
+      213: -7126879891296027518
+    second: nino_59
+  - first:
+      213: -820769260278169326
+    second: nino_60
+  - first:
+      213: -3685134183495209638
+    second: nino_61
+  - first:
+      213: -8560671099650299646
+    second: nino_62
+  - first:
+      213: -6539080540040617408
+    second: nino_63
+  - first:
+      213: 6462414873371155567
+    second: nino_64
+  - first:
+      213: -7165196028049899166
+    second: nino_65
+  - first:
+      213: 8704732555078805579
+    second: nino_66
+  - first:
+      213: -3039880047578436591
+    second: nino_67
+  - first:
+      213: 8071658635189271738
+    second: nino_68
+  - first:
+      213: 5135620413481083100
+    second: nino_69
+  - first:
+      213: -956915265592229826
+    second: nino_70
+  - first:
+      213: 2315663723377280777
+    second: nino_71
+  - first:
+      213: -7283317040041004128
+    second: nino_72
+  - first:
+      213: -1517198791420414587
+    second: nino_73
+  - first:
+      213: 6504763229839717392
+    second: nino_74
+  - first:
+      213: -5332013071188527579
+    second: nino_75
+  - first:
+      213: -8777037639297129234
+    second: nino_76
+  - first:
+      213: -8049917977951009780
+    second: nino_77
+  - first:
+      213: 7502368053734827089
+    second: nino_78
+  - first:
+      213: 2763935844997839809
+    second: nino_79
+  - first:
+      213: -2802049739132388453
+    second: nino_80
+  - first:
+      213: 1330152333197550722
+    second: nino_81
+  - first:
+      213: -1995039455935789243
+    second: nino_82
+  - first:
+      213: 1789103660485423342
+    second: nino_83
+  - first:
+      213: 5149566986064208170
+    second: nino_84
+  - first:
+      213: -695658875546683647
+    second: nino_85
+  - first:
+      213: -6575351141112532022
+    second: nino_86
+  - first:
+      213: -7917923453200071094
+    second: nino_87
+  - first:
+      213: -2819780127571090803
+    second: nino_88
+  - first:
+      213: 7556388929604752912
+    second: nino_89
+  - first:
+      213: -8591546079729681251
+    second: nino_90
+  - first:
+      213: 5201134663179513446
+    second: nino_91
+  - first:
+      213: -3018761987979577022
+    second: nino_92
+  - first:
+      213: -5256150917165899605
+    second: nino_93
+  - first:
+      213: -2332386221468412781
+    second: nino_94
+  - first:
+      213: 1133051914749363593
+    second: nino_95
+  - first:
+      213: -3401148087371895746
+    second: nino_96
+  - first:
+      213: -4222270698337457823
+    second: nino_97
+  - first:
+      213: -342423673387762125
+    second: nino_98
+  - first:
+      213: -8075185652603053797
+    second: nino_99
+  - first:
+      213: -2148661213271424629
+    second: nino_100
+  - first:
+      213: -6076988275507877380
+    second: nino_101
+  - first:
+      213: 7483282920198834936
+    second: nino_102
+  - first:
+      213: 1609508090297008287
+    second: nino_103
+  - first:
+      213: 8807509788774687527
+    second: nino_104
+  - first:
+      213: -4791978736427659676
+    second: nino_105
+  - first:
+      213: 4992793727527639045
+    second: nino_106
+  - first:
+      213: -2858544814176012327
+    second: nino_107
+  - first:
+      213: 13943407798714915
+    second: nino_108
+  - first:
+      213: 7675948506018437200
+    second: nino_109
+  - first:
+      213: 3218894435974954256
+    second: nino_110
+  - first:
+      213: 7745080002614329158
+    second: nino_111
+  - first:
+      213: 3536323666708994664
+    second: nino_112
+  - first:
+      213: 7774813966912751899
+    second: nino_113
+  - first:
+      213: -2122836758496252342
+    second: nino_114
+  - first:
+      213: -8211977510482449738
+    second: nino_115
+  - first:
+      213: -7275070894287604748
+    second: nino_116
+  - first:
+      213: -2393693075974807728
+    second: nino_117
+  - first:
+      213: -6231948837548740191
+    second: nino_118
+  - first:
+      213: 2570646493898631920
+    second: nino_119
+  - first:
+      213: 4175077247507565473
+    second: nino_120
+  - first:
+      213: -8651710267504403096
+    second: nino_121
+  - first:
+      213: -6890126103966862200
+    second: nino_122
+  - first:
+      213: 5371618551094966753
+    second: nino_123
+  - first:
+      213: -4850350633229045856
+    second: nino_124
+  - first:
+      213: -6653475785505900707
+    second: nino_125
+  - first:
+      213: -4299775432976523862
+    second: nino_126
+  - first:
+      213: -2826877888400398925
+    second: nino_127
+  - first:
+      213: -1392159058706731644
+    second: nino_128
+  - first:
+      213: -3868419573646418020
+    second: nino_129
+  - first:
+      213: 4285311228103549619
+    second: nino_130
+  - first:
+      213: 7133819928181833832
+    second: nino_131
+  - first:
+      213: -2591859443201486149
+    second: nino_132
+  - first:
+      213: 5445723807407229259
+    second: nino_133
+  - first:
+      213: -6055420747657440786
+    second: nino_134
+  - first:
+      213: 9204790720632443914
+    second: nino_135
+  - first:
+      213: 6256789773014360675
+    second: nino_136
+  - first:
+      213: 5986697081708112543
+    second: nino_137
+  - first:
+      213: 3917414382924343140
+    second: nino_138
+  - first:
+      213: -7195930753089713382
+    second: nino_139
+  - first:
+      213: 7866924240713199376
+    second: nino_140
+  - first:
+      213: 957765811530259524
+    second: nino_141
+  - first:
+      213: 623126845029163353
+    second: nino_142
+  - first:
+      213: 4316803857459461615
+    second: nino_143
+  - first:
+      213: 8118681834078428886
+    second: nino_144
+  - first:
+      213: 8858673862229719323
+    second: nino_145
+  - first:
+      213: 7545392531239404318
+    second: nino_146
+  - first:
+      213: -7095379660762094823
+    second: nino_147
+  - first:
+      213: -5308034289860607336
+    second: nino_148
+  - first:
+      213: -2916272359573197259
+    second: nino_149
+  - first:
+      213: -2455954487605788174
+    second: nino_150
+  - first:
+      213: -3231761860857180295
+    second: nino_151
+  - first:
+      213: -8047222531295588421
+    second: nino_152
+  - first:
+      213: -1624021443365851186
+    second: nino_153
+  - first:
+      213: -6274958372665118957
+    second: nino_154
+  - first:
+      213: -5939199975997882559
+    second: nino_155
+  - first:
+      213: 7540374118125584417
+    second: nino_156
+  - first:
+      213: -540451946057882654
+    second: nino_157
+  - first:
+      213: -1468197522818186970
+    second: nino_158
+  - first:
+      213: -4943618543449238979
+    second: nino_159
+  - first:
+      213: 2010388657844413291
+    second: nino_160
+  - first:
+      213: 1609853207984110007
+    second: nino_161
+  - first:
+      213: -217413762432382774
+    second: nino_162
+  - first:
+      213: 540543374425561290
+    second: nino_163
+  - first:
+      213: -3235695480016072909
+    second: nino_164
+  - first:
+      213: -1038678200002905657
+    second: nino_165
+  - first:
+      213: 9187492022609691353
+    second: nino_166
+  - first:
+      213: 113500415937741370
+    second: nino_167
+  - first:
+      213: -7886480885852352263
+    second: nino_168
+  - first:
+      213: -6394108541543065355
+    second: nino_169
+  - first:
+      213: 6114774253472693148
+    second: nino_170
+  - first:
+      213: -2214278872448448713
+    second: nino_171
+  - first:
+      213: -7737759425962539350
+    second: nino_172
+  - first:
+      213: 7699130451295341305
+    second: nino_173
+  - first:
+      213: 5338012366184012739
+    second: nino_174
+  - first:
+      213: -5954679712727483652
+    second: nino_175
+  - first:
+      213: -6430632871010780006
+    second: nino_176
+  - first:
+      213: 5615526005596393849
+    second: nino_177
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: nino_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1282
+        width: 30
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2f896352ad0e7948ba7b6fd077b852c
+      internalID: -8155808974994092065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_1
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 1282
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64790f3012dd7b242a6cc543b765234b
+      internalID: -2969862792694406739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_2
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 1282
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cb2ca8dad9a1b64e981d7bb37a873a2
+      internalID: 3820350744149661591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_3
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 1282
+        width: 36
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ba37aac3ccdd3d4abeefc3a0165de5a
+      internalID: 663574797855915816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_4
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 1282
+        width: 50
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b29f0cd8a0b67441b94f80b91a83714
+      internalID: -7470230391004991439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_5
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 1282
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f792db95a3dbb6c4cb6338362d694e83
+      internalID: -5219308909266844296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_6
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 1282
+        width: 36
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a7ac71736f599e45a627b42173cfc7a
+      internalID: 4392020171773484989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_7
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 1218
+        width: 24
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e029ec460f30804ea5fcb4cf88f458f
+      internalID: 8421342676270153853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_8
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 1218
+        width: 24
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ede5aae169d38dc4db5505515329d05a
+      internalID: -2061827608959807002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_9
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 1218
+        width: 24
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1efa925aac8122b4a8d35c5644c0d759
+      internalID: -4384406391722796579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_10
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 1218
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4be4f0066c135e4bb54323097251f66
+      internalID: -5532933967982017014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_11
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 1218
+        width: 33
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a3690ba831db384ea746b95bc26ec6c
+      internalID: 6736821152669035815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_12
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 1218
+        width: 33
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4cd3238e9d38ad42a603e74b76d731f
+      internalID: 1537212989129083770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_13
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 1218
+        width: 28
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b97b00521e8b74e41a0c7d775855eccb
+      internalID: -8824532497437072713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_14
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1154
+        width: 30
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 131801fdae172e14cb6a5ea8548978ee
+      internalID: -58622052453654542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_15
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 1154
+        width: 30
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb03bb867d9caf943bccf324ae32724d
+      internalID: 4109077189617067961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_16
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 1154
+        width: 28
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a18da687d604064bb28a706eafb9b01
+      internalID: 8291846914954523589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_17
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 1154
+        width: 36
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d67739665e75834ea19a603102e6ccd
+      internalID: -504082309197050270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_18
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 1154
+        width: 50
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1deb6139af06cab438792cd76179d8c7
+      internalID: -949879295944109519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_19
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 1154
+        width: 48
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2580b38e072e0864a8a0813920b34574
+      internalID: 2611199088027200867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_20
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1154
+        width: 34
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e990c191cb5111f4da7347fc8fd4dc03
+      internalID: -5323402083399389843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_21
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 1090
+        width: 24
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87b30593caf42144cbaa7993a6718ba4
+      internalID: -5825951959047550576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_22
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 1090
+        width: 24
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47216a8486f96294ebb27cd0f643342a
+      internalID: -5960534997028046371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_23
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 1090
+        width: 24
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bd4fda950e78944ea0a5ffdcddcb626
+      internalID: 7082313512001154503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_24
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 1090
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3e1b326ad4a81043b78c01aabf4f39e
+      internalID: -2475561993948593218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_25
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 1090
+        width: 33
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05925fab22094bf4da2fb012bbdb07aa
+      internalID: 3547397549595653775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_26
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 1090
+        width: 33
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bbd24040dbbd4b428ebbf31c247ff10
+      internalID: -8242427071003420683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_27
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 1090
+        width: 28
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7ea9f01d9163954ca4673eb09888ce1
+      internalID: 2468046129760999572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_28
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1026
+        width: 30
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd2c666333040ac449315177c3b559ac
+      internalID: 8816055730802070592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_29
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 1024
+        width: 27
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0acc430cd3ae45842aba7bb59483dc7e
+      internalID: 8689926498746272227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_30
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 1024
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a44ad47375979b4c9820cab6849445b
+      internalID: -339023140486498452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_31
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 1024
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3377f07c2cc5844439bc93d14a5fee6a
+      internalID: -1645016792416060659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_32
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1024
+        width: 26
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 788ca5991a008dc4386b169180852341
+      internalID: 2485745260874864869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_33
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 1024
+        width: 26
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4caba251d2d44c849b3fc538c5746214
+      internalID: 1934500915592133002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_34
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 1024
+        width: 26
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b370c5c6f866baf4c883d4bf5b6dbbe9
+      internalID: -8623965158369099921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_35
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 1024
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfe19702bd8dc914ab15b42d8114ad41
+      internalID: 7000758369807332420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_36
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 962
+        width: 24
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d577343325886245ac0fff1a4b6677c
+      internalID: -1275961110975671840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_37
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 962
+        width: 25
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa46f40138282474e9f3fd9483a40fa2
+      internalID: 6478692768353189958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_38
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 962
+        width: 27
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56eb5c23865a4c74f872086cb92e14c2
+      internalID: -1059116577720373959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_39
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 962
+        width: 27
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccca170b52e7d7743b27276e3a9dc330
+      internalID: -7356671314582896255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_40
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 962
+        width: 27
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b328550ba82afae4bb76fcacc900277f
+      internalID: -8298555159982348886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_41
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 962
+        width: 30
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f90d30ecb86b1184d920cdd278a7e0eb
+      internalID: 6369635467182676005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_42
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 962
+        width: 27
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d221eb7df76faba4db0a4143d9fb7049
+      internalID: 3363584745006335722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_43
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 962
+        width: 27
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 538fbbdd979cbb4478af81615836c079
+      internalID: -2337224479778416088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_44
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 898
+        width: 30
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a22281bbb40f0404480105cb7af9a76d
+      internalID: -6368824798692968088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_45
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 899
+        width: 26
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86808bfe10af17b46b31043e313b50ca
+      internalID: 1649437306151052452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_46
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 899
+        width: 26
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 422f5bf00279e624791620a0682d3c3b
+      internalID: 3693730349370927944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_47
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 899
+        width: 27
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f300346af2ebee4582ad1119efcf596
+      internalID: 6155473496505012819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_48
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 899
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d48e68c5575f13d4eaa8e67a55a10f72
+      internalID: 5585131385100105130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_49
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 899
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09cec3c70672894429935494d33bb992
+      internalID: -3098473506916648112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_50
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 899
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4a96def3e3ebf347a562d1d6048bd9a
+      internalID: 6986844270863189844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_51
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 899
+        width: 27
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6c20c6c589c08a409c7f418c2db2e5d
+      internalID: 7163865598105568034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_52
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 834
+        width: 24
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbcf75784cb4eb6429e555606feb9825
+      internalID: 9046744165989798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_53
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 834
+        width: 25
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd6583165ccab864180faf9e74dfb3ee
+      internalID: -5219281607185228857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_54
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 834
+        width: 27
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c4142f67a916114aafaee1791a327ca
+      internalID: -7155765416368546109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_55
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 834
+        width: 27
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdd2c6fd85a946b4490c285f3138ceee
+      internalID: 4967822350657769541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_56
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 834
+        width: 27
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d623bedf7e4b0948a1bc0bb7d5e5b68
+      internalID: 831324701094548784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_57
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 834
+        width: 30
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 312194adc09f3c74e8d619cf058948ec
+      internalID: 9070067232139423580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_58
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 834
+        width: 27
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d69f933f7934a634dbd18b3244b145f6
+      internalID: -6390404026669743371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_59
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 834
+        width: 27
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e9c4a1009b705041a7e5508b2b1e6c1
+      internalID: -7126879891296027518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_60
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 771
+        width: 30
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb6677cf6890f01409e4bc9a1b9ebe12
+      internalID: -820769260278169326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_61
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 771
+        width: 30
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fab7e3c00c8660448f0e25220c92c84
+      internalID: -3685134183495209638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_62
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 770
+        width: 30
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 337d65b73f4237e41aaefbc3488ce1b6
+      internalID: -8560671099650299646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_63
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 769
+        width: 29
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d9e7361e6d2fc642813dd67f26e8622
+      internalID: -6539080540040617408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_64
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 770
+        width: 30
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36eca1e05dabe394da666d555a65da94
+      internalID: 6462414873371155567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_65
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 771
+        width: 30
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a9a1af18ab57a64eba889d0a28749f8
+      internalID: -7165196028049899166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_66
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 770
+        width: 30
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cadcfb873a0fdc48837eeb3a25c546b
+      internalID: 8704732555078805579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_67
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 769
+        width: 29
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 578926b6148e11a4f9e16c135449b683
+      internalID: -3039880047578436591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_68
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 770
+        width: 30
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a28939a37305ad843aa684d4d27a2d55
+      internalID: 8071658635189271738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_69
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 706
+        width: 24
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3098f14221ec1c142b99464a1ecb14f1
+      internalID: 5135620413481083100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_70
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 706
+        width: 25
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79ca8e19c48eb5043aa378dfca207db2
+      internalID: -956915265592229826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_71
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 707
+        width: 24
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2211ce22b271094ebf6b35c1ee5b9e2
+      internalID: 2315663723377280777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_72
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 707
+        width: 25
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb003e3c16e20b747abc747ade9f6115
+      internalID: -7283317040041004128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_73
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 706
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7160302d9469c7b4b9c26adb2d27fcd2
+      internalID: -1517198791420414587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_74
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 706
+        width: 28
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36f1d79eab115de4e8fa39f602e17931
+      internalID: 6504763229839717392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_75
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 706
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc0b3bda49891be43a177e70091c9d76
+      internalID: -5332013071188527579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_76
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 706
+        width: 25
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 689819b7aff07e54b9b51c88a1c12ece
+      internalID: -8777037639297129234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_77
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 706
+        width: 24
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d000074156e92df4aae6805ada6698f4
+      internalID: -8049917977951009780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_78
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 642
+        width: 30
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84c5b62acbf42614d8f07baf7d5be924
+      internalID: 7502368053734827089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_79
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 642
+        width: 30
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52ba694f417af6e4ab616ace15002c35
+      internalID: 2763935844997839809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_80
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 641
+        width: 30
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80a2804e8369aeb4b8cd279c355368dd
+      internalID: -2802049739132388453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_81
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 641
+        width: 29
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44910d9296b76e34c9e5e9f96ac1e0c1
+      internalID: 1330152333197550722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_82
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 641
+        width: 30
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1801a9fb2f1587f448331d393daabd6a
+      internalID: -1995039455935789243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_83
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 642
+        width: 30
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40f5498acf7ae014a907c6b4e468a03b
+      internalID: 1789103660485423342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_84
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 641
+        width: 30
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c8fc2b72adf8ad43970e6ef1e384696
+      internalID: 5149566986064208170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_85
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 641
+        width: 29
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b3645c03defbe54c99a1e97ca4494c0
+      internalID: -695658875546683647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_86
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 641
+        width: 30
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4be2eee5c9afe04e88e367bac4d70b6
+      internalID: -6575351141112532022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_87
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 578
+        width: 24
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98676dc801bc5454e9b9d78b499d632a
+      internalID: -7917923453200071094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_88
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 578
+        width: 25
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df9c3f442883e9241b63fa7b2436ed79
+      internalID: -2819780127571090803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_89
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 579
+        width: 24
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6f2f3448bd2f514c88cac594650a556
+      internalID: 7556388929604752912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_90
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 579
+        width: 25
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0efcc1fd1ca1f6478a3f4ae243a486e
+      internalID: -8591546079729681251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_91
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 578
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c391557cabddf244abdd62dc6214b13
+      internalID: 5201134663179513446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_92
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 578
+        width: 28
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d83c54ec0046254aac498fe0d6f8ae2
+      internalID: -3018761987979577022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_93
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 578
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6e77b85597c5fa45b482fb98de76aa9
+      internalID: -5256150917165899605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_94
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 578
+        width: 25
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cc907e477a63bc438dad0c4795804df
+      internalID: -2332386221468412781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_95
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 578
+        width: 24
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09afc9ada268eec448ffb0816629d1ca
+      internalID: 1133051914749363593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_96
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 514
+        width: 30
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bddebea958431bd4f94c881728a2727e
+      internalID: -3401148087371895746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_97
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 513
+        width: 26
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd2df3e319d776842888a0a95284d5d6
+      internalID: -4222270698337457823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_98
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 513
+        width: 27
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f5f08cbc4fa0b647ba4486aca2bf956
+      internalID: -342423673387762125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_99
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 513
+        width: 27
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4835e8258c17ed4aa332cfa58421ec3
+      internalID: -8075185652603053797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_100
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 513
+        width: 36
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4fc1e66cb147e844bc5750cdd730412
+      internalID: -2148661213271424629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_101
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 513
+        width: 39
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9eb15cbcd422ce41acc8e111bc4b2ef
+      internalID: -6076988275507877380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_102
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 450
+        width: 24
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea3ccbc79c841db46b2e0f524997dcff
+      internalID: 7483282920198834936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_103
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 450
+        width: 25
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab67932e6dc4881409fc488d93bc407b
+      internalID: 1609508090297008287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_104
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 450
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfab45211106f1a4b9047af5e088ff9d
+      internalID: 8807509788774687527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_105
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 450
+        width: 34
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dc539167c37f3440a4cd487b1a25b1c
+      internalID: -4791978736427659676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_106
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 450
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24acfc9239cf87242a173875e53d1d70
+      internalID: 4992793727527639045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_107
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 450
+        width: 33
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bd92abf5e4ff2f44b4acf7cbaafc365
+      internalID: -2858544814176012327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_108
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 386
+        width: 30
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d48cfe3d949964d46aab0024fdda1a81
+      internalID: 13943407798714915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_109
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 386
+        width: 26
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85edad6bd5759174fb6546190be8866a
+      internalID: 7675948506018437200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_110
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 386
+        width: 27
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78aba54336a679948b12acd4a09cfdc5
+      internalID: 3218894435974954256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_111
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 386
+        width: 27
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79fadd735671e0149868eeb9c0cc5199
+      internalID: 7745080002614329158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_112
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 386
+        width: 35
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 512738d2188f9f245b83e2ab6a971742
+      internalID: 3536323666708994664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_113
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 386
+        width: 39
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 427387bcc252446449b374574fd5be7a
+      internalID: 7774813966912751899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_114
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 322
+        width: 24
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfa9d66b95a872c46a4a2c5d05dea510
+      internalID: -2122836758496252342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_115
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 322
+        width: 26
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29ac1497e10c37042ae986a7c671160c
+      internalID: -8211977510482449738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_116
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 322
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5acea9ca9ea70a41b8a495cbee7eaa0
+      internalID: -7275070894287604748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_117
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 322
+        width: 34
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d806a527ccd30f640ad348d41e678fdf
+      internalID: -2393693075974807728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_118
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 322
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1fac34354068344abcef0409029014c
+      internalID: -6231948837548740191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_119
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 322
+        width: 33
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5ef23df988c96043a6ef8279cc6ede1
+      internalID: 2570646493898631920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_120
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 258
+        width: 30
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 934d5edfdb4ea8f4b915a7f02bcfbf6f
+      internalID: 4175077247507565473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_121
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 256
+        width: 27
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61375cb25ae8f8549809db99a2137bb8
+      internalID: -8651710267504403096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_122
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 256
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f237a471c0533e844b6becbb80ef85a3
+      internalID: -6890126103966862200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_123
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 256
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9be77abc74765f446a808fea81fce13a
+      internalID: 5371618551094966753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_124
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 256
+        width: 29
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b61c79c6f12df9f4f8434fc469ca4e3e
+      internalID: -4850350633229045856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_125
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 256
+        width: 27
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a652ef47a4de9f4fb3088d2d14f870c
+      internalID: -6653475785505900707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_126
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 256
+        width: 28
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f6bd81ecb86fc041afbee21134dc421
+      internalID: -4299775432976523862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_127
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 256
+        width: 29
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b37a5a0d4b9db9438b528e0e6ae6d9c
+      internalID: -2826877888400398925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_128
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 256
+        width: 30
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ffdb8b0b4562d24085913b738a7d648
+      internalID: -1392159058706731644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_129
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 256
+        width: 29
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f02056931eed51488a3dbf38c330c8d
+      internalID: -3868419573646418020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_130
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 256
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea4683c6a274a9c40911a0cb8759de77
+      internalID: 4285311228103549619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_131
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 256
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d35df674e303208458ffe40365c4cdaa
+      internalID: 7133819928181833832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_132
+      rect:
+        serializedVersion: 2
+        x: 771
+        y: 256
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af8ff966c66eb124a95c11e698e83621
+      internalID: -2591859443201486149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_133
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 194
+        width: 24
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea572565ef1f8124eb14d0eb86eb729c
+      internalID: 5445723807407229259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_134
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 194
+        width: 25
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb686fcce1c2f0743a1061cf8b22dadb
+      internalID: -6055420747657440786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_135
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 194
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0d3cad6d9077e749a68daf774a414ad
+      internalID: 9204790720632443914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_136
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 194
+        width: 35
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03d3db4ad7ea3fd4c981434289420612
+      internalID: 6256789773014360675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_137
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 194
+        width: 35
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e77bd8b1ba993b4087d7d9de995bc08
+      internalID: 5986697081708112543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_138
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 194
+        width: 33
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a487ef84ce412c49aec8893474c3fbd
+      internalID: 3917414382924343140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_139
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 194
+        width: 34
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 459488d291c4d874aab039cb572df056
+      internalID: -7195930753089713382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_140
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 194
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0cc975d0bb4cd1439df790cde0c8387
+      internalID: 7866924240713199376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_141
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 194
+        width: 38
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e4e0a2291b5e4f44bb4e44be44d3290
+      internalID: 957765811530259524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_142
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 194
+        width: 35
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf9a014daa3edb84782f61ae5d4b1d9d
+      internalID: 623126845029163353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_143
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 194
+        width: 34
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 447a8914fe66dc544b385ee385ecf967
+      internalID: 4316803857459461615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_144
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 194
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e7f51619eb417740957ef75d18ee55c
+      internalID: 8118681834078428886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_145
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 194
+        width: 34
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 824a87204fd7b904da8f59a45ff411dd
+      internalID: 8858673862229719323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_146
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 130
+        width: 30
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0da48d2ed793bbb42815146af4f8e60a
+      internalID: 7545392531239404318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_147
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 131
+        width: 26
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7c9810d52021314e9af6a3900cfe41b
+      internalID: -7095379660762094823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_148
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 131
+        width: 26
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61ae72b3c02276d4d936f5e54b164629
+      internalID: -5308034289860607336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_149
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 130
+        width: 26
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d934f42ec1a1d04ebca78fb0b2557a5
+      internalID: -2916272359573197259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_150
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 130
+        width: 26
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 026b5c81df439754bbae102cdc25fd7c
+      internalID: -2455954487605788174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_151
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 130
+        width: 26
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dfe2ac391358a7448ce664c13fc3bc7
+      internalID: -3231761860857180295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_152
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 130
+        width: 26
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0659f43045b27d444a51c35ddf593f51
+      internalID: -8047222531295588421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_153
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 130
+        width: 26
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d39aaeea12211204ea3cb1ed0c9649e2
+      internalID: -1624021443365851186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_154
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 130
+        width: 26
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cee1ddb449fd1414f8a67898b5ecf6cc
+      internalID: -6274958372665118957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_155
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 130
+        width: 26
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19e160ccf07ee564f89d4c1565af0641
+      internalID: -5939199975997882559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_156
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 130
+        width: 26
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d75edbe150df2414ba18efb07304307f
+      internalID: 7540374118125584417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_157
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 130
+        width: 26
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b2b498060674ce49972215f38b3d1fd
+      internalID: -540451946057882654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_158
+      rect:
+        serializedVersion: 2
+        x: 771
+        y: 130
+        width: 26
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8592fc94771425b41b044042e11a32c8
+      internalID: -1468197522818186970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_159
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 66
+        width: 24
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00c7922e7a424ce4fb9be156ecd62b34
+      internalID: -4943618543449238979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_160
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 66
+        width: 25
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cbaa415c89ea624197854d96e7b8a68
+      internalID: 2010388657844413291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_161
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 66
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2273f431b2b393347857496207ee1aba
+      internalID: 1609853207984110007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_162
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 66
+        width: 35
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 956b16dc807c4114a953314bcdfa89ac
+      internalID: -217413762432382774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_163
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 66
+        width: 35
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 839ddb7d0d45f9e46b93dff1bb9e5d37
+      internalID: 540543374425561290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_164
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 66
+        width: 33
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d99901c8a13a69646b6eb280f63565b1
+      internalID: -3235695480016072909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_165
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 66
+        width: 34
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd7827ab25f95d143bed1cabfd1cb70f
+      internalID: -1038678200002905657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_166
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 66
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6849059afcdad545b2cc3c218244676
+      internalID: 9187492022609691353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_167
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 66
+        width: 38
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 783365691c519cd4ebb958f9ce41841e
+      internalID: 113500415937741370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_168
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 66
+        width: 35
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26b7a28a3a767fa448b192a07279a547
+      internalID: -7886480885852352263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_169
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 66
+        width: 34
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ca2f896d78efb94dbf8d6bab1229beb
+      internalID: -6394108541543065355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_170
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 66
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b16fa61459c0254d849a6f9a31bbd15
+      internalID: 6114774253472693148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_171
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 66
+        width: 34
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ff05cb1fd8955b4496455ad1ab30264
+      internalID: -2214278872448448713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_172
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2
+        width: 30
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 416adfb177cf4934286d4be1fb8b1766
+      internalID: -7737759425962539350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_173
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 2
+        width: 31
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95d32acdde54308458216de55adfeb85
+      internalID: 7699130451295341305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_174
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 2
+        width: 30
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 664f584bfd8686947b7f513e700add68
+      internalID: 5338012366184012739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_175
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 3
+        width: 30
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 017839a8bb1a37646bc20ccaf60cc7e8
+      internalID: -5954679712727483652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_176
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 3
+        width: 31
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88835aa975120964fad214dc20f1d711
+      internalID: -6430632871010780006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nino_177
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 0
+        width: 34
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e79b8958150ea444a38f4dfe0d99ea5
+      internalID: 5615526005596393849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 1ddd47ed8981a7948a725dbee27c5e39
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using UnityEditor;
-using UnityEditor.Animations;
+// UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -32,20 +32,22 @@ public class CargaAnimatorAnimations : MonoBehaviour
 
     void Start()
     {
+        /**
         if (!File.Exists("Assets/Resources/StateMachineTransitions.controller"))
         {
             UnityEditor.Animations.AnimatorController controller = UnityEditor.Animations.AnimatorController.CreateAnimatorControllerAtPath("Assets/Resources/StateMachineTransitions.controller");
             controller.AddParameter("quedaQuieto", AnimatorControllerParameterType.Trigger);
         }
+        **/
     }
 
     public void Request(int i)
     {
         WWW request = new WWW(url);
                 
-        if (i == 0) StartCoroutine(OnResponse(request,i));
-        else if (i == 1) StartCoroutine(OnResponse(request,i));
-        else if (i == 2) StartCoroutine(OnResponse(request,i));
+        //if (i == 0) StartCoroutine(OnResponse(request,i));
+        //else if (i == 1) StartCoroutine(OnResponse(request,i));
+        if (i == 2) StartCoroutine(OnResponse(request,i));
         else if (i == 3) StartCoroutine(OnResponse(request,i));
     }
 
@@ -55,6 +57,7 @@ public class CargaAnimatorAnimations : MonoBehaviour
         if (req.error == null)
         {
             jData = JsonMapper.ToObject(req.text);
+            /**
             if (i == 0)
             {
                 JsonData animaciones = jData[1]["animaciones"];
@@ -65,8 +68,9 @@ public class CargaAnimatorAnimations : MonoBehaviour
                     LoadAnimations(jData[1]["animaciones"]);
                 } 
             }
-            else if (i == 1) StartCoroutine(CreateController(jData[1]["animaciones"]));
-            else if (i == 2) StartCoroutine(CargarSonidosAmbiente(jData[1]["sonidosAmbiente"]));
+        **/
+            //else if (i == 1) StartCoroutine(CreateController(jData[1]["animaciones"]));
+            if (i == 2) StartCoroutine(CargarSonidosAmbiente(jData[1]["sonidosAmbiente"]));
             else if (i == 3) StartCoroutine(soundManager.loadAndPlay("" + jData[1]["sonidosInicioFin"]["sonidoInicio"]));
         }
         else
@@ -93,7 +97,7 @@ public class CargaAnimatorAnimations : MonoBehaviour
         }
         yield return null;
     }
-
+/**
 
     private void LoadAnimations(JsonData animaciones)
     {
@@ -272,5 +276,6 @@ public class CargaAnimatorAnimations : MonoBehaviour
         yield return null;
 
     }
+    **/
 
 }

@@ -29,6 +29,30 @@ TextureImporter:
   - first:
       213: 3640451382535226330
     second: 0, 8
+  - first:
+      213: 6222936987321377287
+    second: hablar_0
+  - first:
+      213: 5982397290315175815
+    second: hablar_1
+  - first:
+      213: 6931154000183568595
+    second: hablar_2
+  - first:
+      213: -9137340875833947865
+    second: hablar_3
+  - first:
+      213: 1820891648353718207
+    second: hablar_4
+  - first:
+      213: -7779251381702163324
+    second: hablar_5
+  - first:
+      213: -8399969839804878196
+    second: hablar_6
+  - first:
+      213: 6037851899973234996
+    second: hablar_7
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -71,7 +95,7 @@ TextureImporter:
   spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: 0, y: 0}
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -100,190 +124,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 0, 0
+      name: hablar_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 61
-        height: 56
+        x: 5
+        y: 4
+        width: 24
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 283f0af1447cdbf41b1ccd872dcff1a6
-      internalID: 9044786021765537137
+      spriteID: 224323bf7be06fe4481a52d7f9b2e3d8
+      internalID: 6222936987321377287
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0, 1
+      name: hablar_1
       rect:
         serializedVersion: 2
-        x: 61
-        y: 0
-        width: 61
-        height: 56
+        x: 68
+        y: 4
+        width: 25
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: dda92bb5c7a48e94d89e3696b27c001f
-      internalID: 3647156553916755266
+      spriteID: 60ccf4853fd2e274fa892f21d2305af8
+      internalID: 5982397290315175815
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0, 2
+      name: hablar_2
       rect:
         serializedVersion: 2
-        x: 122
-        y: 0
-        width: 61
-        height: 56
+        x: 132
+        y: 4
+        width: 27
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 052ade2f7ac8678468c6e232082c2dc7
-      internalID: -7025760825990288548
+      spriteID: 7f856d76b10dd844d963ebd7b2fdaa68
+      internalID: 6931154000183568595
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0, 3
+      name: hablar_3
       rect:
         serializedVersion: 2
-        x: 183
-        y: 0
-        width: 61
-        height: 56
+        x: 197
+        y: 4
+        width: 27
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b83b04d292d8d3b40a5cd7dc6aa74d76
-      internalID: 1008453939145656331
+      spriteID: e54236c6f29cda346a17f06de44360fc
+      internalID: -9137340875833947865
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0, 4
+      name: hablar_4
       rect:
         serializedVersion: 2
-        x: 244
-        y: 0
-        width: 61
-        height: 56
+        x: 256
+        y: 4
+        width: 27
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2f975711458ae05428d2959ce1681cbd
-      internalID: 1121910671679707029
+      spriteID: bcea557b7c76a6b41ae80a303b48503f
+      internalID: 1820891648353718207
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0, 5
+      name: hablar_5
       rect:
         serializedVersion: 2
-        x: 305
-        y: 0
-        width: 61
-        height: 56
+        x: 317
+        y: 4
+        width: 30
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c3548f5a5b11fc448988753ee37df062
-      internalID: -5727901431455522701
+      spriteID: 8bd77b7dc5aba574098637fbdc712240
+      internalID: -7779251381702163324
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0, 6
+      name: hablar_6
       rect:
         serializedVersion: 2
-        x: 366
-        y: 0
-        width: 61
-        height: 56
+        x: 384
+        y: 4
+        width: 27
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: ddb607269942c6a4ab3cfcc7228c4fe6
-      internalID: -620837105957682656
+      spriteID: 8109cb6bf8e26f34381e84014071eacc
+      internalID: -8399969839804878196
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0, 7
+      name: hablar_7
       rect:
         serializedVersion: 2
-        x: 427
-        y: 0
-        width: 61
-        height: 56
+        x: 453
+        y: 4
+        width: 27
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: bf9f29e95da5b9641b30bdfad6d339bf
-      internalID: -2743714266842379729
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 0, 8
-      rect:
-        serializedVersion: 2
-        x: 488
-        y: 0
-        width: 61
-        height: 56
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c1574f1db0add224796b6378967caf1b
-      internalID: 3640451382535226330
+      spriteID: ad7da431d84e4cf4e9ea6b0e1ad0e3d7
+      internalID: 6037851899973234996
       vertices: []
       indices: 
       edges: []
