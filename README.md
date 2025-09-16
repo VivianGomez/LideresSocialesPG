@@ -4,7 +4,7 @@
 
 The project is designed as a **tool to create and share stories of Colombian social leaders as videogames**. Each story can be customized in a structured **JSON format**, which the system interprets and loads to automatically generate a playable game.  
 
-The work includes a **test case based on the real story of Kevin Julián León (2000–2016)**, a young social leader assassinated at the age of 16, whose life was turned into an interactive narrative to raise awareness and empathy.
+The work includes a **test case based on the real story of Kevin Julián León (2002–2018)**, a young social leader assassinated at the age of 16, whose life was turned into an interactive narrative to raise awareness and empathy.
 
 ---
 
