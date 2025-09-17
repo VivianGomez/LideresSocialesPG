@@ -44,7 +44,7 @@ As proof of concept, the project developed the story of **Kevin Julián León (R
 The game lets players experience a few days in Kevin’s life, his community work, and concludes with a powerful final message.
 
 <img width="1643" height="359" alt="image" src="https://github.com/user-attachments/assets/d470c0cc-c3d7-4185-976b-5cacec4c7cb6" />
-Video gameplay available here: [https://youtu.be/4ISS7MHfs3g]([url](https://youtu.be/4ISS7MHfs3g))
+Video gameplay available here: [https://youtu.be/4ISS7MHfs3g](https://youtu.be/4ISS7MHfs3g)
 
 
 This case validated the potential of the platform to transform real stories into impactful interactive experiences.
